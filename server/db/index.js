@@ -1,7 +1,7 @@
-const CONNECTIONSTRING = process.env.STRING_CONECTION ;
+const CONNECTION_STRING = process.env.STRING_CONNECTION ;
 const mongoose = require("mongoose")
 
-mongoose.connect(CONNECTIONSTRING, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(CONNECTION_STRING , { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log("mongoose is connect"))
     .catch(err => console.log(err))
 
