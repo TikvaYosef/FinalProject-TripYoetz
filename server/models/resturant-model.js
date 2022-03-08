@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const Resturant = new mongoose.Schema({
+const Restaurant = new mongoose.Schema({
     name: { type: String, required: true },
     city: { type: String, required: true },
     description: { type: String, required: true },
@@ -17,4 +17,4 @@ const Resturant = new mongoose.Schema({
     { timestamps: true }
 );
 
-module.exports = mongoose.model("Resturant", Resturant);
+module.exports = mongoose.model("Restaurant", Restaurant);
