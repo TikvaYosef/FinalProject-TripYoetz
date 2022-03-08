@@ -10,4 +10,6 @@ const PORT = process.env.PORT || 9090
 app.listen(PORT, ()=>console.log("server up"))
 
 
+const citiesRoutes = require("./routes/city-routes");
 
+app.use("/cities", citiesRoutes);
