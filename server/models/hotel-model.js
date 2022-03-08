@@ -4,7 +4,7 @@ const Hotel = new mongoose.Schema({
     name: { type: String, required: true },
     location: { type: String, required: true },
     phone: { type: String, required: true },
-    activityHours: { type: String, required: true },
+    activitiesHours: { type: String, required: true },
     description: { type: String, required: true },
     images: { type: Array, required: true },
     comments: { type: Array, required: true },
