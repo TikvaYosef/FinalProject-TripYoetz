@@ -11,5 +11,7 @@ app.listen(PORT, ()=>console.log("server up"))
 
 
 const citiesRoutes = require("./routes/city-routes");
+const hotelsRoutes = require("./routes/hotel-routes");
 
 app.use("/cities", citiesRoutes);
+app.use("/hotels", hotelsRoutes);
