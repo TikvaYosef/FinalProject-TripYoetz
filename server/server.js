@@ -15,7 +15,7 @@ const hotelsRoutes = require("./routes/hotel-routes");
 const restaurantsRoutes = require("./routes/restaurant-routes")
 const activitiesRoutes = require("./routes/activity-routes")
 
-app.use("/cities", citiesRoutes);
-app.use("/hotels", hotelsRoutes);
-app.use("/restaurants", restaurantsRoutes);
-app.use("/activities", activitiesRoutes);
+app.use("/api/cities", citiesRoutes);
+app.use("/api/hotels", hotelsRoutes);
+app.use("/api/restaurants", restaurantsRoutes);
+app.use("/api/activities", activitiesRoutes);
