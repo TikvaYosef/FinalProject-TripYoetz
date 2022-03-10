@@ -26,3 +26,9 @@ app.use("/api/hotels", hotelsRoutes);
 app.use("/api/restaurants", restaurantsRoutes);
 app.use("/api/activities", activitiesRoutes);
 app.use("/auth",usersRoutes)
+
+
+if (process.env.NODE_ENV === "production") {
+    app.use(express.static(path.join(__dirname,"../client/build")))
+    app.get("*", (req, res) => res.sendFile(path.join(__dirname, "../client/build","index.html") ))
+}
