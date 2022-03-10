@@ -2,14 +2,14 @@
 const mongoose = require("mongoose");
 
 const User = new mongoose.Schema({
-    name: { type: String, required: true },
-    lastName: { type: String, required: true },
-    birthDate: { type: Date, required: true },
-    email: { type: String, required: true , unique:true,match: /[a-z0-9!#$%&'+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'+/=?^_`{|}~-]+)@(?:[a-z0-9](?:[a-z0-9-][a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/ },
-    password: { type: String, required: true },
+    name: { type: String },
+    lastName: { type: String },
+    birthDate: { type: Date },
+    email: { type: String ,  },
+    password: { type: String },
     image: { type: String },
-    isAdmin: { type: Boolean, required: true },
-    isLogin: { type: Boolean, required: true, default: false },
+    isAdmin: { type: Boolean},
+    isLogin: { type: Boolean, default: false },
     lastVisit: { type: Date },
     
 },
