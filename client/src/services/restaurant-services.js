@@ -1,12 +1,12 @@
 
-const BASE_URL = process.env.NODE_ENV === "production" ?
-    "https://trip-yoetz.herokuapp.com" :
-    "http://localhost:9090";
+ const BASE_URL = "https://trip-yoetz.herokuapp.com";
+
 
 
 export const GetRestaurants = async () => {
     try {
-        return await fetch(`${BASE_URL}/api/restaurants`)
+        // return await fetch(`https://trip-yoetz.herokuapp.com/api/restaurants`)
+            return await fetch(`${BASE_URL}/api/restaurants`)
             .then((res) => res.json())
             .catch((err) => console.log(err))
     }
