@@ -1,8 +1,6 @@
-
-const BASE_URL = process.env.NODE_ENV === 'production' ?
-    'https://trip-yoetz.herokuapp.com' : 'http://localhost:9090';
-
-
+const BASE_URL = process.env.NODE_ENV === "production"
+    ? "https://trip-yoetz.herokuapp.com"
+    : "http://localhost:9090";
 
 export const GetRestaurants = async () => {
     try {
@@ -13,7 +11,7 @@ export const GetRestaurants = async () => {
     catch (err) {
         console.log(err);
     }
-}
+};
 export const AddRestaurant = async (restaurant) => {
     const options = {
         method: "POST",
@@ -28,10 +26,8 @@ export const AddRestaurant = async (restaurant) => {
     catch (err) {
         console.log(err);
     }
-}
-
-
-export const UpdateRestaurant = async (id,restaurant) => {
+};
+export const UpdateRestaurant = async (id, restaurant) => {
     const options = {
         method: "PUT",
         body: JSON.stringify({ ...restaurant }),
@@ -45,11 +41,10 @@ export const UpdateRestaurant = async (id,restaurant) => {
     catch (err) {
         console.log(err);
     }
-}
-
+};
 export const DeleteRestaurant = async (id) => {
     const options = {
-        method: "DELETE",
+        method: "DELETE"
     };
     try {
         return await fetch(`${BASE_URL}/api/restaurants/${id}`, options)
@@ -59,6 +54,4 @@ export const DeleteRestaurant = async (id) => {
     catch (err) {
         console.log(err);
     }
-}
-
-
+};

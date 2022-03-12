@@ -25,7 +25,6 @@ module.exports = {
             res.status(500).json({ success: false, message: err.message });
         }
     },
-    
     UpdateRestaurant: async (req, res) => {
         try {
             if (await restaurants.exists({ _id: req.params.id })) {
@@ -39,7 +38,6 @@ module.exports = {
             res.status(500).json({ success: false, message: err.message });
         }
     },
-
     DeleteRestaurant: async (req, res) => {
         try {
             if (await restaurants.exists({ _id: req.params.id })) {
@@ -53,4 +51,4 @@ module.exports = {
             res.status(500).json({ success: false, message: err.message });
         };
     }
-}
+};

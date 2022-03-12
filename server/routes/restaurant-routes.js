@@ -4,7 +4,7 @@ const { GetRestaurants, AddRestaurant, UpdateRestaurant, DeleteRestaurant } = re
 
 restaurantsRoutes.get("/", GetRestaurants);
 restaurantsRoutes.post("/", AddRestaurant);
-restaurantsRoutes.put("/:id", UpdateRestaurant)
-restaurantsRoutes.delete("/:id", DeleteRestaurant)
+restaurantsRoutes.put("/:id", UpdateRestaurant);
+restaurantsRoutes.delete("/:id", DeleteRestaurant);
 
 module.exports = restaurantsRoutes;

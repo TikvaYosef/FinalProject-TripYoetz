@@ -1,6 +1,6 @@
-const BASE_URL = process.env.NODE_ENV === "production" ?
-    "https://trip-yoetz.herokuapp.com" :
-    "http://localhost:9090";
+const BASE_URL = process.env.NODE_ENV === "production"
+    ? "https://trip-yoetz.herokuapp.com"
+    : "http://localhost:9090";
 
 export const GetActivities = async () => {
     try {
@@ -12,7 +12,7 @@ export const GetActivities = async () => {
         console.log(err);
     }
 }
-export const AddActivities = async (activity) => {
+export const AddActivity = async (activity) => {
     const options = {
         method: "POST",
         body: JSON.stringify({ ...activity }),
@@ -42,7 +42,7 @@ export const UpdateActivity = async (id, activity) => {
         console.log(err);
     }
 }
-export const DeleteActivities = async (id) => {
+export const DeleteActivity = async (id) => {
     const options = {
         method: "DELETE",
     };
@@ -55,4 +55,3 @@ export const DeleteActivities = async (id) => {
         console.log(err);
     }
 }
-

@@ -11,11 +11,11 @@ module.exports = {
             res.status(500).json({ success: false, message: err.message });
         }
     },
-    GetCitieByName: async (req, res) => {
+    GetCityByName: async (req, res) => {
         try {
             const data = await cities.findOne({ name: req.params.name });
             if (data) return res.status(200).json({ success: true, data });
-            res.status(404).json({ success: false, message: "no cities found" });
+            res.status(404).json({ success: false, message: "no city found" });
         }
         catch (err) {
             res.status(500).json({ success: false, message: err.message });
@@ -48,7 +48,6 @@ module.exports = {
             res.status(500).json({ success: false, message: err.message });
         }
     },
-
     DeleteCity: async (req, res) => {
         try {
             if (await cities.exists({ _id: req.params.id })) {
@@ -62,5 +61,4 @@ module.exports = {
             res.status(500).json({ success: false, message: err.message });
         };
     }
-
-}
+};

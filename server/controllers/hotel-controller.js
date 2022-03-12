@@ -11,7 +11,7 @@ module.exports = {
             res.status(500).json({ success: false, message: err.message });
         }
     },
-    AddHotels: async (req, res) => {
+    AddHotel: async (req, res) => {
         try {
             const { name, location, phone, activitiesHours, description, city, comments, greenPass, images, link, price, q_a, rating } = req.body;
             const hotel = new hotels({ name, location, phone, activitiesHours, description, city, comments, greenPass, images, link, price, q_a, rating });
@@ -51,4 +51,4 @@ module.exports = {
             res.status(500).json({ success: false, message: err.message });
         };
     }
-}
+};
