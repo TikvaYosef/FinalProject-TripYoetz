@@ -8,9 +8,11 @@ const Navbar = () => {
 
     return (
         <StyledNavbar mode={mode}>
-            <Link to={"/hotels"}>hotels</Link>
-            <Link to={"/restaurants"}>restaurants</Link>
-            <Link to={"/activities"}>activities</Link>
+            <ul className="navbar-list">
+                <li><Link className="navbar-link" to={"/hotels"}>hotels</Link></li>
+                <li><Link className="navbar-link" to={"/restaurants"}>restaurants</Link></li>
+                <li><Link className="navbar-link" to={"/activities"}>activities</Link></li>
+            </ul>
         </StyledNavbar>
     );
 };
