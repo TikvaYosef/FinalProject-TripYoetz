@@ -4,6 +4,12 @@ export const VerifyToken = (setUser) => {
     if (localStorage.token) {
         const token = localStorage.getItem("token");
         const decoded = jwt_decode(token);
-        setUser({ ...decoded.user, isLogin: true });
+        if (Date.now() <= decoded.exp * 1000) {
+            setUser({ ...decoded.user, isLogin: true });
+        }
+        else {
+            localStorage.removeItem("token");
+            setUser({});
+        }
     }
 };
