@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { MainContext } from "../../contexts/main-context";
 import { GetCityByName } from "../../services/city-service"
 import { useNavigate } from "react-router-dom";
+import { StyledHome } from "../styles/pages/StyledHome";
 
 const Home = () => {
     const { user } = useContext(MainContext);
@@ -23,7 +24,7 @@ const Home = () => {
 
     const SendSearchFrom = (event) => {
         event.preventDefault();
-        GetCityByName(search[0].toUpperCase() + search.slice(1)).then(res => {
+        GetCityByName(search[0].toUpperCase() + search.slice(1).toLowerCase()).then(res => {
             if (res.success) {
                 navigate("/city", { state: res.data })
             }
@@ -32,14 +33,12 @@ const Home = () => {
     }
 
     return (
-        <div>
-            {user.isLogin && greetUser ? <h1>{greetUser}</h1> : null}
-            <h1>Home page</h1>
-            <form onSubmit={SendSearchFrom}>
-                <input type="text" onInput={HandleOnInput} placeholder="where do you want to go?" />
-                <button>SEND</button>
+        <StyledHome>
+            <form className="search-form" onSubmit={SendSearchFrom}>
+                {user.isLogin && greetUser ? <h1 className="greet-user">{greetUser}</h1> : null}
+                <input className="search-input" type="text" onInput={HandleOnInput} placeholder="where do you want to travel?" />
             </form>
-        </div>
+        </StyledHome>
     )
 }
 export default Home;
