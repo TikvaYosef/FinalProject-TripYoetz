@@ -3,10 +3,15 @@
   padding: 0;
   box-sizing: border-box;
 }
-html{
-  font-size: 62.5%;
-}
 .App{
   width: 100vw;
   height: 100vh;
+  display: grid;
+  grid-template-areas: 
+  'header header header header'
+  'navbar navbar navbar navbar'
+  'main main main main'
+  'footer footer footer footer'
+  ;
+  grid-template-rows: 10% 10% 70% 10%;
 }

@@ -11,7 +11,7 @@ module.exports = {
             res.status(500).json({ success: false, message: err.message });
         }
     },
-    AddActivities: async (req, res) => {
+    AddActivity: async (req, res) => {
         try {
             const { name, city, location, phone, activitiesHours, images, comments, greenPass, rating, link, q_a } = req.body;
             const activity = new activities({ name, city, location, phone, activitiesHours, images, comments, greenPass, rating, link, q_a });
@@ -25,7 +25,7 @@ module.exports = {
             res.status(500).json({ success: false, message: err.message });
         }
     },
-    UpdateActivities: async (req, res) => {
+    UpdateActivity: async (req, res) => {
         try {
             if (await activities.exists({ _id: req.params.id })) {
                 return await activities.findByIdAndUpdate(req.params.id, req.body)
@@ -38,7 +38,7 @@ module.exports = {
             res.status(500).json({ success: false, message: err.message });
         }
     },
-    DeleteActivities: async (req, res) => {
+    DeleteActivity: async (req, res) => {
         try {
             if (await activities.exists({ _id: req.params.id })) {
                 return await activities.findByIdAndRemove(req.params.id)
@@ -51,4 +51,4 @@ module.exports = {
             res.status(500).json({ success: false, message: err.message });
         };
     }
-}
+};

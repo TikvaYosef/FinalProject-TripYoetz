@@ -1,21 +1,24 @@
-const BASE_URL =
-  process.env.NODE_ENV === "production"
-    ? "https://trip-yoetz.herokuapp.com/auth"
+const BASE_URL = process.env.NODE_ENV === "production"
+    ? "https://trip-yoetz.herokuapp.com"
     : "http://localhost:9090/auth";
 
-export const registerNewUser = async (user) => {
-  return await fetch(`${BASE_URL}/register`, {
-    method: "POST",
-    body: JSON.stringify({...user}),
-    headers: { "Content-Type": "application/json" },
-  }).then((res) => res.json());
-};
-export const loginUser = async (user) => {
-  return await fetch(`${BASE_URL}/login`, {
+export const registerUser = async (user) => {
+  const options = {
     method: "POST",
     body: JSON.stringify({ ...user }),
-    headers: {
-      "Content-Type": "application/json",
-    },
-  }).then((res) => res.json());
+    headers: { 'Content-Type': 'application/json' }
+  }
+  return await fetch(`${BASE_URL}/register`, options)
+    .then(res => res.json())
+    .catch(err => console.log(err))
+};
+export const loginUser = async (user) => {
+  const options = {
+    method: "POST",
+    body: JSON.stringify({ ...user }),
+    headers: { 'Content-Type': 'application/json' }
+  }
+  return await fetch(`${BASE_URL}/login`, options)
+    .then(res => res.json())
+    .catch(err => console.log(err))
 };
