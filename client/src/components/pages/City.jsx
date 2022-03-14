@@ -7,7 +7,7 @@ import { GetDataByName } from "../../state-management/actions/categories-actions
 import Navbar from '../layout/Navbar';
 
 const City = () => {
-    const { city, hotel, hotelsDispatch, activities, activitiesDispatch, restaurants, restaurantsDispatch } = useContext(MainContext);
+    const { city, hotels, hotelsDispatch, activities, activitiesDispatch, restaurants, restaurantsDispatch } = useContext(MainContext);
 
     useEffect(() => {
         GetRestaurants()
@@ -39,7 +39,7 @@ const City = () => {
             <Navbar />
             <button onClick={() => { console.log(city) }}>Clickforcity</button>
             <button onClick={() => { console.log(restaurants) }}>clickForRestaurants</button>
-            <button onClick={() => { console.log(hotel) }}>clickForHotels</button>
+            <button onClick={() => { console.log(hotels) }}>clickForHotels</button>
             <button onClick={() => { console.log(activities) }}>clickForactivities</button>
 
 
@@ -56,13 +56,75 @@ const City = () => {
                     null
             }
 
+            <article>
 
-        
-            
+                <div className='cards'>
+                    <h1>
+                        Hotels
+                    </h1>
+                    {
+                        hotels
+                            ?
+                            hotels.map((item) =>
+                                <div className='categoriesImages'>
+                                    {item.images.map((img) =>
+                                        <img src={img} alt='img' />
+
+                                    )
+                                    }
+                                </div>
+                            )
+                            :
+                            null
+                    }
+                </div>
 
 
+
+                <div className='cards'>
+                    <h1>
+                        Eat
+                    </h1>
+                    {
+                        restaurants
+                            ?
+                            restaurants.map((item) =>
+                                <div className='categoriesImages'>
+                                    {item.images.map((img) =>
+                                        <img src={img} alt='img' />
+
+                                    )
+                                    }
+                                </div>
+
+                            )
+                            :
+                            null
+                    }
+                </div>
+
+                <div className='cards'>
+                    <h1>
+                        activities
+                    </h1>
+                    {
+                        activities
+                            ?
+                            activities.map((item) =>
+                                <div className='categoriesImages'>
+                                    {item.images.map((img) =>
+                                        <img src={img} alt='img' />
+                                    )
+                                    }
+                                </div>
+                            )
+                            :
+                            null
+                    }
+                </div>
+
+            </article>
         </div>
     )
 }
-
 export default City
