@@ -8,10 +8,8 @@
   height: 100vh;
   display: grid;
   grid-template-areas: 
-  'header header header header'
-  'navbar navbar navbar navbar'
-  'main main main main'
-  'footer footer footer footer'
+  'header header header'
+  'main main main'
+  'footer footer footer'
   ;
-  grid-template-rows: 10% 10% 70% auto;
-}
+ grid-template-rows: 10% auto 10%;

@@ -26,7 +26,6 @@ const Home = () => {
         event.preventDefault();
         GetCityByName(search[0].toUpperCase() + search.slice(1).toLowerCase()).then(res => {
             if (res.success) {
-                console.log(res.data);
                 if (!localStorage.city) {
                     localStorage.setItem('city', JSON.stringify(res.data));
                     setCity(res.data);
@@ -47,6 +46,9 @@ const Home = () => {
             <form className="search-form" onSubmit={SendSearchFrom}>
                 {user.isLogin && greetUser ? <h1 className="greet-user">{greetUser}</h1> : null}
                 <input className="search-input" type="text" onInput={HandleOnInput} placeholder="where do you want to travel?" />
+                <button className="search-icon">
+                    <i className="fas fa-search"></i>
+                </button>
             </form>
         </StyledHome>
     )

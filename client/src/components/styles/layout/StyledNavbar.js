@@ -3,8 +3,10 @@ import styled from "styled-components";
 export const StyledNavbar = styled.nav`
     background: ${({ mode }) => mode.background};
     color: ${({ mode }) => mode.color};
-    grid-area: navbar;
-    
+    height: 15%;    
+    position: sticky;
+    top: 0;
+    z-index:100;
     & .navbar-list{
         list-style:none;
         display:flex;
