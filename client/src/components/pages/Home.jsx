@@ -26,7 +26,16 @@ const Home = () => {
         event.preventDefault();
         GetCityByName(search[0].toUpperCase() + search.slice(1).toLowerCase()).then(res => {
             if (res.success) {
-                setCity(res.data);
+                console.log(res.data);
+                if (!localStorage.city) {
+                    localStorage.setItem('city', JSON.stringify(res.data));
+                    setCity(res.data);
+                }
+                else {
+                    localStorage.removeItem("city");
+                    localStorage.setItem('city', JSON.stringify(res.data));
+                    setCity(res.data)
+                }
                 navigate("/cities");
             }
             else { alert(res.message) }

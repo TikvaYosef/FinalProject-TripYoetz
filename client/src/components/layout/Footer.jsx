@@ -4,53 +4,51 @@ import { StyledFooter } from "../styles/layout/StyledFooter.js";
 
 const Footer = () => {
   const { mode } = useContext(MainContext);
-{
-  
-}
+
   return (
     <StyledFooter mode={mode}>
-      <div class="socialMediaContact">
+      <div className="socialMediaContact">
         <div>
           <h1 >Marcus</h1>
           <a href="#">
-            <i class="fa fa-envelope "></i>
+            <i className="fa fa-envelope "></i>
           </a>
           <a href="#">
-            <i class="fa fa-linkedin"></i>
+            <i className="fa fa-linkedin"></i>
           </a>
           <a href="#">
-            <i class="fa fa-github"></i>
+            <i className="fa fa-github"></i>
           </a>
         </div>
         <div>
           <h1>Tikva</h1>
           <a href="#">
-            <i class="fa fa-envelope "></i>
+            <i className="fa fa-envelope "></i>
           </a>
           <a href="#">
-            <i class="fa fa-linkedin"></i>
+            <i className="fa fa-linkedin"></i>
           </a>
           <a href="#">
-            <i  class="fa fa-github"></i>
+            <i  className="fa fa-github"></i>
           </a>
         </div>
         <div>
           <h1>Avi</h1>
           <a href="#">
-            <i class="fa fa-envelope "></i>
+            <i className="fa fa-envelope "></i>
           </a>
           <a href="#">
-            <i class="fa fa-linkedin"></i>
+            <i className="fa fa-linkedin"></i>
           </a>
           <a href="#">
-            <i class="fa fa-github"></i>
+            <i className="fa fa-github"></i>
           </a>
         </div>
-      <container class="footerText">
+      <div className="footerText">
         <div>marcus 50 years old ashdod</div>
         <div>tikva 50 years old ashdod</div>
         <div>Avi 50 years old ashdod</div>
-        </container>
+        </div>
       </div>
     </StyledFooter>
   );

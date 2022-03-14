@@ -1,4 +1,4 @@
-import { createContext, useEffect, useMemo, useReducer, useState } from "react";
+import { createContext, useEffect, useMemo, useReducer, useState, useRef } from "react";
 import hotelsReducer from "../state-management/reducers/hotels-reducer";
 import activitiesReducer from "../state-management/reducers/activities-reducer";
 import restaurantsReducer from "../state-management/reducers/restaurants-reducer";
@@ -37,6 +37,9 @@ const MainContextProvider = ({ children }) => {
 
     useEffect(() => {
         VerifyToken(setUser);
+        if (localStorage.city) {
+            setCity(JSON.parse(localStorage.getItem('city')));
+        }
     }, []);
 
     const contextValue = useMemo(() => {
