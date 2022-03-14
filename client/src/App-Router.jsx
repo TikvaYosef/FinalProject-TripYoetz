@@ -2,7 +2,6 @@ import { useContext } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { MainContext } from "./contexts/main-context";
 import Header from "./components/layout/Header";
-import Navbar from "./components/layout/Navbar";
 import Container from "./components/layout/Container";
 import Footer from "./components/layout/Footer";
 import City from "./components/pages/City";
@@ -29,11 +28,10 @@ const AppRouter = () => {
     return (
         <BrowserRouter>
             <Header />
-            <Navbar />
             <Container>
                 <Routes>
                     <Route exact path="/" element={<Home />} />
-                    <Route exact path="/city" element={<City />} />
+                    <Route exact path="/cities" element={<City />} />
                     <Route exact path="/hotels" element={<Hotels />} />
                     <Route exact path="/activities" element={<Activities />} />
                     <Route exact path="/restaurants" element={<Restaurants />} />

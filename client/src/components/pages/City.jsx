@@ -1,10 +1,14 @@
-import {useLocation} from 'react-router-dom';
+import { useContext } from 'react';
+import { MainContext } from '../../contexts/main-context';
+import Navbar from '../layout/Navbar';
 
 const City = () => {
-    const city = useLocation().state;
+    const { city } = useContext(MainContext);
+
     return (
         <div>
-            <button onClick={()=>{console.log(city)}}>Click</button>
+            <Navbar />
+            <button onClick={() => { console.log(city) }}>Click</button>
             <h1>{city.name}</h1>
             <h1>{city.description}</h1>
             <img src={city.images[0]} alt="img 1" />
