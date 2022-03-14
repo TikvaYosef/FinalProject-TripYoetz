@@ -33,6 +33,7 @@ const MainContextProvider = ({ children }) => {
     const [restaurants, restaurantsDispatch] = useReducer(restaurantsReducer, []);
     const [mode, modeDispatch] = useReducer(themeReducer, themes.black_white);
     const [user, setUser] = useState({});
+    const [city, setCity] = useState({});
 
     useEffect(() => {
         VerifyToken(setUser);
@@ -41,9 +42,10 @@ const MainContextProvider = ({ children }) => {
     const contextValue = useMemo(() => {
         return {
             hotels, hotelsDispatch, activities, activitiesDispatch,
-            restaurants, restaurantsDispatch, user, setUser, mode, modeDispatch
+            restaurants, restaurantsDispatch, user, setUser, mode, modeDispatch,
+            city, setCity
         }
-    }, [hotels, activities, restaurants, user, mode]);
+    }, [hotels, activities, restaurants, user, mode, city, setCity]);
 
     return (
         <MainContext.Provider value={contextValue}>

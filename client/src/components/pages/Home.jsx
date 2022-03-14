@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { StyledHome } from "../styles/pages/StyledHome";
 
 const Home = () => {
-    const { user } = useContext(MainContext);
+    const { user, setCity } = useContext(MainContext);
     const [greetUser, setGreetUser] = useState("");
     const [search, setSearch] = useState("");
     const navigate = useNavigate();
@@ -26,7 +26,8 @@ const Home = () => {
         event.preventDefault();
         GetCityByName(search[0].toUpperCase() + search.slice(1).toLowerCase()).then(res => {
             if (res.success) {
-                navigate("/city", { state: res.data })
+                setCity(res.data);
+                navigate("/cities");
             }
             else { alert(res.message) }
         })
