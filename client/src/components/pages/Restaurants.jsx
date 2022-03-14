@@ -1,7 +1,7 @@
 import { useContext, useEffect } from 'react'
 import { MainContext } from '../../contexts/main-context';
 import { GetRestaurants } from "../../services/restaurant-services"
-import { GetData } from "../../state-management/actions/categories-actions"
+import { GetDataByName } from "../../state-management/actions/categories-actions"
 import Navbar from '../layout/Navbar';
 
 const Restaurants = () => {
@@ -11,7 +11,7 @@ const Restaurants = () => {
         GetRestaurants()
             .then(res => {
                 restaurantsDispatch(
-                    GetData(res.data.filter(item => item.city === city.name))
+                    GetDataByName(res.data, city)
                 )
             })
     }, []);
