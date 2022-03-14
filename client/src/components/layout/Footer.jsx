@@ -1,55 +1,16 @@
 import { useContext } from "react";
 import { MainContext } from "../../contexts/main-context.jsx";
 import { StyledFooter } from "../styles/layout/StyledFooter.js";
+import ContactFooter from "../parts/ContactFooter.jsx";
 
 const Footer = () => {
   const { mode } = useContext(MainContext);
 
   return (
     <StyledFooter mode={mode}>
-      <div className="socialMediaContact">
-        <div>
-          <h1 >Marcus</h1>
-          <a href="#">
-            <i className="fa fa-envelope "></i>
-          </a>
-          <a href="#">
-            <i className="fa fa-linkedin"></i>
-          </a>
-          <a href="#">
-            <i className="fa fa-github"></i>
-          </a>
-        </div>
-        <div>
-          <h1>Tikva</h1>
-          <a href="#">
-            <i className="fa fa-envelope "></i>
-          </a>
-          <a href="#">
-            <i className="fa fa-linkedin"></i>
-          </a>
-          <a href="#">
-            <i  className="fa fa-github"></i>
-          </a>
-        </div>
-        <div>
-          <h1>Avi</h1>
-          <a href="#">
-            <i className="fa fa-envelope "></i>
-          </a>
-          <a href="#">
-            <i className="fa fa-linkedin"></i>
-          </a>
-          <a href="#">
-            <i className="fa fa-github"></i>
-          </a>
-        </div>
-      <div className="footerText">
-        <div>marcus 50 years old ashdod</div>
-        <div>tikva 50 years old ashdod</div>
-        <div>Avi 50 years old ashdod</div>
-        </div>
-      </div>
+      <ContactFooter name="Marcos" email="#" linkedin="#" github="#" img="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" />
+      <ContactFooter name="Tikva" email="#" linkedin="#" github="#" img="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" />
+      <ContactFooter name="Avi" email="#" linkedin="#" github="#" img="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" />
     </StyledFooter>
   );
 };
