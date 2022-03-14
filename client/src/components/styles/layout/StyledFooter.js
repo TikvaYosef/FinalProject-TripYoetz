@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const StyledFooter = styled.footer`
+min-height:10%;
   background: ${({ mode }) => mode.background};
   color: ${({ mode }) => mode.color};
   grid-area: footer;
@@ -23,9 +24,12 @@ export const StyledFooter = styled.footer`
     flex-wrap: wrap;
     justify-content: space-evenly;
     transition:2s;
+    transition:1s;
   }
   & :hover ~ .footerText {
     background-color: yellow;
+    transform:scale(1.2);
+    transform-origin:bottom;
     height: 100%;
     visibility: visible;
   }
