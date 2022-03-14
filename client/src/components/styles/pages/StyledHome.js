@@ -43,4 +43,13 @@ export const StyledHome = styled.section`
         box-shadow: 0px 3px 5px 2px black;
     }
 
+    & .search-icon{
+        cursor: pointer;
+        padding: 10px;
+        border-radius:50%;
+        margin-left:1vw;
+        height: 10%;
+        font-weight:900;
+    }
+
 `

@@ -14,8 +14,8 @@ const City = () => {
             {
                 city.images
                     ?
-                    city.images.map((img) =>
-                        <img src={img} alt='img' />
+                    city.images.map((img, i) =>
+                        <img src={img} alt='img' key={i} />
                     )
                     :
                     null
