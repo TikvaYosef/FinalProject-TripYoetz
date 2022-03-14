@@ -24,4 +24,5 @@ export const StyledProfileImg = styled.button`
         height: 100%;
         border-radius:inherit;
     }
+
 `
