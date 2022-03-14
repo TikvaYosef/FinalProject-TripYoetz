@@ -4,11 +4,15 @@ import { GetActivities } from "../../services/activity-service"
 import { GetData } from "../../state-management/actions/categories-actions"
 import Navbar from '../layout/Navbar';
 
-const Activities  = () => {
-    const { activities, activitiesDispatch } = useContext(MainContext);
+const Activities = () => {
+    const { activities, activitiesDispatch, city } = useContext(MainContext);
     useEffect(() => {
         GetActivities()
-            .then((res) => {activitiesDispatch(GetData(res.data))})
+            .then(res => {
+                activitiesDispatch(
+                    GetData(res.data.filter(item => item.city === city.name))
+                )
+            })
     }, []);
 
     return (
