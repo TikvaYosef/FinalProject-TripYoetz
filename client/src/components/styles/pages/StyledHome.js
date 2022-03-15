@@ -5,8 +5,16 @@ export const StyledHome = styled.section`
     height: 100%;
     display:flex;
     justify-content:center;
-    /* align-items:center; */
+    align-items:center;
     
+    & span {
+        color:red;
+        background-image: linear-gradient(0deg, ${({mode})=> mode.color},${({mode})=> mode.color});
+        background-size: 95% 3px;
+        background-repeat: no-repeat;
+        background-position: right bottom;
+    }
+
     & .search-form :focus{
         font-size:1.1rem;
         box-shadow: 0px 0px 10px 5px white;
@@ -14,8 +22,8 @@ export const StyledHome = styled.section`
 
     & .greet-user{
         position:absolute;
-        right: 1%;
-        top: 1%;
+        right: 0%;
+        top: -10%;
         font-size:1.8rem;
     }
     
@@ -28,15 +36,15 @@ export const StyledHome = styled.section`
         display:flex;
         justify-content:center;
         align-items:center;
-        width: 55%;
-        height: 55%;
+        width: 65%;
+        height: 65%;
     }
 
     & .search-input{
         outline: none;
         font-size:1rem;
         width: 80%;
-        height: 15%;
+        height: 10%;
         border-radius: 20px;
         border: 3px solid white;
         transition: 0.1s ease-in-out;
@@ -45,11 +53,17 @@ export const StyledHome = styled.section`
 
     & .search-icon{
         cursor: pointer;
-        padding: 10px;
+        padding: 10px 15px;
         border-radius:50%;
+        border:2px solid black;
         margin-left:1vw;
         height: 10%;
         font-weight:900;
+    }
+    & .search-icon:hover{
+        color:white;
+        background:black;
+        border-color:white;
     }
 
 `

@@ -8,8 +8,8 @@ import ProfileImg from "../parts/ProfileImg";
 import { Red_blue, Black_White, Blue_red, White_black } from "../../state-management/actions/theme-actions";
 
 const Header = () => {
-  const { user, setUser, modeDispatch } = useContext(MainContext);
-  const { mode } = useContext(ThemeContext);
+  const { user, setUser } = useContext(MainContext);
+  const { mode, modeDispatch } = useContext(ThemeContext);
   const navigate = useNavigate();
 
   return (
