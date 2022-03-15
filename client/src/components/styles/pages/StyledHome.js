@@ -44,7 +44,7 @@ export const StyledHome = styled.section`
     }
 
     & .search-icon{
-        cursor: pointer;
+        cursor: pointer;    
         padding: 10px;
         border-radius:50%;
         margin-left:1vw;
