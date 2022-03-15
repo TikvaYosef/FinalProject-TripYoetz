@@ -1,12 +1,15 @@
-import MainContextProvider from "./contexts/main-context";
+import DataContextProvider from "./contexts/data-context";
 import AppRouter from "./App-Router";
+import ThemeContextProvider from "./contexts/theme-context";
 
 const App = () => {
   return (
     <div className="App">
-      <MainContextProvider>
-        <AppRouter />
-      </MainContextProvider>
+      <ThemeContextProvider>
+        <DataContextProvider>
+          <AppRouter />
+        </DataContextProvider>
+      </ThemeContextProvider>
     </div>
   );
 }

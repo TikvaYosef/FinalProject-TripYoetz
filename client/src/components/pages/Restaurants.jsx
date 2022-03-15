@@ -1,5 +1,5 @@
 import { useContext, useEffect } from 'react'
-import { MainContext } from '../../contexts/main-context';
+import { MainContext } from '../../contexts/data-context';
 import { GetRestaurants } from "../../services/restaurant-services"
 import { GetDataByName } from "../../state-management/actions/categories-actions"
 import Navbar from '../layout/Navbar';
@@ -16,7 +16,7 @@ const Restaurants = () => {
                     GetDataByName(res.data, city)
                 )
             })
-    }, [restaurants]);
+    }, [restaurantsDispatch, city]);
 
     return (
         <>

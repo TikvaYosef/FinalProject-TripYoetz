@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { MainContext } from "../../contexts/main-context";
+import { MainContext } from "../../contexts/data-context";
 import { VerifyLogin } from "../../utils/verify-login";
 
 const Login = () => {

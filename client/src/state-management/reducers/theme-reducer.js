@@ -1,5 +1,5 @@
 import themeTypes from "../types/theme-types";
-import { themes } from "../../contexts/main-context";
+import { themes } from "../../contexts/theme-context";
 
 const themeReducer = (state = {}, action) => {
     const { type } = action;

@@ -1,5 +1,5 @@
 import { useContext } from "react"
-import { MainContext } from "../../contexts/main-context"
+import { MainContext } from "../../contexts/data-context"
 
 const AdminProfile = () => {
   const { user } = useContext(MainContext);

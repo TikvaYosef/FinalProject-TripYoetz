@@ -1,10 +1,13 @@
 import { useContext, useEffect } from 'react';
-import { MainContext } from '../../contexts/main-context';
+import { MainContext } from '../../contexts/data-context';
 import { GetActivities } from '../../services/activity-service';
 import { GetHotels } from '../../services/hotel-services';
 import { GetRestaurants } from '../../services/restaurant-services';
 import { GetDataByName } from "../../state-management/actions/categories-actions"
 import Navbar from '../layout/Navbar';
+import CityImages from '../parts/CityImages';
+import { StyledCity } from '../styles/pages/StyledCity';
+import { StyledCityImages } from '../styles/parts/StyledCityImages';
 
 const City = () => {
     const { city, hotels, activities, restaurants, hotelsDispatch, activitiesDispatch, restaurantsDispatch } = useContext(MainContext);
@@ -23,31 +26,19 @@ const City = () => {
         } catch (err) {
             console.log(err);
         }
-    }, [city]);
+    }, [hotelsDispatch, activitiesDispatch, restaurantsDispatch, city]);
 
 
     return (
-        <div>
+        <StyledCity>
+            <h1>Discover <span className='city-name-h1'>{city.name}</span></h1>
             <Navbar />
-            <button onClick={() => { console.log(city) }}>Clickforcity</button>
-            <button onClick={() => { console.log(restaurants) }}>clickForRestaurants</button>
-            <button onClick={() => { console.log(hotels) }}>clickForHotels</button>
-            <button onClick={() => { console.log(activities) }}>clickForactivities</button>
+            <CityImages images={city.images} />
+            <article className="city-description">
+                <h1 className="city-description-text">{city.description}</h1>
+            </article>
 
-
-
-            <h1>{city.name}</h1>
-            <h1>{city.description}</h1>
-            {
-                city.images
-                    ?
-                    city.images.map((img, i) =>
-                        <img src={img} alt='img' key={i} />
-                    )
-                    :
-                    null
-            }
-
+            {/* 
             <article>
 
                 <div className='cards'>
@@ -115,8 +106,8 @@ const City = () => {
                     }
                 </div>
 
-            </article>
-        </div>
+            </article> */}
+        </StyledCity>
     )
 }
 export default City

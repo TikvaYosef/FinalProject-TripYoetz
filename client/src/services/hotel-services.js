@@ -55,3 +55,17 @@ export const DeleteHotel = async (id) => {
         console.log(err);
     }
 };
+export const AddCommentToHotels = async (id, hotel, comments, comment) => {
+    const options = {
+        method: "PUT",
+        body: JSON.stringify({ ...hotel, comments: [...comments, { ...comment }] }),
+        headers: { 'Content-Type': 'application/json' }
+    }
+    try {
+        return await fetch(`${BASE_URL}/api/hotels/${id}`, options)
+            .then((res) => res.json())
+    }
+    catch (err) {
+        console.log(err);
+    }
+};

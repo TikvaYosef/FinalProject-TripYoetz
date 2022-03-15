@@ -1,12 +1,14 @@
 import { useLocation } from "react-router-dom";
 import Navbar from "../layout/Navbar";
 import { getAvgRating } from "../../utils/getAvgRating";
-import Comments from "../parts/Comments";
-import { useState } from "react";
+import Comments from "../parts/Comments-section";
+import { useContext, useState } from "react";
 import { AddCommentToRestaurants } from "../../services/restaurant-services";
+import { MainContext } from "../../contexts/data-context";
 
 const Item = () => {
-    const [comment, setComment] = useState({ likes: 0 })
+    const { user } = useContext(MainContext);
+    const [comment, setComment] = useState({ likes: 0, user_id :user._id })
     const item = useLocation().state;
 
     const displayRatingNumber = () => {
@@ -23,9 +25,8 @@ const Item = () => {
     const sendCommentForm = (event) => {
         event.preventDefault();
         setComment(comment);
-        console.log(comment);
-        AddCommentToRestaurants(item._id, item, { ...comment })
-            .then(res => console.log(res))
+        AddCommentToRestaurants(item._id, item, item.comments, comment)
+            .then(() => alert('Comment added successfully'))
     }
 
     return (
@@ -35,6 +36,8 @@ const Item = () => {
                 <button onClick={() => { console.log(item) }}>Click</button>
                 <h1>name</h1>
                 <p>{item.name}</p>
+                <h1>city</h1>
+                <p>{item.city}</p>
                 <h1>Rating</h1>
                 {displayRatingNumber()}
                 <h1>phone</h1>
@@ -54,10 +57,11 @@ const Item = () => {
                         <img src={imgItem} key={i} alt={`${item.name} img`} />
                     )
                 }
+                <h1>Comments</h1>
                 <form onSubmit={sendCommentForm}>
-                    <input onInput={handleFormOnInput} name="writer" type="text" placeholder="enter your name" required />
-                    <input onInput={handleFormOnInput} name="body" type="text" placeholder="comment here" required />
-                    <button>SEND</button>
+                    <input disabled={!user.isLogin} onInput={handleFormOnInput} name="writer" type="text" placeholder="enter your name" required />
+                    <input disabled={!user.isLogin} onInput={handleFormOnInput} name="body" type="text" placeholder="comment here" required />
+                    <button disabled={!user.isLogin}>SEND</button>
                 </form>
                 <Comments comments={item.comments} />
             </div>

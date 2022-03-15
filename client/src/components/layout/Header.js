@@ -2,12 +2,14 @@ import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { StyledHeader } from "../styles/layout/StyledHeader";
 import { Logout } from "../../utils/logout";
-import { MainContext } from "../../contexts/main-context.jsx";
+import { MainContext } from "../../contexts/data-context.jsx";
+import { ThemeContext } from "../../contexts/theme-context";
 import ProfileImg from "../parts/ProfileImg";
 import { Red_blue, Black_White, Blue_red, White_black } from "../../state-management/actions/theme-actions";
 
 const Header = () => {
-  const { user, setUser, mode, modeDispatch } = useContext(MainContext);
+  const { user, setUser, modeDispatch } = useContext(MainContext);
+  const { mode } = useContext(ThemeContext);
   const navigate = useNavigate();
 
   return (

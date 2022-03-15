@@ -1,10 +1,12 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
-import { MainContext } from "../../contexts/main-context";
+import { MainContext } from "../../contexts/data-context";
+import { ThemeContext } from "../../contexts/theme-context";
 import { StyledNavbar } from "../styles/layout/StyledNavbar";
 
 const Navbar = () => {
-    const { mode,city } = useContext(MainContext);
+    const { city } = useContext(MainContext);
+    const { mode } = useContext(ThemeContext);
 
     return (
         <StyledNavbar mode={mode}>
