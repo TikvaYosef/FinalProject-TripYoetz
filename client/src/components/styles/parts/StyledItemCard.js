@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledProductCard = styled.article`
+export const StyledItemCard = styled.article`
     width: 20vw;
     height: 50vh;
     display:flex;

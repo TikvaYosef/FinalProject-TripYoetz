@@ -7,31 +7,23 @@ import { GetDataByName } from "../../state-management/actions/categories-actions
 import Navbar from '../layout/Navbar';
 
 const City = () => {
-    const { city, hotels, hotelsDispatch, activities, activitiesDispatch, restaurants, restaurantsDispatch } = useContext(MainContext);
+    const { city, hotels, activities, restaurants, hotelsDispatch, activitiesDispatch, restaurantsDispatch } = useContext(MainContext);
 
     useEffect(() => {
-        GetRestaurants()
-            .then(res => {
-                restaurantsDispatch(
-                    GetDataByName(res.data, city)
-                )
+        try {
+            GetRestaurants().then(res => {
+                restaurantsDispatch(GetDataByName(res.data, city))
             })
-        GetActivities()
-            .then(res => {
-                activitiesDispatch(
-                    GetDataByName(res.data, city)
-                )
+            GetActivities().then(res => {
+                activitiesDispatch(GetDataByName(res.data, city))
             })
-        GetHotels()
-            .then(res => {
-                hotelsDispatch(
-                    GetDataByName(res.data, city)
-                )
+            GetHotels().then(res => {
+                hotelsDispatch(GetDataByName(res.data, city))
             })
-
-
-    }, []);
-
+        } catch (err) {
+            console.log(err);
+        }
+    }, [city]);
 
 
     return (

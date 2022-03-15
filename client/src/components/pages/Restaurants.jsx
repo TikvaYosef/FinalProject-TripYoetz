@@ -3,8 +3,8 @@ import { MainContext } from '../../contexts/main-context';
 import { GetRestaurants } from "../../services/restaurant-services"
 import { GetDataByName } from "../../state-management/actions/categories-actions"
 import Navbar from '../layout/Navbar';
-import ProductCard from '../parts/ProductCard';
-import { StyledProductsContainer } from '../styles/parts/StyledProductsContainer';
+import ItemCard from '../parts/ItemCard';
+import { StyledItemsContainer } from '../styles/parts/StyledItemsContainer';
 
 const Restaurants = () => {
     const { restaurants, restaurantsDispatch, city } = useContext(MainContext);
@@ -16,21 +16,21 @@ const Restaurants = () => {
                     GetDataByName(res.data, city)
                 )
             })
-    }, []);
+    }, [restaurants]);
 
     return (
         <>
             <Navbar />
             <h1>Restaurants</h1>
-            <StyledProductsContainer>
+            <StyledItemsContainer>
                 {restaurants.length >= 1 ?
                     restaurants.map(product =>
-                        <ProductCard product={product} key={product._id} />
+                        <ItemCard product={product} key={product._id} />
                     )
                     :
                     <h1>No restaurants found</h1>
                 }
-            </StyledProductsContainer>
+            </StyledItemsContainer>
         </>
     )
 }

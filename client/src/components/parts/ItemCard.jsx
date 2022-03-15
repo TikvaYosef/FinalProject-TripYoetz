@@ -1,25 +1,22 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { StyledProductCard } from "../styles/parts/StyledProductCard";
+import { getAvgRating } from "../../utils/getAvgRating";
+import { StyledItemCard } from "../styles/parts/StyledItemCard";
 
-const ProductCard = ({ product }) => {
+const ItemCard = ({ product }) => {
     const [rating, setRating] = useState(0);
     const navigate = useNavigate();
 
     useEffect(() => {
-        if (product.rating.length >= 1) {
-            let avg = 0;
-            let sum = 0;
-            for (const ratingItem of product.rating) {
-                sum += Number(ratingItem);
-            }
-            avg = sum / product.rating.length;
-            setRating(Math.floor(avg));
-        }
+        setRating(getAvgRating(product.rating))
     }, [])
 
+    const goToItemPage = () => {
+        navigate("/item", { state: product })
+    }
+
     return (
-        <StyledProductCard>
+        <StyledItemCard>
             {product
                 ?
                 <>
@@ -27,12 +24,12 @@ const ProductCard = ({ product }) => {
                     <h1>{product.name}</h1>
                     <i className="fas fa-heart heart-icon"></i>
                     <h1>{rating ? `${rating}/10 ${product.rating.length}` : "no rating yet"} </h1>
-                    {/* <button>{navigate("/product", { state: product })}</button> */}
+                    <button onClick={goToItemPage}>Show More</button>
                 </>
                 : null
             }
-        </StyledProductCard>
+        </StyledItemCard>
     );
 };
 
-export default ProductCard;
+export default ItemCard;

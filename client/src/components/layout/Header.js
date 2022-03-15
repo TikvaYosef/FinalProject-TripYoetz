@@ -25,7 +25,8 @@ const Header = () => {
             </>
         }
       </div>
-      <h1><Link to={"/"}>TripYoetz</Link></h1>
+      <h1><Link to={"/home"}>TripYoetz</Link></h1>
+      <button><Link to={"/"}>About us</Link></button>
       <div>
         <button onClick={() => { modeDispatch(Black_White()) }}>Black and White</button>
         <button onClick={() => { modeDispatch(White_black()) }}>White and Black</button>

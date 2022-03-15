@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledProductsContainer = styled.section`
+export const StyledItemsContainer = styled.section`
     width: 100%;
     height: 100%;
     display:flex;

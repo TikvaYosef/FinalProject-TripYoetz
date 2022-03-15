@@ -1,4 +1,4 @@
-import { createContext, useEffect, useMemo, useReducer, useState, useRef } from "react";
+import { createContext, useEffect, useMemo, useReducer, useState } from "react";
 import hotelsReducer from "../state-management/reducers/hotels-reducer";
 import activitiesReducer from "../state-management/reducers/activities-reducer";
 import restaurantsReducer from "../state-management/reducers/restaurants-reducer";
