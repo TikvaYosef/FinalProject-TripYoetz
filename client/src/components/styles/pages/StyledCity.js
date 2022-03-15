@@ -1,17 +1,12 @@
 import styled from "styled-components";
 
-export const StyledCity = styled.div`
-    width: 100%;
+export const StyledCity = styled.section`
+    margin:auto;
+    width: 80%;
     height: 100%;
-
-    & .cards{
-        display: flex;
-        flex-direction: row;
+    
+    & .city-description{
+        width: 50%;
+        height: 40vh;
     }
-    &.categoriesImages{
-        display: flex;
-        flex-direction: row; 
-    }
-  
-
 `

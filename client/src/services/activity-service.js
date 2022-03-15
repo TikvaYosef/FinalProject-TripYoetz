@@ -55,3 +55,17 @@ export const DeleteActivity = async (id) => {
         console.log(err);
     }
 }
+export const AddCommentToActivities = async (id, activity, comments, comment) => {
+    const options = {
+        method: "PUT",
+        body: JSON.stringify({ ...activity, comments: [...comments, { ...comment }] }),
+        headers: { 'Content-Type': 'application/json' }
+    }
+    try {
+        return await fetch(`${BASE_URL}/api/activities/${id}`, options)
+            .then((res) => res.json())
+    }
+    catch (err) {
+        console.log(err);
+    }
+};

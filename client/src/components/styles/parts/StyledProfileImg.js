@@ -16,6 +16,7 @@ export const StyledProfileImg = styled.button`
         height: 25%;
         background:LimeGreen;
         border-radius: 50%;
+        border: 2px solid white;
         z-index:10;
     }
 

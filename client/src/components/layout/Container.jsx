@@ -1,9 +1,9 @@
 import { useContext } from "react";
-import { MainContext } from "../../contexts/main-context";
+import { ThemeContext } from "../../contexts/theme-context";
 import { StyledContainer } from "../styles/layout/StyledContainer";
 
 const Container = ({ children }) => {
-  const { mode } = useContext(MainContext);
+  const { mode } = useContext(ThemeContext);
 
     return (
         <StyledContainer mode={mode}>

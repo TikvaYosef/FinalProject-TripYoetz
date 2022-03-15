@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { MainContext } from "../../contexts/main-context";
+import { MainContext } from "../../contexts/data-context";
 import { StyledUserProfile } from "../styles/pages/StyledUserProfile";
 
 const UserProfile = () => {

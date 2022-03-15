@@ -1,31 +1,39 @@
 import { useContext, useEffect } from 'react'
-import { MainContext } from '../../contexts/main-context';
+import { MainContext } from '../../contexts/data-context';
 import { GetHotels } from "../../services/hotel-services.js"
-import { GetData } from "../../state-management/actions/categories-actions"
+import { GetDataByName } from "../../state-management/actions/categories-actions"
 import Navbar from '../layout/Navbar';
+import ItemCard from '../parts/ItemCard';
+import { StyledItemsContainer } from '../styles/parts/StyledItemsContainer';
 
 const Hotels = () => {
-    const { hotels, hotelsDispatch,city } = useContext(MainContext);
-
+    const { hotels, hotelsDispatch, city } = useContext(MainContext);
 
     useEffect(() => {
         GetHotels()
             .then(res => {
                 hotelsDispatch(
-                    GetData(res.data.filter(item => item.city === city.name))
+                    GetDataByName(res.data, city)
                 )
             })
-    }, []);
+    }, [hotelsDispatch, city]);
 
 
 
     return (
-        <div>
+        <>
             <Navbar />
-
-            <button onClick={() => { console.log(hotels) }}>Click</button>
-
-        </div>
+            <h1>Hotels</h1>
+            <StyledItemsContainer>
+                {hotels.length >= 1 ?
+                    hotels.map(product =>
+                        <ItemCard product={product} key={product._id} />
+                    )
+                    :
+                    <h1>No hotels found</h1>
+                }
+            </StyledItemsContainer>
+        </>
     )
 }
 

@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import { MainContext } from "./contexts/main-context";
+import { MainContext } from "./contexts/data-context";
 import Header from "./components/layout/Header";
 import Container from "./components/layout/Container";
 import Footer from "./components/layout/Footer";

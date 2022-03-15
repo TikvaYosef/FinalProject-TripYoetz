@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { MainContext } from "../../contexts/main-context";
+import { MainContext } from "../../contexts/data-context";
 import { GetCityByName } from "../../services/city-service"
 import { useNavigate } from "react-router-dom";
 import { StyledHome } from "../styles/pages/StyledHome";

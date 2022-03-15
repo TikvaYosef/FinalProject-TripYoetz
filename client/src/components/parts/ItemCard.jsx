@@ -9,7 +9,7 @@ const ItemCard = ({ product }) => {
 
     useEffect(() => {
         setRating(getAvgRating(product.rating))
-    }, [])
+    },[product.rating])
 
     const goToItemPage = () => {
         navigate("/item", { state: product })

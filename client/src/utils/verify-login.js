@@ -11,7 +11,7 @@ export const VerifyLogin = async (userCheck, setUserCheck, navigate) => {
                     const decoded = jwt_decode(token);
                     setUserCheck({ ...decoded.user, isLogin: true });
                     alert(res.message);
-                    navigate('/');
+                    navigate(-1);
                 }
                 else {
                     alert(res.message);

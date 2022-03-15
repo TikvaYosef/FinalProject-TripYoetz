@@ -1,10 +1,10 @@
 import { useContext } from "react";
-import { MainContext } from "../../contexts/main-context.jsx";
+import { ThemeContext } from "../../contexts/theme-context";
 import { StyledFooter } from "../styles/layout/StyledFooter.js";
 import ContactFooter from "../parts/ContactFooter.jsx";
 
 const Footer = () => {
-  const { mode } = useContext(MainContext);
+  const { mode } = useContext(ThemeContext);
 
   return (
     <StyledFooter mode={mode}>
