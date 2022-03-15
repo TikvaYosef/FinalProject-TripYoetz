@@ -3,7 +3,7 @@ import { MainContext } from "../../contexts/data-context";
 import { StyledUserProfile } from "../styles/pages/StyledUserProfile";
 
 const UserProfile = () => {
-  const { user } = useContext(MainContext);
+  const { user,restaurants } = useContext(MainContext);
 
   return (
     <StyledUserProfile>
@@ -16,6 +16,18 @@ const UserProfile = () => {
         <button>Your Activity</button>
         {/* <h1>{user.email}</h1>
         <h1>{user.birthDate}</h1> */}
+        <h1><button onClick={() => {
+          let counter =0;
+          for (const restaurant of restaurants) {
+            for (const commentItem of restaurant.comments) {
+              if (commentItem.user_id === user._id) {
+                counter++;
+              }
+            }
+          }
+        console.log(counter);
+        // {counter}
+        }}>aaaa</button></h1>
         
       </div>
       <table>
