@@ -11,6 +11,16 @@ module.exports = {
             res.status(500).json({ success: false, message: err.message });
         }
     },
+    GetRestaurantById: async (req, res) => {
+        try {
+            const restaurant = await restaurants.findOne({ _id: req.params.id });
+            if (restaurant) return res.status(200).json({ success: true, restaurant });
+            res.status(404).json({ success: false, message: "no restaurant found" });
+        }
+        catch (err) {
+            res.status(500).json({ success: false, message: err.message });
+        }
+    },
     AddRestaurant: async (req, res) => {
         try {
             const { name, city, description, images, location, phone, comments, greenPass, rating, q_a, link, activitiesHours } = req.body;
