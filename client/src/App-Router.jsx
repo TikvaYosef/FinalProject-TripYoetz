@@ -15,7 +15,7 @@ import Login from "./components/pages/Login";
 import UserProfile from "./components/pages/UserProfile";
 import AdminProfile from "./components/pages/AdminProfile";
 import NotFound from "./components/pages/NotFound";
-import Item from "./components/pages/Item";
+import ItemPage from "./components/pages/ItemPage";
 import AdminAppRouter from "./AdminAppRouter";
 
 
@@ -51,7 +51,7 @@ const AppRouter = () => {
                     <Route exact path="/hotels" element={<Hotels />} />
                     <Route exact path="/activities" element={<Activities />} />
                     <Route exact path="/restaurants" element={<Restaurants />} />
-                    <Route exact path="/item" element={<Item />} />
+                    <Route exact path="/itemPage" element={<ItemPage />} />
                     <Route exact path="/register/*" element={<PrivateRouteRegister />} />
                     <Route exact path="/login/*" element={<PrivateRouteLogin />} />
                     <Route exact path="/profile/*" element={<PrivateRoute />} />
