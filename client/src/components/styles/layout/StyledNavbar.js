@@ -1,9 +1,10 @@
 import styled from "styled-components";
 
 export const StyledNavbar = styled.nav`
+    grid-area:nav;
     background: ${({ mode }) => mode.background};
     color: ${({ mode }) => mode.color};
-    height: 15%;    
+    /* height: 15%;     */
     position: sticky;
     top: 0;
     z-index:100;
