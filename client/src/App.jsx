@@ -7,7 +7,7 @@ const App = () => {
     <div className="App">
       <ThemeContextProvider>
         <DataContextProvider>
-          <AppRouter />
+        <AppRouter/>
         </DataContextProvider>
       </ThemeContextProvider>
     </div>
