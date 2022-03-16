@@ -16,14 +16,12 @@ import UserProfile from "./components/pages/UserProfile";
 import AdminProfile from "./components/pages/AdminProfile";
 import NotFound from "./components/pages/NotFound";
 import ItemPage from "./components/pages/ItemPage";
-import AdminAppRouter from "./AdminAppRouter";
-
-
+import AdminNavbar from "./components/layout/AdminNavbar";
+import AdminRestaurants from "./components/pages/AdminRestaurants";
 
 
 const AppRouter = () => {
     const { user } = useContext(MainContext);
-
     const PrivateRoute = () => {
         if (user.isLogin) {
             if (user.isAdmin) return <AdminProfile />
@@ -31,7 +29,6 @@ const AppRouter = () => {
         }
         return <Navigate to="/" />;
     }
-
     const PrivateRouteLogin = () => {
         return user.isLogin ? <PrivateRoute /> : <Login />
     }
@@ -39,28 +36,37 @@ const AppRouter = () => {
         return user.isLogin ? <PrivateRoute /> : <Register />
     }
 
+
     return (
         <BrowserRouter>
             <Header />
             <Container>
-                <AdminAppRouter/>
-                <Routes>
-                    <Route exact path="/" element={<LandingPage />} />
-                    <Route exact path="/home" element={<Home />} />
-                    <Route exact path="/cities" element={<City />} />
-                    <Route exact path="/hotels" element={<Hotels />} />
-                    <Route exact path="/activities" element={<Activities />} />
-                    <Route exact path="/restaurants" element={<Restaurants />} />
-                    <Route exact path="/itemPage" element={<ItemPage />} />
-                    <Route exact path="/register/*" element={<PrivateRouteRegister />} />
-                    <Route exact path="/login/*" element={<PrivateRouteLogin />} />
-                    <Route exact path="/profile/*" element={<PrivateRoute />} />
-                    {/* <Route path="*" element={<NotFound />} /> */}
-                </Routes>
+                {
+                    user.isAdmin ?
+                        <>
+                            <AdminNavbar />
+                            <Routes>
+                                <Route path="/AdminRestaurants" element={<AdminRestaurants />} />
+                            </Routes>
+                        </>
+                        :
+                        <Routes>
+                            <Route exact path="/" element={<LandingPage />} />
+                            <Route exact path="/home" element={<Home />} />
+                            <Route exact path="/cities" element={<City />} />
+                            <Route exact path="/hotels" element={<Hotels />} />
+                            <Route exact path="/activities" element={<Activities />} />
+                            <Route exact path="/restaurants" element={<Restaurants />} />
+                            <Route exact path="/itemPage" element={<ItemPage />} />
+                            <Route exact path="/register/*" element={<PrivateRouteRegister />} />
+                            <Route exact path="/login/*" element={<PrivateRouteLogin />} />
+                            <Route exact path="/profile/*" element={<PrivateRoute />} />
+                            {/* <Route path="*" element={<NotFound />} /> */}
+                        </Routes>
+                }
             </Container>
             <Footer />
         </BrowserRouter>
     )
 }
-
 export default AppRouter;

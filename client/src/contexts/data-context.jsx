@@ -28,6 +28,8 @@ const DataContextProvider = ({ children }) => {
         }
     }, [hotels, activities, restaurants, user, city]);
 
+
+
     return (
         <MainContext.Provider value={contextValue}>
             {children}
