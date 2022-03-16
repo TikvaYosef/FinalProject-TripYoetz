@@ -65,10 +65,10 @@ export const DeleteRestaurant = async (id) => {
         console.log(err);
     }
 };
-export const AddCommentToRestaurants = async (id, restaurant, comments, comment) => {
+export const AddCommentToRestaurants = async (id, userId, restaurant, comments, comment) => {
     const options = {
         method: "PUT",
-        body: JSON.stringify({ ...restaurant, comments: [...comments, { ...comment }] }),
+        body: JSON.stringify({ ...restaurant, rating: [...restaurant.rating, { rate: comment.rating, userId}], comments: [...comments, { ...comment }] }),
         headers: { 'Content-Type': 'application/json' }
     }
     try {
@@ -79,7 +79,6 @@ export const AddCommentToRestaurants = async (id, restaurant, comments, comment)
         console.log(err);
     }
 };
-
 export const AnswerToQuestionRestaurants = async (id, restaurant, qId, q_a, answer) => {
     let filtered_qa = q_a.filter(q => q.id !== qId);
 
@@ -96,7 +95,6 @@ export const AnswerToQuestionRestaurants = async (id, restaurant, qId, q_a, answ
         console.log(err);
     }
 };
-
 export const AddQuestionToRestaurants = async (id, restaurant, q_a, question) => {
     const options = {
         method: "PUT",

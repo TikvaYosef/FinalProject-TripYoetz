@@ -6,7 +6,7 @@ import AdminRestaurants from './components/pages/AdminRestaurants';
 const AdminAppRouter = () => {
     return (
         <>
-            <AdminNavbar />
+            {/* <AdminNavbar /> */}
             <Routes>
                 <Route  path="/AdminRestaurants" element={<AdminRestaurants />} />
             </Routes>
