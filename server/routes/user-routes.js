@@ -1,7 +1,8 @@
 const usersRoutes = require("express").Router();
-const { register, login } = require("../controllers/user-controller")
+const { register, login,UpdateFavorites } = require("../controllers/user-controller")
 
 usersRoutes.post("/register", register);
 usersRoutes.post("/login", login);
+usersRoutes.put("/:id", UpdateFavorites);
 
 module.exports = usersRoutes;
