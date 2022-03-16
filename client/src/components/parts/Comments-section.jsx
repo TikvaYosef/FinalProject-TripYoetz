@@ -5,18 +5,29 @@ import Comment from "./Comment";
 
 const CommentsSection = ({ currentCard }) => {
     const { user } = useContext(MainContext);
-    const [comment, setComment] = useState({ likes: 0, user_id: user._id })
+    const [comment, setComment] = useState({ likes: 0, rating: 0 })
 
     const handleFormOnInput = (event) => {
-        comment[event.target.name] = event.target.value;
+        if (event.target.name === "rating") {
+            comment[event.target.name] = Number(event.target.value);
+        }
+        else {
+            comment[event.target.name] = event.target.value;
+        }
     }
 
     const sendCommentForm = (event) => {
         event.preventDefault();
+        comment.user_id = user._id;
         setComment(comment);
-        AddCommentToRestaurants(currentCard._id, currentCard, currentCard.comments, comment)
-            .then(() => alert('Comment added successfully'))
+        AddCommentToRestaurants(currentCard._id, user._id, currentCard, currentCard.comments, comment)
+            .then(() => console.log('Comment added successfully'));
+            window.location.reload();
     }
+
+    // const checkIfUserRated = () => {
+
+    // }
 
     const verifyAccessToComments = () => {
         if (user.isLogin && !user.isAdmin) {
@@ -26,11 +37,24 @@ const CommentsSection = ({ currentCard }) => {
     };
 
     return (
-        <section>
+        <>
             <h1>Comments</h1>
             <form onSubmit={sendCommentForm}>
                 <input disabled={verifyAccessToComments()} onInput={handleFormOnInput} name="writer" type="text" placeholder="enter your name" required />
                 <input disabled={verifyAccessToComments()} onInput={handleFormOnInput} name="body" type="text" placeholder="comment here" required />
+                <select name="rating" required onChange={handleFormOnInput}>
+                    <option disabled value="" selected hidden>Rate this place</option>
+                    <option value={1}>1</option>
+                    <option value={2}>2</option>
+                    <option value={3}>3</option>
+                    <option value={4}>4</option>
+                    <option value={5}>5</option>
+                    <option value={6}>6</option>
+                    <option value={7}>7</option>
+                    <option value={8}>8</option>
+                    <option value={9}>9</option>
+                    <option value={10}>10</option>
+                </select>
                 <button disabled={verifyAccessToComments()}>SEND</button>
             </form>
             {
@@ -41,7 +65,7 @@ const CommentsSection = ({ currentCard }) => {
                     :
                     <h1>No comments yet</h1>
             }
-        </section>
+        </>
     );
 };
 

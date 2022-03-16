@@ -5,10 +5,11 @@ import { useEffect, useState } from "react";
 import { GetRestaurantById } from "../../services/restaurant-services";
 import ItemInfo from "../parts/ItemInfo";
 import QaSection from "../parts/Qa-Section";
-import { StyledItemPage } from "../styles/parts/StyledItemPage";
+import { StyledItemPage } from "../styles/pages/StyledItemPage";
 
 const Item = () => {
-    const [item, setItem] = useState({})
+    const [item, setItem] = useState({});
+    const [toggle, setToggle] = useState(true);
     const stateItem = useLocation().state;
 
     useEffect(() => {
@@ -20,15 +21,24 @@ const Item = () => {
     useEffect(() => {
         GetRestaurantById(stateItem)
             .then(res => setItem({ ...res.restaurant }))
-    }, [stateItem, item.comments, item.q_a])
-
+    }, [])
 
     return (
         <StyledItemPage>
             <Navbar />
             <ItemInfo item={item} />
-            <CommentsSection currentCard={item} />
-            <QaSection currentCard={item} />
+            <div className="toggle-btns">
+                <button disabled={toggle} onClick={() => setToggle(true)}>Comments</button>
+                <button disabled={!toggle} onClick={() => setToggle(false)}>Q&A</button>
+            </div>
+            <section className="comments-qa">
+                {toggle
+                    ?
+                    <CommentsSection currentCard={item} />
+                    :
+                    <QaSection currentCard={item} />
+                }
+            </section>
         </StyledItemPage>
     );
 };

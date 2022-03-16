@@ -28,7 +28,7 @@ const QaSection = ({ currentCard }) => {
     };
 
     return (
-        <section>
+        <>
             <h1>Q&A</h1>
             <form onSubmit={sendQuestionForm}>
                 <input disabled={verifyAccessToComments()} name='q' type="text" onInput={handleFormOnInput} placeholder='Enter your question here' />
@@ -41,7 +41,7 @@ const QaSection = ({ currentCard }) => {
                     :
                     <h1>No Q&A yet</h1>
             }
-        </section>
+        </>
     )
 }
 
