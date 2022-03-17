@@ -28,7 +28,7 @@ const Q_A = ({ currentCard, item }) => {
                     <h1>answer: {item.a}</h1>
                     :
                     <form onSubmit={sendAnswerForm}>
-                        <input disabled={!user.isAdmin} name="a" type="text" onInput={handleFormOnInput} />
+                        <input disabled={!user.isAdmin} name="a" type="text" onChange={handleFormOnInput} />
                     </form>
             }
         </div>

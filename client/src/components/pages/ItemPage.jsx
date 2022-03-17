@@ -15,12 +15,6 @@ const Item = () => {
     const stateItem = useLocation().state;
 
     useEffect(() => {
-        return () => {
-            setItem({})
-        }
-    }, [])
-
-    useEffect(() => {
         GetRestaurantById(stateItem)
             .then(res => setItem({ ...res.restaurant }))
     }, [stateItem, restaurants])

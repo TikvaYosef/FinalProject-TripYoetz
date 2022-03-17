@@ -8,7 +8,7 @@ const Login = () => {
   const [formUser, setFormUser] = useState({});
   const navigate = useNavigate();
 
-  const HandleOnInput = (event) => {
+  const HandleOnChange = (event) => {
     formUser[event.target.name] = event.target.value;
   }
 
@@ -21,8 +21,8 @@ const Login = () => {
     <>
       <h1>Login</h1>
       <form onSubmit={SendLoginForm}>
-        <input name="email" onInput={HandleOnInput} type="email" placeholder="email" />
-        <input name="password" onInput={HandleOnInput} type="password" placeholder="password" />
+        <input name="email" onChange={HandleOnChange} type="email" placeholder="email" />
+        <input name="password" onChange={HandleOnChange} type="password" placeholder="password" />
         <button>SEND</button>
       </form>
     </>
