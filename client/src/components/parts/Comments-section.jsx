@@ -22,6 +22,7 @@ const CommentsSection = ({ currentCard }) => {
     };
     const sendCommentForm = (event) => {
         event.preventDefault();
+        comment.id = currentCard.comments.length + 1;
         comment.writer = `${user.name} ${user.lastName}`;
         comment.user_id = user._id;
         comment.user_img = user.image;
@@ -102,7 +103,7 @@ const CommentsSection = ({ currentCard }) => {
             {
                 currentCard.comments && currentCard.comments.length >= 1 ?
                     currentCard.comments.map((item, i) =>
-                        <Comment item={item} key={i} />
+                        <Comment currentCard={currentCard} comment={item} key={i} />
                     )
                     :
                     <h1>No comments yet</h1>
