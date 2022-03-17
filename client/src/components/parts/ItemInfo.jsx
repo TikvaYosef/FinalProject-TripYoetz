@@ -1,14 +1,14 @@
 import { getAvgRating } from "../../utils/getAvgRating";
-import { StyledCityImages } from "../styles/parts/StyledCityImages";
 import { StyledItemInfo } from "../styles/parts/StyledItemInfo";
 
 const ItemInfo = ({ item }) => {
+
     const displayRatingNumber = () => {
         if (item.rating && item.rating.length >= 1) {
             return `${item.rating.length} reviews - ${getAvgRating(item.rating)}/10`
         }
         return "No rating yet";
-    }
+    };
 
     return (
         <StyledItemInfo>

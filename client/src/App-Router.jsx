@@ -61,7 +61,7 @@ const AppRouter = () => {
                             <Route exact path="/register/*" element={<PrivateRouteRegister />} />
                             <Route exact path="/login/*" element={<PrivateRouteLogin />} />
                             <Route exact path="/profile/*" element={<PrivateRoute />} />
-                            {/* <Route path="*" element={<NotFound />} /> */}
+                            <Route path="*" element={<NotFound />} />
                         </Routes>
                 }
             </Container>

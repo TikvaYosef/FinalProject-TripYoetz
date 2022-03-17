@@ -1,47 +1,39 @@
-import { useContext, useState } from 'react';
+import { useContext, useRef, useState } from 'react';
 import { MainContext } from '../../contexts/data-context';
 import { AddQuestionToRestaurants, GetRestaurants } from '../../services/restaurant-services';
 import { GetDataByName } from '../../state-management/actions/categories-actions';
+import { verifyAccessToComments } from "../../utils/verifyAccessToComments";
 import Q_A from './Q_A';
 
 const QaSection = ({ currentCard }) => {
     const { user, restaurantsDispatch, city } = useContext(MainContext);
     const [question, setQuestion] = useState({ id: null, user_id: null });
+    const inputRef = useRef();
 
     const handleFormOnInput = (event) => {
         question[event.target.name] = event.target.value;
     };
-
     const sendQuestionForm = (event) => {
         event.preventDefault();
-        
         question.id = currentCard.q_a.length + 1;
         question.user_id = user._id;
         setQuestion(question);
-
         AddQuestionToRestaurants(currentCard._id, currentCard, currentCard.q_a, question)
             .then(() => alert('question added successfully'))
-
         GetRestaurants()
             .then(res => {
                 restaurantsDispatch(
                     GetDataByName(res.data, city)
                 )
             })
-    }
-
-    const verifyAccessToComments = () => {
-        if (user.isLogin && !user.isAdmin) {
-            return false;
-        };
-        return true;
+        inputRef.current.value = "";
     };
 
     return (
         <>
             <h1>Q&A</h1>
             <form onSubmit={sendQuestionForm}>
-                <input disabled={verifyAccessToComments()} name='q' type="text" onChange={handleFormOnInput} placeholder='Enter your question here' />
+                <input ref={inputRef} disabled={verifyAccessToComments(user)} name='q' type="text" onChange={handleFormOnInput} placeholder='Enter your question here' />
             </form>
             {
                 currentCard.q_a && currentCard.q_a.length >= 1 ?
