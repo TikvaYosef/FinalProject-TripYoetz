@@ -78,6 +78,23 @@ export const AddCommentToRestaurants = async (id, restaurant, comments, comment)
         console.log(err);
     }
 };
+export const LikeCommentRestaurant = async (id, restaurant, comments, commentId, commentWithLike) => {
+    let filteredComments = comments.filter(comment => comment.id !== commentId);
+
+    const options = {
+        method: "PUT",
+        body: JSON.stringify({ ...restaurant, comments: [...filteredComments, { ...commentWithLike }] }),
+        headers: { 'Content-Type': 'application/json' }
+    }
+    try {
+        return await fetch(`${BASE_URL}/api/restaurants/${id}`, options)
+            .then((res) => res.json())
+    }
+    catch (err) {
+        console.log(err);
+    }
+}
+
 export const RateRestaurant = async (id, restaurant, rating) => {
     const options = {
         method: "PUT",
