@@ -1,10 +1,12 @@
 import { useContext, useState } from "react";
+import { GetRestaurants } from "../../services/restaurant-services";
 import { MainContext } from "../../contexts/data-context";
 import { AddCommentToRestaurants } from "../../services/restaurant-services";
+import { GetDataByName } from "../../state-management/actions/categories-actions";
 import Comment from "./Comment";
 
 const CommentsSection = ({ currentCard }) => {
-    const { user } = useContext(MainContext);
+    const { user, restaurantsDispatch, city } = useContext(MainContext);
     const [comment, setComment] = useState({ likes: 0, rating: 0 })
 
     const handleFormOnInput = (event) => {
@@ -18,16 +20,19 @@ const CommentsSection = ({ currentCard }) => {
 
     const sendCommentForm = (event) => {
         event.preventDefault();
+
         comment.user_id = user._id;
         setComment(comment);
         AddCommentToRestaurants(currentCard._id, user._id, currentCard, currentCard.comments, comment)
-            .then(() => console.log('Comment added successfully'));
-            window.location.reload();
+            .then((res) => console.log(res))
+
+        GetRestaurants()
+            .then(res => {
+                restaurantsDispatch(
+                    GetDataByName(res.data, city)
+                )
+            })
     }
-
-    // const checkIfUserRated = () => {
-
-    // }
 
     const verifyAccessToComments = () => {
         if (user.isLogin && !user.isAdmin) {
