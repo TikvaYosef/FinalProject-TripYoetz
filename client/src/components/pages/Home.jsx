@@ -20,7 +20,7 @@ const Home = () => {
         else { setGreetUser(`Good night`); }
     }, [user])
 
-    const HandleOnInput = (event) => {
+    const HandleOnChange = (event) => {
         setSearch(event.target.value);
     }
 
@@ -52,7 +52,7 @@ const Home = () => {
                     :
                     null
                 }
-                <input className="search-input" type="text" onInput={HandleOnInput} placeholder="where do you want to travel?" />
+                <input className="search-input" type="text" onChange={HandleOnChange} placeholder="where do you want to travel?" />
                 <button className="search-icon">
                     <i className="fas fa-search"></i>
                 </button>

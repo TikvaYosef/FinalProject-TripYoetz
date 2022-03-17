@@ -41,7 +41,7 @@ const QaSection = ({ currentCard }) => {
         <>
             <h1>Q&A</h1>
             <form onSubmit={sendQuestionForm}>
-                <input disabled={verifyAccessToComments()} name='q' type="text" onInput={handleFormOnInput} placeholder='Enter your question here' />
+                <input disabled={verifyAccessToComments()} name='q' type="text" onChange={handleFormOnInput} placeholder='Enter your question here' />
             </form>
             {
                 currentCard.q_a && currentCard.q_a.length >= 1 ?

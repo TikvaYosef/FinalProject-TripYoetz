@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import { GetRestaurants } from "../../services/restaurant-services";
 import { MainContext } from "../../contexts/data-context";
-import { AddCommentToRestaurants } from "../../services/restaurant-services";
+import { AddCommentToRestaurants, RateRestaurant } from "../../services/restaurant-services";
 import { GetDataByName } from "../../state-management/actions/categories-actions";
 import Comment from "./Comment";
 
@@ -21,7 +21,9 @@ const CommentsSection = ({ currentCard }) => {
     const sendCommentForm = (event) => {
         event.preventDefault();
 
+        comment.writer = `${user.name} ${user.lastName}`;
         comment.user_id = user._id;
+        comment.user_img = user.image;
         setComment(comment);
         AddCommentToRestaurants(currentCard._id, user._id, currentCard, currentCard.comments, comment)
             .then((res) => console.log(res))
@@ -41,13 +43,24 @@ const CommentsSection = ({ currentCard }) => {
         return true;
     };
 
+    const checkIfUserRate = () => {
+        if (currentCard.rating && currentCard.rating.length >= 1) {
+            for (const rate of currentCard.rating) {
+                if (rate.userId === user._id) return true
+            };
+            return false;
+        }
+    };
+
     return (
         <>
             <h1>Comments</h1>
             <form onSubmit={sendCommentForm}>
-                <input disabled={verifyAccessToComments()} onInput={handleFormOnInput} name="writer" type="text" placeholder="enter your name" required />
-                <input disabled={verifyAccessToComments()} onInput={handleFormOnInput} name="body" type="text" placeholder="comment here" required />
-                <select name="rating" required onChange={handleFormOnInput}>
+                <label htmlFor="writer">Name</label>
+                <input disabled value={`${user.name} ${user.lastName}`} name="writer" type="text" required />
+                <label htmlFor="body">Comment</label>
+                <input disabled={verifyAccessToComments()} onChange={handleFormOnInput} name="body" type="text" placeholder="comment here" required />
+                <select name="rating" disabled={checkIfUserRate()} onChange={handleFormOnInput}>
                     <option disabled value="" selected hidden>Rate this place</option>
                     <option value={1}>1</option>
                     <option value={2}>2</option>

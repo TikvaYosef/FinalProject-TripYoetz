@@ -67,7 +67,21 @@ export const DeleteRestaurant = async (id) => {
 export const AddCommentToRestaurants = async (id, userId, restaurant, comments, comment) => {
     const options = {
         method: "PUT",
-        body: JSON.stringify({ ...restaurant, rating: [...restaurant.rating, { rate: comment.rating, userId}], comments: [...comments, { ...comment }] }),
+        body: JSON.stringify({ ...restaurant, rating: [...restaurant.rating, { rate: comment.rating, userId }], comments: [...comments, { ...comment }] }),
+        headers: { 'Content-Type': 'application/json' }
+    }
+    try {
+        return await fetch(`${BASE_URL}/api/restaurants/${id}`, options)
+            .then((res) => res.json())
+    }
+    catch (err) {
+        console.log(err);
+    }
+};
+export const RateRestaurant = async (id, userId, restaurant, rate) => {
+    const options = {
+        method: "PUT",
+        body: JSON.stringify({ ...restaurant, rating: [...restaurant.rating, { rate, userId }] }),
         headers: { 'Content-Type': 'application/json' }
     }
     try {
