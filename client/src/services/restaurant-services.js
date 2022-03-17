@@ -46,7 +46,6 @@ export const UpdateRestaurant = async (id, restaurant) => {
     try {
         return await fetch(`${BASE_URL}/api/restaurants/${id}`, options)
             .then((res) => res.json())
-            .then((res) => console.log(res))
     }
     catch (err) {
         console.log(err);

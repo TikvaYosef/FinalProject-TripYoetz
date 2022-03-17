@@ -1,10 +1,11 @@
 import { useContext, useState } from 'react';
 import { MainContext } from '../../contexts/data-context';
-import { AddQuestionToRestaurants } from '../../services/restaurant-services';
+import { AddQuestionToRestaurants, GetRestaurants } from '../../services/restaurant-services';
+import { GetDataByName } from '../../state-management/actions/categories-actions';
 import Q_A from './Q_A';
 
 const QaSection = ({ currentCard }) => {
-    const { user } = useContext(MainContext);
+    const { user, restaurantsDispatch, city } = useContext(MainContext);
     const [question, setQuestion] = useState({ id: null, user_id: null });
 
     const handleFormOnInput = (event) => {
@@ -13,11 +14,20 @@ const QaSection = ({ currentCard }) => {
 
     const sendQuestionForm = (event) => {
         event.preventDefault();
+        
         question.id = currentCard.q_a.length + 1;
         question.user_id = user._id;
         setQuestion(question);
+
         AddQuestionToRestaurants(currentCard._id, currentCard, currentCard.q_a, question)
             .then(() => alert('question added successfully'))
+
+        GetRestaurants()
+            .then(res => {
+                restaurantsDispatch(
+                    GetDataByName(res.data, city)
+                )
+            })
     }
 
     const verifyAccessToComments = () => {
