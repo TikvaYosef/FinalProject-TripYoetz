@@ -11,7 +11,22 @@ export const StyledItemInfo = styled.section`
     'description description description';
     grid-template-rows: 20% 60% 20%;
     grid-template-columns: 50% 20% 30%;
-
+    
+    & .heart-icon {
+        cursor: pointer;
+        position: absolute;
+        padding:8px;
+        left: 40%;
+        top: 12%;
+        font-size:1.rem;
+        color:black;
+        border-radius:50%;
+        background:white;
+        border:1px solid black;
+    }
+    & .item-liked {
+        color: red;
+    }
     & .item-name-h1{
         margin-left:5%;
         width: 100%;

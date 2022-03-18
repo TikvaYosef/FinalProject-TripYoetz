@@ -8,17 +8,12 @@ import Comment from "./Comment";
 
 const CommentsSection = ({ currentCard }) => {
     const { user, restaurantsDispatch, city } = useContext(MainContext);
-    const [comment, setComment] = useState({ likes: 0 });
+    const [comment, setComment] = useState({ likes: { amount: 0, usersId: [] } });
     const [userRate, setUserRate] = useState({ rate: 0 });
     const inputRef = useRef();
 
-    const handleFormOnChange = (event) => {
-        if (event.target.name === "rating") {
-            comment[event.target.name] = Number(event.target.value);
-        }
-        else {
-            comment[event.target.name] = event.target.value;
-        }
+    const handleCommentOnChange = (event) => {
+        comment[event.target.name] = event.target.value;
     };
     const sendCommentForm = (event) => {
         event.preventDefault();
@@ -68,7 +63,7 @@ const CommentsSection = ({ currentCard }) => {
         <>
             <h1>Comments</h1>
             {
-                user.isLogin
+                user.isLogin && !user.isAdmin
                     ?
                     <>
                         <form onSubmit={sendCommentForm}>
@@ -76,7 +71,7 @@ const CommentsSection = ({ currentCard }) => {
                             <input disabled value={`${user.name} ${user.lastName}`} name="writer" type="text" required />
 
                             <label htmlFor="body">Comment</label>
-                            <input ref={inputRef} disabled={verifyAccessToComments(user)} onChange={handleFormOnChange} name="body" type="text" placeholder="comment here" required />
+                            <input ref={inputRef} disabled={verifyAccessToComments(user)} onChange={handleCommentOnChange} name="body" type="text" placeholder="comment here" required />
 
                             <button disabled={verifyAccessToComments(user)}>SEND</button>
                         </form>

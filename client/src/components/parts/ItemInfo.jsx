@@ -1,7 +1,13 @@
+import { useContext, useRef } from "react";
 import { getAvgRating } from "../../utils/getAvgRating";
 import { StyledItemInfo } from "../styles/parts/StyledItemInfo";
+import { verifyUserFavorites, activateHeartIcon, addClassToHeart } from "../../utils/favoritesList-functions";
+import { MainContext } from "../../contexts/data-context";
 
 const ItemInfo = ({ item }) => {
+    const { user } = useContext(MainContext);
+    const favorites = JSON.parse(localStorage.getItem("favorites"));
+    const heartIcon = useRef();
 
     const displayRatingNumber = () => {
         if (item.rating && item.rating.length >= 1) {
@@ -13,6 +19,11 @@ const ItemInfo = ({ item }) => {
     return (
         <StyledItemInfo>
             <div className="item-details">
+                <button className="heart-icon-btn" disabled={verifyUserFavorites(user)}
+                    onClick={() => activateHeartIcon(heartIcon, item)}>
+                    <i ref={heartIcon} className={`fas fa-heart heart-icon ${addClassToHeart(user, favorites, item)}`}>
+                    </i>
+                </button>
                 <h1 className="item-name-h1">{item.name}</h1>
                 <h1>{displayRatingNumber()}</h1> |
                 <p>{item.location}</p> |

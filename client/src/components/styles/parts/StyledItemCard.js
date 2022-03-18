@@ -9,16 +9,22 @@ export const StyledItemCard = styled.article`
     justify-content:space-evenly;
     position: relative;
 
-    & .heart-icon {
+    & .heart-icon-btn{
+        cursor: pointer;
         position: absolute;
         padding:8px;
         left: 3%;
         top: 12%;
-        font-size:1.rem;
-        color:black;
         border-radius:50%;
         background:white;
         border:1px solid black;
+    }
+    & .heart-icon {
+        font-size:1rem;
+        color:black;
+    }
+    & .item-liked {
+        color: red;
     }
     & .image {
         width: 100%;

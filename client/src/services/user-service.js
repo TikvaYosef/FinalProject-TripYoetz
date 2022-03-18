@@ -1,6 +1,6 @@
 const BASE_URL = process.env.NODE_ENV === "production"
-    ? "https://trip-yoetz.herokuapp.com"
-    : "http://localhost:9090/auth";
+  ? "https://trip-yoetz.herokuapp.com"
+  : "http://localhost:9090/auth";
 
 export const registerUser = async (user) => {
   const options = {
