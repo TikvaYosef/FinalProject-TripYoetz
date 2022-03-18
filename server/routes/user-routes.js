@@ -3,6 +3,5 @@ const { register, login,UpdateFavorites } = require("../controllers/user-control
 
 usersRoutes.post("/register", register);
 usersRoutes.post("/login", login);
-usersRoutes.put("/:id", UpdateFavorites);
 
 module.exports = usersRoutes;

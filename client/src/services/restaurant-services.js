@@ -94,7 +94,6 @@ export const LikeCommentRestaurant = async (id, restaurant, comments, commentId,
         console.log(err);
     }
 }
-
 export const RateRestaurant = async (id, restaurant, rating) => {
     const options = {
         method: "PUT",

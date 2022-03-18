@@ -8,16 +8,16 @@ import QaSection from "../parts/Qa-Section";
 import { StyledItemPage } from "../styles/pages/StyledItemPage";
 import { MainContext } from "../../contexts/data-context";
 
-const Item = () => {
+const ItemPage = () => {
     const { restaurants } = useContext(MainContext)
     const [item, setItem] = useState({});
     const [toggle, setToggle] = useState(true);
-    const stateItem = useLocation().state;
+    const itemId = useLocation().state;
 
     useEffect(() => {
-        GetRestaurantById(stateItem)
+        GetRestaurantById(itemId)
             .then(res => setItem({ ...res.restaurant }))
-    }, [stateItem, restaurants])
+    }, [itemId, restaurants])
 
     return (
         <StyledItemPage>
@@ -39,4 +39,4 @@ const Item = () => {
     );
 };
 
-export default Item;
+export default ItemPage;
