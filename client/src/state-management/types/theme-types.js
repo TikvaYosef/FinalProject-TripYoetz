@@ -1,8 +1,8 @@
 const themeTypes = {
-    WHITE_BLACK: "WHITE_BLACK",
-    BLACK_WHITE: "BLACK_WHITE",
-    RED_BLUE: "RED_BLUE",
-    BLUE_RED: "BLUE_RED"
+    LIGHT_BLUE: "LIGHT_BLUE",
+    BLACK_GOLD: "BLACK_GOLD",
+    RED_YELLOW: "RED_YELLOW",
+    PURPLE_PINK: "PURPLE_PINK"
 }
 
 export default themeTypes;

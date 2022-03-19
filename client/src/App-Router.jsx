@@ -6,7 +6,7 @@ import Container from "./components/layout/Container";
 import Footer from "./components/layout/Footer";
 import City from "./components/pages/City";
 import Home from "./components/pages/Home";
-import LandingPage from "./components/pages/LandingPage";
+import About from "./components/pages/About";
 import Hotels from "./components/pages/Hotels";
 import Activities from "./components/pages/Activities";
 import Restaurants from "./components/pages/Restaurants";
@@ -18,7 +18,6 @@ import NotFound from "./components/pages/NotFound";
 import ItemPage from "./components/pages/ItemPage";
 import AdminNavbar from "./components/layout/AdminNavbar";
 import AdminRestaurants from "./components/pages/AdminRestaurants";
-
 
 const AppRouter = () => {
     const { user } = useContext(MainContext);
@@ -51,8 +50,8 @@ const AppRouter = () => {
                         </>
                         :
                         <Routes>
-                            <Route exact path="/" element={<LandingPage />} />
-                            <Route exact path="/home" element={<Home />} />
+                            <Route exact path="/" element={<Home />} />
+                            <Route exact path="/about" element={<About />} />
                             <Route exact path="/cities" element={<City />} />
                             <Route exact path="/hotels" element={<Hotels />} />
                             <Route exact path="/activities" element={<Activities />} />
