@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { MainContext } from '../../contexts/data-context';
 import { GetRestaurants, DeleteRestaurant, UpdateRestaurant, AddRestaurant } from '../../services/restaurant-services';
 import { GetData } from '../../state-management/actions/categories-actions';
-import { StyledAdminRestaurants } from '../styles/pages/StyledAdminRestaurants';
+import { StyledAdmin } from '../styles/pages/StyledAdmin';
 
 const AdminRestaurants = () => {
     const { restaurants, restaurantsDispatch } = useContext(MainContext)
@@ -62,7 +62,7 @@ const AdminRestaurants = () => {
 
 
     return (
-        <StyledAdminRestaurants>
+        <StyledAdmin>
             <div>
 
                 <label htmlFor="text">Name</label>
@@ -157,7 +157,7 @@ const AdminRestaurants = () => {
                     }
                 </table>
             </div>
-        </StyledAdminRestaurants>
+        </StyledAdmin>
     )
 }
 export default AdminRestaurants
