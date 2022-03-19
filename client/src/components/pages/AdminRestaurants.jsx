@@ -152,62 +152,9 @@ const AdminRestaurants = () => {
                                 <tr>
                                     <td><button onClick={() => { Update(item._id, item) }}>Update</button></td>
                                 </tr>
-
-
-                                {/* <label htmlFor="text">Name</label>
-                                    <input name='name' onChange={handleTableOnInput} />
-
-                                    <label htmlFor="text">City</label>
-                                    <input name='city' onChange={handleFormOnInput} />
-
-                                    <label htmlFor="text">Description</label>
-                                    <input name='description' onChange={handleFormOnInput} />
-
-                                    <label htmlFor="text">images</label>
-                                    <input name='images' onChange={handleFormOnInput} />
-
-
-                                    <label htmlFor="text">location</label>
-                                    <input name='location' onChange={handleFormOnInput} />
-
-
-                                    <label htmlFor="text">phone</label>
-                                    <input name='phone' onChange={handleFormOnInput} />
-
-
-                                    <label htmlFor="text">comments</label>
-                                    <input name='comments' onChange={handleFormOnInput} />
-
-
-                                    <label htmlFor="text">greenPass</label>
-                                    <input name='greenPass' onChange={handleFormOnInput} />
-
-
-                                    <label htmlFor="text">rating</label>
-                                    <input name='rating' onChange={handleFormOnInput} />
-
-
-                                    <label htmlFor="text">q_a</label>
-                                    <input name='q_a' onChange={handleFormOnInput} />
-
-
-                                    <label htmlFor="text">link</label>
-                                    <input name='link' onChange={handleFormOnInput} />
-
-
-
-                                    <label htmlFor="text">activitiesHours</label>
-                                    <input name='activitiesHours' onChange={handleFormOnInput} />
-
-                                    <br />
-
-                                    <button onClick={() => { Add(item) }}>Update</button> */}
-
-
                             </tr>
                         )
                     }
-
                 </table>
             </div>
         </StyledAdminRestaurants>

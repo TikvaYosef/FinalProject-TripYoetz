@@ -5,6 +5,7 @@ const AdminNavbar = () => {
     return (
         <ul>
             <li><Link to="/AdminRestaurants">Admin_Restaurants</Link></li>
+            <li><Link to="/AdminHotels">Admin_Hotels</Link></li>
         </ul>
     )
 }
