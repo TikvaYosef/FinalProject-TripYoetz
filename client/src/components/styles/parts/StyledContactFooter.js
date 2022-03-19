@@ -44,7 +44,7 @@ export const StyledContactFooter = styled.article`
       align-items: center;
     }
   .contact-icon{
-      font-size: 2rem;
+      font-size: 2.5rem;
       background: ${({ mode }) => mode.color};
       color: ${({ mode }) => mode.background};  
       transition: 0.2s ease-in-out;
