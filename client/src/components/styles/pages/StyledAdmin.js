@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledAdminRestaurants = styled.table`
+export const StyledAdmin= styled.table`
     margin:auto;
     width: 90%;
     height: 50%;
@@ -27,5 +27,9 @@ export const StyledAdminRestaurants = styled.table`
     border: 1px solid;
     overflow: visible;
 }
- 
+
+& .images{
+    width: 1px;
+    height: 1px
+}
 `
