@@ -1,41 +1,82 @@
-import { useContext } from "react";
+import { useContext, useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { StyledHeader } from "../styles/layout/StyledHeader";
-import { Logout } from "../../utils/logout";
-import { MainContext } from "../../contexts/data-context.jsx";
 import { ThemeContext } from "../../contexts/theme-context";
+import { MainContext } from "../../contexts/data-context.jsx";
+import { light_blue, black_gold, red_yellow, purple_pink } from "../../state-management/actions/theme-actions";
+import { GetCityByName } from "../../services/city-service";
+import { StyledHeader } from "../styles/layout/StyledHeader";
 import ProfileImg from "../parts/ProfileImg";
-import { Red_blue, Black_White, Blue_red, White_black } from "../../state-management/actions/theme-actions";
+import { Logout } from "../../utils/logout";
+import { HandleOnChange, SendSearchForm } from "../../utils/SearchForm-functions";
+import LogoutIcon from '@mui/icons-material/Logout';
+import ColorLensIcon from '@mui/icons-material/ColorLens';
+import TravelExploreIcon from '@mui/icons-material/TravelExplore';
+import SearchIcon from '@mui/icons-material/Search';
 
 const Header = () => {
-  const { user, setUser } = useContext(MainContext);
+  const { user, setUser, setCity } = useContext(MainContext);
   const { mode, modeDispatch } = useContext(ThemeContext);
+  const [search, setSearch] = useState("");
+  const toggleRef = useRef();
   const navigate = useNavigate();
+
+  const handleThemeMode = () => {
+    toggleRef.current.classList.toggle('active');
+  }
+  const selectThemeAndSave = (action) => {
+    modeDispatch(action());
+    handleThemeMode();
+  }
 
   return (
     <StyledHeader mode={mode}>
-      <div>
+      <div className="profile-actions">
         {
           user.isLogin ?
             <>
-              <button onClick={() => Logout(setUser, navigate)}>Logout</button>
+              <button className="logout-btn" onClick={() => Logout(setUser, navigate)}>
+                <LogoutIcon className="logout-icon" />
+              </button>
               <ProfileImg user={user} />
             </>
             : <>
-              <Link to={"/login"}>login</Link>
-              <Link to={"/register"}>register</Link>
+              <Link to={"/login"} className="login-register-btn">Login</Link>
+              <Link to={"/register"} className="login-register-btn">Register</Link>
             </>
         }
       </div>
-      <h1><Link to={"/home"}>TripYoetz</Link></h1>
-      <button><Link to={"/"}>About us</Link></button>
-      <div>
-        <button onClick={() => { modeDispatch(Black_White()) }}>Black and White</button>
-        <button onClick={() => { modeDispatch(White_black()) }}>White and Black</button>
-        <button onClick={() => { modeDispatch(Red_blue()) }}>Red and Blue</button>
-        <button onClick={() => { modeDispatch(Blue_red()) }}>Blue and Red</button>
+
+      <div className="theme-mode-wrapper">
+        <button className="toggle-mode-btn" onClick={handleThemeMode}>
+          <ColorLensIcon className="toggle-icon" />
+        </button>
+        <div ref={toggleRef} className="theme-palette">
+          <button className="theme-option" onClick={() => { selectThemeAndSave(light_blue) }}></button>
+          <button className="theme-option" onClick={() => { selectThemeAndSave(black_gold) }}></button>
+          <button className="theme-option" onClick={() => { selectThemeAndSave(red_yellow) }}></button>
+          <button className="theme-option" onClick={() => { selectThemeAndSave(purple_pink) }}></button>
+        </div>
       </div>
-    </StyledHeader>
+
+      <div className="about-us-wrapper">
+        <Link className="about-us-link" to={"/about"}>About us</Link>
+      </div>
+
+      <form className="header-search-form"
+        onSubmit={(e) => {
+          SendSearchForm(e, search, GetCityByName, setCity, navigate);
+        }}>
+        <input className="header-search-input" type="text" onChange={(e) => HandleOnChange(e, setSearch)} />
+        <SearchIcon className="header-search-icon" />
+      </form>
+
+      <div className="logo-wrapper">
+        <Link to={"/"} className="TripYoetz-logo">
+          <TravelExploreIcon className="logo-icon" />
+          TripYoetz
+        </Link>
+      </div>
+    </StyledHeader >
   );
 };
 

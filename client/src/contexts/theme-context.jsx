@@ -1,30 +1,34 @@
-import { createContext, useReducer } from "react";
+import { createContext, useEffect, useReducer } from "react";
 import themeReducer from "../state-management/reducers/theme-reducer";
 
 export const ThemeContext = createContext();
 
 export const themes = {
-    white_black: {
-        color: "white",
-        background: "black"
+    light_blue: {
+        color: "#00204a",
+        background: "#b6e1e0"
     },
-    black_white: {
-        color: "black",
-        background: "white"
+    black_gold: {
+        color: "#DAA520",
+        background: "#222831"
     },
-    red_blue: {
-        color: "red",
-        background: "blue"
+    red_yellow: {
+        color: "#f8f398",
+        background: "#dc2f2f"
     },
-    blue_red: {
-        color: "blue",
-        background: "red"
+    purple_pink: {
+        color: "#f5c7f7",
+        background: "#680747"
     }
 };
 
 const ThemeContextProvider = ({ children }) => {
-    const [mode, modeDispatch] = useReducer(themeReducer, themes.black_white);
-
+    const [mode, modeDispatch] = useReducer(themeReducer, JSON.parse(localStorage.getItem("theme")) || themes.light_blue);
+ 
+    useEffect(() => {
+        localStorage.setItem('theme', JSON.stringify(mode));
+    }, [mode]);
+    
     return (
         <ThemeContext.Provider value={{ mode, modeDispatch }}>
             {children}

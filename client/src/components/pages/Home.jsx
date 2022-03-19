@@ -4,6 +4,7 @@ import { GetCityByName } from "../../services/city-service"
 import { useNavigate } from "react-router-dom";
 import { StyledHome } from "../styles/pages/StyledHome";
 import { ThemeContext } from "../../contexts/theme-context";
+import { SendSearchForm, HandleOnChange } from "../../utils/SearchForm-functions";
 
 const Home = () => {
     const { user, setCity } = useContext(MainContext);
@@ -20,39 +21,19 @@ const Home = () => {
         else { setGreetUser(`Good night`); }
     }, [user])
 
-    const HandleOnChange = (event) => {
-        setSearch(event.target.value);
-    }
-
-    const SendSearchFrom = (event) => {
-        event.preventDefault();
-        GetCityByName(search[0].toUpperCase() + search.slice(1).toLowerCase()).then(res => {
-            if (res.success) {
-                if (!localStorage.city) {
-                    localStorage.setItem('city', JSON.stringify(res.data));
-                    setCity(res.data);
-                }
-                else {
-                    localStorage.removeItem("city");
-                    localStorage.setItem('city', JSON.stringify(res.data));
-                    setCity(res.data)
-                }
-                navigate("/cities");
-            }
-            else { alert(res.message) }
-        })
-    }
-
     return (
         <StyledHome mode={mode}>
-            <form className="search-form" onSubmit={SendSearchFrom}>
+            <form className="search-form" onSubmit={(e) => SendSearchForm(e, search, GetCityByName, setCity, navigate)}>
                 {user.isLogin && greetUser
                     ?
                     <h1 className="greet-user">{greetUser}<span> {user.name}{user.lastName}</span></h1>
                     :
                     null
                 }
-                <input className="search-input" type="text" onChange={HandleOnChange} placeholder="where do you want to travel?" />
+                <input className="search-input" type="text"
+                    onChange={(e) => { HandleOnChange(e, setSearch) }}
+                    placeholder="where do you want to travel?"
+                />
                 <button className="search-icon">
                     <i className="fas fa-search"></i>
                 </button>

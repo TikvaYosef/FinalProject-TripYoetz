@@ -1,14 +1,11 @@
 import { StyledProfileImg } from "../styles/parts/StyledProfileImg"
-import { Link } from "react-router-dom";
 
 const ProfileImg = ({ user }) => {
     return (
-        <Link to={"/profile"}>
-            <StyledProfileImg>
-                <div className="status"></div>
-                <img src={user.image} alt="img" />
-            </StyledProfileImg>
-        </Link>
+        <StyledProfileImg to={"/profile"}>
+            <div className="user-status"></div>
+            <img className="user-profile-img" src={user.image} alt={`${user.name} profile`} />
+        </StyledProfileImg>
     )
 }
 

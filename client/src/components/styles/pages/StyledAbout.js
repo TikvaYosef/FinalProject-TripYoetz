@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 
-export const StyledLandingPage = styled.section`
+export const StyledAbout = styled.section`
 text-align: center;
 font-family: 'Lobster', cursive; 
 
