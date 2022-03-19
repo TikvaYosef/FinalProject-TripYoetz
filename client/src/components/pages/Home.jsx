@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { StyledHome } from "../styles/pages/StyledHome";
 import { ThemeContext } from "../../contexts/theme-context";
 import { SendSearchForm, HandleOnChange } from "../../utils/SearchForm-functions";
+import SearchIcon from '@mui/icons-material/Search';
 
 const Home = () => {
     const { user, setCity } = useContext(MainContext);
@@ -26,7 +27,7 @@ const Home = () => {
             <form className="search-form" onSubmit={(e) => SendSearchForm(e, search, GetCityByName, setCity, navigate)}>
                 {user.isLogin && greetUser
                     ?
-                    <h1 className="greet-user">{greetUser}<span> {user.name}{user.lastName}</span></h1>
+                    <h1 className="greet-user">{greetUser} <span>{user.name} {user.lastName}</span></h1>
                     :
                     null
                 }
@@ -34,9 +35,7 @@ const Home = () => {
                     onChange={(e) => { HandleOnChange(e, setSearch) }}
                     placeholder="where do you want to travel?"
                 />
-                <button className="search-icon">
-                    <i className="fas fa-search"></i>
-                </button>
+                <SearchIcon className="search-icon"/>
             </form>
         </StyledHome>
     )

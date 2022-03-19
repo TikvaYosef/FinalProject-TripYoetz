@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const StyledContainer = styled.section`
-    min-height: 70%;
+    min-height: 85vh;
     width: 100%;
     background: ${({mode})=> mode.background};
     color: ${({mode})=> mode.color};

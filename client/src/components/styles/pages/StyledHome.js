@@ -7,31 +7,29 @@ export const StyledHome = styled.section`
     justify-content:center;
     align-items:center;
     
-    & span {
-        color:red;
-        background-image: linear-gradient(0deg, ${({mode})=> mode.color},${({mode})=> mode.color});
-        background-size: 95% 3px;
-        background-repeat: no-repeat;
-        background-position: right bottom;
-    }
-
-    & .search-form :focus{
-        font-size:1.1rem;
-        box-shadow: 0px 0px 10px 5px white;
-    }
-
-    & .greet-user{
+    .greet-user{
         position:absolute;
-        right: 0%;
-        top: -10%;
-        font-size:1.8rem;
+        right: 5%;
+        top: 0%;
+        font-size: 3rem;
+        font-family: 'Lobster Two', cursive;
+        font-weight: 900;
+    }
+    span {
+        color:${({mode})=> mode.background};
+        background:${({mode})=> mode.color};
+        padding: 0 5px;
+        font-family: 'Lobster Two', cursive;
+        font-weight: 900;
     }
     
-    & .search-form{
-        background: url("https://cdn.pixabay.com/photo/2018/08/19/10/16/nature-3616194_960_720.jpg");
-        background-position:bottom;
-        background-repeat:no-repeat;
-        background-size:cover;
+    .search-form{
+        background: url("/homePage_search_bg.png");
+        background-repeat: no-repeat;
+        background-size:contain;
+        border: 5px double ${({mode})=> mode.color};
+        border-radius: 20px;
+        background-position: center;
         position: relative;
         display:flex;
         justify-content:center;
@@ -40,30 +38,34 @@ export const StyledHome = styled.section`
         height: 65%;
     }
 
-    & .search-input{
+    .search-input{
+        color:${({mode})=> mode.color};
+        background:${({mode})=> mode.background};
         outline: none;
-        font-size:1rem;
+        font-size: 1.8rem;
+        font-weight: 900;
+        width: 50%;
+        height: 15%;
+        border-radius: 50px;
+        padding-left:10px;
+        border: 3px solid ${({mode})=> mode.color};
+        transition: 0.2s ease-in-out;
+    }
+    .search-icon{
+        position: absolute;
+        right: 27.5%;
+        font-size: 3rem;
+        border: none;
+        color: ${({ mode }) => mode.color};
+        transition: 0.2s ease-in-out;
+    }
+    .search-input::placeholder{
+        color: ${({ mode }) => mode.color};
+    }
+    .search-input:focus{
         width: 80%;
-        height: 10%;
-        border-radius: 20px;
-        border: 3px solid white;
-        transition: 0.1s ease-in-out;
-        box-shadow: 0px 3px 5px 2px black;
     }
-
-    & .search-icon{
-        cursor: pointer;
-        padding: 10px 15px;
-        border-radius:50%;
-        border:2px solid black;
-        margin-left:1vw;
-        height: 10%;
-        font-weight:900;
+    .search-input:focus ~ .search-icon{
+        right: 12.5%;
     }
-    & .search-icon:hover{
-        color:white;
-        background:black;
-        border-color:white;
-    }
-
 `
