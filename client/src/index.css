@@ -2,21 +2,21 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Courier New', monospace;
+  font-family: 'Philosopher', sans-serif;
 }
 html{
   font-size: 62.5%;
 }
 .App{
   width: 100%;
-  min-height: 100vh;
+  height: 100vh;
   display: grid;
   grid-template-areas: 
   'header header header'
   'main main main'
   'footer footer footer'
   ;
-  grid-template-rows: 10vh auto 5vh;
+  grid-template-rows: 10vh 85vh 5vh;
   position: relative;
   overflow: hidden;
 }

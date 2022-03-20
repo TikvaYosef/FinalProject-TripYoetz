@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { MainContext } from '../../contexts/data-context';
-import { GetRestaurants, DeleteRestaurant, UpdateRestaurant, AddRestaurant } from '../../services/restaurant-services';
-import { GetData } from '../../state-management/actions/categories-actions';
-import { StyledAdmin } from '../styles/pages/StyledAdmin';
+import { MainContext } from '../../../contexts/data-context';
+import { GetRestaurants, DeleteRestaurant, UpdateRestaurant, AddRestaurant } from '../../../services/restaurant-services';
+import { GetData } from '../../../state-management/actions/categories-actions';
+import { StyledAdmin } from '../../styles/pages/StyledAdmin';
 
 const AdminRestaurants = () => {
     const { restaurants, restaurantsDispatch } = useContext(MainContext)
@@ -10,13 +10,16 @@ const AdminRestaurants = () => {
     const [addItem, setaddItem] = useState({})
 
     useEffect(() => {
-        GetRestaurants()
+        if (restaurants.length === 0) {
+          GetRestaurants()
             .then(res => {
-                restaurantsDispatch(
-                    GetData(res.data)
-                )
+              restaurantsDispatch(
+                GetData(res.data)
+              )
             })
-    }, []);
+        }
+      }, [restaurantsDispatch, restaurants]);
+
 
     const Delete = (id) => {
         DeleteRestaurant(id)
@@ -60,61 +63,48 @@ const AdminRestaurants = () => {
     }
 
 
-
     return (
         <StyledAdmin>
             <div>
-
                 <label htmlFor="text">Name</label>
                 <input name='name' onChange={handleFormOnInput} />
 
                 <label htmlFor="text">City</label>
                 <input name='city' onChange={handleFormOnInput} />
 
-
                 <label htmlFor="text">Description</label>
                 <input name='description' onChange={handleFormOnInput} />
-
 
                 <label htmlFor="text">images</label>
                 <input name='images' onChange={handleFormOnInput} />
 
-
                 <label htmlFor="text">location</label>
                 <input name='location' onChange={handleFormOnInput} />
-
 
                 <label htmlFor="text">phone</label>
                 <input name='phone' onChange={handleFormOnInput} />
 
-
                 <label htmlFor="text">comments</label>
                 <input name='comments' onChange={handleFormOnInput} />
-
 
                 <label htmlFor="text">greenPass</label>
                 <input name='greenPass' onChange={handleFormOnInput} />
 
-
                 <label htmlFor="text">rating</label>
                 <input name='rating' onChange={handleFormOnInput} />
-
 
                 <label htmlFor="text">q_a</label>
                 <input name='q_a' onChange={handleFormOnInput} />
 
-
                 <label htmlFor="text">link</label>
                 <input name='link' onChange={handleFormOnInput} />
-
-
 
                 <label htmlFor="text">activitiesHours</label>
                 <input name='activitiesHours' onChange={handleFormOnInput} />
 
                 <br />
 
-                <button onClick={() => { Add() }}>Add</button>
+                <button onClick={Add}>Add</button>
 
                 <table>
                     <tr className='tr'>
@@ -160,4 +150,4 @@ const AdminRestaurants = () => {
         </StyledAdmin>
     )
 }
-export default AdminRestaurants
+export default AdminRestaurants;

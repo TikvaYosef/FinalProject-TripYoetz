@@ -15,7 +15,7 @@ export const StyledProfileImg = styled(Link)`
         top: 5%;
         width: 25%;
         height: 25%;
-        background:LimeGreen;
+        background:${({ user }) => user.isAdmin ? "indigo" : "LimeGreen"};
         border-radius: 50%;
         border: 2px solid white;
         z-index:10;
