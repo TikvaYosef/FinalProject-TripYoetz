@@ -1,13 +1,12 @@
 import styled from "styled-components";
 
-export const StyledNavbar = styled.nav`
+export const StyledAdminNavbar = styled.nav`
     grid-area:nav;
-    background: ${({ mode }) => mode.background};
-    color: ${({ mode }) => mode.color};
-    /* height: 15%;     */
     position: sticky;
     top: 0;
     z-index:100;
+    margin-top: 2%;
+    margin-bottom: 3%;
     & .navbar-list{
         list-style:none;
         display:flex;
@@ -18,13 +17,11 @@ export const StyledNavbar = styled.nav`
     }
     & .navbar-link {
         text-decoration:none;
-        color: ${({ mode }) => mode.color};
         border:2px solid black;
         padding:10px;
         transition:color, background 0.2s ease-in-out;
         font-size:1.5rem;
         border-radius:10px;
-        border-color: ${({ mode }) => mode.color};
     }
     & .navbar-link:hover{
         color: white;

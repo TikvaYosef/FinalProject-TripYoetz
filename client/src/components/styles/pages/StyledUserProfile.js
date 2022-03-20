@@ -21,8 +21,9 @@ border-style:ridge ;
     width: 20%;
     height: 200px;
     border-radius: 10% ;
+    border-color:black ;
     margin-left: 5px;
-    background-color: white;
+    background-color: none;
     display: flex;
     flex-direction:column;
     align-items: center;
@@ -62,7 +63,6 @@ border-style:ridge ;
      border-radius: 5%;
  }
  .detailsAndTable{
-     background-color: white;
 display: flex;
 flex-wrap: wrap;
  }
