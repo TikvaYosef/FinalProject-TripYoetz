@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { MainContext } from '../../contexts/data-context'
-import { AddHotel, DeleteHotel, GetHotels, UpdateHotel } from '../../services/hotel-services'
-import { GetData } from '../../state-management/actions/categories-actions'
-import { StyledAdmin } from '../styles/pages/StyledAdmin'
+import { MainContext } from '../../../contexts/data-context'
+import { AddHotel, DeleteHotel, GetHotels, UpdateHotel } from '../../../services/hotel-services'
+import { GetData } from '../../../state-management/actions/categories-actions'
+import { StyledAdmin } from '../../styles/pages/StyledAdmin'
 
 const AdminHotels = () => {
     const { hotels, hotelsDispatch } = useContext(MainContext)
@@ -10,49 +10,49 @@ const AdminHotels = () => {
     const [addItem, setaddItem] = useState({})
 
     useEffect(() => {
+        if (hotels && hotels.length === 0) {
+            GetHotels()
+            .then(res => {
+                hotelsDispatch(
+                GetData(res.data)
+              )
+            })
+        }
+      }, [hotelsDispatch, hotels]);
+
+
+    const Delete = (id) => {
+        DeleteHotel(id)
+            .then((res) => { console.log(res) })
         GetHotels()
             .then(res => {
                 hotelsDispatch(
                     GetData(res.data)
                 )
             })
-    }, []);
-
-    const Delete = (id) => {
-        DeleteHotel(id)
-            .then((res) => { console.log(res) })
-            GetHotels()
-            .then(res => {
-                hotelsDispatch(
-                    GetData(res.data)
-                )
-            })
     }
-
     const handleTableOnInput = (event) => {
         updateItem[event.target.name] = event.target.value;
     }
     const handleFormOnInput = (event) => {
         addItem[event.target.name] = event.target.value;
     }
-
     const Update = (id, item) => {
         setupdateItem({ ...item })
         UpdateHotel(id, updateItem)
             .then((res) => { console.log(res) })
-            GetHotels()
+        GetHotels()
             .then(res => {
                 hotelsDispatch(
                     GetData(res.data)
                 )
             })
     }
-
     const Add = () => {
         setaddItem(addItem)
         AddHotel(addItem)
             .then((res) => { console.log(res); })
-            GetHotels()
+        GetHotels()
             .then(res => {
                 hotelsDispatch(
                     GetData(res.data)
@@ -60,11 +60,10 @@ const AdminHotels = () => {
             })
     }
 
-
     return (
         <StyledAdmin>
             <div>
-            <label htmlFor="text">Name</label>
+                <label htmlFor="text">Name</label>
                 <input name='name' onChange={handleFormOnInput} />
 
                 <label htmlFor="text">City</label>
