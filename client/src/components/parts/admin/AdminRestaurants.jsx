@@ -144,7 +144,7 @@ const AdminRestaurants = () => {
                         )
                     }
                 </table>
-            </div>
+          
           
         </StyledAdmin>
     )
