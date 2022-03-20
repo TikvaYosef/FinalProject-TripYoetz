@@ -19,6 +19,7 @@ import ItemPage from "./components/pages/ItemPage";
 import AdminNavbar from "./components/layout/AdminNavbar";
 import AdminRestaurants from "./components/pages/AdminRestaurants";
 import AdminHotels from "./components/pages/AdminHotels";
+import AdminActivities from "./components/pages/AdminActivities";
 
 const AppRouter = () => {
     const { user } = useContext(MainContext);
@@ -48,7 +49,7 @@ const AppRouter = () => {
                             <Routes>
                                 <Route path="/AdminRestaurants" element={<AdminRestaurants />} />
                                 <Route path="/AdminHotels" element={<AdminHotels />} />
-
+                                <Route path="/AdminActivities" element={<AdminActivities />} />
                             </Routes>
                         </>
                         :

@@ -21,7 +21,7 @@ const AdminHotels = () => {
     const Delete = (id) => {
         DeleteHotel(id)
             .then((res) => { console.log(res) })
-            GetHotels()
+        GetHotels()
             .then(res => {
                 hotelsDispatch(
                     GetData(res.data)
@@ -40,7 +40,7 @@ const AdminHotels = () => {
         setupdateItem({ ...item })
         UpdateHotel(id, updateItem)
             .then((res) => { console.log(res) })
-            GetHotels()
+        GetHotels()
             .then(res => {
                 hotelsDispatch(
                     GetData(res.data)
@@ -52,7 +52,7 @@ const AdminHotels = () => {
         setaddItem(addItem)
         AddHotel(addItem)
             .then((res) => { console.log(res); })
-            GetHotels()
+        GetHotels()
             .then(res => {
                 hotelsDispatch(
                     GetData(res.data)
@@ -64,60 +64,63 @@ const AdminHotels = () => {
     return (
         <StyledAdmin>
             <div>
-            <label htmlFor="text">Name</label>
-                <input name='name' onChange={handleFormOnInput} />
+                <div className='form'>
+                <h1 className='title'>Add Hotel</h1>
 
-                <label htmlFor="text">City</label>
-                <input name='city' onChange={handleFormOnInput} />
+                    <label className='label' htmlFor="text">Name</label>
+                    <input className='input' name='name' onChange={handleFormOnInput} />
 
-
-                <label htmlFor="text">Description</label>
-                <input name='description' onChange={handleFormOnInput} />
-
-
-                <label htmlFor="text">images</label>
-                <input name='images' onChange={handleFormOnInput} />
+                    <label className='label' htmlFor="text">City</label>
+                    <input className='input' name='city' onChange={handleFormOnInput} />
 
 
-                <label htmlFor="text">location</label>
-                <input name='location' onChange={handleFormOnInput} />
+                    <label className='label' htmlFor="text">Description</label>
+                    <input className='input' name='description' onChange={handleFormOnInput} />
 
 
-                <label htmlFor="text">phone</label>
-                <input name='phone' onChange={handleFormOnInput} />
+                    <label className='label' htmlFor="text">images</label>
+                    <input className='input' name='images' onChange={handleFormOnInput} />
 
 
-                <label htmlFor="text">comments</label>
-                <input name='comments' onChange={handleFormOnInput} />
+                    <label className='label' htmlFor="text">location</label>
+                    <input className='input' name='location' onChange={handleFormOnInput} />
 
 
-                <label htmlFor="text">greenPass</label>
-                <input name='greenPass' onChange={handleFormOnInput} />
+                    <label className='label' htmlFor="text">phone</label>
+                    <input className='input' name='phone' onChange={handleFormOnInput} />
 
 
-                <label htmlFor="text">rating</label>
-                <input name='rating' onChange={handleFormOnInput} />
+                    <label className='label' htmlFor="text">comments</label>
+                    <input className='input' name='comments' onChange={handleFormOnInput} />
 
 
-                <label htmlFor="text">q_a</label>
-                <input name='q_a' onChange={handleFormOnInput} />
+                    <label className='label' htmlFor="text">greenPass</label>
+                    <input className='input' name='greenPass' onChange={handleFormOnInput} />
 
 
-                <label htmlFor="text">link</label>
-                <input name='link' onChange={handleFormOnInput} />
+                    <label className='label' htmlFor="text">rating</label>
+                    <input className='input' name='rating' onChange={handleFormOnInput} />
+
+
+                    <label className='label' htmlFor="text">q_a</label>
+                    <input className='input' name='q_a' onChange={handleFormOnInput} />
+
+
+                    <label className='label' htmlFor="text">link</label>
+                    <input className='input' name='link' onChange={handleFormOnInput} />
 
 
 
-                <label htmlFor="text">activitiesHours</label>
-                <input name='activitiesHours' onChange={handleFormOnInput} />
+                    <label className='label' htmlFor="text">activitiesHours</label>
+                    <input className='input' name='activitiesHours' onChange={handleFormOnInput} />
 
-                <label htmlFor="number">price</label>
-                <input name='price' onChange={handleFormOnInput} />
+                    <label className='label' htmlFor="number">price</label>
+                    <input className='input' name='price' onChange={handleFormOnInput} />
 
-                <br />
+                    <br />
 
-                <button onClick={() => { Add() }}>Add</button>
-
+                    <button className='button' onClick={() => { Add() }}>Add</button>
+                </div>
                 <table>
                     <tr className='tr'>
                         <td className='td'>Name </td>
