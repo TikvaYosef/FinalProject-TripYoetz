@@ -19,6 +19,8 @@ import AdminRestaurants from "./components/parts/admin/AdminRestaurants";
 import AdminHotels from "./components/parts/admin/AdminHotels";
 import AdminRoutes from "./components/pages/AdminRoutes";
 import AdminProfile from "./components/parts/admin/AdminProfile";
+import AdminNavbar from "./components/layout/AdminNavbar";
+import AdminActivities from "./components/parts/admin/AdminActivities";
 
 const AppRouter = () => {
     const { user } = useContext(MainContext);

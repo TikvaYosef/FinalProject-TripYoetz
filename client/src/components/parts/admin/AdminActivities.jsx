@@ -1,80 +1,77 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { MainContext } from '../../contexts/data-context';
-import { GetRestaurants, DeleteRestaurant, UpdateRestaurant, AddRestaurant } from '../../services/restaurant-services';
-import { GetData } from '../../state-management/actions/categories-actions';
-import { StyledAdmin } from '../styles/pages/StyledAdmin';
+import React, { useContext, useEffect, useState } from 'react'
+import { MainContext } from '../../../contexts/data-context'
+import { AddActivity, DeleteActivity, GetActivities, UpdateActivity } from '../../../services/activity-service'
+import { GetData } from '../../../state-management/actions/categories-actions'
+import { StyledAdmin } from '../../styles/pages/StyledAdmin'
 
-const AdminRestaurants = () => {
-    const { restaurants, restaurantsDispatch } = useContext(MainContext)
+const AdminActivities = () => {
+    const { activities, activitiesDispatch } = useContext(MainContext)
     const [updateItem, setupdateItem] = useState({})
     const [addItem, setaddItem] = useState({})
 
     useEffect(() => {
-        GetRestaurants()
+        GetActivities()
             .then(res => {
-                restaurantsDispatch(
+                activitiesDispatch(
                     GetData(res.data)
                 )
             })
     }, []);
 
     const Delete = (id) => {
-        DeleteRestaurant(id)
+        DeleteActivity(id)
             .then((res) => { console.log(res) })
 
-        GetRestaurants()
+        GetActivities()
             .then(res => {
-                restaurantsDispatch(
+                activitiesDispatch(
                     GetData(res.data)
                 )
             })
     }
+
     const handleTableOnInput = (event) => {
         updateItem[event.target.name] = event.target.value;
     }
     const handleFormOnInput = (event) => {
         addItem[event.target.name] = event.target.value;
     }
+
     const Update = (id, item) => {
         setupdateItem({ ...item })
-        UpdateRestaurant(id, updateItem)
+        UpdateActivity(id, updateItem)
             .then((res) => { console.log(res); })
-
-        GetRestaurants()
+        GetActivities()
             .then(res => {
-                restaurantsDispatch(
+                activitiesDispatch(
                     GetData(res.data)
                 )
             })
     }
+
     const Add = () => {
         setaddItem(addItem)
-        AddRestaurant(addItem)
+        AddActivity(addItem)
             .then((res) => { console.log(res); })
-        GetRestaurants()
+        GetActivities()
             .then(res => {
-                restaurantsDispatch(
+                activitiesDispatch(
                     GetData(res.data)
                 )
             })
     }
-
-
 
     return (
         <StyledAdmin>
             <div>
                 <div className='form'>
-                    <h1 className='title'>Add Restaurant</h1>
+                    <h1 className='title'>Add Activity</h1>
+
                     <label className='label' htmlFor="text">Name</label>
                     <input className='input' name='name' onChange={handleFormOnInput} />
 
                     <label className='label' htmlFor="text">City</label>
                     <input className='input' name='city' onChange={handleFormOnInput} />
-
-
-                    <label className='label' htmlFor="text">Description</label>
-                    <input className='input' name='description' onChange={handleFormOnInput} />
 
 
                     <label className='label' htmlFor="text">images</label>
@@ -114,14 +111,13 @@ const AdminRestaurants = () => {
                     <input className='input' name='activitiesHours' onChange={handleFormOnInput} />
 
                     <br />
+
                     <button className='button' onClick={() => { Add() }}>Add</button>
                 </div>
-
                 <table>
                     <tr className='tr'>
                         <td className='td'>Name</td>
                         <td className='td'>City</td>
-                        <td className='td'>description</td>
                         <td className='td'>images</td>
                         <td className='td'>location</td>
                         <td className='td'>phone</td>
@@ -133,11 +129,10 @@ const AdminRestaurants = () => {
                         <td className='td'>activitiesHours</td>
                     </tr>
                     {
-                        restaurants.map((item) =>
+                        activities.map((item) =>
                             <tr className='tr'>
                                 <td className='td'>{item.name} <input name='name' onChange={handleTableOnInput} /></td>
                                 <td className='td'>{item.city} <input name='city' onChange={handleTableOnInput} /></td>
-                                <td className='description'>{item.description} <input name='description' onChange={handleTableOnInput} /></td>
                                 <td className='td'><img src={item.images} /> <input name='images' onChange={handleTableOnInput} /></td>
                                 <td className='td'>{item.location} <input name='location' onChange={handleTableOnInput} /></td>
                                 <td className='td'>{item.phone}<input name='phone' onChange={handleTableOnInput} /></td>
@@ -157,8 +152,10 @@ const AdminRestaurants = () => {
                         )
                     }
                 </table>
+
             </div>
         </StyledAdmin>
     )
 }
-export default AdminRestaurants
+
+export default AdminActivities
