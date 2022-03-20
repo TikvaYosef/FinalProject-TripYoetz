@@ -1,60 +1,61 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { MainContext } from '../../../contexts/data-context'
-import { AddHotel, DeleteHotel, GetHotels, UpdateHotel } from '../../../services/hotel-services'
-import { GetData } from '../../../state-management/actions/categories-actions'
-import { StyledAdmin } from '../../styles/pages/StyledAdmin'
+import { MainContext } from '../../contexts/data-context'
+import { AddActivity, DeleteActivity, GetActivities, UpdateActivity } from '../../services/activity-service'
+import { GetData } from '../../state-management/actions/categories-actions'
+import { StyledAdmin } from '../styles/pages/StyledAdmin'
 
-const AdminHotels = () => {
-    const { hotels, hotelsDispatch } = useContext(MainContext)
+const AdminActivities = () => {
+    const { activities, activitiesDispatch } = useContext(MainContext)
     const [updateItem, setupdateItem] = useState({})
     const [addItem, setaddItem] = useState({})
 
     useEffect(() => {
-        if (hotels && hotels.length === 0) {
-            GetHotels()
+        GetActivities()
             .then(res => {
-                hotelsDispatch(
-                GetData(res.data)
-              )
+                activitiesDispatch(
+                    GetData(res.data)
+                )
             })
-        }
-      }, [hotelsDispatch, hotels]);
-
+    }, []);
 
     const Delete = (id) => {
-        DeleteHotel(id)
+        DeleteActivity(id)
             .then((res) => { console.log(res) })
-        GetHotels()
+
+        GetActivities()
             .then(res => {
-                hotelsDispatch(
+                activitiesDispatch(
                     GetData(res.data)
                 )
             })
     }
+
     const handleTableOnInput = (event) => {
         updateItem[event.target.name] = event.target.value;
     }
     const handleFormOnInput = (event) => {
         addItem[event.target.name] = event.target.value;
     }
+
     const Update = (id, item) => {
         setupdateItem({ ...item })
-        UpdateHotel(id, updateItem)
-            .then((res) => { console.log(res) })
-        GetHotels()
+        UpdateActivity(id, updateItem)
+            .then((res) => { console.log(res); })
+        GetActivities()
             .then(res => {
-                hotelsDispatch(
+                activitiesDispatch(
                     GetData(res.data)
                 )
             })
     }
+
     const Add = () => {
         setaddItem(addItem)
-        AddHotel(addItem)
+        AddActivity(addItem)
             .then((res) => { console.log(res); })
-        GetHotels()
+        GetActivities()
             .then(res => {
-                hotelsDispatch(
+                activitiesDispatch(
                     GetData(res.data)
                 )
             })
@@ -64,19 +65,13 @@ const AdminHotels = () => {
         <StyledAdmin>
             <div>
                 <div className='form'>
-                <h1 className='title'>Add Hotel</h1>
-                <label htmlFor="text">Name</label>
-                <input name='name' onChange={handleFormOnInput} />
+                    <h1 className='title'>Add Activity</h1>
 
                     <label className='label' htmlFor="text">Name</label>
                     <input className='input' name='name' onChange={handleFormOnInput} />
 
                     <label className='label' htmlFor="text">City</label>
                     <input className='input' name='city' onChange={handleFormOnInput} />
-
-
-                    <label className='label' htmlFor="text">Description</label>
-                    <input className='input' name='description' onChange={handleFormOnInput} />
 
 
                     <label className='label' htmlFor="text">images</label>
@@ -115,37 +110,30 @@ const AdminHotels = () => {
                     <label className='label' htmlFor="text">activitiesHours</label>
                     <input className='input' name='activitiesHours' onChange={handleFormOnInput} />
 
-                    <label className='label' htmlFor="number">price</label>
-                    <input className='input' name='price' onChange={handleFormOnInput} />
-
                     <br />
 
                     <button className='button' onClick={() => { Add() }}>Add</button>
                 </div>
                 <table>
                     <tr className='tr'>
-                        <td className='td'>Name </td>
-                        <td className='td'>City </td>
-                        <td className='td'>description </td>
-                        <td className='td'>images </td>
-                        <td className='td'>location </td>
-                        <td className='td'>phone </td>
-                        <td className='td'>comments </td>
-                        <td className='td'>greenPass </td>
-                        <td className='td'>rating </td>
-                        <td className='td'>q_a </td>
-                        <td className='td'>link </td>
-                        <td className='td'>activitiesHours </td>
-                        {/* <td className='td'>price </td> */}
-
+                        <td className='td'>Name</td>
+                        <td className='td'>City</td>
+                        <td className='td'>images</td>
+                        <td className='td'>location</td>
+                        <td className='td'>phone</td>
+                        <td className='td'>comments</td>
+                        <td className='td'>greenPass</td>
+                        <td className='td'>rating</td>
+                        <td className='td'>q_a</td>
+                        <td className='td'>link</td>
+                        <td className='td'>activitiesHours</td>
                     </tr>
                     {
-                        hotels.map((item) =>
+                        activities.map((item) =>
                             <tr className='tr'>
                                 <td className='td'>{item.name} <input name='name' onChange={handleTableOnInput} /></td>
                                 <td className='td'>{item.city} <input name='city' onChange={handleTableOnInput} /></td>
-                                <td className='description'>{item.description} <input name='description' onChange={handleTableOnInput} /></td>
-                                <td className='images'><img src={item.images} /> <input name='images' onChange={handleTableOnInput} /></td>
+                                <td className='td'><img src={item.images} /> <input name='images' onChange={handleTableOnInput} /></td>
                                 <td className='td'>{item.location} <input name='location' onChange={handleTableOnInput} /></td>
                                 <td className='td'>{item.phone}<input name='phone' onChange={handleTableOnInput} /></td>
                                 <td className='td'>{item.comments.length} <input name='comments' onChange={handleTableOnInput} /></td>
@@ -154,8 +142,6 @@ const AdminHotels = () => {
                                 <td className='td'>{item.q_a.length}<input name='q_a' onChange={handleTableOnInput} /></td>
                                 <td className='td'>{item.link}<input name='link' onChange={handleTableOnInput} /></td>
                                 <td className='td'>{item.activitiesHours}<input name='activitiesHours' onChange={handleTableOnInput} /></td>
-                                {/* <td className='td'>{item.price}<input name='price' onChange={handleTableOnInput} /></td> */}
-
                                 <tr>
                                     <td><button onClick={() => Delete(item._id)}>Delete</button></td>
                                 </tr>
@@ -166,9 +152,10 @@ const AdminHotels = () => {
                         )
                     }
                 </table>
+
             </div>
         </StyledAdmin>
-
     )
 }
-export default AdminHotels
+
+export default AdminActivities

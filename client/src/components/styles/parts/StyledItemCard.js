@@ -12,18 +12,15 @@ export const StyledItemCard = styled.article`
     & .heart-icon-btn{
         cursor: pointer;
         position: absolute;
-        display: flex;
-        justify-content: center;
-        align-items: center;
         padding:8px;
-        left: 2%;
-        top: 10%;
+        left: 3%;
+        top: 12%;
         border-radius:50%;
         background:white;
         border:1px solid black;
     }
     & .heart-icon {
-        font-size:2rem;
+        font-size:1rem;
         color:black;
     }
     & .item-liked {

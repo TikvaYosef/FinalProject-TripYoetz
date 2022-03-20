@@ -69,8 +69,6 @@ const AdminRestaurants = () => {
                 <label htmlFor="text">Name</label>
                 <input name='name' onChange={handleFormOnInput} />
 
-                <label htmlFor="text">City</label>
-                <input name='city' onChange={handleFormOnInput} />
 
                 <label htmlFor="text">Description</label>
                 <input name='description' onChange={handleFormOnInput} />
@@ -104,8 +102,8 @@ const AdminRestaurants = () => {
 
                 <br />
 
-                <button onClick={Add}>Add</button>
-
+                    <button className='button' onClick={() => { Add() }}>Add</button>
+                </div>
                 <table>
                     <tr className='tr'>
                         <td className='td'>Name</td>
@@ -147,6 +145,7 @@ const AdminRestaurants = () => {
                     }
                 </table>
             </div>
+          
         </StyledAdmin>
     )
 }

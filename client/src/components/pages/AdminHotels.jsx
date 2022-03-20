@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { MainContext } from '../../../contexts/data-context'
-import { AddHotel, DeleteHotel, GetHotels, UpdateHotel } from '../../../services/hotel-services'
-import { GetData } from '../../../state-management/actions/categories-actions'
-import { StyledAdmin } from '../../styles/pages/StyledAdmin'
+import { MainContext } from '../../contexts/data-context'
+import { AddHotel, DeleteHotel, GetHotels, UpdateHotel } from '../../services/hotel-services'
+import { GetData } from '../../state-management/actions/categories-actions'
+import { StyledAdmin } from '../styles/pages/StyledAdmin'
 
 const AdminHotels = () => {
     const { hotels, hotelsDispatch } = useContext(MainContext)
@@ -10,16 +10,13 @@ const AdminHotels = () => {
     const [addItem, setaddItem] = useState({})
 
     useEffect(() => {
-        if (hotels && hotels.length === 0) {
-            GetHotels()
+        GetHotels()
             .then(res => {
                 hotelsDispatch(
-                GetData(res.data)
-              )
+                    GetData(res.data)
+                )
             })
-        }
-      }, [hotelsDispatch, hotels]);
-
+    }, []);
 
     const Delete = (id) => {
         DeleteHotel(id)
@@ -31,12 +28,14 @@ const AdminHotels = () => {
                 )
             })
     }
+
     const handleTableOnInput = (event) => {
         updateItem[event.target.name] = event.target.value;
     }
     const handleFormOnInput = (event) => {
         addItem[event.target.name] = event.target.value;
     }
+
     const Update = (id, item) => {
         setupdateItem({ ...item })
         UpdateHotel(id, updateItem)
@@ -48,6 +47,7 @@ const AdminHotels = () => {
                 )
             })
     }
+
     const Add = () => {
         setaddItem(addItem)
         AddHotel(addItem)
@@ -60,13 +60,12 @@ const AdminHotels = () => {
             })
     }
 
+
     return (
         <StyledAdmin>
             <div>
                 <div className='form'>
                 <h1 className='title'>Add Hotel</h1>
-                <label htmlFor="text">Name</label>
-                <input name='name' onChange={handleFormOnInput} />
 
                     <label className='label' htmlFor="text">Name</label>
                     <input className='input' name='name' onChange={handleFormOnInput} />

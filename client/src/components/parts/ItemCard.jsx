@@ -4,7 +4,6 @@ import { getAvgRating } from "../../utils/getAvgRating";
 import { StyledItemCard } from "../styles/parts/StyledItemCard";
 import { MainContext } from "../../contexts/data-context";
 import { verifyUserFavorites, activateHeartIcon, addClassToHeart } from "../../utils/favoritesList-functions";
-import FavoriteIcon from '@mui/icons-material/Favorite';
 
 const ItemCard = ({ product }) => {
     const { user } = useContext(MainContext);
@@ -25,8 +24,8 @@ const ItemCard = ({ product }) => {
                     <h1>{product.name}</h1>
                     <button className="heart-icon-btn" disabled={verifyUserFavorites(user)}
                         onClick={() => activateHeartIcon(heartIcon, product)}>
-                        <FavoriteIcon ref={heartIcon} className={`heart-icon ${addClassToHeart(user,favorites, product)}`}>
-                        </FavoriteIcon>
+                        <i ref={heartIcon} className={`fas fa-heart heart-icon ${addClassToHeart(user,favorites, product)}`}>
+                        </i>
                     </button>
                     <h1>{rating ? `${rating}/10 ${product.rating.length}` : "no rating yet"} </h1>
                     <Link to="/itemPage" state={product._id}>Link</Link>
