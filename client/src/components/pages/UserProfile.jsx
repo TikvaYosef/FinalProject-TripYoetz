@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { MainContext } from "../../contexts/data-context";
 import { StyledUserProfile } from "../styles/pages/StyledUserProfile";
+import EditIcon from '@mui/icons-material/Edit';
 
 const UserProfile = () => {
   const { user } = useContext(MainContext);
@@ -9,13 +10,11 @@ const UserProfile = () => {
 
   return (
     <StyledUserProfile>
+      
       <div className="mainDiv">
         <img className="profileImg" src={user.image} alt="img" />
-        <div className="userActs">
-          <button onClick={() => { console.log(favorites) }}>Favorites <i className="far fa-heart"></i></button>
-        </div>
         <button className="editIcon">
-          <i className="fas fa-edit"> edit profile</i>
+          <i className="fas fa-edit"> <EditIcon/> edit profile</i>
         </button>
       </div>
       <div className="detailsAndTable">
