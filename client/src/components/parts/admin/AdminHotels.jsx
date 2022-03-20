@@ -65,8 +65,8 @@ const AdminHotels = () => {
             <div>
                 <div className='form'>
                 <h1 className='title'>Add Hotel</h1>
-                <label htmlFor="text">Name</label>
-                <input name='name' onChange={handleFormOnInput} />
+                <label className='label' htmlFor="text">Name</label>
+                <input className='input' name='name' onChange={handleFormOnInput} />
 
                     <label className='label' htmlFor="text">Name</label>
                     <input className='input' name='name' onChange={handleFormOnInput} />

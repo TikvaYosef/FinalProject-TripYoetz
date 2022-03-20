@@ -66,39 +66,42 @@ const AdminRestaurants = () => {
     return (
         <StyledAdmin>
             <div>
-                <label htmlFor="text">Name</label>
-                <input name='name' onChange={handleFormOnInput} />
+                <div className='form'>
+                <h1 className='title'>Add Rstaurant</h1>
+
+                <label className='label' htmlFor="text">Name</label>
+                <input className='input' name='name' onChange={handleFormOnInput} />
 
 
-                <label htmlFor="text">Description</label>
-                <input name='description' onChange={handleFormOnInput} />
+                <label className='label' htmlFor="text">Description</label>
+                <input className='input' name='description' onChange={handleFormOnInput} />
 
-                <label htmlFor="text">images</label>
-                <input name='images' onChange={handleFormOnInput} />
+                <label className='label' htmlFor="text">images</label>
+                <input className='input' name='images' onChange={handleFormOnInput} />
 
-                <label htmlFor="text">location</label>
-                <input name='location' onChange={handleFormOnInput} />
+                <label className='label' htmlFor="text">location</label>
+                <input className='input' name='location' onChange={handleFormOnInput} />
 
-                <label htmlFor="text">phone</label>
-                <input name='phone' onChange={handleFormOnInput} />
+                <label className='label' htmlFor="text">phone</label>
+                <input className='input' name='phone' onChange={handleFormOnInput} />
 
-                <label htmlFor="text">comments</label>
-                <input name='comments' onChange={handleFormOnInput} />
+                <label className='label' htmlFor="text">comments</label>
+                <input className='input' name='comments' onChange={handleFormOnInput} />
 
-                <label htmlFor="text">greenPass</label>
-                <input name='greenPass' onChange={handleFormOnInput} />
+                <label className='label' htmlFor="text">greenPass</label>
+                <input className='input' name='greenPass' onChange={handleFormOnInput} />
 
-                <label htmlFor="text">rating</label>
-                <input name='rating' onChange={handleFormOnInput} />
+                <label className='label' htmlFor="text">rating</label>
+                <input className='input' name='rating' onChange={handleFormOnInput} />
 
-                <label htmlFor="text">q_a</label>
-                <input name='q_a' onChange={handleFormOnInput} />
+                <label className='label' htmlFor="text">q_a</label>
+                <input className='input' name='q_a' onChange={handleFormOnInput} />
 
-                <label htmlFor="text">link</label>
-                <input name='link' onChange={handleFormOnInput} />
+                <label className='label' htmlFor="text">link</label>
+                <input className='input' name='link' onChange={handleFormOnInput} />
 
-                <label htmlFor="text">activitiesHours</label>
-                <input name='activitiesHours' onChange={handleFormOnInput} />
+                <label className='label' htmlFor="text">activitiesHours</label>
+                <input className='input' name='activitiesHours' onChange={handleFormOnInput} />
 
                 <br />
 
@@ -144,7 +147,7 @@ const AdminRestaurants = () => {
                         )
                     }
                 </table>
-          
+                </div>
           
         </StyledAdmin>
     )
