@@ -27,14 +27,22 @@ export const StyledCityPageSlider = styled.div`
         color: ${({mode})=> mode.color};
     }
 
-    .slider-images-wrapper{
+
+
+    .slider-box-display{
         position: relative;
         width: 80%;
         height: 100%;
+        overflow: hidden;
+    }
+
+
+    .slider-images-wrapper{
+        height: 100%;
+        position: absolute;
         display: flex;
         align-items:center;
-        gap: 2rem;
-        overflow: auto;
+        gap: 1vw;
         transition: 0.2s ease-in-out;
     }
     .next-img-btn{
@@ -45,6 +53,7 @@ export const StyledCityPageSlider = styled.div`
         width: 15vw;
         height: 100%;
         border-radius: 5px;
+        border: 5px solid black;
         transition: 0.2s ease-in-out;
      }    
     .slider-img:hover{

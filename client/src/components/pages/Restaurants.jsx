@@ -4,6 +4,7 @@ import { GetRestaurants } from "../../services/restaurant-services"
 import { GetDataByName } from "../../state-management/actions/categories-actions"
 import Navbar from '../layout/Navbar';
 import ItemCard from '../parts/ItemCard';
+import { StyledCategoryPage } from '../styles/pages/StyledCategoryPage';
 import { StyledItemsContainer } from '../styles/parts/StyledItemsContainer';
 
 const Restaurants = () => {
@@ -19,9 +20,9 @@ const Restaurants = () => {
     }, [restaurantsDispatch, city]);
 
     return (
-        <>
+        <StyledCategoryPage>
             <Navbar />
-            <h1>Restaurants</h1>
+            <h1 className='category-name-h1'>Restaurants</h1>
             <StyledItemsContainer>
                 {restaurants.length >= 1 ?
                     restaurants.map(product =>
@@ -31,7 +32,7 @@ const Restaurants = () => {
                     <h1>No restaurants found</h1>
                 }
             </StyledItemsContainer>
-        </>
+        </StyledCategoryPage>
     )
 }
 

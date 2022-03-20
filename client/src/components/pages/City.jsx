@@ -1,4 +1,4 @@
-import { useContext, useEffect } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { MainContext } from '../../contexts/data-context';
 import { ThemeContext } from '../../contexts/theme-context';
 import { GetActivities } from '../../services/activity-service';
@@ -9,11 +9,11 @@ import Navbar from '../layout/Navbar';
 import CityImages from '../parts/CityImages';
 import CityPageSlider from '../parts/CityPageSlider';
 import { StyledCity } from '../styles/pages/StyledCity';
-import { StyledCityImages } from '../styles/parts/StyledCityImages';
 
 const City = () => {
     const { city, hotels, activities, restaurants, hotelsDispatch, activitiesDispatch, restaurantsDispatch } = useContext(MainContext);
     const { mode } = useContext(ThemeContext);
+    
     useEffect(() => {
         try {
             GetRestaurants().then(res => {
@@ -39,12 +39,9 @@ const City = () => {
             <article className="city-description">
                 <h1 className="city-description-text">{city.description}</h1>
             </article>
-
             <CityPageSlider category="restaurants" name="Eat" info={`Quintessential ${city.name} restaurants, bars, and beyond.`} items={restaurants} />
             <CityPageSlider category="hotels" name="Stay" info={"A mix of the charming, iconic, and modern."} items={hotels} />
             <CityPageSlider category="activities" name="Do" info={`Places to see, ways to wander, and signature experiences that define ${city.name}.`} items={activities} />
-
-
         </StyledCity>
     )
 }

@@ -1,15 +1,46 @@
 import styled from "styled-components";
 
 export const StyledItemCard = styled.article`
-    width: 20vw;
-    height: 50vh;
+    width: 16vw;
+    height: 30vh;
     display:flex;
     flex-direction:column;
     align-items:center;
-    justify-content:space-evenly;
     position: relative;
+    border-radius:10px;
 
-    & .heart-icon-btn{
+    .card-info{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        align-items: center;
+        width: 100%;
+        height: 30%;
+        font-size:1.5rem;
+        font-weight: 900;
+    }
+    .card-name{
+        text-align: center;
+        width: 100%;
+        font-size:2rem;
+    }
+    .card-rating{
+        font-size:1.5rem;
+    }
+    .card-link{
+        text-decoration: none;
+        color: ${({mode})=>mode.color};
+        background: ${({mode})=>mode.background};
+        transition: 0.2s ease-in-out;
+        padding: 3px;
+    }
+    .card-link:hover{
+        color: ${({mode})=>mode.background};
+        background: ${({mode})=>mode.color};
+    }
+
+
+    .heart-icon-btn{
         cursor: pointer;
         position: absolute;
         display: flex;
@@ -17,24 +48,25 @@ export const StyledItemCard = styled.article`
         align-items: center;
         padding:8px;
         left: 2%;
-        top: 10%;
+        top: 2%;
         border-radius:50%;
         background:white;
-        border:1px solid black;
+        border:2px solid black;
     }
-    & .heart-icon {
+    .heart-icon {
         font-size:2rem;
         color:black;
     }
-    & .item-liked {
+    .item-liked {
         color: red;
     }
-    & .image {
+    .image {
+        border-radius: inherit;
         width: 100%;
-        height: 50%;
+        height: 70%;
     }
 
-    & .description {
+    .description {
         height: 50%;
         overflow:auto;
     }
