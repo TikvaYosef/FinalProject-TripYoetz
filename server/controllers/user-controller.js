@@ -39,5 +39,19 @@ module.exports = {
         catch (err) {
             res.status(500).json({ success: false, message: err.message });
         };
+    },
+    Updateuser: async (req, res) => {
+        try {
+            
+            if (await users.exists({ _id: req.params.id })) {
+                return await users.findByIdAndUpdate(req.params.id, req.body)
+                    .then(() => res.status(200).json({ success: true, message: "user updated successfully" }))
+                    .catch((err) => res.status(400).json({ success: false, message: err.message }))
+            }
+            res.status(404).json({ success: false, message: "no user found" });
+        }
+        catch (err) {
+            res.status(500).json({ success: false, message: err.message });
+        }
     }
 };

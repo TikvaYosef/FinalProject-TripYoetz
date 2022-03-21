@@ -14,8 +14,17 @@ flex-wrap: wrap ;
 color: white;
 text-shadow:  2px 2px black;
 }
+form{
+    margin-left: 40%;
+    margin-top: 0%;
+    text-align: center;
+  display:flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  width:20% ;
+  height:20% ;
+}  
 .userDetails{
-    
 border-style:ridge ;
     margin-top: 5% ;
     width: 20%;
