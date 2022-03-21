@@ -1,4 +1,5 @@
 import { StyledAbout } from '../styles/pages/StyledAbout';
+import ArrowCircleDownIcon from '@mui/icons-material/ArrowCircleDown';
 
 const About = () => {
     return (
@@ -51,7 +52,7 @@ const About = () => {
                     <br />
                     <div>
                         <h1>for more projects</h1>
-                        {/* <button className='open-footer-btn' onClick={() => { toggleFooter() }}><ArrowCircleDownIcon /></button> */}
+                    <ArrowCircleDownIcon />
                     </div>
                 </div>
             </section>
