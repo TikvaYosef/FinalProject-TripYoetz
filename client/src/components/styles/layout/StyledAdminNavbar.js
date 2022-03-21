@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledAdminNavbar = styled.nav`
+export const StyledAdminNavbar = styled.ul`
     grid-area:nav;
     position: sticky;
     top: 0;
