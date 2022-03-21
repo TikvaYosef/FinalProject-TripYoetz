@@ -21,19 +21,36 @@ text-align: center;
     justify-content: space-around;
     margin-top: 50px;
 }
-
 & .data{
     border: 2px solid black;
     border-radius: 10px;
+    color: black;
+}
+& .data:hover{
+background-color:  gray;
+
 }
 & .aboutus{
     border: 2px solid black;
     border-radius: 10px;
-    margin-top: 50px;
-
-  
+    margin-top: 50px; 
 }
-& .phone{
+& .aboutTheSite{
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-weight:bold;
+  font-size: 12px;
+}
+& .BoxTitle{
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-weight:bold;
+  font-size: 15px; 
+}
+& .littelTitle{
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 12px;
+}
+  
+ & .phone{
   display:flex ;
   flex-direction: row;
   justify-content: center;
@@ -49,7 +66,14 @@ height: 20px;
     height: 30px; 
 }
 
-    
-
+& .infoAboutUs{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}  
+& .downArrow{
+  height: 40px;
+  width: 50px;
+}
 `
 
