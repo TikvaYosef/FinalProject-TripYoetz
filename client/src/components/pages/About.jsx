@@ -1,7 +1,4 @@
-import React from 'react'
 import { StyledAbout } from '../styles/pages/StyledAbout';
-import ArrowCircleDownIcon from '@mui/icons-material/ArrowCircleDown';
-
 
 const About = () => {
     return (
@@ -21,7 +18,7 @@ const About = () => {
                     <div className='data'>
                         <h1 className='BoxTitle'>Contact Us</h1>
                         <h4 className='littelTitle'>Location</h4>
-                        <img src="" alt="" />
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d846.3125351330848!2d34.89101144280896!3d31.95410998709867!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1siw!2sil!4v1647873990485!5m2!1siw!2sil" width="400" height="300" style={{border:0}} allowfullscreen="" loading="lazy"></iframe>
                         <div className='phone'>
                             <h4 className='littelTitle'>Phone</h4>
                         </div>
@@ -44,7 +41,6 @@ const About = () => {
                             <h4>Tikva</h4>
                             <p>26 years old</p>
                             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.<br /> Inventore accusamus natus cumque consectetur eligendi id non recusandae ullam rem.<br /> Reiciendis earum nemo esse perspiciatis saepe praesentium dolore impedit error alias.</p>
-
                         </div>
                         <div>
                             <h4>Marcos</h4>
@@ -55,11 +51,11 @@ const About = () => {
                     <br />
                     <div>
                         <h1>for more projects</h1>
-                        <button className='downArrow'><ArrowCircleDownIcon /></button>
+                        {/* <button className='open-footer-btn' onClick={() => { toggleFooter() }}><ArrowCircleDownIcon /></button> */}
                     </div>
                 </div>
             </section>
-            <img src="" alt="" />
+      
         </StyledAbout>
     )
 }

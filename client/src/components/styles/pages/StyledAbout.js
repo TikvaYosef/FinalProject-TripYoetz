@@ -56,7 +56,6 @@ background-color:  gray;
   justify-content: center;
 
 }
-
 & .imgphone{
 width: 15px;
 height: 20px;
@@ -75,5 +74,6 @@ height: 20px;
   height: 40px;
   width: 50px;
 }
+
 `
 
