@@ -6,11 +6,29 @@ import { MainContext } from "../../contexts/data-context";
 import { verifyUserFavorites, activateHeartIcon, addClassToHeart } from "../../utils/favoritesList-functions";
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import { ThemeContext } from "../../contexts/theme-context";
+import Box from '@mui/material/Box';
+import Rating from '@mui/material/Rating';
+import StarIcon from '@mui/icons-material/Star';
+
+const labels = {
+    0.5: 'Useless',
+    1: 'Useless+',
+    1.5: 'Poor',
+    2: 'Poor+',
+    2.5: 'Ok',
+    3: 'Ok+',
+    3.5: 'Good',
+    4: 'Good+',
+    4.5: 'Excellent',
+    5: 'Excellent+',
+};
+
 
 const ItemCard = ({ product }) => {
     const { user } = useContext(MainContext);
-    const {mode} = useContext(ThemeContext);
+    const { mode } = useContext(ThemeContext);
     const [rating, setRating] = useState(0);
+    const [value, setValue] = useState(2);
     const heartIcon = useRef();
 
     const favorites = JSON.parse(localStorage.getItem("favorites"));
@@ -23,7 +41,6 @@ const ItemCard = ({ product }) => {
         <StyledItemCard mode={mode}>
             {product &&
                 <>
-                    <img className="image" src={product.images[0]} alt="item-img" />
                     <button className="heart-icon-btn" disabled={verifyUserFavorites(user)}
                         onClick={() => activateHeartIcon(heartIcon, product)}>
                         <FavoriteIcon ref={heartIcon} className={`heart-icon ${addClassToHeart(user, favorites, product)}`}>
@@ -31,9 +48,14 @@ const ItemCard = ({ product }) => {
                     </button>
                     <div className="card-info">
                         <h1 className="card-name">{product.name}</h1>
-                        <h1 className="card-rating">{rating ? `${rating}/10 - ${product.rating.length}` : "no rating yet"} </h1>
+                        <Box className="rating" sx={{ '& > legend': { mt: 2 } }}>
+                            <p className="votes-number">{rating ? `${product.rating.length} votes` : "no rating yet"}</p>
+                            <Rating className="rating" name="text-feedback" value={rating} precision={0.5} readOnly emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />} />
+                            <Box>{labels[rating]}</Box>
+                        </Box>
                         <Link className="card-link" to="/itemPage" state={product._id}>View</Link>
                     </div>
+                    <img className="image" src={product.images[0]} alt="item-img" />
                 </>
             }
         </StyledItemCard>

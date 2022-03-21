@@ -1,4 +1,4 @@
-import React, { useContext, useRef, useState } from 'react'
+import { useContext, useState } from 'react'
 import { Link } from 'react-router-dom';
 import { ThemeContext } from '../../contexts/theme-context';
 import { StyledCityPageSlider } from '../styles/parts/StyledCityPageSlider';
@@ -31,7 +31,7 @@ const CityPageSlider = ({ category, name, info, items }) => {
                         items && items.length >= 1
                             ?
                             items.map((item) =>
-                                <Link className='slider-card' to="/itemPage" state={item._id}>
+                                <Link className='slider-card' to="/itemPage" state={item._id} key={item._id}>
                                     <h1 className='slider-card-name'>{item.name}</h1>
                                     <img className='slider-img' key={item._id} src={item.images[0]} alt="img" />
                                 </Link>
