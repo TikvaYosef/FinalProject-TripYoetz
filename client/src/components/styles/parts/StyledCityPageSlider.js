@@ -7,6 +7,7 @@ export const StyledCityPageSlider = styled.div`
     align-items: center;
     flex-wrap: wrap;
 
+    
     .slider-info-wrapper{
         width: 20%;
         height: 100%;
