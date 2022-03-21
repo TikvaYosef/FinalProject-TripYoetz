@@ -43,3 +43,4 @@ const CityPageSlider = ({ category, name, info, items }) => {
 };
 
 export default CityPageSlider;
+
