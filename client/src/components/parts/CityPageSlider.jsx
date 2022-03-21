@@ -13,6 +13,7 @@ const CityPageSlider = ({ category, name, info, items }) => {
         sliderRef.current.style.left = `-${left}vw`;
     }
 
+    
     return (
         <StyledCityPageSlider mode={mode}>
 
