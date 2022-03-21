@@ -19,7 +19,6 @@ import AdminRestaurants from "./components/parts/admin/AdminRestaurants";
 import AdminHotels from "./components/parts/admin/AdminHotels";
 import AdminRoutes from "./components/pages/AdminRoutes";
 import AdminProfile from "./components/parts/admin/AdminProfile";
-import AdminNavbar from "./components/layout/AdminNavbar";
 import AdminActivities from "./components/parts/admin/AdminActivities";
 
 const AppRouter = () => {
@@ -42,31 +41,6 @@ const AppRouter = () => {
         <BrowserRouter>
             <Header />
             <Container>
-                {
-                    user.isAdmin ?
-                        <>
-                            <AdminNavbar />
-                            <Routes>
-                                <Route path="/AdminRestaurants" element={<AdminRestaurants />} />
-                                <Route path="/AdminHotels" element={<AdminHotels />} />
-                                <Route path="/AdminActivities" element={<AdminActivities />} />
-                            </Routes>
-                        </>
-                        :
-                        <Routes>
-                            <Route exact path="/" element={<Home />} />
-                            <Route exact path="/about" element={<About />} />
-                            <Route exact path="/cities" element={<City />} />
-                            <Route exact path="/hotels" element={<Hotels />} />
-                            <Route exact path="/activities" element={<Activities />} />
-                            <Route exact path="/restaurants" element={<Restaurants />} />
-                            <Route exact path="/itemPage" element={<ItemPage />} />
-                            <Route exact path="/register/*" element={<PrivateRouteRegister />} />
-                            <Route exact path="/login/*" element={<PrivateRouteLogin />} />
-                            <Route exact path="/profile/*" element={<PrivateRoute />} />
-                            <Route path="*" element={<NotFound />} />
-                        </Routes>
-                }
                 <Routes>
                     <Route exact path="/" element={<Home />} />
                     <Route exact path="/about" element={<About />} />
@@ -81,6 +55,7 @@ const AppRouter = () => {
                         <Route index element={<AdminProfile />} />
                         <Route path="AdminRestaurants" element={<AdminRestaurants />} />
                         <Route path="AdminHotels" element={<AdminHotels />} />
+                        <Route path="AdminActivities" element={<AdminActivities />} />
                     </Route>
                     <Route path="*" element={<NotFound />} />
                 </Routes>

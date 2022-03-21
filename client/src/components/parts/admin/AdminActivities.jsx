@@ -10,12 +10,14 @@ const AdminActivities = () => {
     const [addItem, setaddItem] = useState({})
 
     useEffect(() => {
-        GetActivities()
-            .then(res => {
-                activitiesDispatch(
-                    GetData(res.data)
-                )
-            })
+        if (activities.length === 0) {
+            GetActivities()
+                .then(res => {
+                    activitiesDispatch(
+                        GetData(res.data)
+                    )
+                })
+        }
     }, []);
 
     const Delete = (id) => {

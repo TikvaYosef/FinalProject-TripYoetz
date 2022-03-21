@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from 'react';
 import { MainContext } from '../../contexts/data-context';
+import { ThemeContext } from '../../contexts/theme-context';
 import { GetActivities } from '../../services/activity-service';
 import { GetHotels } from '../../services/hotel-services';
 import { GetRestaurants } from '../../services/restaurant-services';
@@ -11,6 +12,9 @@ import { StyledCity } from '../styles/pages/StyledCity';
 
 const City = () => {
     const { city, hotels, activities, restaurants, hotelsDispatch, activitiesDispatch, restaurantsDispatch } = useContext(MainContext);
+    const { mode } = useContext(ThemeContext);
+
+
     useEffect(() => {
         try {
             GetRestaurants().then(res => {
@@ -29,8 +33,8 @@ const City = () => {
 
 
     return (
-        <StyledCity>
-            <h1>Discover <span className='city-name-h1'>{city.name}</span></h1>
+        <StyledCity mode={mode}>
+            <h1 className='city-name-h1'>Discover <span className='city-name-span'>{city.name}</span></h1>
             <Navbar />
             <CityImages images={city.images} />
             <article className="city-description">
@@ -41,5 +45,5 @@ const City = () => {
             <CityPageSlider category="activities" name="Do" info={`Places to see, ways to wander, and signature experiences that define ${city.name}.`} items={activities} />
         </StyledCity>
     )
-}
-export default City
+};
+export default City;

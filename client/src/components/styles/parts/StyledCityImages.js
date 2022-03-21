@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const StyledCityImages = styled.article`
-    width: 65%;
+    width: 70%;
     margin:auto;
     height: 45vh;
     display:grid;
@@ -11,23 +11,27 @@ export const StyledCityImages = styled.article`
     grid-template-columns: 50% 50%;
     grid-template-rows: 50% 50%;
     
-    & img{
+    .city-img{
         width: 100%;
         height: 100%;
         border: 1px solid white;
+        transition: 0.2s ease-in-out;
     }
-
-    & .main-img{
+    .city-img:hover{
+        filter:brightness(130%);
+    }
+    
+    .main-img{
         grid-area:main-img;
         width: 100%;
         height: 100%;
     }
-    & .one{
+    .one{
         grid-area:one;
         width: 100%;
         height: 100%;
     }
-    & .two{
+    .two{
         grid-area:two;
         width: 100%;
         height: 100%;
