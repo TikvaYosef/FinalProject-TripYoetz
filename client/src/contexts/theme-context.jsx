@@ -13,8 +13,8 @@ export const themes = {
         background: "#222831"
     },
     red_yellow: {
-        color: "#f8f398",
-        background: "#dc2f2f"
+        color: "black",
+        background: "wheat"
     },
     purple_pink: {
         color: "#f5c7f7",
