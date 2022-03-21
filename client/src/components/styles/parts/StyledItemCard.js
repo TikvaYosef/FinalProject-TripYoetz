@@ -1,21 +1,34 @@
 import styled from "styled-components";
 
 export const StyledItemCard = styled.article`
-    width: 16vw;
-    height: 30vh;
+    /* width: 16vw; */
+    width: 100%;
+    height: 25vh;
     display:flex;
-    flex-direction:column;
     align-items:center;
     position: relative;
-    border-radius:10px;
+    border-radius:5px;
+    border: 1px solid ${({mode})=>mode.color};
 
+
+    .rating{
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 3rem;
+    }
+    .votes-number{
+        font-size: 1.5rem;
+    }
     .card-info{
         display: flex;
+        flex-direction: column;
         flex-wrap: wrap;
         justify-content: space-evenly;
         align-items: center;
-        width: 100%;
-        height: 30%;
+        width: 70%;
+        height: 100%;
         font-size:1.5rem;
         font-weight: 900;
     }
@@ -44,11 +57,14 @@ export const StyledItemCard = styled.article`
         cursor: pointer;
         position: absolute;
         padding:8px;
-        left: 2%;
-        top: 2%;
+        left: 10px;
+        top: 10px;
         border-radius:50%;
         background:white;
         border:2px solid black;
+        display: flex;
+        justify-content:center;
+        align-items: center;
     }
     .heart-icon {
         font-size:2rem;
@@ -59,8 +75,8 @@ export const StyledItemCard = styled.article`
     }
     .image {
         border-radius: inherit;
-        width: 100%;
-        height: 70%;
+        width: 30%;
+        height: 100%;
     }
 
     .description {
