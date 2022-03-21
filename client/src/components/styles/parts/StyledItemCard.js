@@ -43,9 +43,6 @@ export const StyledItemCard = styled.article`
     .heart-icon-btn{
         cursor: pointer;
         position: absolute;
-        display: flex;
-        justify-content: center;
-        align-items: center;
         padding:8px;
         left: 2%;
         top: 2%;

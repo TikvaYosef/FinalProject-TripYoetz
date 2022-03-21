@@ -2,18 +2,20 @@ import React, { useContext, useRef, useState } from 'react'
 import { Link } from 'react-router-dom';
 import { ThemeContext } from '../../contexts/theme-context';
 import { StyledCityPageSlider } from '../styles/parts/StyledCityPageSlider';
+import ArrowCircleRightIcon from '@mui/icons-material/ArrowCircleRight';
+import ArrowCircleLeftIcon from '@mui/icons-material/ArrowCircleLeft';
 
 const CityPageSlider = ({ category, name, info, items }) => {
     const { mode } = useContext(ThemeContext);
-    const [left, setLeft] = useState(16);
-    const sliderRef = useRef();
+    const [left, setLeft] = useState(0);
 
-    const handleSlider = () => {
+    const handleSliderNext = () => {
         setLeft(left + 16);
-        sliderRef.current.style.left = `-${left}vw`;
+    }
+    const handleSliderPrev = () => {
+        setLeft(left - 16);
     }
 
-    
     return (
         <StyledCityPageSlider mode={mode}>
 
@@ -24,20 +26,31 @@ const CityPageSlider = ({ category, name, info, items }) => {
             </div>
 
             <div className='slider-box-display'>
-                <div style={{ left: "0vw" }} ref={sliderRef} className='slider-images-wrapper'>
+                <div style={{ left: `-${left}vw` }} className='slider-images-wrapper'>
                     {
                         items && items.length >= 1
                             ?
-                            items.map(item =>
-                                <img className='slider-img' key={item._id} src={item.images[0]} alt="img" />
+                            items.map((item) =>
+                                <Link className='slider-card' to="/itemPage" state={item._id}>
+                                    <h1 className='slider-card-name'>{item.name}</h1>
+                                    <img className='slider-img' key={item._id} src={item.images[0]} alt="img" />
+                                </Link>
                             )
                             :
                             null
                     }
+                    <div className='end-slider'>
+                        <Link className="slider-link" to={`/${category}`}>view all</Link>
+                    </div>
                 </div>
             </div>
 
-            <button onClick={handleSlider} className='next-img-btn'>next</button>
+            <button disabled={left === 48} onClick={handleSliderNext} className='next-img-btn'>
+                <ArrowCircleRightIcon className="arrow-icon" />
+            </button>
+            <button disabled={left === 0} onClick={handleSliderPrev} className='prev-img-btn'>
+                <ArrowCircleLeftIcon className="arrow-icon" />
+            </button>
         </StyledCityPageSlider>
     );
 };

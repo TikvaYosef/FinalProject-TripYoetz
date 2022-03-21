@@ -45,18 +45,74 @@ export const StyledCityPageSlider = styled.div`
         gap: 1vw;
         transition: 0.2s ease-in-out;
     }
-    .next-img-btn{
+    .next-img-btn, .prev-img-btn{
+        cursor: pointer;
         position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        border: 2px solid ${({mode})=> mode.color};
+        color: ${({mode})=> mode.color};
+        background: ${({mode})=> mode.background};
+        transition: 0.2s ease-in-out;
+    }
+    .next-img-btn{
         right: 2%;
     }
-    .slider-img{ 
+    .prev-img-btn{
+        right: 5%;
+    }
+
+    .next-img-btn:disabled, .prev-img-btn:disabled{
+        border-color: darkGray;
+        color: darkGray;
+        background: darkWhite;
+    }
+    .arrow-icon{
+        font-size: 3rem;
+    }
+
+    .slider-card{
         width: 15vw;
         height: 100%;
         border-radius: 5px;
-        border: 5px solid black;
+        border: 2px solid black;
+        transition: 0.2s ease-in-out;
+        position: relative;
+        display: flex;
+        justify-content: center;
+    }
+    .slider-card-name{
+        text-shadow: 0 0 5px black;
+        text-align: center;
+        font-size: 2rem;
+        font-weight:900;
+        color: white;
+        position: absolute;
+        z-index:2;
+    }
+
+    .slider-img{ 
+        width: 100%;
+        height: 100%;
         transition: 0.2s ease-in-out;
      }    
     .slider-img:hover{
         filter:brightness(120%);
     }
+
+    .end-slider{
+        position: absolute;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        width: 15vw;
+        border: 5px solid black;
+        border-radius: 50px;
+        left: 96vw;
+    }
+
+
 `
