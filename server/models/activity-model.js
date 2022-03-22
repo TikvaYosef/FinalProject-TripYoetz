@@ -7,11 +7,12 @@ const Activity = new mongoose.Schema({
     phone: { type: String, required: true },
     activitiesHours: { type: String, required: true },
     images: { type: Array, required: true },
-    comments: { type: Array, required: true },
+    comments: { type: Array },
     greenPass: { type: Boolean, required: true },
-    rating: { type: Array, required: true },
-    q_a: { type: Array, required: true },
-    link: { type: String, required: true }
+    rating: { type: Array},
+    q_a: {type: Array} ,
+    link: { type: String, required: true },
+    price: { type: Array},
 },
     { timestamps: true }
 );

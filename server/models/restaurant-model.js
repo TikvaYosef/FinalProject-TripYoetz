@@ -7,12 +7,14 @@ const Restaurant = new mongoose.Schema({
     images: { type: Array, required: true },
     location: { type: String, required: true },
     phone: { type: String, required: true },
-    comments: { type: Array, required: true },
+    comments: { type: Array},
     greenPass: { type: Boolean, required: true },
-    rating: { type: Array, required: true },
-    q_a: { type: Array, required: true },
+    rating: { type: Array},
+    q_a: { type: Array },
     link: { type: String, required: true },
-    activitiesHours: { type: String, required: true }
+    activitiesHours: { type: String, required: true },
+    price: { type: Array},
+
 },
     { timestamps: true }
 );

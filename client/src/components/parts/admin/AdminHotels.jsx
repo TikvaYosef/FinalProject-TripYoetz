@@ -48,7 +48,8 @@ const AdminHotels = () => {
                 )
             })
     }
-    const Add = () => {
+    const Add = (e) => {
+        e.preventDefault()
         setaddItem(addItem)
         AddHotel(addItem)
             .then((res) => { console.log(res); })
@@ -63,15 +64,12 @@ const AdminHotels = () => {
     return (
         <StyledAdmin>
             <div>
-                <div className='form'>
+                <form className='form' onSubmit={Add}>
                 <h1 className='title'>Add Hotel</h1>
-                <label className='label' htmlFor="text">Name</label>
+                <label className='label' htmlFor="text">name</label>
                 <input className='input' name='name' onChange={handleFormOnInput} />
 
-                    <label className='label' htmlFor="text">Name</label>
-                    <input className='input' name='name' onChange={handleFormOnInput} />
-
-                    <label className='label' htmlFor="text">City</label>
+                    <label className='label' htmlFor="text">city</label>
                     <input className='input' name='city' onChange={handleFormOnInput} />
 
 
@@ -115,13 +113,10 @@ const AdminHotels = () => {
                     <label className='label' htmlFor="text">activitiesHours</label>
                     <input className='input' name='activitiesHours' onChange={handleFormOnInput} />
 
-                    <label className='label' htmlFor="number">price</label>
-                    <input className='input' name='price' onChange={handleFormOnInput} />
-
                     <br />
 
-                    <button className='button' onClick={() => { Add() }}>Add</button>
-                </div>
+                    <button className='button'>Add</button>
+                </form>
                 <table>
                     <tr className='tr'>
                         <td className='td'>Name </td>
@@ -136,7 +131,6 @@ const AdminHotels = () => {
                         <td className='td'>q_a </td>
                         <td className='td'>link </td>
                         <td className='td'>activitiesHours </td>
-                        {/* <td className='td'>price </td> */}
 
                     </tr>
                     {
@@ -154,8 +148,6 @@ const AdminHotels = () => {
                                 <td className='td'>{item.q_a.length}<input name='q_a' onChange={handleTableOnInput} /></td>
                                 <td className='td'>{item.link}<input name='link' onChange={handleTableOnInput} /></td>
                                 <td className='td'>{item.activitiesHours}<input name='activitiesHours' onChange={handleTableOnInput} /></td>
-                                {/* <td className='td'>{item.price}<input name='price' onChange={handleTableOnInput} /></td> */}
-
                                 <tr>
                                     <td><button onClick={() => Delete(item._id)}>Delete</button></td>
                                 </tr>

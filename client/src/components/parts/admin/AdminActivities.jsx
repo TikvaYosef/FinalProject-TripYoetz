@@ -51,7 +51,8 @@ const AdminActivities = () => {
             })
     }
 
-    const Add = () => {
+    const Add = (e) => {
+        e.preventDefault()
         setaddItem(addItem)
         AddActivity(addItem)
             .then((res) => { console.log(res); })
@@ -66,7 +67,7 @@ const AdminActivities = () => {
     return (
         <StyledAdmin>
             <div>
-                <div className='form'>
+                <form className='form' onSubmit={Add} >
                     <h1 className='title'>Add Activity</h1>
 
                     <label className='label' htmlFor="text">Name</label>
@@ -75,47 +76,37 @@ const AdminActivities = () => {
                     <label className='label' htmlFor="text">City</label>
                     <input className='input' name='city' onChange={handleFormOnInput} />
 
-
                     <label className='label' htmlFor="text">images</label>
                     <input className='input' name='images' onChange={handleFormOnInput} />
-
 
                     <label className='label' htmlFor="text">location</label>
                     <input className='input' name='location' onChange={handleFormOnInput} />
 
-
                     <label className='label' htmlFor="text">phone</label>
                     <input className='input' name='phone' onChange={handleFormOnInput} />
-
 
                     <label className='label' htmlFor="text">comments</label>
                     <input className='input' name='comments' onChange={handleFormOnInput} />
 
-
                     <label className='label' htmlFor="text">greenPass</label>
                     <input className='input' name='greenPass' onChange={handleFormOnInput} />
-
 
                     <label className='label' htmlFor="text">rating</label>
                     <input className='input' name='rating' onChange={handleFormOnInput} />
 
-
                     <label className='label' htmlFor="text">q_a</label>
                     <input className='input' name='q_a' onChange={handleFormOnInput} />
 
-
                     <label className='label' htmlFor="text">link</label>
                     <input className='input' name='link' onChange={handleFormOnInput} />
-
-
 
                     <label className='label' htmlFor="text">activitiesHours</label>
                     <input className='input' name='activitiesHours' onChange={handleFormOnInput} />
 
                     <br />
 
-                    <button className='button' onClick={() => { Add() }}>Add</button>
-                </div>
+                    <button className='button'>Add</button>
+                </form>
                 <table>
                     <tr className='tr'>
                         <td className='td'>Name</td>

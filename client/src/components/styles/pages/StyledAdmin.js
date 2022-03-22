@@ -6,7 +6,8 @@ export const StyledAdmin = styled.table`
     height: 50%;
     border: 1px solid;
     border-collapse: collapse;
-    overflow-x: hidden;
+    /* overflow-x: hidden;
+    overflow-y: hidden; */
 .tr{
     width:40%;
     height: 5%;
@@ -25,7 +26,7 @@ export const StyledAdmin = styled.table`
     width:30%;
     height: 3%;
     border: 1px solid;
-    overflow-y:hidden;
+   
 }
 & .images{
     border: 1px solid;
