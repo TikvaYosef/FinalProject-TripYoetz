@@ -99,6 +99,45 @@ justify-content: space-evenly;
     margin-left: 10%
 }
 .userDetails ul{
+    margin-top: 4%;
+    margin-left: 12%;
+    font-size: 1rem;
+}
+form{
+  width:50% ;
+}  
+form h1{
+    font-size: 1.5rem;
+}
+ .editIcon{
+    margin-left: 3%;
+        width: 30%;
+    margin-left:70%
+}
+.profileImg{   
+    margin-left:79%;
+    width:20%
+}
+table{
+    font-size: 1.2rem;
+}
+}
+@media  only screen  and (max-width:376px){
+    table {
+      font-size:3rem;
+  width: 50%;
+}
+.userDetails{
+    margin-top: 5% ;
+    width: 40%;
+    height: 20%;
+}
+.userDetails h1{
+    font-size: 1.2rem;
+    margin-top: 6%;
+    margin-left: 10%
+}
+.userDetails ul{
     /* list-style: none; */
     margin-top: 4%;
     margin-left: 12%;
@@ -122,5 +161,76 @@ form h1{
 table{
     font-size: 1.2rem;
 }
- }
+}
+@media  only screen  and (max-width:426px){
+    table {
+      font-size:3rem;
+  width: 50%;
+}
+.userDetails{
+    margin-top: 5% ;
+    width: 40%;
+    height: 20%;
+}
+.userDetails h1{
+    font-size: 1.2rem;
+    margin-top: 6%;
+    margin-left: 10%
+}
+.userDetails ul{
+    /* list-style: none; */
+    margin-top: 4%;
+    margin-left: 12%;
+    font-size: 1rem;
+}
+form{
+  width:50% ;
+}  
+form h1{
+    font-size: 1.5rem;
+}
+ .editIcon{
+    margin-left: 3%;
+        width: 30%;
+    margin-left:70%
+}
+.profileImg{   
+    margin-left:79%;
+    width:20%
+}
+table{
+    font-size: 1.2rem;
+}
+}
+@media  only screen  and (max-width:769px){
+     table {
+      font-size:1.8rem;
+  width:30%;
+}
+.userDetails{
+    margin-top: 5% ;
+    width: 30%;
+    height: 20%;
+}
+
+.userDetails h1{
+    font-size: 2.5rem;
+    margin-top: 6%;
+    margin-left: 10%
+}
+.userDetails ul{
+    margin-left: 10%;
+    font-size: 1.8rem;
+}
+
+ .editIcon{
+        width: 15%;
+    margin-left:85%
+}
+
+.profileImg{   
+    margin-left:85%;
+    width:15%
+}
+}
 `;
