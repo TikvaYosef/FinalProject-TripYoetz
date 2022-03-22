@@ -50,7 +50,8 @@ const AdminRestaurants = () => {
                 )
             })
     }
-    const Add = () => {
+    const Add = (e) => {
+        e.preventDefault()
         setaddItem(addItem)
         AddRestaurant(addItem)
             .then((res) => { console.log(res); })
@@ -66,12 +67,14 @@ const AdminRestaurants = () => {
     return (
         <StyledAdmin>
             <div>
-                <form className='form'>
+                <form className='form' onSubmit={Add}>
                 <h1 className='title'>Add Rstaurant</h1>
 
                 <label className='label' htmlFor="text">Name</label>
                 <input className='input' name='name' onChange={handleFormOnInput} />
 
+                <label className='label' htmlFor="text">city</label>
+                <input className='input' name='city' onChange={handleFormOnInput} />
 
                 <label className='label' htmlFor="text">Description</label>
                 <input className='input' name='description' onChange={handleFormOnInput} />
@@ -105,12 +108,12 @@ const AdminRestaurants = () => {
 
                 <br />
 
-                    <button className='button' onClick={() => { Add() }}>Add</button>
+                    <button className='button'>Add</button>
                 </form>
                 <table>
                     <tr className='tr'>
-                        <td className='td'>Name</td>
-                        <td className='td'>City</td>
+                        <td className='td'>name</td>
+                        <td className='td'>city</td>
                         <td className='td'>description</td>
                         <td className='td'>images</td>
                         <td className='td'>location</td>
@@ -128,7 +131,7 @@ const AdminRestaurants = () => {
                                 <td className='td'>{item.name} <input name='name' onChange={handleTableOnInput} /></td>
                                 <td className='td'>{item.city} <input name='city' onChange={handleTableOnInput} /></td>
                                 <td className='description'>{item.description} <input name='description' onChange={handleTableOnInput} /></td>
-                                <td className='td'><img src={item.images} /> <input name='images' onChange={handleTableOnInput} /></td>
+                                {/* <td className='td'><img src={item.images} /> <input name='images' onChange={handleTableOnInput} /></td> */}
                                 <td className='td'>{item.location} <input name='location' onChange={handleTableOnInput} /></td>
                                 <td className='td'>{item.phone}<input name='phone' onChange={handleTableOnInput} /></td>
                                 <td className='td'>{item.comments.length} <input name='comments' onChange={handleTableOnInput} /></td>

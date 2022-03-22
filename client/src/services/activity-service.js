@@ -47,9 +47,8 @@ export const DeleteActivity = async (id) => {
         method: "DELETE",
     };
     try {
-        return await fetch(`${BASE_URL}/${id}`, options)
+        return await fetch(`${BASE_URL}/api/activities/${id}`, options)
             .then((res) => res.json())
-            .then((res) => console.log(res))
     }
     catch (err) {
         console.log(err);
