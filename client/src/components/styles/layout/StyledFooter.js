@@ -92,5 +92,25 @@ export const StyledFooter = styled.footer`
   .copyright{
     font-size: 1.3rem;
   }
-  
+  @media  only screen  and (max-width:321px){
+  .open-footer-btn{
+    font-size: 1rem;
+    font-weight: 200;
+  }
+    .open-footer-icon{
+    font-size: 1.5rem;
+    }
+    .TripYoetz-logo{
+      font-size:1.7rem;
+        font-weight:300;
+    }
+    .about-us-link{
+      font-size:1.5rem;
+        font-weight:200;
+    }
+    .copyright{
+    font-size: 1rem;
+    }
+    
+  }
 `;
