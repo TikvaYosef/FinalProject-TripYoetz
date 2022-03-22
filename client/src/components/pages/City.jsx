@@ -14,7 +14,6 @@ const City = () => {
     const { city, hotels, activities, restaurants, hotelsDispatch, activitiesDispatch, restaurantsDispatch } = useContext(MainContext);
     const { mode } = useContext(ThemeContext);
 
-
     useEffect(() => {
         try {
             GetRestaurants().then(res => {

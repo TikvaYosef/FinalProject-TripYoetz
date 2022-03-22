@@ -10,25 +10,24 @@ import Box from '@mui/material/Box';
 import Rating from '@mui/material/Rating';
 import StarIcon from '@mui/icons-material/Star';
 
-const labels = {
-    0.5: 'Useless',
-    1: 'Useless+',
-    1.5: 'Poor',
-    2: 'Poor+',
-    2.5: 'Ok',
-    3: 'Ok+',
-    3.5: 'Good',
-    4: 'Good+',
-    4.5: 'Excellent',
-    5: 'Excellent+',
-};
+// const labels = {
+//     0.5: 'Useless',
+//     1: 'Useless+',
+//     1.5: 'Poor',
+//     2: 'Poor+',
+//     2.5: 'Ok',
+//     3: 'Ok+',
+//     3.5: 'Good',
+//     4: 'Good+',
+//     4.5: 'Excellent',
+//     5: 'Excellent+',
+// };
 
 
 const ItemCard = ({ product }) => {
     const { user } = useContext(MainContext);
     const { mode } = useContext(ThemeContext);
     const [rating, setRating] = useState(0);
-    const [value, setValue] = useState(2);
     const heartIcon = useRef();
 
     const favorites = JSON.parse(localStorage.getItem("favorites"));
@@ -48,14 +47,16 @@ const ItemCard = ({ product }) => {
                     </button>
                     <div className="card-info">
                         <h1 className="card-name">{product.name}</h1>
-                        <Box className="rating" sx={{ '& > legend': { mt: 2 } }}>
-                            <p className="votes-number">{rating ? `${product.rating.length} votes` : "no rating yet"}</p>
-                            <Rating className="rating" name="text-feedback" value={rating} precision={0.5} readOnly emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />} />
-                            <Box>{labels[rating]}</Box>
+                        <address className="card-location">{product.location}</address>
+                        <Box className="rating-wrapper" sx={{ '& > legend': { mt: 2 } }}>
+                            <p className="reviews">{rating ? `${product.rating.length} reviews` : "no reviews yet"}</p>
+                            <Rating className="rating-stars" name="text-feedback" value={Number(rating)} precision={0.5} readOnly emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />} />
+                            {/* <Box>{labels[rating]}</Box> */}
                         </Box>
-                        <Link className="card-link" to="/itemPage" state={product._id}>View</Link>
                     </div>
-                    <img className="image" src={product.images[0]} alt="item-img" />
+                    <Link className="card-link" to="/itemPage" state={product._id}>
+                        <img className="image" src={product.images[0]} alt="item-img" />
+                    </Link>
                 </>
             }
         </StyledItemCard>
