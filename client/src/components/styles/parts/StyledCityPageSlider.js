@@ -85,11 +85,13 @@ export const StyledCityPageSlider = styled.div`
         overflow: hidden;
     }
     .slider-card-name{
-        -webkit-text-stroke: 0.5px black;
+        width: 100%;
+        min-height: 30%;
+        background: rgba(255, 255, 255, 0.7);
+        color: black;
         text-align: center;
         font-size: 1.7rem;
         font-weight:900;
-        color: white;
         position: absolute;
         z-index:2;
     }
@@ -99,7 +101,7 @@ export const StyledCityPageSlider = styled.div`
         height: 100%;
         transition: 0.2s ease-in-out;
      }    
-    .slider-img:hover{
+     .slider-card:hover> .slider-img{
         transform: scale(1.2);
     }
 
