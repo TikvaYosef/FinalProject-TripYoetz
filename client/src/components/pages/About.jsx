@@ -11,18 +11,18 @@ const About = () => {
                 <article className='dataArticale'>
                     <div className='data'>
                         <h1 className='BoxTitle'>About The Site</h1>
-                        <p className='aboutTheSite'>About Tripadvisor
-TripYoetz, the world's largest travel guidance platform*,<br/>
- helps hundreds of millions of people each month** become better travelers,<br/>
-  from planning to booking to taking a trip.<br/>
-   Travelers across the globe use the Tripadvisor site and app to discover where to stay,<br/>
-    what to do and where to eat based on guidance from those who have been there before.<br/>
-     With more than 1 billion reviews and opinions of nearly 8 million businesses,<br/>
-    travelers turn to Tripadvisor to find deals on accommodations, book experiences,<br/>
-     reserve tables at delicious restaurants and discover great places nearby.<br/>
-      As a travel guidance company available in 43 markets and 22 languages,<br/>
- Tripadvisor makes planning easy no matter the trip type.<br/>
-                        </p>
+                        <h3 className='aboutTheSite'>About Tripadvisor
+TripYoetz, the world's largest travel guidance platform*,
+ helps hundreds of millions of people each month** become better travelers,
+  from planning to booking to taking a trip.
+   Travelers across the globe use the Tripadvisor site and app to discover where to stay,
+    what to do and where to eat based on guidance from those who have been there before.
+     With more than 1 billion reviews and opinions of nearly 8 million businesses,
+    travelers turn to Tripadvisor to find deals on accommodations, book experiences,
+     reserve tables at delicious restaurants and discover great places nearby.
+      As a travel guidance company available in 43 markets and 22 languages,
+ Tripadvisor makes planning easy no matter the trip type.
+                        </h3>
                     </div>
                     <div className='data'>
                         <h1 className='BoxTitle'>Contact Us</h1>

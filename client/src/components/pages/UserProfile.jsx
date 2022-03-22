@@ -67,8 +67,9 @@ const UserProfile = () => {
           </tbody>
         </table>
         {toggleEdit?
+        
         <form
-          onSubmit={
+                  onSubmit={
             (event) => {
               event.preventDefault();
               SetprevProfileInfo({...prevProfileInfo});
@@ -76,7 +77,7 @@ const UserProfile = () => {
                 console.log(res)
               );
             }
-            // console.log(prevProfileInfo)}
+            
           }
         >
           
@@ -102,22 +103,8 @@ const UserProfile = () => {
             onChange={Edit}
             placeholder="birthDate"
           />
-          {/* <input
-            name="email"
-            type="email"
-            onChange={Edit}
-            placeholder="email"
-          /> */}
-          <input name="image" type="text" onChange={Edit} placeholder="image" />
-          {/* <input
-            name="password"
-            type="password"
-            onChange={Edit}
-            placeholder="password"
-            minLength={4}
-            maxLength={14}
-          /> */}
-          <button>SEND</button>
+                    <input name="image" type="text" onChange={Edit} placeholder="image" />
+                   <button>SEND</button>
         </form>:null}
       </div>
     </StyledUserProfile>
