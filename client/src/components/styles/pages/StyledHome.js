@@ -16,8 +16,8 @@ export const StyledHome = styled.section`
         font-weight: 900;
     }
     span {
-        color:${({mode})=> mode.background};
-        background:${({mode})=> mode.color};
+        color:${({ mode }) => mode.background};
+        background:${({ mode }) => mode.color};
         padding: 0 5px;
         font-family: 'Lobster Two', cursive;
         font-weight: 900;
@@ -27,7 +27,7 @@ export const StyledHome = styled.section`
         background: url("/homePage_search_bg.png");
         background-repeat: no-repeat;
         background-size:contain;
-        border: 4px double ${({mode})=> mode.color};
+        border: 4px double ${({ mode }) => mode.color};
         border-radius: 10px;
         background-position: center;
         position: relative;
@@ -39,8 +39,8 @@ export const StyledHome = styled.section`
     }
 
     .search-input{
-        color:${({mode})=> mode.color};
-        background:${({mode})=> mode.background};
+        color:${({ mode }) => mode.color};
+        background:${({ mode }) => mode.background};
         outline: none;
         font-size: 1.5rem;
         font-weight: 800;
@@ -48,7 +48,7 @@ export const StyledHome = styled.section`
         height: 15%;
         border-radius: 50px;
         padding-left:10px;
-        border: 2px solid ${({mode})=> mode.color};
+        border: 2px solid ${({ mode }) => mode.color};
         transition: 0.2s ease-in-out;
     }
     .search-icon{
@@ -68,4 +68,19 @@ export const StyledHome = styled.section`
     .search-input:focus ~ .search-icon{
         right: 12.5%;
     }
+    @media  only screen  and (max-width:321px){
+        .search-form{
+        background-size:cover;
+        width: 80%;
+        height: 70%;
+        }
+        .search-input{
+            font-size: 1.2rem;
+            font-weight: 120;
+        }
+        .search-icon{
+            font-size: 1.5rem;
+        }
+    }
+
 `
