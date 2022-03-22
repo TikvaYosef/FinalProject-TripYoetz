@@ -26,7 +26,7 @@ export const StyledHeader = styled.header`
         color: ${({ mode }) => mode.color};
         text-decoration:none;
         padding:3px 7px;
-        font-size:3rem;
+        font-size:2.5rem;
         font-family: 'Lobster Two', cursive;
         font-weight:900;
         border:3px solid ${({ mode }) => mode.color};
@@ -55,7 +55,7 @@ export const StyledHeader = styled.header`
         color: ${({ mode }) => mode.background};
     }
     .logout-icon{
-        font-size:2rem;
+        font-size:1.7rem;
     }
 
     .logo-wrapper{
@@ -70,7 +70,7 @@ export const StyledHeader = styled.header`
         justify-content: flex-end;
         height: 100%;
         font-family: 'Lobster Two', cursive;
-        font-size:5rem;
+        font-size:4rem;
         font-weight:900;
         text-decoration:none;
         color: ${({ mode }) => mode.color};
@@ -79,7 +79,7 @@ export const StyledHeader = styled.header`
         border-radius:50%;
         color: ${({ mode }) => mode.background};
         background:${({ mode }) => mode.color};
-        font-size:4rem;
+        font-size:3.5rem;
     }
 
     .header-search-form{
@@ -127,7 +127,7 @@ export const StyledHeader = styled.header`
         text-decoration: none;
         color: ${({ mode }) => mode.color};
         background:${({ mode }) => mode.background};
-        font-size:3rem;
+        font-size:2.5rem;
         font-weight:900;
         padding:5px;
         font-family: 'Lobster Two', cursive;
@@ -168,7 +168,7 @@ export const StyledHeader = styled.header`
     }
     .toggle-icon{
         padding:1px;
-        font-size:3.5rem;
+        font-size:3rem;
     }
     .theme-palette{
         position: absolute; 
@@ -189,7 +189,7 @@ export const StyledHeader = styled.header`
         border: 2px solid ${({ mode }) => mode.color};
         border-radius:50%;
         width: 20%;
-        height: 60%;
+        height: 50%;
         transition:0.2s ease-in-out;
     }
     .theme-option:nth-child(1){

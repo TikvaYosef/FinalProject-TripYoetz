@@ -58,7 +58,7 @@ export const StyledFooter = styled.footer`
         justify-content: center;
         width: 100%;
         font-family: 'Lobster Two', cursive;
-        font-size:4rem;
+        font-size:3.5rem;
         font-weight:900;
         text-decoration:none;
         color: ${({ mode }) => mode.background};
@@ -88,4 +88,9 @@ export const StyledFooter = styled.footer`
         background-size: 100% 100%;
         color: ${({ mode }) => mode.color};
   }
+
+  .copyright{
+    font-size: 1.3rem;
+  }
+  
 `;

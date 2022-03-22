@@ -34,7 +34,9 @@ export const StyledContactFooter = styled.article`
     border-radius: 0 40% 0 40%;
 
   }
-
+  .developer-info{
+    font-size: 1.3rem;
+  }
 
   .contact-icons-box{
       width: 100%;

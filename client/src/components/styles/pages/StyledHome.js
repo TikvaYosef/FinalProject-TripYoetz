@@ -11,7 +11,7 @@ export const StyledHome = styled.section`
         position:absolute;
         right: 5%;
         top: 0%;
-        font-size: 3rem;
+        font-size: 2.7rem;
         font-family: 'Lobster Two', cursive;
         font-weight: 900;
     }
@@ -27,8 +27,8 @@ export const StyledHome = styled.section`
         background: url("/homePage_search_bg.png");
         background-repeat: no-repeat;
         background-size:contain;
-        border: 5px double ${({mode})=> mode.color};
-        border-radius: 20px;
+        border: 4px double ${({mode})=> mode.color};
+        border-radius: 10px;
         background-position: center;
         position: relative;
         display:flex;
@@ -42,19 +42,19 @@ export const StyledHome = styled.section`
         color:${({mode})=> mode.color};
         background:${({mode})=> mode.background};
         outline: none;
-        font-size: 1.8rem;
-        font-weight: 900;
+        font-size: 1.5rem;
+        font-weight: 800;
         width: 50%;
         height: 15%;
         border-radius: 50px;
         padding-left:10px;
-        border: 3px solid ${({mode})=> mode.color};
+        border: 2px solid ${({mode})=> mode.color};
         transition: 0.2s ease-in-out;
     }
     .search-icon{
         position: absolute;
         right: 27.5%;
-        font-size: 3rem;
+        font-size: 2.5rem;
         border: none;
         color: ${({ mode }) => mode.color};
         transition: 0.2s ease-in-out;
