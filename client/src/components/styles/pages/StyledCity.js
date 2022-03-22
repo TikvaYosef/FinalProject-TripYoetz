@@ -8,7 +8,7 @@ export const StyledCity = styled.section`
     flex-direction: column;
     gap: 5vh; 
     .city-name-h1{
-        margin-top:15vh;
+        margin-top:12.5vh;
         font-size: 4rem;
     }
     .city-name-span{

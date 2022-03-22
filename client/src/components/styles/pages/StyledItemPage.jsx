@@ -1,16 +1,18 @@
 import styled from "styled-components";
 
 export const StyledItemPage = styled.section`
-    width: 100%;
-    min-height: 100%;
-    display:grid;
+    margin:0 auto 10vh;
+    width: 80%;
+    height: fit-content;
+    display: grid;
     grid-template-areas:
     'nav nav'
     'info info'
     'toggle toggle'
     'comments-qa comments-qa';
-    grid-template-rows:10vh 70vh 10vh 50vh;
+    grid-template-rows:10vh 90vh 10vh 50vh;
     grid-template-columns:50% 50%;
+    gap: 5vh; 
 
     & .toggle-btns{
         grid-area:toggle;

@@ -29,6 +29,7 @@ export const StyledCategoryPage = styled.section`
         justify-content: space-between;
         align-items: flex-start;
         position: fixed;
+        top:20vh;
     }
 
     .sort-select{

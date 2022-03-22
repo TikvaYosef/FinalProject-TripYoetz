@@ -1,35 +1,49 @@
-import { useContext, useRef } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { getAvgRating } from "../../utils/getAvgRating";
 import { StyledItemInfo } from "../styles/parts/StyledItemInfo";
 import { verifyUserFavorites, activateHeartIcon, addClassToHeart } from "../../utils/favoritesList-functions";
 import { MainContext } from "../../contexts/data-context";
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import Box from '@mui/material/Box';
+import Rating from '@mui/material/Rating';
+import StarIcon from '@mui/icons-material/Star';
+import { ThemeContext } from "../../contexts/theme-context";
+import MasksIcon from '@mui/icons-material/Masks';
+
 
 const ItemInfo = ({ item }) => {
     const { user } = useContext(MainContext);
+    const { mode } = useContext(ThemeContext);
     const favorites = JSON.parse(localStorage.getItem("favorites"));
     const heartIcon = useRef();
 
-    const displayRatingNumber = () => {
-        if (item.rating && item.rating.length >= 1) {
-            return `${item.rating.length} reviews - ${getAvgRating(item.rating)}/10`
-        }
-        return "No rating yet";
-    };
-
     return (
-        <StyledItemInfo>
+        <StyledItemInfo mode={mode}>
             <div className="item-details">
                 <button className="heart-icon-btn" disabled={verifyUserFavorites(user)}
                     onClick={() => activateHeartIcon(heartIcon, item)}>
-                    <i ref={heartIcon} className={`fas fa-heart heart-icon ${addClassToHeart(user, favorites, item)}`}>
-                    </i>
+                    <FavoriteIcon ref={heartIcon} className={`heart-icon ${addClassToHeart(user, favorites, item)}`}>
+                    </FavoriteIcon>
                 </button>
                 <h1 className="item-name-h1">{item.name}</h1>
-                <h1>{displayRatingNumber()}</h1> |
-                <p>{item.location}</p> |
-                <p>{item.phone}</p> |
-                <a target="_blank" rel="noreferrer" href={item.link}>Link</a>
-                <h1>{item.greenPass ? 'green pass required' : 'no green pass required'}</h1>
+                <div className="item-info">
+                    {
+                        item.rating &&
+                        <Box className="rating-wrapper info-part" sx={{ '& > legend': { mt: 2 } }}>
+                            <p className="reviews">{item.rating.length >= 1 ? `${item.rating.length} reviews` : "no reviews yet"}</p>
+                            <Rating className="rating-stars" name="text-feedback" value={Number(getAvgRating(item.rating))} precision={0.5} readOnly emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />} />
+                        </Box>
+                    }
+                    <p className="info-part">{item.location}</p>
+                    <p className="info-part">phone: {item.phone}</p>
+                    <div className="info-part">
+                        <a className="item-link" target="_blank" rel="noreferrer" href={item.link}>Visit here</a>
+                    </div>
+                    <div className="info-part green-pass">
+                        <MasksIcon className="green-pass-icon" />
+                        <h1>{item.greenPass ? 'green pass required' : 'no green pass required'}</h1>
+                    </div>
+                </div>
             </div>
             {
                 item.images && item.images.length >= 1
@@ -42,11 +56,24 @@ const ItemInfo = ({ item }) => {
                     :
                     null
             }
-            <div className="item-hours">
-                <h1>activitiesHours</h1>
-                <p>{item.activitiesHours}</p>
+            <div className="activities-hours-wrapper">
+                <h1 className="activities-hours-title">activitiesHours</h1>
+                <div className="activities-hours">
+                    {
+                        item.activitiesHours ?
+                            item.activitiesHours.split("PM").map((item, i) =>
+                                i < 7 &&
+                                <p key={i}>{item} PM</p>
+                            )
+                            :
+                            null
+                    }
+                </div>
             </div>
-            <p className="item-description">{item.description}</p>
+            <div className="item-description-wrapper">
+                <h2 className="item-description-title">About</h2>
+                <p className="item-description">{item.description}</p>
+            </div>
         </StyledItemInfo>
     );
 };

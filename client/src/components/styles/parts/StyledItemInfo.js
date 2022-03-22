@@ -9,70 +9,188 @@ export const StyledItemInfo = styled.section`
     'details details details'
     'images images hours'
     'description description description';
-    grid-template-rows: 20% 60% 20%;
-    grid-template-columns: 50% 20% 30%;
-    
-    & .heart-icon {
+    grid-template-rows: 15% 55% 30%;
+    grid-template-columns: 30% 30% 40%;
+
+    .heart-icon-btn{
         cursor: pointer;
         position: absolute;
         padding:8px;
-        left: 40%;
-        top: 12%;
-        font-size:1.rem;
-        color:black;
+        right: 5%;
+        top: 5%;
         border-radius:50%;
         background:white;
-        border:1px solid black;
-    }
-    & .item-liked {
-        color: red;
-    }
-    & .item-name-h1{
-        margin-left:5%;
-        width: 100%;
-        font-size:2rem;
-    }
-
-    & .item-details{
-        grid-area: details;
+        border:2px solid black;
         display: flex;
         justify-content:center;
-        flex-wrap: wrap;
-        gap:2rem;
+        align-items: center;
+    }
+    .heart-icon {
+        font-size:1.5rem;
+        color:black;
+        transition: 0.1s ease-in-out;
+    }
+    .item-liked, .heart-icon-btn:hover> .heart-icon {
+        color: red;
+    }
+    .item-liked{
+        animation-name: like;
+        animation-duration: 0.5s;
+        animation-fill-mode: forwards;
+    }
+    @keyframes like {
+    50% {
+        transform: scale(2);
+    }
+    100% {
+        transform: scale(1);
+        color: red;
+    }
+}
+
+    
+
+
+
+
+.item-details{
+    position: relative;
+    grid-area: details;
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    flex-wrap: wrap;
+}
+.item-info{
+        width: 100%;
+        height: 70%;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+    .info-part{
+        font-size: 1.6rem;
+        font-weight: 900;
+        width: 20%;
+        display :flex;
+        justify-content: center;
+        align-items: center;
+        border-right: 2px solid black;
+    }
+    .info-part:last-child{
+        border: none;
     }
     
-    & .item-images-wrapper{
+    .item-name-h1{
+        margin-left:5%;
+        width: 100%;
+        height: 30%;
+        font-size:3rem;
+    }
+    .rating-wrapper{
+        justify-content: space-evenly !important;
+    }
+    .item-link{
+        text-decoration: none;
+        border: 2px solid ${({ mode }) => mode.color};
+        border-left-color: transparent;
+        border-right-color: transparent;
+        color: ${({ mode }) => mode.color};
+        padding: 5px;
+        transition: 0.2s ease-in-out;
+    }
+    .item-link:hover{
+        color: ${({ mode }) => mode.background};
+        background: ${({ mode }) => mode.color};
+    }
+    .green-pass{
+        justify-content: space-evenly !important;
+    }
+    .green-pass-icon{
+        color: green;
+        font-size: 4rem;
+    }
+
+
+
+
+    .item-images-wrapper{
         grid-area: images;
         display:grid;
         grid-template-areas:
         'item-main-img item-one'
         'item-main-img item-two';
-        grid-template-columns: 50% 50%;
+        grid-template-columns: 60% 40%;
         grid-template-rows: 50% 50%;
     }
-    & .item-main-img {
+    .item-main-img {
         width: 100%;
         height: 100%;
         grid-area: item-main-img;
-        border-radius:10px;
-        border:2px solid white;
+        border-radius:5px;
+        border:1px solid white;
     }
-    & .item-one {
+    .item-one {
         width: 100%;
         height: 100%;
         grid-area: item-one;
-        border-radius:10px;
-        border:2px solid white;
+        border-radius:5px;
+        border:1px solid white;
     }
-    & .item-two {
+    .item-two {
         width: 100%;
         height: 100%;
         grid-area: item-two;
-        border-radius:10px;
-        border:2px solid white;
+        border-radius:5px;
+        border:1px solid white;
     }
 
-    & .item-description{
-        grid-area: description;
+    .activities-hours-wrapper{
+        grid-area: hours;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
+    .activities-hours-title{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        font-size: 2.8rem;
+        height: 25%;
+    }
+    .activities-hours{
+        width: 100%;
+        height: 75%;
+        display: flex;
+        flex-direction:column;
+        align-items: center;
+        font-size: 2rem;
+        font-weight: 900;
+    }
+
+    .item-description-wrapper{
+        grid-area: description;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        width: 100%;
+    }
+    .item-description{
+        font-size: 1.8rem;
+        font-weight: 900;
+        width: 100%;
+        height: 75%;
+    }
+    .item-description-title{
+        display: flex;
+        align-items: center;
+        font-size: 2rem;
+        width: fit-content;
+        height: 15%;
+        border-bottom: 2px solid black;
+    }
+
+
 `
