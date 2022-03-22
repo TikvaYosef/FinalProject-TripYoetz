@@ -1,13 +1,23 @@
 import { StyledAbout } from '../styles/pages/StyledAbout';
 import ArrowCircleDownIcon from '@mui/icons-material/ArrowCircleDown';
+import { useContext } from 'react';
+import {ThemeContext} from '../../contexts/theme-context'
 
 const About = () => {
+    const {mode} = useContext(ThemeContext)
     return (
-        <StyledAbout>
+        <StyledAbout mode = {mode}>
             <section>
+                <div className='titleAndLogos'>
+
+                
+                        <img className='indi' src="/indi_logo.png" alt="" />
                 <h1 className='title' >
                     welcome to tripYoetz
                 </h1>
+                <img className='tech' src='/tech_logo.png' alt =""/>
+                
+                </div>
                 <article className='dataArticale'>
                     <div className='data'>
                         <h1 className='BoxTitle'>About The Site</h1>

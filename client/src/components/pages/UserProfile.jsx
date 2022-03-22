@@ -46,7 +46,7 @@ const UserProfile = () => {
         <table>
           <thead>
             <tr>
-              <th>favorites items</th>
+              <th>Items You Liked</th>
             </tr>
           </thead>
           <tbody>
@@ -67,19 +67,19 @@ const UserProfile = () => {
           </tbody>
         </table>
         {toggleEdit?
-        
         <form
-                  onSubmit={
-            (event) => {
-              event.preventDefault();
-              SetprevProfileInfo({...prevProfileInfo});
-              userUpdate(user._id, user, prevProfileInfo).then((res) =>
-                console.log(res)
-              );
-            }
-            
+        onSubmit={
+          (event) => {
+            event.preventDefault();
+            SetprevProfileInfo({...prevProfileInfo});
+            userUpdate(user._id, user, prevProfileInfo).then((res) =>
+            console.log(res)
+            );
           }
+          
+        }
         >
+          <h1>Edit Your Profile</h1>
           
           <input
             name="name"
