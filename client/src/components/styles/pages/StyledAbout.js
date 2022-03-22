@@ -11,7 +11,6 @@ font-family: 'Lobster', cursive;
 & .title{
   font-weight: 200px;
 text-align: center;
-
 }
 
 & .dataArticale{
