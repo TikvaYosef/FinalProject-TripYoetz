@@ -207,4 +207,33 @@ export const StyledHeader = styled.header`
         background: linear-gradient(120deg, rgba(245,199,247,1) 40%, rgba(104,7,71,1) 60%);
         left: 11vw;
     }
+
+    @media  only screen  and (max-width:321px){
+     .login-register-btn{
+         width: 200%;
+         font-size: 10Px;
+         font-weight:10px;
+          padding:1px 1px;   
+     }
+     .theme-mode-wrapper{
+         margin-left: 20%;
+     }
+     .about-us-wrapper{
+         margin-right: 50%;
+     }
+     .about-us-link{
+        font-size:15px;
+     }
+     .logo-icon{
+        width: 20px;
+        font-size:20px;
+     }
+     .TripYoetz-logo{
+        font-size:1.5rem; 
+     }
+     .toggle-mode-btn{
+         border: none;
+     }
+     
+    }
 `
