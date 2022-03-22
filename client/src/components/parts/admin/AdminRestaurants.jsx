@@ -66,7 +66,7 @@ const AdminRestaurants = () => {
     return (
         <StyledAdmin>
             <div>
-                <div className='form'>
+                <form className='form'>
                 <h1 className='title'>Add Rstaurant</h1>
 
                 <label className='label' htmlFor="text">Name</label>
@@ -106,7 +106,7 @@ const AdminRestaurants = () => {
                 <br />
 
                     <button className='button' onClick={() => { Add() }}>Add</button>
-                </div>
+                </form>
                 <table>
                     <tr className='tr'>
                         <td className='td'>Name</td>

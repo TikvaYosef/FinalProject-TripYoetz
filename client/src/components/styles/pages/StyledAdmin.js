@@ -2,13 +2,12 @@ import styled from "styled-components";
 
 export const StyledAdmin = styled.table`
     margin:auto;
-    width: 90%;
+    width: 100%;
     height: 50%;
     border: 1px solid;
     border-collapse: collapse;
-   
-
-& .tr{
+    overflow-x: hidden;
+.tr{
     width:40%;
     height: 5%;
     
@@ -26,7 +25,7 @@ export const StyledAdmin = styled.table`
     width:30%;
     height: 3%;
     border: 1px solid;
-    overflow: visible;
+    overflow-y:hidden;
 }
 & .images{
     border: 1px solid;
@@ -37,6 +36,8 @@ export const StyledAdmin = styled.table`
 & .form{
    display: flex;
    flex-direction: column;
+   width: 50%;
+   margin: auto;
 }
 & .button{
     width: 5%;
