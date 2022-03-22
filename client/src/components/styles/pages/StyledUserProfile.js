@@ -25,12 +25,12 @@ form{
   height: auto ;
 }  
 form h1{
-    font-size: 30px;
+    font-size: 3rem;
 }
 .userDetails{
 border-style:ridge ;
     margin-top: 5% ;
-    width: 20%;
+    width: 30%;
     height: 200px;
     border-radius: 10% ;
     border-color:black ;
@@ -43,13 +43,14 @@ border-style:ridge ;
     direction: ltr;
 }
 .userDetails ul{
-    margin-top: 4%;
+    margin-top: 2%;
     margin-left: 20%;
-    font-size: 15px;
+    font-size: 2rem;
 }
 .userDetails h1{
-    font-size: 20px;
-    margin-top: 15%;
+    font-size: 3rem;
+    font-weight:bold ;
+    margin-top: 5%;
     margin-left: 22%
 }
 .editIcon{
@@ -81,5 +82,45 @@ flex-wrap: wrap;
 flex-direction: row;
 justify-content: center;
 justify-content: space-evenly;
+ }
+ @media  only screen  and (max-width:321px){
+    table {
+      font-size:1rem;
+  width: 50%;
+}
+.userDetails{
+    margin-top: 5% ;
+    width: 40%;
+    height: 20%;
+}
+.userDetails h1{
+    font-size: 1.2rem;
+    margin-top: 6%;
+    margin-left: 10%
+}
+.userDetails ul{
+    /* list-style: none; */
+    margin-top: 4%;
+    margin-left: 12%;
+    font-size: 1rem;
+}
+form{
+  width:50% ;
+}  
+form h1{
+    font-size: 1.5rem;
+}
+ .editIcon{
+    margin-left: 3%;
+        width: 30%;
+    margin-left:70%
+}
+.profileImg{   
+    margin-left:79%;
+    width:20%
+}
+table{
+    font-size: 1.2rem;
+}
  }
 `;
