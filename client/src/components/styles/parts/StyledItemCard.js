@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const StyledItemCard = styled.article`
-    /* width: 16vw; */
     width: 100%;
     height: 25vh;
     display:flex;
@@ -9,18 +8,7 @@ export const StyledItemCard = styled.article`
     position: relative;
     border-radius:5px;
     border: 1px solid ${({mode})=>mode.color};
-
-
-    .rating{
-        width: 50%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 3rem;
-    }
-    .votes-number{
-        font-size: 1.5rem;
-    }
+    
     .card-info{
         display: flex;
         flex-direction: column;
@@ -32,26 +20,54 @@ export const StyledItemCard = styled.article`
         font-size:1.5rem;
         font-weight: 900;
     }
+    
+    .rating-wrapper{
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap:1rem;
+        font-size: 2.8rem;
+    }
+    .reviews{
+        font-size: 1.3rem;
+    }
+    .rating-stars{
+        font-size:2rem;
+    }
+
+
     .card-name{
         text-align: center;
         width: 100%;
-        font-size:2rem;
+        font-size:2.2rem;
     }
-    .card-rating{
-        font-size:1.5rem;
-    }
-    .card-link{
-        text-decoration: none;
-        color: ${({mode})=>mode.color};
-        background: ${({mode})=>mode.background};
-        transition: 0.2s ease-in-out;
-        padding: 3px;
-    }
-    .card-link:hover{
-        color: ${({mode})=>mode.background};
-        background: ${({mode})=>mode.color};
+    .card-location{
+        font-weight: lighter;
+        font-size: 1.3rem;
     }
 
+
+
+
+
+
+    .card-link{
+        border-radius: 0 5px 5px 0;
+        text-decoration: none;
+        width: 30%;
+        height: 100%;
+        overflow: hidden;
+    }
+    .image {
+        transition: 0.2s ease-in-out;
+        width: 100%;
+        height: 100%;
+    }
+    .image:hover{
+        filter: brightness(125%);
+        transform: scale(1.1);
+    }
 
     .heart-icon-btn{
         cursor: pointer;
@@ -66,21 +82,37 @@ export const StyledItemCard = styled.article`
         justify-content:center;
         align-items: center;
     }
-    .heart-icon {
-        font-size:2rem;
-        color:black;
+    .heart-icon-btn:disabled{
+        border-color: gray;
     }
-    .item-liked {
+    .heart-icon-btn:disabled> .heart-icon{
+        color:gray;
+    }
+    .heart-icon {
+        font-size:1.5rem;
+        color:black;
+        transition: 0.1s ease-in-out;
+    }
+    .item-liked, .heart-icon-btn:hover> .heart-icon {
         color: red;
     }
-    .image {
-        border-radius: inherit;
-        width: 30%;
-        height: 100%;
+    .item-liked{
+        animation-name: like;
+        animation-duration: 0.5s;
+        animation-fill-mode: forwards;
     }
 
-    .description {
-        height: 50%;
-        overflow:auto;
+    @keyframes like {
+    50% {
+        transform: scale(2);
     }
+    100% {
+        transform: scale(1);
+        color: red;
+    }
+}
+
+
+
+
 `
