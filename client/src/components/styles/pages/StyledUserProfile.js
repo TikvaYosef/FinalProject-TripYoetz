@@ -15,15 +15,18 @@ color: white;
 text-shadow:  2px 2px black;
 }
 form{
-    margin-left: 40%;
-    margin-top: 0%;
+    /* margin-left: 40%; */
+    margin-top: 5%;
     text-align: center;
   display:flex;
   flex-wrap: wrap;
   flex-direction: column;
-  width:20% ;
-  height:20% ;
+  width:30% ;
+  height: auto ;
 }  
+form h1{
+    font-size: 30px;
+}
 .userDetails{
 border-style:ridge ;
     margin-top: 5% ;
@@ -41,16 +44,17 @@ border-style:ridge ;
 }
 .userDetails ul{
     margin-top: 4%;
-    margin-left: 30%;
+    margin-left: 20%;
+    font-size: 15px;
 }
 .userDetails h1{
+    font-size: 20px;
     margin-top: 15%;
-    margin-left: 30%
+    margin-left: 22%
 }
 .editIcon{
     margin-left: 90%;
-    
-    width: 8%;
+        width: 8%;
     border-style: groove ;
 }
   .profileImg{  
@@ -60,12 +64,12 @@ border-style:ridge ;
       border-radius: 50%;      
   }
   table {
+      font-size:2rem;
       margin-top: 6%;
-      margin-left: 20%;
-  width: 20%;
-  height: 20%;
+  width: 30%;
+  height: auto;
 }
- table ,td{
+table ,td{
     border: 1px solid;
      border-color:black;
      color: black;
@@ -74,5 +78,8 @@ border-style:ridge ;
  .detailsAndTable{
 display: flex;
 flex-wrap: wrap;
+flex-direction: row;
+justify-content: center;
+justify-content: space-evenly;
  }
 `;

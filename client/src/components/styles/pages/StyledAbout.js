@@ -6,8 +6,23 @@ text-align: center;
 font-family: 'Lobster', cursive; 
 
 
-
-
+.titleAndLogos{
+  /* margin-left: 15%; */
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+}
+ 
+.indi{
+    width: 10%;
+    height: 20%;
+  }
+  .tech{
+    width: 15%;
+    height: 15%;
+  }
 & .title{
   font-size: 400%;
 text-align: center;
@@ -18,14 +33,16 @@ text-align: center;
     flex-direction: row;
     justify-content: space-around;
     margin-top: 50px;
+    
 }
 /* & .dataArticale p{
   font-size: 14px;
 } */
 & .data{
+  color: ${({ mode }) => mode.color};
     border: 2px solid black;
     border-radius: 10px;
-    color: black;
+    /* color: black; */
     width: 40%;
     height: auto;
 }
@@ -40,8 +57,10 @@ background-color:  silver ;
     border: 2px solid black;
     border-radius: 10px;
     margin-top: 50px; 
+    
 }
 & .aboutTheSite{
+  color: ${({ mode }) => mode.color};
   font-weight:bold;
   font-size: 15px;
 }
@@ -76,6 +95,7 @@ height: 20px;
 }
 
 & .infoAboutUs{
+  
     display: flex;
     flex-direction: row;
     justify-content: space-around;
