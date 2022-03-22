@@ -85,7 +85,7 @@ export const StyledCityPageSlider = styled.div`
         overflow: hidden;
     }
     .slider-card-name{
-        -webkit-text-stroke: 1px black;
+        -webkit-text-stroke: 0.5px black;
         text-align: center;
         font-size: 1.7rem;
         font-weight:900;

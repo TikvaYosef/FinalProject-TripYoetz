@@ -9,24 +9,31 @@ font-family: 'Lobster', cursive;
 
 
 & .title{
-  font-weight: 200px;
+  font-size: 400%;
 text-align: center;
 }
 
-& .dataArticale{
-    
+& .dataArticale{  
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     margin-top: 50px;
 }
+/* & .dataArticale p{
+  font-size: 14px;
+} */
 & .data{
     border: 2px solid black;
     border-radius: 10px;
     color: black;
+    width: 40%;
+    height: auto;
+}
+.data p{
+  font-size:15px ;
 }
 & .data:hover{
-background-color:  gray;
+background-color:  silver ;
 
 }
 & .aboutus{
@@ -35,18 +42,22 @@ background-color:  gray;
     margin-top: 50px; 
 }
 & .aboutTheSite{
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   font-weight:bold;
-  font-size: 12px;
+  font-size: 15px;
+}
+.aboutTheSite{
+  font-size: 18px;
+
+  margin-top: 8%;
 }
 & .BoxTitle{
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   font-weight:bold;
-  font-size: 15px; 
+  font-size: 25px;
+  /* margin-top: 15%; */
+  text-shadow: 1px 1px whitesmoke;
 }
 & .littelTitle{
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  font-size: 12px;
+  font-size: 20px;
 }
   
  & .phone{
