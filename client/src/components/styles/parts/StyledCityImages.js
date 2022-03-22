@@ -1,15 +1,15 @@
 import styled from "styled-components";
 
 export const StyledCityImages = styled.article`
-    width: 70%;
+    width: 100%;
     margin:auto;
-    height: 45vh;
+    height: 60vh;
     display:grid;
     grid-template-areas:
     'one main-img'
     'two main-img';
-    grid-template-columns: 50% 50%;
-    grid-template-rows: 50% 50%;
+    grid-template-columns: 40% 60%;
+    grid-template-rows: 40% 60%;
     
     .city-img{
         width: 100%;

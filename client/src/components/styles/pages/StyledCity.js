@@ -6,9 +6,9 @@ export const StyledCity = styled.section`
     height: fit-content;
     display: flex;
     flex-direction: column;
-    gap: 3rem; 
+    gap: 5vh; 
     .city-name-h1{
-        margin-top:7.5vh;
+        margin-top:15vh;
         font-size: 4rem;
     }
     .city-name-span{
@@ -23,6 +23,6 @@ export const StyledCity = styled.section`
         position: relative;
     }
     .city-description-text{
-        font-size: 2.5rem;
+        font-size: 2.2rem;
     }
 `

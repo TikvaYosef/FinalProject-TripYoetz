@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const StyledNavbar = styled.nav`
     background: ${({ mode }) => mode.background};
     color: ${({ mode }) => mode.color};
-    height: 5vh;    
+    height: 10vh;    
     width: 80%;
     position: fixed;
     z-index: 10;

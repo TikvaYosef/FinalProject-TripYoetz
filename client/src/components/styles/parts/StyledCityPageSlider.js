@@ -15,10 +15,10 @@ export const StyledCityPageSlider = styled.div`
         justify-content: space-evenly;
     }
     .slider-name{
-        font-size: 3rem;
+        font-size: 2.5rem;
     }
     .slider-info{
-        font-size: 2rem;
+        font-size: 1.5rem;
     }
     .slider-link{
         font-size: 1.5rem;
@@ -82,11 +82,12 @@ export const StyledCityPageSlider = styled.div`
         position: relative;
         display: flex;
         justify-content: center;
+        overflow: hidden;
     }
     .slider-card-name{
-        text-shadow: 0 0 5px black;
+        -webkit-text-stroke: 1px black;
         text-align: center;
-        font-size: 2rem;
+        font-size: 1.7rem;
         font-weight:900;
         color: white;
         position: absolute;
@@ -99,7 +100,7 @@ export const StyledCityPageSlider = styled.div`
         transition: 0.2s ease-in-out;
      }    
     .slider-img:hover{
-        filter:brightness(120%);
+        transform: scale(1.2);
     }
 
     .end-slider{
@@ -109,7 +110,7 @@ export const StyledCityPageSlider = styled.div`
         align-items: center;
         height: 100%;
         width: 15vw;
-        border: 5px solid black;
+        border: 5px double black;
         border-radius: 50px;
         left: 96vw;
     }
