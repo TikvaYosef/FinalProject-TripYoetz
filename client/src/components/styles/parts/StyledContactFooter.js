@@ -54,4 +54,15 @@ export const StyledContactFooter = styled.article`
   .contact-icon:hover{
         transform:scale(1.8);
     }
+    @media  only screen  and (max-width:321px){
+      .developer-name{
+      font-size: 1.3rem;
+      }
+      .developer-info{
+      font-size: 1rem;
+      }
+      .contact-icon{
+    font-size: 1.1rem;
+      }
+    }
 `;

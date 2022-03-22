@@ -19,7 +19,7 @@ const Footer = () => {
   return (
     <StyledFooter toggle={toggle} mode={mode}>
       <ContactFooter name="Marcos Bazbih" info="24 years old, Ashdod" email="marcosbazbih@gmail.com" linkedin="https://www.linkedin.com/in/marcos-bazbih/" github="https://github.com/Marcos-Bazbih" img="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" />
-      <ContactFooter name="Tikva Yosef" info="26 years old, Natanya" email="tikvayosef13@gmail.com" linkedin="https://www.linkedin.com/in/tikva-yosef-406bba223/" github="https://github.com/TikvaYosef" img="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" />
+      <ContactFooter name="Tikva Yosef" info="26 years old, Natanya" email="tikvayosef13@gmail.com" linkedin="https://www.linkedin.com/in/tikva-yosef-406bba223/" github="https://github.com/TikvaYosef" img="/PicTikva.jpeg" />
       <ContactFooter name="Avi Admaso" info="26 years old, Ashdod" email="aviadmaso@gmail.com" linkedin="https://www.linkedin.com/in/avi-admaso-a47b13218/" github="https://github.com/avi-admaso" img="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" />
       <button onClick={toggleFooter} className="open-footer-btn">
         <ArrowCircleUpIcon ref={arrowRef} className="open-footer-icon" />
