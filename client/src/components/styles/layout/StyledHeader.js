@@ -208,7 +208,7 @@ export const StyledHeader = styled.header`
         left: 11vw;
     }
 
-    @media  only screen  and (max-width:321px){
+    @media  only screen  and (min-width:320px) and (max-width:375px){
      .login-register-btn{
          width: 200%;
          font-size: 10Px;
@@ -234,9 +234,9 @@ export const StyledHeader = styled.header`
      .toggle-mode-btn{
          border: none;
      }
-     
+
     }
-    @media  only screen  and (max-width:376px){
+    @media  only screen  and (min-width:375px) and (max-width:425px){
         .login-register-btn{
          width: 200%;
          font-size: 10Px;
@@ -264,7 +264,7 @@ export const StyledHeader = styled.header`
      }
 
     }
-    @media  only screen  and (max-width:426px){
+    @media  only screen  and (min-width:425px) and (max-width:768px){
         .login-register-btn{
          font-size: 1.3rem;
          font-weight:10px;
@@ -289,37 +289,6 @@ export const StyledHeader = styled.header`
      .toggle-mode-btn{
          border: none;
      }
+     
     }
-
-    @media  only screen  and (max-width:769px){
-        .login-register-btn{
-         font-size: 2.5rem;
-          padding:1px 1px;   
-     }
-     .theme-mode-wrapper{
-         margin-left: 20%;
-
-     }
-     .about-us-wrapper{
-         margin-right: 50%;
-     }
-     .about-us-link{
-        font-size:2.5rem;
-     }
-     .logo-icon{
-        width: 2rem;
-        font-size:200;
-     }
-     .TripYoetz-logo{
-        font-size:3rem; 
-     }
-     .toggle-mode-btn{
-         border: none;
-     }
-     .toggle-icon{
-        font-size:3.5rem;
-
-     }
-    }
-
 `
