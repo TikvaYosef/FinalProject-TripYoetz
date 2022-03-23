@@ -48,7 +48,7 @@ export const StyledProfileImg = styled(Link)`
         height: 15%;
         background:${({ user }) => user.isAdmin ? "indigo" : "LimeGreen"};
         border-radius: 50%;
-        border: 2px solid white;
+        border: 0.4px solid white;
         z-index:10;
         animation-name: status;
         animation-duration: 1.5s;
@@ -65,6 +65,7 @@ export const StyledProfileImg = styled(Link)`
         margin-left:20%;
     }
     .user-status{
+        border: 0.6px solid white;
         position:absolute;
         right: -150%;
         top: 11%;
