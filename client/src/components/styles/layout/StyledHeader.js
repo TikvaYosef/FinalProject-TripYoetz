@@ -216,17 +216,19 @@ export const StyledHeader = styled.header`
           padding:1px 1px;   
      }
      .theme-mode-wrapper{
-         margin-left: 20%;
+         margin-left: 40%;
+         
      }
      .about-us-wrapper{
          margin-right: 50%;
+         width: 80%
      }
      .about-us-link{
         font-size:15px;
      }
      .logo-icon{
         width: 20px;
-        font-size:20px;
+    
      }
      .TripYoetz-logo{
         font-size:1.5rem; 
@@ -243,11 +245,12 @@ export const StyledHeader = styled.header`
          font-weight:10px;
           padding:1px 1px;   
      }
+
      .theme-mode-wrapper{
-         margin-left: 20%;
+         margin-left: 50%;
      }
      .about-us-wrapper{
-         margin-right: 50%;
+         margin-right: 30%;
      }
      .about-us-link{
         font-size:20px;
@@ -271,7 +274,7 @@ export const StyledHeader = styled.header`
           padding:1px 1px;   
      }
      .theme-mode-wrapper{
-         margin-left: 20%;
+         margin-left: 50%;
      }
      .about-us-wrapper{
          margin-right: 50%;
