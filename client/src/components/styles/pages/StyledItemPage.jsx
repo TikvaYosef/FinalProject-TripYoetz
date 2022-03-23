@@ -201,9 +201,6 @@ export const StyledItemPage = styled.section`
         background: none;
         border: none;
     }
-    .comment-likes-btn:disabled> .comment-likes-icon{
-        color: red;
-    }
     .comment-likes-icon{
         font-size: 3rem;
     }
@@ -218,7 +215,6 @@ export const StyledItemPage = styled.section`
         }
         100% {
             transform: scale(1);
-            color: red;
         }
     }
     .comment-likes-amount{
