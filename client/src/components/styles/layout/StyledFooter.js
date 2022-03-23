@@ -92,7 +92,7 @@ export const StyledFooter = styled.footer`
   .copyright{
     font-size: 1.3rem;
   }
-  @media  only screen  and (max-width:321px){
+  @media  only screen and (min-width:320px) and (max-width:376px){
   .open-footer-btn{
     font-size: 1rem;
     font-weight: 200;
@@ -113,4 +113,50 @@ export const StyledFooter = styled.footer`
     }
     
   }
-`;
+  @media  only screen and (min-width:375px) and (max-width:425px){
+    .open-footer-btn{
+    font-size: 1rem;
+    font-weight: 200;
+  }
+    .open-footer-icon{
+    font-size: 1.5rem;
+    }
+    .TripYoetz-logo{
+      font-size:1.7rem;
+        font-weight:300;
+    }
+    .about-us-link{
+      font-size:1.5rem;
+        font-weight:200;
+    }
+    .copyright{
+    font-size: 1rem;
+    }
+    
+  }
+  @media  only screen and (min-width:425px) and (max-width:768px){
+    .open-footer-btn{
+    font-size: 1rem;
+    font-weight: 200;
+  }
+    .open-footer-icon{
+    font-size: 1.5rem;
+    }
+    .TripYoetz-logo{
+      font-size:1.7rem;
+        font-weight:300;
+    }
+    .about-us-link{
+      font-size:1.5rem;
+        font-weight:200;
+    }
+    .copyright{
+    font-size: 1rem;
+    }
+    
+  }
+  }
+
+
+
+`
