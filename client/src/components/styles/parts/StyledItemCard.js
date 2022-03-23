@@ -93,7 +93,7 @@ export const StyledItemCard = styled.article`
         color:black;
         transition: 0.1s ease-in-out;
     }
-    .item-liked, .heart-icon-btn:hover> .heart-icon {
+    .item-liked{
         color: red;
     }
     .item-liked{

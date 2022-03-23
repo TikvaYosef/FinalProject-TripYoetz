@@ -10,19 +10,6 @@ import Box from '@mui/material/Box';
 import Rating from '@mui/material/Rating';
 import StarIcon from '@mui/icons-material/Star';
 
-// const labels = {
-//     0.5: 'Useless',
-//     1: 'Useless+',
-//     1.5: 'Poor',
-//     2: 'Poor+',
-//     2.5: 'Ok',
-//     3: 'Ok+',
-//     3.5: 'Good',
-//     4: 'Good+',
-//     4.5: 'Excellent',
-//     5: 'Excellent+',
-// };
-
 
 const ItemCard = ({ product }) => {
     const { user } = useContext(MainContext);
@@ -51,7 +38,6 @@ const ItemCard = ({ product }) => {
                         <Box className="rating-wrapper" sx={{ '& > legend': { mt: 2 } }}>
                             <p className="reviews">{rating ? `${product.rating.length} reviews` : "no reviews yet"}</p>
                             <Rating className="rating-stars" name="text-feedback" value={Number(rating)} precision={0.5} readOnly emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />} />
-                            {/* <Box>{labels[rating]}</Box> */}
                         </Box>
                     </div>
                     <Link className="card-link" to="/itemPage" state={product._id}>
