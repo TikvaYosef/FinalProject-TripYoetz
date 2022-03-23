@@ -83,7 +83,7 @@ flex-direction: row;
 justify-content: center;
 justify-content: space-evenly;
  }
- @media  only screen  and (max-width:321px){
+ @media  only screen  and (min-width:320px) and (max-width:375px){
     table {
       font-size:1rem;
   width: 50%;
@@ -122,7 +122,7 @@ table{
     font-size: 1.2rem;
 }
 }
-@media  only screen  and (max-width:376px){
+@media  only screen  and (min-width:375px)and (max-width:426px){
     table {
       font-size:3rem;
   width: 50%;
@@ -162,7 +162,7 @@ table{
     font-size: 1.2rem;
 }
 }
-@media  only screen  and (max-width:426px){
+@media  only screen  and (min-width:427px)and (max-width:766px){
     table {
       font-size:3rem;
   width: 50%;
@@ -202,7 +202,7 @@ table{
     font-size: 1.2rem;
 }
 }
-@media  only screen  and (max-width:769px){
+@media  only screen  and (min-width:767px){
      table {
       font-size:1.8rem;
   width:30%;
