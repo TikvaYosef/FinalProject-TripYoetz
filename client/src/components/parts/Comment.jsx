@@ -1,11 +1,13 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { MainContext } from "../../contexts/data-context";
 import { GetRestaurants, LikeCommentRestaurant } from "../../services/restaurant-services";
 import { GetDataByName } from "../../state-management/actions/categories-actions";
+import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 
 const Comment = ({ currentCard, comment }) => {
     const [likedComment, setLikedComment] = useState({});
     const { user, restaurantsDispatch, city } = useContext(MainContext);
+    const likeRef = useRef();
 
     useEffect(() => {
         let likesAmount = Number(comment.likes.amount + 1);
@@ -13,9 +15,8 @@ const Comment = ({ currentCard, comment }) => {
     }, [comment, user._id])
 
     const likeComment = () => {
+        likeRef.current.classList.toggle('liked');
         LikeCommentRestaurant(currentCard._id, currentCard, currentCard.comments, comment.id, likedComment)
-            .then(res => console.log(res));
-
         GetRestaurants()
             .then(res => {
                 restaurantsDispatch(
@@ -25,8 +26,8 @@ const Comment = ({ currentCard, comment }) => {
     };
 
     const verifyAccessToLike = () => {
-        if (!user.isLogin) return false;
-        if (user.isAdmin) return false;
+        if (!user.isLogin) return true;
+        if (user.isAdmin) return true;
         for (const userId of comment.likes.usersId) {
             if (userId === user._id) return true;
         }
@@ -34,12 +35,22 @@ const Comment = ({ currentCard, comment }) => {
     }
 
     return (
-        <article>
-            <h1>{comment.writer}</h1>
-            <img src={comment.user_img} alt={`${comment.writer} img`} width="50px" />
-            <h1>{comment.body}</h1>
-            <button disabled={verifyAccessToLike()} onClick={likeComment}>Like</button>
-            <h1>Likes: {comment.likes.amount}</h1>
+        <article className="comment-box">
+            <div className="comment-header">
+                <h1 className="comment-writer">{comment.writer}</h1>
+                <img className="comment-img" src={comment.user_img} alt={`${comment.writer} img`} />
+            </div>
+            <div className="comment-body">
+                <p className="comment-body-text">{comment.body}</p>
+            </div>
+            <div className="comment-footer">
+                <span className="comment-time">{comment.date.substr(0, 10)}
+                </span>
+                <span className="comment-likes-amount">{comment.likes.amount}</span>
+                <button className="comment-likes-btn" disabled={verifyAccessToLike()} onClick={likeComment}>
+                    <ThumbUpIcon ref={likeRef} className="comment-likes-icon" />
+                </button>
+            </div>
         </article>
     );
 };

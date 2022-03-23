@@ -1,4 +1,4 @@
-import { useContext, useEffect, useRef, useState } from "react";
+import { useContext, useRef } from "react";
 import { getAvgRating } from "../../utils/getAvgRating";
 import { StyledItemInfo } from "../styles/parts/StyledItemInfo";
 import { verifyUserFavorites, activateHeartIcon, addClassToHeart } from "../../utils/favoritesList-functions";
@@ -57,7 +57,7 @@ const ItemInfo = ({ item }) => {
                     null
             }
             <div className="activities-hours-wrapper">
-                <h1 className="activities-hours-title">activitiesHours</h1>
+                <h1 className="activities-hours-title">Activity Hours</h1>
                 <div className="activities-hours">
                     {
                         item.activitiesHours ?

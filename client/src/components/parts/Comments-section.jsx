@@ -1,29 +1,32 @@
 import { useContext, useState, useRef } from "react";
 import { GetRestaurants } from "../../services/restaurant-services";
 import { MainContext } from "../../contexts/data-context";
-import { AddCommentToRestaurants, RateRestaurant } from "../../services/restaurant-services";
+import { AddCommentToRestaurants } from "../../services/restaurant-services";
 import { GetDataByName } from "../../state-management/actions/categories-actions";
-import { verifyAccessToComments } from "../../utils/verifyAccessToComments";
+import { verifyUserAccess } from "../../utils/verifyUserAccess";
 import Comment from "./Comment";
 
 const CommentsSection = ({ currentCard }) => {
     const { user, restaurantsDispatch, city } = useContext(MainContext);
     const [comment, setComment] = useState({ likes: { amount: 0, usersId: [] } });
-    const [userRate, setUserRate] = useState({ rate: 0 });
+    const [charsLength, setCharsLength] = useState(0);
     const inputRef = useRef();
 
     const handleCommentOnChange = (event) => {
+        console.log(inputRef.current.value.length);
         comment[event.target.name] = event.target.value;
+        setCharsLength(event.target.value.length);
     };
     const sendCommentForm = (event) => {
         event.preventDefault();
+        comment.date = new Date();
         comment.id = currentCard.comments.length + 1;
         comment.writer = `${user.name} ${user.lastName}`;
         comment.user_id = user._id;
         comment.user_img = user.image;
         setComment(comment);
         AddCommentToRestaurants(currentCard._id, currentCard, currentCard.comments, comment)
-            .then(() => alert('comment added successfully'))
+
         GetRestaurants()
             .then(res => {
                 restaurantsDispatch(
@@ -33,71 +36,43 @@ const CommentsSection = ({ currentCard }) => {
         inputRef.current.value = "";
     };
 
-    const handleRateOnChange = (event) => {
-        userRate.rate = Number(event.target.value);
-    };
-    const sendRateForm = (event) => {
-        event.preventDefault();
-        userRate.userId = user._id;
-        setUserRate(userRate);
-        RateRestaurant(currentCard._id, currentCard, userRate)
-            .then(() => alert('your rate added successfully'));
-        GetRestaurants()
-            .then(res => {
-                restaurantsDispatch(
-                    GetDataByName(res.data, city)
-                )
-            });
-    };
-
-    const checkIfUserRate = () => {
-        if (currentCard.rating && currentCard.rating.length >= 1) {
-            for (const rate of currentCard.rating) {
-                if (rate.userId === user._id) return true
-            };
-            return false;
-        };
-    };
-
     return (
         <>
-            <h1>Comments</h1>
+            <form className="insert-comment-form" onSubmit={sendCommentForm}>
+                <label className="comment-body-label" htmlFor="body">Comment here</label>
+                <textarea ref={inputRef} disabled={verifyUserAccess(user)}
+                    maxLength="200" rows="5" cols="60"
+                    placeholder={!verifyUserAccess(user)
+                        ?
+                        "How was your experience ?"
+                        :
+                        "Plese login or register to comment"}
+                    onChange={handleCommentOnChange} name="body"
+                    className="comment-body-input"
+                    required>
+                </textarea>
+                <button className="comment-send-btn" disabled={verifyUserAccess(user)}>SEND</button>
+                <div className="comment-count-wrapper">
+                    <span className="comment-count-current">{charsLength}/</span>
+                    <span className="comment-count-maximum">200</span>
+                </div>
+            </form>
             {
-                user.isLogin && !user.isAdmin
+                    currentCard.comments && currentCard.comments.length >= 1
                     ?
-                    <>
-                        <form onSubmit={sendCommentForm}>
-                            <label htmlFor="writer">Name</label>
-                            <input disabled value={`${user.name} ${user.lastName}`} name="writer" type="text" required />
-
-                            <label htmlFor="body">Comment</label>
-                            <input ref={inputRef} disabled={verifyAccessToComments(user)} onChange={handleCommentOnChange} name="body" type="text" placeholder="comment here" required />
-
-                            <button disabled={verifyAccessToComments(user)}>SEND</button>
-                        </form>
-                        <form onSubmit={sendRateForm}>
-                            <select name="rating" disabled={checkIfUserRate()} onChange={handleRateOnChange} required>
-                                <option disabled value="" selected hidden>Rate this place</option>
-                                <option value={1}>1</option>
-                                <option value={2}>2</option>
-                                <option value={3}>3</option>
-                                <option value={4}>4</option>
-                                <option value={5}>5</option>
-                            </select>
-                            <button disabled={checkIfUserRate()}>RATE</button>
-                        </form>
-                    </>
-                    :
-                    <h1>To comment please Login Or register</h1>
+                    <h1 className="comments-amount">{currentCard.comments.length} comments</h1>
+                    : null
             }
-            {
-                currentCard.comments && currentCard.comments.length >= 1 ?
-                    currentCard.comments.map((item, i) =>
-                        <Comment currentCard={currentCard} comment={item} key={i} />
-                    )
-                    :
-                    <h1>No comments yet</h1>
-            }
+            <section className="comments-section">
+                {
+                    currentCard.comments && currentCard.comments.length >= 1 ?
+                        currentCard.comments.map((item, i) =>
+                            <Comment currentCard={currentCard} comment={item} key={i} />
+                        )
+                        :
+                        <h1 className="empty-comments">No comments yet</h1>
+                }
+            </section>
         </>
     );
 };

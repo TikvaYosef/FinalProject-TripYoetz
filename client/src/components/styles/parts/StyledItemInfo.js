@@ -30,7 +30,13 @@ export const StyledItemInfo = styled.section`
         color:black;
         transition: 0.1s ease-in-out;
     }
-    .item-liked, .heart-icon-btn:hover> .heart-icon {
+    .heart-icon-btn:disabled{
+        border-color: gray;
+    }
+    .heart-icon-btn:disabled> .heart-icon{
+        color:gray;
+    }
+    .item-liked{
         color: red;
     }
     .item-liked{

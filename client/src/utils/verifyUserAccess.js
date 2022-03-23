@@ -1,4 +1,4 @@
-export const verifyAccessToComments = (user) => {
+export const verifyUserAccess = (user) => {
     if (user.isLogin && !user.isAdmin) {
         return false;
     };

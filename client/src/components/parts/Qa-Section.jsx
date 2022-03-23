@@ -2,7 +2,7 @@ import { useContext, useRef, useState } from 'react';
 import { MainContext } from '../../contexts/data-context';
 import { AddQuestionToRestaurants, GetRestaurants } from '../../services/restaurant-services';
 import { GetDataByName } from '../../state-management/actions/categories-actions';
-import { verifyAccessToComments } from "../../utils/verifyAccessToComments";
+import { verifyUserAccess } from "../../utils/verifyUserAccess";
 import Q_A from './Q_A';
 
 const QaSection = ({ currentCard }) => {
@@ -31,9 +31,8 @@ const QaSection = ({ currentCard }) => {
 
     return (
         <>
-            <h1>Q&A</h1>
             <form onSubmit={sendQuestionForm}>
-                <input ref={inputRef} disabled={verifyAccessToComments(user)} name='q' type="text" onChange={handleFormOnInput} placeholder='Enter your question here' />
+                <input ref={inputRef} disabled={verifyUserAccess(user)} name='q' type="text" onChange={handleFormOnInput} placeholder='Enter your question here' />
             </form>
             {
                 currentCard.q_a && currentCard.q_a.length >= 1 ?

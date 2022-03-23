@@ -106,7 +106,7 @@ export const StyledHeader = styled.header`
         border: 3px solid ${({ mode }) => mode.color};
         border-radius:50px;
         padding:0 5px;
-        font-size: 2rem;
+        font-size: 1.6rem;
         transition: 0.2s ease-in-out;
     }
     .header-search-input:focus{
