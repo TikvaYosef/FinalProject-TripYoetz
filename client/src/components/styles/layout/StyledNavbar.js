@@ -31,4 +31,5 @@ export const StyledNavbar = styled.nav`
         color: ${({ mode }) => mode.background};
         background: ${({ mode }) => mode.color};
     }
+    
 `
