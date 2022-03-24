@@ -9,7 +9,7 @@ export const StyledItemInfo = styled.section`
     'details details details'
     'images images hours'
     'description description description';
-    grid-template-rows: 15% 55% 30%;
+    grid-template-rows: 15% 47% 38%;
     grid-template-columns: 30% 30% 40%;
 
     .heart-icon-btn{
@@ -52,22 +52,18 @@ export const StyledItemInfo = styled.section`
         transform: scale(1);
         color: red;
     }
-}
-
-    
+    }
 
 
-
-
-.item-details{
+    .item-details{
     position: relative;
     grid-area: details;
     display: flex;
     flex-direction: column;
     justify-content:center;
     flex-wrap: wrap;
-}
-.item-info{
+    }
+    .item-info{
         width: 100%;
         height: 70%;
         display: flex;
@@ -87,6 +83,7 @@ export const StyledItemInfo = styled.section`
         border: none;
     }
     
+
     .item-name-h1{
         margin-left:5%;
         width: 100%;
@@ -116,8 +113,6 @@ export const StyledItemInfo = styled.section`
         color: green;
         font-size: 4rem;
     }
-
-
 
 
     .item-images-wrapper{
@@ -151,6 +146,7 @@ export const StyledItemInfo = styled.section`
         border:1px solid white;
     }
 
+
     .activities-hours-wrapper{
         grid-area: hours;
         display: flex;
@@ -175,6 +171,7 @@ export const StyledItemInfo = styled.section`
         font-weight: 900;
     }
 
+
     .item-description-wrapper{
         grid-area: description;
         display: flex;
@@ -197,6 +194,4 @@ export const StyledItemInfo = styled.section`
         height: 15%;
         border-bottom: 2px solid black;
     }
-
-
 `

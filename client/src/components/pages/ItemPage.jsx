@@ -11,7 +11,7 @@ import { ThemeContext } from "../../contexts/theme-context";
 import Rating from '@mui/material/Rating';
 import Stack from '@mui/material/Stack';
 import { GetDataByName } from "../../state-management/actions/categories-actions";
-
+import { StyledCommentsQa } from "../styles/parts/StyledCommentsQa";
 
 const ItemPage = () => {
     const { restaurants, user, restaurantsDispatch, city } = useContext(MainContext);
@@ -25,7 +25,6 @@ const ItemPage = () => {
         GetRestaurantById(itemId)
             .then(res => setItem({ ...res.restaurant }))
     }, [itemId, restaurants])
-
 
     const sendRateForm = (event) => {
         event.preventDefault();
@@ -64,14 +63,14 @@ const ItemPage = () => {
             <Stack spacing={1} className="rating-stars">
                 <Rating disabled={checkIfUserRate()} className="rating-stars-select" name="half-rating" value={Number(userRate.rate)} precision={0.5} onChange={sendRateForm} />
             </Stack>
-            <section className="comments-qa">
+            <StyledCommentsQa mode={mode} className="comments-qa">
                 {toggle
                     ?
                     <CommentsSection currentCard={item} />
                     :
                     <QaSection currentCard={item} />
                 }
-            </section>
+            </StyledCommentsQa>
         </StyledItemPage>
     );
 };

@@ -2,13 +2,14 @@ import styled from "styled-components";
 
 export const StyledCityPageSlider = styled.div`
     width: 100%;
-    height: 20vh;
+    height: 18vh;
     display:flex;
+    justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
     
     .slider-info-wrapper{
-        width: 20%;
+        width: 19%;
         height: 100%;
         display:flex;
         flex-direction: column;
@@ -58,10 +59,10 @@ export const StyledCityPageSlider = styled.div`
         transition: 0.2s ease-in-out;
     }
     .next-img-btn{
-        right: 2%;
+        right: 10%;
     }
     .prev-img-btn{
-        right: 5%;
+        right: 13%;
     }
 
     .next-img-btn:disabled, .prev-img-btn:disabled{
@@ -74,7 +75,7 @@ export const StyledCityPageSlider = styled.div`
     }
 
     .slider-card{
-        width: 15vw;
+        width: 11vw;
         height: 100%;
         border-radius: 5px;
         border: 2px solid black;
@@ -111,10 +112,10 @@ export const StyledCityPageSlider = styled.div`
         justify-content: center;
         align-items: center;
         height: 100%;
-        width: 15vw;
+        width: 11vw;
         border: 5px double black;
         border-radius: 50px;
-        left: 96vw;
+        left: 84vw;
     }
 
 

@@ -2,8 +2,8 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const StyledProfileImg = styled(Link)`
-    width: 20%;
-    height: 85%;
+    width: 18%;
+    height: 70%;
     cursor: pointer;
     border:none;
     border-radius: 50%;
@@ -11,10 +11,10 @@ export const StyledProfileImg = styled(Link)`
 
     .user-status{
         position:absolute;
-        right: -5%;
-        top: 5%;
-        width: 22.5%;
-        height: 22.5%;
+        right: -2%;
+        top: 7%;
+        width: 20%;
+        height: 20%;
         background:${({ user }) => user.isAdmin ? "indigo" : "LimeGreen"};
         border-radius: 50%;
         border: 2px solid white;

@@ -13,7 +13,6 @@ const CommentsSection = ({ currentCard }) => {
     const inputRef = useRef();
 
     const handleCommentOnChange = (event) => {
-        console.log(inputRef.current.value.length);
         comment[event.target.name] = event.target.value;
         setCharsLength(event.target.value.length);
     };
@@ -44,7 +43,7 @@ const CommentsSection = ({ currentCard }) => {
                     maxLength="200" rows="5" cols="60"
                     placeholder={!verifyUserAccess(user)
                         ?
-                        "How was your experience ?"
+                        "How was your experience here ?"
                         :
                         "Plese login or register to comment"}
                     onChange={handleCommentOnChange} name="body"

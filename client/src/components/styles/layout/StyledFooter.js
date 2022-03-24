@@ -7,6 +7,7 @@ export const StyledFooter = styled.footer`
   color: ${({ mode }) => mode.background};  
   grid-area: footer;
   position: absolute;
+  z-index:10;
   bottom: ${({ toggle }) => toggle ? "-40vh" : "0"};
   display: grid;
   grid-template-areas:
@@ -155,8 +156,4 @@ export const StyledFooter = styled.footer`
     }
     
   }
-  }
-
-
-
 `

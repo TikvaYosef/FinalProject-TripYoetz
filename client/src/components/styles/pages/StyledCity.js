@@ -2,11 +2,12 @@ import styled from "styled-components";
 
 export const StyledCity = styled.section`
     margin:0 auto 10vh;
-    width: 80%;
+    width: 60%;
     height: fit-content;
     display: flex;
     flex-direction: column;
     gap: 5vh; 
+
     .city-name-h1{
         margin-top:12.5vh;
         font-size: 4rem;
@@ -18,7 +19,7 @@ export const StyledCity = styled.section`
     padding: 0 5px;
     }
     .city-description{
-        width: 75%;
+        width: 80%;
         min-height: 20vh;
         position: relative;
     }

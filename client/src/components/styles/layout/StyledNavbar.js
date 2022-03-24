@@ -4,7 +4,7 @@ export const StyledNavbar = styled.nav`
     background: ${({ mode }) => mode.background};
     color: ${({ mode }) => mode.color};
     height: 10vh;    
-    width: 80%;
+    width: 60%;
     position: fixed;
     z-index: 10;
     

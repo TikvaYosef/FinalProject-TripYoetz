@@ -3,12 +3,12 @@ import styled from "styled-components";
 export const StyledCityImages = styled.article`
     width: 100%;
     margin:auto;
-    height: 60vh;
+    height: 40vh;
     display:grid;
     grid-template-areas:
     'one main-img'
     'two main-img';
-    grid-template-columns: 40% 60%;
+    grid-template-columns: 45% 55%;
     grid-template-rows: 40% 60%;
     
     .city-img{
