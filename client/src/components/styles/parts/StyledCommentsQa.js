@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const StyledCommentsQa = styled.section`
-
     grid-area: comments-qa;
     width: 70%;
     margin:0 auto;
@@ -9,25 +8,26 @@ export const StyledCommentsQa = styled.section`
     flex-direction:column;
 
     .q_a_wrapper{
+        width: 100%;
         height: fit-content;
         width: 100%;
         display: flex;
         flex-direction: column;
-        gap:1rem;
+        gap:0.5rem;
     }
 
 
     .question-box{
-        position: relative;
         height: 20vh;
-        width: 100%;
+        width: 95%;
         background: ${({ mode }) => mode.background};
         color: ${({ mode }) => mode.color};
         border: 2px solid ${({ mode }) => mode.color};
-        border-radius:5px;
+        border-radius:10px;
         display: flex;
         flex-direction: column;
         word-break: break-all;
+        position: relative;
     }
     .question-box::after{
         content: '';
@@ -36,20 +36,21 @@ export const StyledCommentsQa = styled.section`
         bottom: 20%;
         width: 0;
         height: 0;
-        border: 40px solid transparent;
+        border: 30px solid transparent;
         border-right-color: ${({ mode }) => mode.color};
         border-left: 0;
         border-bottom: 0;
         margin-top: -20px;
-        margin-left: -40px;
+        margin-left: -30px;
     }
     .answer-box{
+        align-self: flex-end;
         height: 20vh;
-        width: 100%;
+        width: 95%;
         background: ${({ mode }) => mode.color};
         color: ${({ mode }) => mode.background};
         border: 2px solid ${({ mode }) => mode.color};
-        border-radius:5px;
+        border-radius:10px;
         display: flex;
         flex-direction: column;
         word-break: break-all;
@@ -62,19 +63,13 @@ export const StyledCommentsQa = styled.section`
         bottom: 20%;
         width: 0;
         height: 0;
-        border: 40px solid transparent;
+        border: 30px solid transparent;
         border-left-color: ${({ mode }) => mode.color};
         border-right: 0;
         border-bottom: 0;
         margin-top: -20px;
-        margin-right: -40px;
+        margin-right: -30px;
     }
-
-
-
-
-
-
 
 
     .q_a-header{
@@ -90,6 +85,9 @@ export const StyledCommentsQa = styled.section`
         font-size: 1.8rem;
         border-bottom:2px solid ${({ mode }) => mode.color};
     }
+    .q_a-writer.admin-writer{
+        border-bottom-color:${({ mode }) => mode.background};
+    }
     .q_a-img{
         height: 75%;
         width: 5%;
@@ -103,8 +101,6 @@ export const StyledCommentsQa = styled.section`
     .q_a-body-text{
         font-size: 1.8rem;
     }
-
-    
     .q_a-footer{
         width: 100%;
         height: 15%;
@@ -121,6 +117,38 @@ export const StyledCommentsQa = styled.section`
     }
 
 
+    .insert-answer-form{
+        width: 95%;
+        height: 5vh;
+        display: flex;
+        justify-content: space-between;
+    }
+    .answer-input{
+        width: 30%;
+        border-radius: 20px;
+        border: 2px solid ${({ mode }) => mode.color};
+        background: ${({ mode }) => mode.background};
+        color: ${({ mode }) => mode.color};
+        font-size:1.5rem;
+        padding: 0 5px;
+        outline: none;
+        transition: 0.2s ease-in-out;
+    }
+    .answer-input:focus-visible{
+        width: 80%;
+        background: ${({ mode }) => mode.color};
+        color: ${({ mode }) => mode.background};
+    }
+    .answer-send-btn{
+        cursor: pointer;
+        font-size:1.8rem;
+        font-weight:900;
+        padding: 0 5px;
+        border-radius: 20px;
+        border: 2px solid ${({ mode }) => mode.background};
+        background: ${({ mode }) => mode.color};
+        color: ${({ mode }) => mode.background};
+    }
 
 
     .comments-section{
@@ -129,9 +157,8 @@ export const StyledCommentsQa = styled.section`
         height: fit-content;
         display: flex;
         flex-direction: column-reverse;
-        gap: 2rem;
+        gap: 5rem;
     }
-
     .insert-comment-form{
         position: relative;
         width: 100%;
@@ -146,8 +173,6 @@ export const StyledCommentsQa = styled.section`
         font-size:1.5rem;
         font-weight:900;
     }
-
-
     .comment-body-input{
         position: absolute;
         top: 15%;
@@ -195,13 +220,11 @@ export const StyledCommentsQa = styled.section`
         background: gray;
         color: black;
     }
-
-
     .comment-box{
         background: ${({ mode }) => mode.background};
         color: ${({ mode }) => mode.color};
         border: 2px solid ${({ mode }) => mode.color};
-        border-radius:5px;
+        border-radius:10px;
         display: flex;
         flex-direction: column;
         width: 100%;
@@ -234,8 +257,6 @@ export const StyledCommentsQa = styled.section`
     .comment-body-text{
         font-size: 1.8rem;
     }
-
-
     .comment-footer{
         width: 100%;
         height: 15%;

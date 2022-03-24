@@ -1,27 +1,30 @@
-import { useContext, useState } from "react"
+import { useContext, useRef, useState } from "react"
 import { MainContext } from "../../contexts/data-context"
-import { AnswerToQuestionRestaurants } from "../../services/restaurant-services";
+import { AnswerToQuestionRestaurants, GetRestaurants } from "../../services/restaurant-services";
+import { GetDataByName } from "../../state-management/actions/categories-actions";
 
 const Q_A = ({ currentCard, item }) => {
-    const { user } = useContext(MainContext);
+    const { user, restaurantsDispatch, city } = useContext(MainContext);
     const [answer, setAnswer] = useState({ ...item })
-
-    console.log(item);
-    console.log(answer);
+    const inputRef = useRef();
 
     const handleFormOnInput = (event) => {
         answer[event.target.name] = event.target.value;
     }
-
     const sendAnswerForm = (event) => {
         event.preventDefault();
         answer.aDate = new Date();
         answer.admin_img = user.image;
         answer.admin_name = `${user.name} ${user.lastName}`;
         setAnswer(answer);
-        console.log(answer);
         AnswerToQuestionRestaurants(currentCard._id, currentCard, item.id, currentCard.q_a, answer)
-            .then(() => alert('Answer added successfully'))
+        GetRestaurants()
+            .then(res => {
+                restaurantsDispatch(
+                    GetDataByName(res.data, city)
+                )
+            })
+        inputRef.current.value = "";
     }
 
     return (
@@ -42,7 +45,7 @@ const Q_A = ({ currentCard, item }) => {
                 item.a &&
                 <article className="answer-box">
                     <div className="q_a-header">
-                        <h1 className="q_a-writer">{item.admin_name}</h1>
+                        <h1 className="q_a-writer admin-writer">{item.admin_name}</h1>
                         <img className="q_a-img" src={item.admin_img} alt={`${item.adminName} img`} />
                     </div>
                     <div className="q_a-body">
@@ -56,8 +59,9 @@ const Q_A = ({ currentCard, item }) => {
             {
                 user.isAdmin && !item.a
                     ?
-                    <form className="insert-answer-input" onSubmit={sendAnswerForm}>
-                        <input disabled={!user.isAdmin} name="a" type="text" onChange={handleFormOnInput} />
+                    <form className="insert-answer-form" onSubmit={sendAnswerForm}>
+                        <input ref={inputRef} placeholder="answer here..." className="answer-input" name="a" type="text" onChange={handleFormOnInput} />
+                        <button className="answer-send-btn">SEND</button>
                     </form>
                     :
                     null

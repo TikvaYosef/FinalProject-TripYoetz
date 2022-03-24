@@ -37,5 +37,4 @@ export const activateHeartIcon = (heartIcon, item) => {
         heartIcon.current.classList.add("item-liked");
         addItemToFavorites(item);
     }
-    console.log(heartIcon);
 };

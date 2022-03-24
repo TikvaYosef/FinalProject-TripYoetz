@@ -24,7 +24,6 @@ const QaSection = ({ currentCard }) => {
         question.user_id = user._id;
         setQuestion(question);
         AddQuestionToRestaurants(currentCard._id, currentCard, currentCard.q_a, question)
-            .then(() => alert('question added successfully'))
         GetRestaurants()
             .then(res => {
                 restaurantsDispatch(
