@@ -126,12 +126,12 @@ const AdminRestaurants = () => {
                         <td className='td'>activitiesHours</td>
                     </tr>
                     {
-                        restaurants.map((item) =>
+                        restaurants.map((item,i) =>
                             <tr className='tr'>
                                 <td className='td'>{item.name} <input name='name' onChange={handleTableOnInput} /></td>
                                 <td className='td'>{item.city} <input name='city' onChange={handleTableOnInput} /></td>
                                 <td className='description'>{item.description} <input name='description' onChange={handleTableOnInput} /></td>
-                                {/* <td className='td'><img src={item.images} /> <input name='images' onChange={handleTableOnInput} /></td> */}
+                                <td className='td'><img src= {item.images[i]} alt ="restaurant image" /> <input name='images' onChange={handleTableOnInput} /></td>
                                 <td className='td'>{item.location} <input name='location' onChange={handleTableOnInput} /></td>
                                 <td className='td'>{item.phone}<input name='phone' onChange={handleTableOnInput} /></td>
                                 <td className='td'>{item.comments.length} <input name='comments' onChange={handleTableOnInput} /></td>
