@@ -25,11 +25,8 @@ export const StyledCityPageSlider = styled.div`
         font-size: 1.5rem;
         font-weight: 900;
         text-decoration: underline;
-        color: ${({mode})=> mode.color};
+        color: ${({ mode }) => mode.color};
     }
-
-
-
     .slider-box-display{
         position: relative;
         width: 80%;
@@ -53,9 +50,9 @@ export const StyledCityPageSlider = styled.div`
         justify-content: center;
         align-items: center;
         border-radius: 50%;
-        border: 2px solid ${({mode})=> mode.color};
-        color: ${({mode})=> mode.color};
-        background: ${({mode})=> mode.background};
+        border: 2px solid ${({ mode }) => mode.color};
+        color: ${({ mode }) => mode.color};
+        background: ${({ mode }) => mode.background};
         transition: 0.2s ease-in-out;
     }
     .next-img-btn{
@@ -117,6 +114,21 @@ export const StyledCityPageSlider = styled.div`
         border-radius: 50px;
         left: 84vw;
     }
+    @media  only screen  and (min-width:320px) and (max-width:375px){
+    .slider-name{
+        font-size: 2rem;
+    }
+    .slider-info{
+        font-size: 1.3rem;
+    }
+    .arrow-icon{
+        font-size: 1.5rem;
 
+    }
+    .next-img-btn{
+        right: 7%;
+    }
+    
+    }
 
 `

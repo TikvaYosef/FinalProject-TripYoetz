@@ -10,10 +10,10 @@ const CityPageSlider = ({ category, name, info, items }) => {
     const [left, setLeft] = useState(0);
 
     const handleSliderNext = () => {
-        setLeft(left + 12);
+        setLeft(left + 16);
     }
     const handleSliderPrev = () => {
-        setLeft(left - 12);
+        setLeft(left - 16);
     }
 
     return (
