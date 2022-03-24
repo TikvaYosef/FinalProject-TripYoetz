@@ -68,7 +68,7 @@ export const StyledHome = styled.section`
     .search-input:focus ~ .search-icon{
         right: 12.5%;
     }
-    @media  only screen  and (max-width:321px){
+    @media  only screen and (min-width:320px) and (max-width:361px){
         .search-form{
         background-size:cover;
         width: 80%;
@@ -76,6 +76,20 @@ export const StyledHome = styled.section`
         }
         .search-input{
             font-size: 1.2rem;
+            font-weight: 120;
+        }
+        .search-icon{
+            font-size: 1.5rem;
+        }
+    }
+     @media  only screen  and (min-width:361px) and (max-width:750px){
+        .search-form{
+        background-size:cover;
+        width: 80%;
+        height: 70%;
+        }
+        .search-input{
+            font-size: 1rem;
             font-weight: 120;
         }
         .search-icon{
