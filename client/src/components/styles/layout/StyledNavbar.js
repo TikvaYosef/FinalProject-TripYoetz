@@ -31,5 +31,35 @@ export const StyledNavbar = styled.nav`
         color: ${({ mode }) => mode.background};
         background: ${({ mode }) => mode.color};
     }
+    @media  only screen  and (min-width:320px) and (max-width:375px){
+        .navbar-list{
+        gap:5%;
+       
+    }
+    .navbar-link{
+        font-size:1rem;
+
+    }
+    }
+    @media  only screen  and (min-width:375px) and (max-width:425px){
+        .navbar-list{
+        gap:5%;
+       
+    }
+    .navbar-link{
+        font-size:1.5rem;
+
+    }
+    }
+    @media  only screen  and (min-width:425px) and (max-width:768px){
+        .navbar-list{
+        gap:5%;
+       
+    }
+    .navbar-link{
+        font-size:1.5rem;
+
+    }
+    }
     
 `

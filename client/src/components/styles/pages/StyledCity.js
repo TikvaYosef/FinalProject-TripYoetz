@@ -26,4 +26,6 @@ export const StyledCity = styled.section`
     .city-description-text{
         font-size: 2.2rem;
     }
+
+   
 `
