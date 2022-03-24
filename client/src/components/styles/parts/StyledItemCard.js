@@ -47,11 +47,6 @@ export const StyledItemCard = styled.article`
         font-size: 1.3rem;
     }
 
-
-
-
-
-
     .card-link{
         border-radius: 0 5px 5px 0;
         text-decoration: none;
@@ -111,8 +106,49 @@ export const StyledItemCard = styled.article`
         color: red;
     }
 }
-
-
-
+@media  only screen  and (min-width:320px) and (max-width:375px){
+    .heart-icon {
+            font-size:1em;
+            color:black;
+            transition: 0.1s ease-in-out;
+        }
+        .heart-icon-btn{
+        cursor: pointer;
+        position: absolute;
+        padding:8px;
+        left: 3px;
+        top: 5px;
+        border-radius:50%;
+        background:white;
+        border:2px solid black;
+        display: flex;
+        justify-content:center;
+        align-items: center;
+    }
+    .reviews{
+        font-size: 1.0rem;
+    }
+    .rating-stars{
+        font-size:1rem;
+    }
+    .rating-wrapper{
+        width: 80%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap:1rem;
+        font-size: 2.8rem;
+    }
+    .card-name{
+        margin-top: 4%;
+        text-align: center;
+        width: 80%;
+        font-size:1.7rem;
+    }
+}
+@media  only screen  and (min-width:320px) and (max-width:375px){}
+@media  only screen  and (min-width:375px)and (max-width:426px){}
+@media  only screen  and (min-width:427px)and (max-width:766px){}
+@media  only screen  and (min-width:767px){ }
 
 `
