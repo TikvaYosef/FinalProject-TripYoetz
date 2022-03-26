@@ -8,6 +8,8 @@ export const StyledContainer = styled.section`
     grid-area: main;
     overflow-y:auto;
     position: relative;
+
+
     @media  only screen  and (min-width:320px) and (max-width:375px){
     width:180% ;
     margin-left: -35%;
@@ -16,5 +18,5 @@ export const StyledContainer = styled.section`
     @media  only screen  and (min-width:375px)and (max-width:426px){}
     @media  only screen  and (min-width:427px)and (max-width:766px){}
     @media  only screen  and (min-width:767px){}
-    }
+    
 `

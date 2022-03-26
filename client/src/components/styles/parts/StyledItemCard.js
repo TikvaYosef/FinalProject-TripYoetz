@@ -39,7 +39,7 @@ export const StyledItemCard = styled.article`
 
     .card-name{
         text-align: center;
-        width: 100%;
+        width: 70%;
         font-size:2.2rem;
     }
     .card-location{
@@ -54,7 +54,7 @@ export const StyledItemCard = styled.article`
         height: 100%;
         overflow: hidden;
     }
-    .image {
+    .image{
         transition: 0.2s ease-in-out;
         width: 100%;
         height: 100%;
@@ -92,12 +92,12 @@ export const StyledItemCard = styled.article`
         color: red;
     }
     .item-liked{
-        animation-name: like;
+        animation-name: heart;
         animation-duration: 0.5s;
         animation-fill-mode: forwards;
     }
 
-    @keyframes like {
+    @keyframes heart {
     50% {
         transform: scale(2);
     }
@@ -106,6 +106,11 @@ export const StyledItemCard = styled.article`
         color: red;
     }
 }
+
+
+
+
+
 @media  only screen  and (min-width:320px) and (max-width:375px){
     .heart-icon {
             font-size:1em;
@@ -151,4 +156,6 @@ export const StyledItemCard = styled.article`
 @media  only screen  and (min-width:427px)and (max-width:766px){}
 @media  only screen  and (min-width:767px){ }
 
-`
+
+
+`;

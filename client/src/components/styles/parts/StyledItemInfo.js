@@ -40,11 +40,11 @@ export const StyledItemInfo = styled.section`
         color: red;
     }
     .item-liked{
-        animation-name: like;
+        animation-name: heart;
         animation-duration: 0.5s;
         animation-fill-mode: forwards;
     }
-    @keyframes like {
+    @keyframes heart {
     50% {
         transform: scale(2);
     }
@@ -158,7 +158,7 @@ export const StyledItemInfo = styled.section`
         align-items: center;
         justify-content: center;
         width: 100%;
-        font-size: 2.8rem;
+        font-size: 2.5rem;
         height: 25%;
     }
     .activities-hours{
@@ -167,7 +167,7 @@ export const StyledItemInfo = styled.section`
         display: flex;
         flex-direction:column;
         align-items: center;
-        font-size: 2rem;
+        font-size: 1.5rem;
         font-weight: 900;
     }
 

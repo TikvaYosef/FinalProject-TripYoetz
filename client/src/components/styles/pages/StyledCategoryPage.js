@@ -31,7 +31,6 @@ export const StyledCategoryPage = styled.section`
         position: fixed;
         top:20vh;
     }
-
     .sort-select{
         cursor: pointer;
         background: ${({mode}) => mode.color};
@@ -41,8 +40,6 @@ export const StyledCategoryPage = styled.section`
         height: 50%;
         width: 75%;
     }
-
-
     .sort-btn{
         cursor: pointer;
         background: ${({mode}) => mode.background};
@@ -57,6 +54,9 @@ export const StyledCategoryPage = styled.section`
         background: ${({mode}) => mode.color};
         color: ${({mode}) => mode.background};
     }
+
+
+    
     @media  only screen  and (min-width:320px) and (max-width:375px){
         .sort-fixed{
         width: 15vw;
@@ -87,5 +87,4 @@ export const StyledCategoryPage = styled.section`
     @media  only screen  and (min-width:375px)and (max-width:426px){}
     @media  only screen  and (min-width:427px)and (max-width:766px){}
     @media  only screen  and (min-width:767px){}
-    }
 `
