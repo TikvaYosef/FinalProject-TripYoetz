@@ -4,8 +4,10 @@ export const StyledNavbar = styled.nav`
     background: ${({ mode }) => mode.background};
     color: ${({ mode }) => mode.color};
     height: 10vh;    
-    width: 60%;
+    width: 90%;
+    margin: auto;
     position: fixed;
+    left: 5%;
     z-index: 10;
     
     .navbar-list{
@@ -14,7 +16,9 @@ export const StyledNavbar = styled.nav`
         justify-content:center;
         gap:10%;
         align-items:center;
+        width: 60%;
         height: 100%;
+        margin: auto;
     }
     .navbar-link {
         text-decoration:none;

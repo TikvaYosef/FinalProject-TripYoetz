@@ -1,6 +1,6 @@
 import { registerUser } from "../services/user-service";
 
-export const VerifyRegister = async (userCheck, navigate) => {
+export const VerifyRegister = async (userCheck, navigate, setErrorMsg) => {
     try {
         return await registerUser(userCheck)
             .then(res => {
@@ -9,11 +9,11 @@ export const VerifyRegister = async (userCheck, navigate) => {
                     navigate('/login');
                 }
                 else {
-                    alert(res.message);
+                    setErrorMsg(res.message)
                 }
             })
-            .catch(err => console.log(err))
+            .catch(err => setErrorMsg(err.message))
     } catch (err) {
-        console.log(err);
+        setErrorMsg(err.message);
     }
 };

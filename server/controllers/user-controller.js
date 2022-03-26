@@ -26,11 +26,11 @@ module.exports = {
     login: async (req, res) => {
         try {
             const user = await users.findOne({ email: req.body.email });
-            if (!user) return res.status(400).json({ success: false, message: "no user with that email found" });
+            if (!user) return res.status(400).json({ success: false, message: "no user found" });
 
             bcrypt.compare(req.body.password, user.password, (err, isMatch) => {
                 if (err) return res.status(500).json({ success: false, message: err.message });
-                if (!isMatch) return res.status(400).json({ success: false, message: "password incorrect" });
+                if (!isMatch) return res.status(400).json({ success: false, message: "password or email incorrect" });
 
                 const token = jwt.sign({ user }, process.env.SECRET_KEY, { expiresIn: "3h" });
                 return res.status(200).json({ success: true, message: "login successful", token });

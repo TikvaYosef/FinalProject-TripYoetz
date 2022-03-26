@@ -1,7 +1,7 @@
 import { loginUser } from "../services/user-service";
 import jwt_decode from "jwt-decode";
 
-export const VerifyLogin = async (userCheck, setUserCheck, navigate) => {
+export const VerifyLogin = async (userCheck, setUserCheck, navigate, setErrorMsg) => {
     try {
         return await loginUser(userCheck)
             .then(res => {
@@ -10,15 +10,15 @@ export const VerifyLogin = async (userCheck, setUserCheck, navigate) => {
                     const token = localStorage.getItem("token");
                     const decoded = jwt_decode(token);
                     setUserCheck({ ...decoded.user, isLogin: true });
-                    alert(res.message);
+                    alert(`Welcome ${decoded.user.name} ${decoded.user.lastName}`);
                     navigate(-1);
                 }
                 else {
-                    alert(res.message);
+                    setErrorMsg(res.message);
                 }
             })
-            .catch(err => { return err })
+            .catch(err => setErrorMsg(err.message))
     } catch (err) {
-        return err;
+        setErrorMsg(err.message);
     }
 };

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledLoginPage = styled.section`
+export const StyledRegisterPage = styled.section`
     width: 90%;
     height: 90%;
     position: absolute;
@@ -8,25 +8,24 @@ export const StyledLoginPage = styled.section`
     top: 5%;
     border-radius: 50px;
     display: flex;
-    justify-content:flex-end;
     position: relative;
     box-shadow: 0 0 4px 0px ${({ mode }) => mode.color};
     
-    .redirect-signup{
+    .redirect-login{
         background: ${({ mode }) => mode.color};
         color: ${({ mode }) => mode.background};
         position: absolute;
-        left: 0;
-        top: 0;
+        right: 0;
+        bottom: 0;
         width: 50%;
         height: 100%;    
-        border-radius: 50px 0 100% 50px;
+        border-radius: 100% 50px 50px 0;
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding-top: 5%;
+        justify-content: flex-end;
+        padding-bottom: 5%;
         gap: 3rem;
-
 
         h1 {
             font-size: 3rem;
@@ -57,8 +56,8 @@ export const StyledLoginPage = styled.section`
     .visible-password-btn{
         cursor: pointer;
         position: absolute;
-        right: -15%;
-        bottom: 20%;
+        right: -5%;
+        bottom: 22.5%;
         display: flex;
         align-items:center;
         justify-content: center;
@@ -74,66 +73,60 @@ export const StyledLoginPage = styled.section`
         color: red;
     }
 
-    .login-wrapper{
+
+    .register-wrapper{
         width: 50%;
         height: 100%;
         display: flex;
         align-items: center;
         justify-content: center;
     }
-    .login-form{
+    .register-form{
         width: 80%;
-        height: 60%;
+        height: 100%;
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
-        gap:3rem;
+        justify-content: space-evenly;
+        position: relative;
     }
-    .login-title{
-        font-size: 4.5rem;
+    .register-title{
+        font-size: 4rem;
     }
-    .login-input{
+    .input-wrapper{
         width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .input-label{
+        font-size: 1.8rem;
+        font-weight: 900;
+        padding-left: 2%;
+        text-decoration: underline;
+    }
+    .register-input{
+        width: 60%;
         font-size: 1.5rem;
         font-weight: 900;
         border: 2px solid black;
         border-radius: 50px;
-        padding: 10px;
+        padding: 5px 10px;
     }
-    .input-wrapper{
-        position: relative;
-        width: 60%;
-    }
-    .login-icon{
-        color: black;
-        font-size:1.5rem;
-        position: absolute;
-        right: 5%;
-        top: 35%;
-    }
-    .login-icon.person{
-
-    }
-    .login-icon.password{
-
-    }
-
-
-    .login-btn{
+    .register-btn{
         cursor: pointer;
         width:fit-content;
         height: fit-content;
         padding: 5px 10px;
-        border: 2px solid ${({ mode }) => mode.background};
+        border: 2px solid ${({ mode }) => mode.color};
         border-radius: 50px;
-        font-size: 1.8rem;
+        font-size: 1.6rem;
         font-weight: 900;
         background: ${({ mode }) => mode.color};
         color: ${({ mode }) => mode.background};
         transition: 0.2s ease-in-out;
     }
-    .login-btn:hover{
+    .register-btn:hover{
         background: ${({ mode }) => mode.background};
         color: ${({ mode }) => mode.color};
         border-color: ${({ mode }) => mode.color};
