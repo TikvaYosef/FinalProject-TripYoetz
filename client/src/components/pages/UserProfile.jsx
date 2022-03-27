@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { MainContext } from "../../contexts/data-context";
 import { StyledUserProfile } from "../styles/pages/StyledUserProfile";
@@ -7,7 +7,6 @@ import { userUpdate } from "../../services/user-service";
 import { ThemeContext } from '../../contexts/theme-context'
 import DeleteIcon from '@mui/icons-material/Delete';
 import { removeItemToFavorites } from '../../utils/favoritesList-functions';
-
 
 const UserProfile = () => {
   const { user } = useContext(MainContext);
@@ -21,6 +20,9 @@ const UserProfile = () => {
   }, [])
 
 
+  const handleToggleEdit = () => {
+    setToggleEdit(!toggleEdit)
+  }
   const handleOnChange = (event) => {
     profileInfoUpdate[event.target.name] = event.target.value;
   };
@@ -44,13 +46,13 @@ const UserProfile = () => {
       <div className="profile-banner">
         <div className="profile-img_edit-wrapper">
           <img className="profile-img" src={user.image} alt={`${user.name} profile`} />
-          <button onClick={() => setToggleEdit(!toggleEdit)} className="edit-user-btn">
+          <button onClick={handleToggleEdit} className="edit-user-btn">
             <EditIcon className="edit-user-icon" /> Edit profile
           </button>
         </div>
       </div>
 
-      <section className="user-info-wrapper">
+      <section className={`user-info-wrapper ${toggleEdit ? 'responsive' : ''}`}>
 
         <div className="user-details">
           <div className="user-details-header">

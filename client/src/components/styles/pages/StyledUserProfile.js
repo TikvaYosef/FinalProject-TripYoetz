@@ -4,7 +4,6 @@ export const StyledUserProfile = styled.section`
     width: 100%;
     height: 100%;
 
-
     .profile-banner{
         width: 100%;
         height: 35%;
@@ -209,157 +208,64 @@ export const StyledUserProfile = styled.section`
     }
 
 
+@media only screen and (max-width:768px){
+    .profile-banner{
+        .profile-img_edit-wrapper{
+            width: 30%;
+        }
+    }
+    .user-info-wrapper{
+        grid-template-areas:
+        'user-details'
+        'user-favorites'
+        'user-edit'
+        ;
+        grid-template-rows: 100% 100% 100%;
+        grid-template-columns: 100%;
 
-
-
-@media  only screen  and (min-width:320px) and (max-width:375px){
-    table {
-      font-size:1rem;
-  width: 50%;
+        .user-details{
+            padding:0;
+            .user-details-header{
+                text-align: center;
+                width: 100%;
+                height: 10%;
+                font-size: 2.2rem;
+                text-decoration: underline;
+            }
+            .user-details-body{
+                flex-direction: column;
+                align-items: center;
+                    h2{
+                        font-size: 2rem;
+                    }
+            }
+        }
+    }
+    .user-info-wrapper.responsive{
+        grid-template-areas:
+        'user-edit'
+        'user-details'
+        'user-favorites'
+        ;
+    }
 }
-.userDetails{
-    margin-top: 5% ;
-    width: 40%;
-    height: 20%;
+@media only screen and (max-width:551px){
+    .profile-banner{
+        .profile-img_edit-wrapper{
+            width: 50%;
+            height: 90%;
+        }
+    }
 }
-.userDetails h1{
-    font-size: 1.2rem;
-    margin-top: 6%;
-    margin-left: 10%
-}
-.userDetails ul{
-    margin-top: 4%;
-    margin-left: 12%;
-    font-size: 1rem;
-}
-form{
-  width:50% ;
-}  
-form h1{
-    font-size: 1.5rem;
-}
- .editIcon{
-    margin-left: 3%;
-        width: 30%;
-    margin-left:70%
-}
-.profileImg{   
-    margin-left:79%;
-    width:20%
-}
-table{
-    font-size: 1.2rem;
-}
-}
-@media  only screen  and (min-width:375px)and (max-width:426px){
-    table {
-      font-size:3rem;
-  width: 50%;
-}
-.userDetails{
-    margin-top: 5% ;
-    width: 40%;
-    height: 20%;
-}
-.userDetails h1{
-    font-size: 1.2rem;
-    margin-top: 6%;
-    margin-left: 10%
-}
-.userDetails ul{
-    /* list-style: none; */
-    margin-top: 4%;
-    margin-left: 12%;
-    font-size: 1rem;
-}
-form{
-  width:50% ;
-}  
-form h1{
-    font-size: 1.5rem;
-}
- .editIcon{
-    margin-left: 3%;
-        width: 30%;
-    margin-left:70%
-}
-.profileImg{   
-    margin-left:79%;
-    width:20%
-}
-table{
-    font-size: 1.2rem;
-}
-}
-@media  only screen  and (min-width:427px)and (max-width:766px){
-    table {
-      font-size:3rem;
-  width: 50%;
-}
-.userDetails{
-    margin-top: 5% ;
-    width: 40%;
-    height: 20%;
-}
-.userDetails h1{
-    font-size: 1.2rem;
-    margin-top: 6%;
-    margin-left: 10%
-}
-.userDetails ul{
-    /* list-style: none; */
-    margin-top: 4%;
-    margin-left: 12%;
-    font-size: 1rem;
-}
-form{
-  width:50% ;
-}  
-form h1{
-    font-size: 1.5rem;
-}
- .editIcon{
-    margin-left: 3%;
-        width: 30%;
-    margin-left:70%
-}
-.profileImg{   
-    margin-left:79%;
-    width:20%
-}
-table{
-    font-size: 1.2rem;
-}
-}
-@media  only screen  and (min-width:767px){
-     table {
-      font-size:1.8rem;
-  width:30%;
-}
-.userDetails{
-    margin-top: 5% ;
-    width: 30%;
-    height: 20%;
-}
-
-.userDetails h1{
-    font-size: 2.5rem;
-    margin-top: 6%;
-    margin-left: 10%
-}
-.userDetails ul{
-    margin-left: 10%;
-    font-size: 1.8rem;
-}
-
- .editIcon{
-        width: 15%;
-    margin-left:85%
-}
-
-.profileImg{   
-    margin-left:85%;
-    width:15%
-}
+@media only screen and (max-width:376px){
+    .profile-banner{
+        background: none;
+        .profile-img_edit-wrapper{
+            width: 100%;
+            .profile-img{
+                width: 50%;
+            }
+        }
+    }
 }
 `;
