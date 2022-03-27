@@ -1,5 +1,5 @@
-import { useContext, useRef, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useContext, useEffect, useRef, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { ThemeContext } from "../../contexts/theme-context";
 import { MainContext } from "../../contexts/data-context.jsx";
 import { light_blue, black_gold, red_yellow, purple_pink } from "../../state-management/actions/theme-actions";
@@ -18,6 +18,20 @@ const Header = () => {
   const { mode, modeDispatch } = useContext(ThemeContext);
   const [search, setSearch] = useState("");
   const toggleRef = useRef();
+  const searchRef = useRef();
+  const errorRef = useRef();
+
+  useEffect(() => {
+    console.log(errorRef.current);
+  }, [errorRef]);
+
+
+  const { pathname } = useLocation();
+  useEffect(() => {
+    errorRef.current.value = "";
+    searchRef.current.value = "";
+  }, [pathname]);
+
   const navigate = useNavigate();
 
   const handleThemeMode = () => {
@@ -27,6 +41,10 @@ const Header = () => {
     modeDispatch(action());
     handleThemeMode();
   }
+
+  const handleSubmit = (event) => {
+    SendSearchForm(event, search, GetCityByName, setCity, navigate, errorRef)
+  };
 
   return (
     <StyledHeader mode={mode}>
@@ -62,12 +80,11 @@ const Header = () => {
         <Link className="about-us-link" to={"/about"}>About us</Link>
       </div>
 
-      <form className="header-search-form"
-        onSubmit={(e) => {
-          SendSearchForm(e, search, GetCityByName, setCity, navigate);
-        }}>
-        <input className="header-search-input" type="text" onChange={(e) => HandleOnChange(e, setSearch)} />
+      <form className="header-search-form" onSubmit={handleSubmit}>
+        <input ref={searchRef} className="header-search-input"
+          type="text" onChange={(e) => HandleOnChange(e, setSearch)} />
         <SearchIcon className="header-search-icon" />
+        <h2 ref={errorRef} className="error-msg"></h2>
       </form>
 
       <div className="logo-wrapper">

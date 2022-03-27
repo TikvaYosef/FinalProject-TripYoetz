@@ -12,6 +12,8 @@ const Home = () => {
     const { mode } = useContext(ThemeContext);
     const [greetUser, setGreetUser] = useState("");
     const [search, setSearch] = useState("");
+    const [errorMsg, setErrorMsg] = useState("");
+
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -22,9 +24,14 @@ const Home = () => {
         else { setGreetUser(`Good night`); }
     }, [user])
 
+    const handleSubmit = (event) => {
+        SendSearchForm(event, search, GetCityByName, setCity, navigate, setErrorMsg)
+    };
+
     return (
         <StyledHome mode={mode}>
-            <form className="search-form" onSubmit={(e) => SendSearchForm(e, search, GetCityByName, setCity, navigate)}>
+            <form className="search-form" onSubmit={handleSubmit}>
+                <h2 className="error-msg">{errorMsg}</h2>
                 {user.isLogin && greetUser
                     ?
                     <h1 className="greet-user">{greetUser} <span>{user.name} {user.lastName}</span></h1>
@@ -35,7 +42,7 @@ const Home = () => {
                     onChange={(e) => { HandleOnChange(e, setSearch) }}
                     placeholder="where do you want to travel?"
                 />
-                <SearchIcon className="search-icon"/>
+                <SearchIcon className="search-icon" />
             </form>
         </StyledHome>
     )

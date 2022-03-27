@@ -6,8 +6,19 @@ export const StyledHome = styled.section`
     display:flex;
     justify-content:center;
     align-items:center;
+
+    .error-msg{
+        text-transform: capitalize;
+        position:absolute;
+        font-size: 3rem;
+        font-weight: 900;
+        color: red;
+        top: 5%;
+        left: 42.5%;
+    }
     
     .greet-user{
+        text-transform: capitalize;
         position:absolute;
         right: 5%;
         top: 0%;

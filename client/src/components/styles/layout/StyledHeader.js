@@ -116,6 +116,18 @@ export const StyledHeader = styled.header`
     .header-search-input:focus ~ .header-search-icon{
         color: ${({ mode }) => mode.background};
     }
+    .error-msg{
+        text-transform: capitalize;
+        position:absolute;
+        font-size: 1.8rem;
+        font-weight: 900;
+        color: red;
+        bottom: -5%;
+        z-index: 11;
+    }
+    .error-msg.active{
+        transform:scale(1.5);
+    }
 
     .about-us-wrapper{
         grid-area: about;

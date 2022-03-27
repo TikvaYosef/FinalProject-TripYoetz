@@ -8,8 +8,7 @@ export const VerifyToken = (setUser) => {
             setUser({ ...decoded.user, isLogin: true });
         }
         else {
-            alert("your token has expired, please login again");
-            localStorage.removeItem("token");
+            localStorage.clear();
             setUser({});
         }
     }
