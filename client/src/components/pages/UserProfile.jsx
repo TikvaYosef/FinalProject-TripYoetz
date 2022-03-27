@@ -1,4 +1,4 @@
-import { useContext, useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { MainContext } from "../../contexts/data-context";
 import { StyledUserProfile } from "../styles/pages/StyledUserProfile";
@@ -26,14 +26,12 @@ const UserProfile = () => {
   const handleOnChange = (event) => {
     profileInfoUpdate[event.target.name] = event.target.value;
   };
-
   const handleSubmit = (event) => {
     event.preventDefault();
     SetProfileInfoUpdate({ ...profileInfoUpdate });
     userUpdate(user._id, user, profileInfoUpdate)
       .then(() => alert("changed successfully, please log in again to see the changes"));
   }
-
   const handleDelete = (favorite) => {
     console.log(favorite);
     removeItemToFavorites(favorite);
