@@ -112,8 +112,11 @@ export const StyledCityPageSlider = styled.div`
         width: 11vw;
         border: 5px double black;
         border-radius: 50px;
-        left: 84vw;
+        left: 72vw;
     }
+
+
+    
     @media  only screen  and (min-width:320px) and (max-width:375px){
     .slider-name{
         font-size: 2rem;

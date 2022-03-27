@@ -30,11 +30,13 @@ const CityPageSlider = ({ category, name, info, items }) => {
                     {
                         items && items.length >= 1
                             ?
-                            items.map((item) =>
-                                <Link className='slider-card' to="/itemPage" state={item._id} key={item._id}>
-                                    <h1 className='slider-card-name'>{item.name}</h1>
-                                    <img className='slider-img' key={item._id} src={item.images[0]} alt="img" />
-                                </Link>
+                            items.map((item, i) =>
+                                i < 6 ?
+                                    <Link className='slider-card' to="/itemPage" state={item._id} key={item._id}>
+                                        <h1 className='slider-card-name'>{item.name}</h1>
+                                        <img className='slider-img' key={item._id} src={item.images[0]} alt="img" />
+                                    </Link>
+                                    : null
                             )
                             :
                             null
@@ -45,7 +47,7 @@ const CityPageSlider = ({ category, name, info, items }) => {
                 </div>
             </div>
 
-            <button disabled={left === 48} onClick={handleSliderNext} className='next-img-btn'>
+            <button disabled={left === 36} onClick={handleSliderNext} className='next-img-btn'>
                 <ArrowCircleRightIcon className="arrow-icon" />
             </button>
             <button disabled={left === 0} onClick={handleSliderPrev} className='prev-img-btn'>
