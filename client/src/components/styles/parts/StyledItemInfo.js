@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const StyledItemInfo = styled.section`
     grid-area:info;
-    max-width: 100vw;
+    width: 100%;
     height: 100%;
     display:grid;
     grid-template-areas:
@@ -45,13 +45,13 @@ export const StyledItemInfo = styled.section`
         animation-fill-mode: forwards;
     }
     @keyframes heart {
-    50% {
-        transform: scale(2);
-    }
-    100% {
-        transform: scale(1);
-        color: red;
-    }
+        50% {
+            transform: scale(2);
+        }
+        100% {
+            transform: scale(1);
+            color: red;
+        }
     }
 
 
@@ -71,9 +71,11 @@ export const StyledItemInfo = styled.section`
         align-items: center;
     }
     .info-part{
-        font-size: 1.6rem;
+        text-align: center;
+        font-size: 1.5rem;
         font-weight: 900;
         width: 20%;
+        height: 50%;
         display :flex;
         justify-content: center;
         align-items: center;

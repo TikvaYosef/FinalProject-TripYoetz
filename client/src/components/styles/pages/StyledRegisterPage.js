@@ -9,7 +9,7 @@ export const StyledRegisterPage = styled.section`
     border-radius: 50px;
     display: flex;
     position: relative;
-    box-shadow: 0 0 4px 0px ${({ mode }) => mode.color};
+    box-shadow: 0 0 10px 0px ${({ mode }) => mode.color};
     
     .redirect-login{
         background: ${({ mode }) => mode.color};
@@ -53,11 +53,14 @@ export const StyledRegisterPage = styled.section`
         }
     }
 
+    .relative-input{
+        position: relative;
+    }
     .visible-password-btn{
         cursor: pointer;
         position: absolute;
         right: -5%;
-        bottom: 22.5%;
+        bottom: 100%;
         display: flex;
         align-items:center;
         justify-content: center;
@@ -88,7 +91,6 @@ export const StyledRegisterPage = styled.section`
         flex-direction: column;
         align-items: center;
         justify-content: space-evenly;
-        position: relative;
     }
     .register-title{
         font-size: 4rem;

@@ -10,7 +10,7 @@ export const StyledLoginPage = styled.section`
     display: flex;
     justify-content:flex-end;
     position: relative;
-    box-shadow: 0 0 4px 0px ${({ mode }) => mode.color};
+    box-shadow: 0 0 10px 0px ${({ mode }) => mode.color};
     
     .redirect-signup{
         background: ${({ mode }) => mode.color};

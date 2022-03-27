@@ -40,11 +40,14 @@ const Login = () => {
         <form className="login-form" onSubmit={SendLoginForm}>
           <h1 className="login-title">Login</h1>
           <div className="input-wrapper">
-            <input className="login-input email" name="email" onChange={HandleOnChange} type="email" placeholder="email" />
+            <input className="login-input email" name="email"
+              onChange={HandleOnChange} type="email" placeholder="email" />
             <PersonIcon className="login-icon person" />
           </div>
           <div className="input-wrapper">
-            <input className="login-input password" name="password" onChange={HandleOnChange} type={visiblePassword ? "text" : "password"} placeholder="password" />
+            <input className="login-input password" name="password"
+              onChange={HandleOnChange} type={visiblePassword ? "text" : "password"}
+              placeholder="password" minLength={4} maxLength={14} />
             <LockIcon className="login-icon password" />
             <button type="button" onClick={visiblePasswordHandle} className="visible-password-btn">
               {
