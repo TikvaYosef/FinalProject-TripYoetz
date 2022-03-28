@@ -39,7 +39,7 @@ export const StyledItemCard = styled.article`
 
     .card-name{
         text-align: center;
-        width: 70%;
+        width: 100%;
         font-size:2.2rem;
     }
     .card-location{
@@ -54,7 +54,7 @@ export const StyledItemCard = styled.article`
         height: 100%;
         overflow: hidden;
     }
-    .image{
+    .image {
         transition: 0.2s ease-in-out;
         width: 100%;
         height: 100%;
@@ -92,12 +92,12 @@ export const StyledItemCard = styled.article`
         color: red;
     }
     .item-liked{
-        animation-name: heart;
+        animation-name: like;
         animation-duration: 0.5s;
         animation-fill-mode: forwards;
     }
 
-    @keyframes heart {
+    @keyframes like {
     50% {
         transform: scale(2);
     }
@@ -106,11 +106,6 @@ export const StyledItemCard = styled.article`
         color: red;
     }
 }
-
-
-
-
-
 @media  only screen  and (min-width:320px) and (max-width:375px){
     .heart-icon {
             font-size:1em;
@@ -120,8 +115,8 @@ export const StyledItemCard = styled.article`
         .heart-icon-btn{
         cursor: pointer;
         position: absolute;
-        padding:8px;
-        left: 3px;
+        padding:5px;
+        left: 5px;
         top: 5px;
         border-radius:50%;
         background:white;
@@ -145,17 +140,97 @@ export const StyledItemCard = styled.article`
         font-size: 2.8rem;
     }
     .card-name{
-        margin-top: 4%;
+        margin-top: 8%;
         text-align: center;
         width: 80%;
-        font-size:1.7rem;
+        font-size:1.4rem;
     }
 }
-@media  only screen  and (min-width:320px) and (max-width:375px){}
-@media  only screen  and (min-width:375px)and (max-width:426px){}
-@media  only screen  and (min-width:427px)and (max-width:766px){}
-@media  only screen  and (min-width:767px){ }
+@media  only screen  and (min-width:375px)and (max-width:426px){
+    .heart-icon {
+            font-size:1em;
+            color:black;
+            transition: 0.1s ease-in-out;
+        }
+        .heart-icon-btn{
+        cursor: pointer;
+        position: absolute;
+        padding:5px;
+        left: 5px;
+        top: 5px;
+        border-radius:50%;
+        background:white;
+        border:2px solid black;
+        display: flex;
+        justify-content:center;
+        align-items: center;
+    }
+    .reviews{
+        font-size: 1.0rem;
+    }
+    .rating-stars{
+        font-size:1rem;
+    }
+    .rating-wrapper{
+        width: 80%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap:1rem;
+        font-size: 2.8rem;
+    }
+    .card-name{
+        margin-top: 6%;
+        text-align: center;
+        width: 100%;
+        font-size:1.9rem;
+    }
+}
+@media  only screen  and (min-width:425px)and (max-width:766px){
+    .heart-icon {
+            font-size:1em;
+            color:black;
+            transition: 0.1s ease-in-out;
+        }
+        .heart-icon-btn{
+        cursor: pointer;
+        position: absolute;
+        padding:5px;
+        left: 5px;
+        top: 5px;
+        border-radius:50%;
+        background:white;
+        border:2px solid black;
+        display: flex;
+        justify-content:center;
+        align-items: center;
+    }
+    .reviews{
+        font-size: 1.0rem;
+    }
+    .rating-stars{
+        font-size:1rem;
+    }
+    .rating-wrapper{
+        width: 80%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap:1rem;
+        font-size: 2.8rem;
+    }
+    .card-name{
+        margin-top: 14%;
+        text-align: center;
+        width: 100%;
+        font-size:1.8rem;
+    }
+}
+@media  only screen  and (min-width:767px){
+    .card-name{
+margin-left: 8%;
+        font-size:2.5rem;
+    }
+ }
 
-
-
-`;
+`

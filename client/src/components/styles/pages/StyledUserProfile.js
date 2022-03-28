@@ -267,5 +267,12 @@ export const StyledUserProfile = styled.section`
             }
         }
     }
+    .user-favorites .favorites-table td{
+
+    font-size: 1rem;}
+}
+.user-favorites .favorites-table thead{
+    font-size: 1rem;
+
 }
 `;
