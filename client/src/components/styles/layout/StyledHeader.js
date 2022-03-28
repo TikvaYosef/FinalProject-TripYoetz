@@ -108,6 +108,7 @@ export const StyledHeader = styled.header`
         padding:0 5px;
         font-size: 1.6rem;
         transition: 0.2s ease-in-out;
+        outline: none;
     }
     .header-search-input:focus{
         color: ${({ mode }) => mode.background};
@@ -202,18 +203,18 @@ export const StyledHeader = styled.header`
         transition:0.2s ease-in-out;
     }
     .theme-option:nth-child(1){
-        background: linear-gradient(120deg, rgba(0,32,74,1) 40%, rgba(182,225,224,1) 60%);
+        background: linear-gradient(120deg, rgba(0,0,0,1) 40%, rgba(245,222,179,1) 60%);
         left: 0;
     }
     .theme-option:nth-child(2){
-        background: linear-gradient(120deg, rgba(218,165,32,1) 40%, rgba(34,40,49,1) 60%);
+        background: linear-gradient(120deg, rgba(245,203,92,1) 40%, rgba(36,36,35,1) 60%);
     }
     .theme-option:nth-child(3){
-        background: linear-gradient(120deg, rgba(248,243,152,1) 40%, rgba(220,47,47,1) 60%);
+        background: linear-gradient(120deg, rgba(20,33,61,1) 40%, rgba(152,193,217,1) 60%);
         left: 7vw;
     }
     .theme-option:nth-child(4){
-        background: linear-gradient(120deg, rgba(245,199,247,1) 40%, rgba(104,7,71,1) 60%);
+        background: linear-gradient(120deg, rgba(238,193,112,1) 40%, rgba(119,47,26,1) 60%);
         left: 11vw;
     }
 

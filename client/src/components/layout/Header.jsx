@@ -2,7 +2,7 @@ import { useContext, useEffect, useRef, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { ThemeContext } from "../../contexts/theme-context";
 import { MainContext } from "../../contexts/data-context.jsx";
-import { light_blue, black_gold, red_yellow, purple_pink } from "../../state-management/actions/theme-actions";
+import { light_blue, black_gold, dark_brown, wheat_black } from "../../state-management/actions/theme-actions";
 import { GetCityByName } from "../../services/city-service";
 import { StyledHeader } from "../styles/layout/StyledHeader";
 import ProfileImg from "../parts/ProfileImg";
@@ -62,10 +62,10 @@ const Header = () => {
           <ColorLensIcon className="toggle-icon" />
         </button>
         <div ref={toggleRef} className="theme-palette">
-          <button className="theme-option" onClick={() => { selectThemeAndSave(light_blue) }}></button>
+          <button className="theme-option" onClick={() => { selectThemeAndSave(wheat_black) }}></button>
           <button className="theme-option" onClick={() => { selectThemeAndSave(black_gold) }}></button>
-          <button className="theme-option" onClick={() => { selectThemeAndSave(red_yellow) }}></button>
-          <button className="theme-option" onClick={() => { selectThemeAndSave(purple_pink) }}></button>
+          <button className="theme-option" onClick={() => { selectThemeAndSave(light_blue) }}></button>
+          <button className="theme-option" onClick={() => { selectThemeAndSave(dark_brown) }}></button>
         </div>
       </div>
 

@@ -38,6 +38,7 @@ export const StyledCategoryPage = styled.section`
         font-size: 1.5rem;
         height: 50%;
         width: 75%;
+        outline: none;
     }
     .sort-btn{
         cursor: pointer;
