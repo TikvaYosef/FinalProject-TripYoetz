@@ -1,8 +1,9 @@
 const activitiesRoutes = require("express").Router();
 
-const { GetActivities, AddActivity, UpdateActivity, DeleteActivity } = require("../controllers/activity-controller");
+const { GetActivities,GetActivityById, AddActivity, UpdateActivity, DeleteActivity } = require("../controllers/activity-controller");
 
 activitiesRoutes.get("/", GetActivities);
+activitiesRoutes.get("/:id", GetActivityById);
 activitiesRoutes.post("/", AddActivity);
 activitiesRoutes.put("/:id", UpdateActivity);
 activitiesRoutes.delete("/:id", DeleteActivity);

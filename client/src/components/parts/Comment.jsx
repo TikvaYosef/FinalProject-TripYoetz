@@ -1,6 +1,8 @@
 import { useContext, useEffect, useRef, useState } from "react";
 import { MainContext } from "../../contexts/data-context";
 import { GetRestaurants, LikeCommentRestaurant } from "../../services/restaurant-services";
+import { GetHotels, LikeCommentHotel } from "../../services/hotel-services";
+import { GetActivities, LikeCommentActivity } from "../../services/activity-service";
 import { GetDataByName } from "../../state-management/actions/categories-actions";
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 
@@ -16,13 +18,37 @@ const Comment = ({ currentCard, comment }) => {
 
     const likeComment = () => {
         likeRef.current.classList.toggle('liked');
-        LikeCommentRestaurant(currentCard._id, currentCard, currentCard.comments, comment.id, likedComment)
-        GetRestaurants()
-            .then(res => {
-                restaurantsDispatch(
-                    GetDataByName(res.data, city)
-                )
-            });
+        switch (currentCard.category) {
+            case "restaurant":
+                LikeCommentRestaurant(currentCard._id, currentCard, currentCard.comments, comment.id, likedComment)
+                GetRestaurants()
+                    .then(res => {
+                        restaurantsDispatch(
+                            GetDataByName(res.data, city)
+                        )
+                    });
+                break;
+            case "hotel":
+                LikeCommentHotel(currentCard._id, currentCard, currentCard.comments, comment.id, likedComment)
+                GetHotels()
+                    .then(res => {
+                        restaurantsDispatch(
+                            GetDataByName(res.data, city)
+                        )
+                    });
+                break;
+            case "activity":
+                LikeCommentActivity(currentCard._id, currentCard, currentCard.comments, comment.id, likedComment)
+                GetActivities()
+                    .then(res => {
+                        restaurantsDispatch(
+                            GetDataByName(res.data, city)
+                        )
+                    });
+                break;
+            default:
+                break;
+        }
     };
 
     const verifyAccessToLike = () => {

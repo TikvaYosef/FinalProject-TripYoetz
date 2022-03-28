@@ -11,6 +11,16 @@ module.exports = {
             res.status(500).json({ success: false, message: err.message });
         }
     },
+    GetHotelById: async (req, res) => {
+        try {
+            const hotel = await hotels.findOne({ _id: req.params.id });
+            if (hotel) return res.status(200).json({ success: true, hotel });
+            res.status(404).json({ success: false, message: "no hotel found" });
+        }
+        catch (err) {
+            res.status(500).json({ success: false, message: err.message });
+        }
+    },
     AddHotel: async (req, res) => {
         try {
             const { name, location, phone, activitiesHours, description, city, comments, greenPass, images, link, price, q_a, rating } = req.body;

@@ -1,13 +1,14 @@
 import { useContext, useState, useRef } from "react";
-import { GetRestaurants } from "../../services/restaurant-services";
 import { MainContext } from "../../contexts/data-context";
-import { AddCommentToRestaurants } from "../../services/restaurant-services";
+import { AddCommentToRestaurants, GetRestaurants } from "../../services/restaurant-services";
+import { AddCommentToHotels, GetHotels } from "../../services/hotel-services";
+import { AddCommentToActivities, GetActivities } from "../../services/activity-service";
 import { GetDataByName } from "../../state-management/actions/categories-actions";
 import { verifyUserAccess } from "../../utils/verifyUserAccess";
 import Comment from "./Comment";
 
 const CommentsSection = ({ currentCard }) => {
-    const { user, restaurantsDispatch, city } = useContext(MainContext);
+    const { restaurantsDispatch, hotelsDispatch, activitiesDispatch, user, city } = useContext(MainContext);
     const [comment, setComment] = useState({ likes: { amount: 0, usersId: [] } });
     const [charsLength, setCharsLength] = useState(0);
     const inputRef = useRef();
@@ -24,15 +25,41 @@ const CommentsSection = ({ currentCard }) => {
         comment.user_id = user._id;
         comment.user_img = user.image;
         setComment(comment);
-        AddCommentToRestaurants(currentCard._id, currentCard, currentCard.comments, comment)
 
-        GetRestaurants()
-            .then(res => {
-                restaurantsDispatch(
-                    GetDataByName(res.data, city)
-                )
-            });
-        inputRef.current.value = "";
+        switch (currentCard.category) {
+            case "restaurant":
+                AddCommentToRestaurants(currentCard._id, currentCard, currentCard.comments, comment)
+                GetRestaurants()
+                    .then(res => {
+                        restaurantsDispatch(
+                            GetDataByName(res.data, city)
+                        )
+                    });
+                inputRef.current.value = "";
+                break;
+            case "hotel":
+                AddCommentToHotels(currentCard._id, currentCard, currentCard.comments, comment)
+                GetHotels()
+                    .then(res => {
+                        hotelsDispatch(
+                            GetDataByName(res.data, city)
+                        )
+                    });
+                inputRef.current.value = "";
+                break;
+            case "activity":
+                AddCommentToActivities(currentCard._id, currentCard, currentCard.comments, comment)
+                GetActivities()
+                    .then(res => {
+                        activitiesDispatch(
+                            GetDataByName(res.data, city)
+                        )
+                    });
+                inputRef.current.value = "";
+                break;
+            default:
+                break;
+        }
     };
 
     return (
@@ -57,7 +84,7 @@ const CommentsSection = ({ currentCard }) => {
                 </div>
             </form>
             {
-                    currentCard.comments && currentCard.comments.length >= 1
+                currentCard.comments && currentCard.comments.length >= 1
                     ?
                     <h1 className="comments-amount">{currentCard.comments.length} comments</h1>
                     : null

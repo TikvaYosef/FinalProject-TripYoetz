@@ -12,6 +12,16 @@ export const GetActivities = async () => {
         console.log(err);
     }
 }
+export const GetActivityById = async (id) => {
+    try {
+        return await fetch(`${BASE_URL}/api/activities/${id}`)
+            .then((res) => res.json())
+            .catch((err) => console.log(err))
+    }
+    catch (err) {
+        console.log(err);
+    }
+};
 export const AddActivity = async (activity) => {
     const options = {
         method: "POST",
@@ -58,6 +68,66 @@ export const AddCommentToActivities = async (id, activity, comments, comment) =>
     const options = {
         method: "PUT",
         body: JSON.stringify({ ...activity, comments: [...comments, { ...comment }] }),
+        headers: { 'Content-Type': 'application/json' }
+    }
+    try {
+        return await fetch(`${BASE_URL}/api/activities/${id}`, options)
+            .then((res) => res.json())
+    }
+    catch (err) {
+        console.log(err);
+    }
+};
+export const LikeCommentActivity = async (id, activity, comments, commentId, commentWithLike) => {
+    let filteredComments = comments.filter(comment => comment.id !== commentId);
+
+    const options = {
+        method: "PUT",
+        body: JSON.stringify({ ...activity, comments: [...filteredComments, { ...commentWithLike }] }),
+        headers: { 'Content-Type': 'application/json' }
+    }
+    try {
+        return await fetch(`${BASE_URL}/api/activities/${id}`, options)
+            .then((res) => res.json())
+    }
+    catch (err) {
+        console.log(err);
+    }
+}
+export const RateActivity = async (id, activity, rating) => {
+    const options = {
+        method: "PUT",
+        body: JSON.stringify({ ...activity, rating: [...activity.rating, { ...rating }] }),
+        headers: { 'Content-Type': 'application/json' }
+    }
+    try {
+        return await fetch(`${BASE_URL}/api/activities/${id}`, options)
+            .then((res) => res.json())
+    }
+    catch (err) {
+        console.log(err);
+    }
+};
+export const AnswerToQuestionActivities = async (id, activity, qId, q_a, answer) => {
+    let filtered_qa = q_a.filter(q => q.id !== qId);
+
+    const options = {
+        method: "PUT",
+        body: JSON.stringify({ ...activity, q_a: [...filtered_qa, answer] }),
+        headers: { 'Content-Type': 'application/json' }
+    }
+    try {
+        return await fetch(`${BASE_URL}/api/activities/${id}`, options)
+            .then((res) => res.json())
+    }
+    catch (err) {
+        console.log(err);
+    }
+};
+export const AddQuestionToActivities = async (id, activity, q_a, question) => {
+    const options = {
+        method: "PUT",
+        body: JSON.stringify({ ...activity, q_a: [...q_a, { ...question }] }),
         headers: { 'Content-Type': 'application/json' }
     }
     try {

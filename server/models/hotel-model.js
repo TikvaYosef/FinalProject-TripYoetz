@@ -14,6 +14,7 @@ const Hotel = new mongoose.Schema({
     link: { type: String, required: true },
     price: { type: Array},
     city: { type: String, required: true },
+    category: { type: String, default: "hotel" }
 },
     { timestamps: true }
 );
