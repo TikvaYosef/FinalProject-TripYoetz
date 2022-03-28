@@ -119,10 +119,10 @@ export const StyledHeader = styled.header`
     .error-msg{
         text-transform: capitalize;
         position:absolute;
-        font-size: 1.8rem;
+        font-size: 1.5rem;
         font-weight: 900;
         color: red;
-        bottom: -5%;
+        bottom: -10%;
         z-index: 11;
     }
 

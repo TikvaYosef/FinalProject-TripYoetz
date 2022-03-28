@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const StyledCategoryPage = styled.section`
     margin:0 auto 10vh;
-    width: 65%;
+    width: 60%;
     height: fit-content;
     display: grid;
     grid-template-areas:

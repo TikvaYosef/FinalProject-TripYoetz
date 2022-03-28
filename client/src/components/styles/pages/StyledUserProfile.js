@@ -260,19 +260,20 @@ export const StyledUserProfile = styled.section`
 @media only screen and (max-width:376px){
     .profile-banner{
         background: none;
+
         .profile-img_edit-wrapper{
             width: 100%;
+
             .profile-img{
                 width: 50%;
             }
         }
     }
     .user-favorites .favorites-table td{
-
-    font-size: 1rem;}
-}
-.user-favorites .favorites-table thead{
-    font-size: 1rem;
-
+        font-size: 1rem;
+    }
+    .user-favorites .favorites-table thead{
+        font-size: 1rem;
+    }
 }
 `;

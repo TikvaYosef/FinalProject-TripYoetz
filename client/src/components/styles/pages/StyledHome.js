@@ -10,11 +10,11 @@ export const StyledHome = styled.section`
     .error-msg{
         text-transform: capitalize;
         position:absolute;
-        font-size: 3rem;
+        font-size: 2.5rem;
         font-weight: 900;
         color: red;
-        top: 5%;
-        left: 42.5%;
+        top: 2%;
+        left: 2%;
     }
     
     .greet-user{
