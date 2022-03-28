@@ -27,5 +27,25 @@ export const StyledCity = styled.section`
         font-size: 2.2rem;
     }
 
-   
+    @media  only screen  and (min-width:320px) and (max-width:375px){
+        width: 90%;
+        .city-description-text{
+           font-size: 1.5rem;
+        }
+    }
+
+    @media  only screen  and (min-width:375px) and (max-width:425px){
+        width: 90%;
+        .city-description-text{
+           font-size: 1.5rem;
+        }
+    }
+
+    @media  only screen  and (min-width:425px) and (max-width:768px){
+        width: 90%;
+        .city-description-text{
+           font-size: 1.5rem;
+        }
+    }
+
 `

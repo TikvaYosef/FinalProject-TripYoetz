@@ -115,23 +115,113 @@ export const StyledCityPageSlider = styled.div`
         left: 72vw;
     }
 
-
-    
     @media  only screen  and (min-width:320px) and (max-width:375px){
     .slider-name{
         font-size: 2rem;
+        margin-top: 20px;
     }
     .slider-info{
         font-size: 1.3rem;
+        width: 150px;
     }
     .arrow-icon{
         font-size: 1.5rem;
-
     }
     .next-img-btn{
         right: 7%;
     }
+    .slider-images-wrapper{
+        margin-left: 20px;
+    }
+    .slider-card-name{
+        font-size: 0.6rem;
+        font-weight:800;
+    }
+    .slider-box-display{
+        height: 100%;
+        width: 35%;
+        margin-right: 43px;
+    }
+    .slider-link{
+      margin-right: 200px;
+        font-size: 1rem;
+        font-weight: 900;
+    }
     
+    }
+    @media  only screen  and (min-width:375px) and (max-width:425px){
+        .slider-name{
+        font-size: 2rem;
+        margin-top: 20px;
+    }
+    .slider-info{
+        font-size: 1.3rem;
+        width: 150px;
+    }
+    .arrow-icon{
+        font-size: 1.5rem;
+    }
+    .next-img-btn{
+        right: 7%;
+    }
+    .slider-images-wrapper{
+        margin-left: 20px;
+    }
+    .slider-card-name{
+        font-size: 0.6rem;
+        font-weight:800;
+    }
+    .slider-box-display{
+        height: 100%;
+        width: 34%;
+        margin-right: 43px;
+    }
+    .slider-link{
+      margin-right: 270px;
+        font-size: 1rem;
+        font-weight: 900;
+    }
+    }
+    @media  only screen  and (min-width:425px) and (max-width:768px){
+        .slider-name{
+        font-size: 2rem;
+        margin-top: 20px;
+    }
+    .slider-info{
+        font-size: 1.3rem;
+        width: 150px;
+    }
+    .arrow-icon{
+        font-size: 1.5rem;
+    }
+    .next-img-btn{
+        right: 7%;
+    }
+    .slider-images-wrapper{
+        margin-left: 20px;
+    }
+    .slider-card-name{
+        font-size: 0.6rem;
+        font-weight:800;
+    }
+    .slider-box-display{
+        height: 100%;
+        width: 35%;
+      
+    }
+    .slider-box-display{
+        height: 100%;
+        width: 50%;
+        margin-right: 43px;
+    }
+    .slider-link{
+      margin-right: 270px;
+        font-size: 1rem;
+        font-weight: 900;
+    }
+    .end-slider{
+      border: none;
+    }
     }
 
 `
