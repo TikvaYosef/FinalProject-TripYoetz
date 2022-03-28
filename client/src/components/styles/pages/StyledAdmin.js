@@ -1,29 +1,45 @@
 import styled from "styled-components";
 
-export const StyledAdmin = styled.table`
-    margin:auto;
+export const StyledAdmin = styled.section`
+    margin-top:10vh;
     width: 100%;
-    height: 50%;
-    border: 1px solid;
-    border-collapse: collapse;
-    /* overflow-x: hidden;
-    overflow-y: hidden; */
-.tr{
-    width:40%;
-    height: 5%;
-    
-}
-& .tr:hover{
-    background-color: gray; 
-}
-& .td{
-    width:30%;
-    height: 3%;
-    border: 1px solid;
-    
-}
-& .description{
-    width:30%;
+
+    .admin-table{
+        width: 100%;
+        height: 100%;
+        border-collapse: collapse;
+        text-align: center;
+        font-size: 1.5rem;
+        table-layout:fixed;
+        
+        .table-item-img{
+            width: 100%;
+            height: 100%;
+        }
+        thead{
+            height: 5vh;
+            font-size: 2.2rem;
+            background: ${({ mode }) => mode.color};
+            color: ${({ mode }) => mode.background};
+            /* position: sticky; */
+            /* top: 10vh; */
+        }
+        td{
+            border: 2px solid ${({ mode }) => mode.color};
+            font-size: 1.6rem;
+            font-weight: 900;
+            overflow-wrap: break-word;
+            overflow: hidden;
+            /* line-height: 20px; */
+            max-width: calc(100% / 14);
+            min-width: calc(100% / 14);
+            min-height: 50px;
+            max-height: 50px;
+        }
+    }
+
+    & .description{
+        width:30%;
     height: 3%;
     border: 1px solid;
    
