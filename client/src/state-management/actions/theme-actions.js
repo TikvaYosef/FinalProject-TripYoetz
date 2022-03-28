@@ -8,13 +8,13 @@ export const black_gold = () => {
         type: "BLACK_GOLD"
     }
 };
-export const red_yellow = () => {
+export const dark_brown = () => {
     return {
-        type: "RED_YELLOW"
+        type: "DARK_BROWN"
     }
 };
-export const purple_pink = () => {
+export const wheat_black = () => {
     return {
-        type: "PURPLE_PINK"
+        type: "WHEAT_BLACK"
     }
 };

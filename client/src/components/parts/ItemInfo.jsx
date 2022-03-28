@@ -81,7 +81,7 @@ const ItemInfo = ({ item }) => {
             </div>
             <div className="item-description-wrapper">
                 {
-                    item.about &&
+                    item.description &&
                     <>
                         <h2 className="item-description-title">About</h2>
                         <p className="item-description">{item.description}</p>

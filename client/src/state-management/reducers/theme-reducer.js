@@ -5,14 +5,14 @@ const themeReducer = (state = {}, action) => {
     const { type } = action;
 
     switch (type) {
-        case themeTypes.LIGHT_BLUE:
-            return themes.light_blue;
+        case themeTypes.WHEAT_BLACK:
+            return themes.wheat_black;
         case themeTypes.BLACK_GOLD:
             return themes.black_gold;
-        case themeTypes.RED_YELLOW:
-            return themes.red_yellow;
-        case themeTypes.PURPLE_PINK:
-            return themes.purple_pink;
+        case themeTypes.LIGHT_BLUE:
+            return themes.light_blue;
+        case themeTypes.DARK_BROWN:
+            return themes.dark_brown;
         default:
             return state
     };
