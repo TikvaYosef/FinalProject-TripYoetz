@@ -80,8 +80,13 @@ const ItemInfo = ({ item }) => {
                 </h1>
             </div>
             <div className="item-description-wrapper">
-                <h2 className="item-description-title">About</h2>
-                <p className="item-description">{item.description}</p>
+                {
+                    item.about &&
+                    <>
+                        <h2 className="item-description-title">About</h2>
+                        <p className="item-description">{item.description}</p>
+                    </>
+                }
             </div>
         </StyledItemInfo>
     );
