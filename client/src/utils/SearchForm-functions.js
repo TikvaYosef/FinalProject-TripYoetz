@@ -12,6 +12,8 @@ export const SendSearchForm = (event, search, GetCityByName, setCity, navigate, 
                 setCity(res.data);
             }
             navigate("/cities");
+            if(errorRef.current) errorRef.current.innerHTML = "";
+            
         }
         else { errorRef.current.innerHTML = res.message; }
     })

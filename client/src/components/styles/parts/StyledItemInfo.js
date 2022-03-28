@@ -165,14 +165,16 @@ export const StyledItemInfo = styled.section`
     }
     .activities-hours{
         width: 100%;
-        height: 75%;
+        height: 55%;
         display: flex;
         flex-direction:column;
         align-items: center;
         font-size: 1.5rem;
         font-weight: 900;
     }
-
+    .item-prices{
+        font-size: 2.5rem;
+    }
 
     .item-description-wrapper{
         grid-area: description;

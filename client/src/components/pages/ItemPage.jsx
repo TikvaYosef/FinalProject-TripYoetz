@@ -3,6 +3,8 @@ import Navbar from "../layout/Navbar";
 import CommentsSection from "../parts/Comments-section";
 import { useContext, useEffect, useState } from "react";
 import { GetRestaurantById, GetRestaurants, RateRestaurant } from "../../services/restaurant-services";
+import { GetHotelById, GetHotels, RateHotel } from "../../services/hotel-services";
+import { GetActivityById, GetActivities, RateActivity } from "../../services/activity-service";
 import ItemInfo from "../parts/ItemInfo";
 import QaSection from "../parts/Qa-Section";
 import { StyledItemPage } from "../styles/pages/StyledItemPage";
@@ -14,35 +16,75 @@ import { GetDataByName } from "../../state-management/actions/categories-actions
 import { StyledCommentsQa } from "../styles/parts/StyledCommentsQa";
 
 const ItemPage = () => {
-    const { restaurants, user, restaurantsDispatch, city } = useContext(MainContext);
+    const { restaurants, restaurantsDispatch, hotels, hotelsDispatch, activities, activitiesDispatch, user, city } = useContext(MainContext);
     const { mode } = useContext(ThemeContext);
     const [item, setItem] = useState({});
     const [toggle, setToggle] = useState(true);
     const [userRate, setUserRate] = useState({ rate: 0 });
-    const itemId = useLocation().state;
+    const product = useLocation().state;
 
     useEffect(() => {
-        GetRestaurantById(itemId)
-            .then(res => setItem({ ...res.restaurant }))
-    }, [itemId, restaurants])
+        switch (product.category) {
+            case "restaurant":
+                GetRestaurantById(product._id)
+                    .then(res => setItem({ ...res.restaurant }));
+                break;
+            case "hotel":
+                GetHotelById(product._id)
+                    .then(res => setItem({ ...res.hotel }));
+                break;
+            case "activity":
+                GetActivityById(product._id)
+                    .then(res => setItem({ ...res.activity }));
+                break;
+
+            default:
+                break;
+        }
+    }, [product, restaurants, hotels, activities])
 
     const sendRateForm = (event) => {
         event.preventDefault();
         userRate.rate = Number(event.target.value);
         userRate.userId = user._id;
         setUserRate(userRate);
-        RateRestaurant(item._id, item, userRate)
 
-        GetRestaurants()
-            .then(res => {
-                restaurantsDispatch(
-                    GetDataByName(res.data, city)
-                )
-            });
+        switch (product.category) {
+            case "restaurant":
+                RateRestaurant(item._id, item, userRate)
+                GetRestaurants()
+                    .then(res => {
+                        restaurantsDispatch(
+                            GetDataByName(res.data, city)
+                        )
+                    });
+                break;
+            case "hotel":
+                RateHotel(item._id, item, userRate)
+                GetHotels()
+                    .then(res => {
+                        hotelsDispatch(
+                            GetDataByName(res.data, city)
+                        )
+                    });
+                break;
+            case "activity":
+                RateActivity(item._id, item, userRate)
+                GetActivities()
+                    .then(res => {
+                        activitiesDispatch(
+                            GetDataByName(res.data, city)
+                        )
+                    });
+                break;
+            default:
+                break;
+        }
     };
+
     const checkIfUserRate = () => {
-        if(!user.isLogin) return true;
-        if(user.isAdmin) return true;
+        if (!user.isLogin) return true;
+        if (user.isAdmin) return true;
         if (item.rating && item.rating.length >= 1) {
             for (const rate of item.rating) {
                 if (rate.userId === user._id) return true

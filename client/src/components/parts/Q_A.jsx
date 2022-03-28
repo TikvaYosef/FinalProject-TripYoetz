@@ -1,6 +1,8 @@
 import { useContext, useRef, useState } from "react"
 import { MainContext } from "../../contexts/data-context"
 import { AnswerToQuestionRestaurants, GetRestaurants } from "../../services/restaurant-services";
+import { AnswerToQuestionHotels, GetHotels } from "../../services/hotel-services";
+import { AnswerToQuestionActivities, GetActivities } from "../../services/activity-service";
 import { GetDataByName } from "../../state-management/actions/categories-actions";
 
 const Q_A = ({ currentCard, item }) => {
@@ -17,14 +19,41 @@ const Q_A = ({ currentCard, item }) => {
         answer.admin_img = user.image;
         answer.admin_name = `${user.name} ${user.lastName}`;
         setAnswer(answer);
-        AnswerToQuestionRestaurants(currentCard._id, currentCard, item.id, currentCard.q_a, answer)
-        GetRestaurants()
-            .then(res => {
-                restaurantsDispatch(
-                    GetDataByName(res.data, city)
-                )
-            })
-        inputRef.current.value = "";
+
+        switch (currentCard.category) {
+            case "restaurant":
+                AnswerToQuestionRestaurants(currentCard._id, currentCard, item.id, currentCard.q_a, answer)
+                GetRestaurants()
+                    .then(res => {
+                        restaurantsDispatch(
+                            GetDataByName(res.data, city)
+                        )
+                    })
+                inputRef.current.value = "";
+                break;
+            case "hotel":
+                AnswerToQuestionHotels(currentCard._id, currentCard, item.id, currentCard.q_a, answer)
+                GetHotels()
+                    .then(res => {
+                        restaurantsDispatch(
+                            GetDataByName(res.data, city)
+                        )
+                    })
+                inputRef.current.value = "";
+                break;
+            case "activity":
+                AnswerToQuestionActivities(currentCard._id, currentCard, item.id, currentCard.q_a, answer)
+                GetActivities()
+                    .then(res => {
+                        restaurantsDispatch(
+                            GetDataByName(res.data, city)
+                        )
+                    })
+                inputRef.current.value = "";
+                break;
+            default:
+                break;
+        }
     }
 
     return (

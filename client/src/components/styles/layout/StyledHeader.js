@@ -125,9 +125,6 @@ export const StyledHeader = styled.header`
         bottom: -5%;
         z-index: 11;
     }
-    .error-msg.active{
-        transform:scale(1.5);
-    }
 
     .about-us-wrapper{
         grid-area: about;

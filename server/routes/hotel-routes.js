@@ -1,8 +1,9 @@
 const hotelsRoutes = require("express").Router();
 
-const { GetHotels, UpdateHotel, DeleteHotel, AddHotel } = require("../controllers/hotel-controller");
+const { GetHotels, GetHotelById, UpdateHotel, DeleteHotel, AddHotel } = require("../controllers/hotel-controller");
 
 hotelsRoutes.get("/", GetHotels);
+hotelsRoutes.get("/:id", GetHotelById);
 hotelsRoutes.post("/", AddHotel);
 hotelsRoutes.put("/:id", UpdateHotel);
 hotelsRoutes.delete("/:id", DeleteHotel);

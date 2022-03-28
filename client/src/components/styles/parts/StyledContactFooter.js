@@ -27,11 +27,11 @@ export const StyledContactFooter = styled.article`
   .developer-image{
       width:45%;
       height: 40%;
-      border-radius: 40% 0 40% 0;
+      border-radius: 50%;
       transition: 0.2s ease-in-out;
   }
   .developer-image:hover{
-    border-radius: 0 40% 0 40%;
+    border-radius: 10px;
 
   }
   .developer-info{

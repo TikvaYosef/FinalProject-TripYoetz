@@ -20,28 +20,21 @@ const Header = () => {
   const toggleRef = useRef();
   const searchRef = useRef();
   const errorRef = useRef();
-
-  useEffect(() => {
-    console.log(errorRef.current);
-  }, [errorRef]);
-
-
   const { pathname } = useLocation();
+  const navigate = useNavigate();
+
   useEffect(() => {
-    errorRef.current.value = "";
+    errorRef.current.innerHTML = "";
     searchRef.current.value = "";
   }, [pathname]);
 
-  const navigate = useNavigate();
-
   const handleThemeMode = () => {
     toggleRef.current.classList.toggle('active');
-  }
+  };
   const selectThemeAndSave = (action) => {
     modeDispatch(action());
     handleThemeMode();
-  }
-
+  };
   const handleSubmit = (event) => {
     SendSearchForm(event, search, GetCityByName, setCity, navigate, errorRef)
   };
@@ -84,7 +77,7 @@ const Header = () => {
         <input ref={searchRef} className="header-search-input"
           type="text" onChange={(e) => HandleOnChange(e, setSearch)} />
         <SearchIcon className="header-search-icon" />
-        <h2 ref={errorRef} className="error-msg"></h2>
+        <h2 ref={errorRef} className="error-msg">{''}</h2>
       </form>
 
       <div className="logo-wrapper">

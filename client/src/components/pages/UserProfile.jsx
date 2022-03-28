@@ -75,6 +75,7 @@ const UserProfile = () => {
                   <tr>
                     <th>Name</th>
                     <th>City</th>
+                    <th>Category</th>
                     <th>Link</th>
                     <th>Remove</th>
                   </tr>
@@ -85,6 +86,7 @@ const UserProfile = () => {
                       <tr key={favorite._id}>
                         <td>{favorite.name}</td>
                         <td>{favorite.city}</td>
+                        <td>{favorite.category}</td>
                         <td><Link to={"/itemPage"} state={favorite._id} className="favorite-link">View more</Link></td>
                         <td>
                           <DeleteIcon className="delete-favorite"

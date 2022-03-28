@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { MainContext } from "../../contexts/data-context";
 import { GetCityByName } from "../../services/city-service"
 import { useNavigate } from "react-router-dom";
@@ -12,7 +12,7 @@ const Home = () => {
     const { mode } = useContext(ThemeContext);
     const [greetUser, setGreetUser] = useState("");
     const [search, setSearch] = useState("");
-    const [errorMsg, setErrorMsg] = useState("");
+    const errorRef = useRef();
 
     const navigate = useNavigate();
 
@@ -25,13 +25,13 @@ const Home = () => {
     }, [user])
 
     const handleSubmit = (event) => {
-        SendSearchForm(event, search, GetCityByName, setCity, navigate, setErrorMsg)
+        SendSearchForm(event, search, GetCityByName, setCity, navigate, errorRef)
     };
 
     return (
         <StyledHome mode={mode}>
             <form className="search-form" onSubmit={handleSubmit}>
-                <h2 className="error-msg">{errorMsg}</h2>
+                <h2 ref={errorRef} className="error-msg">{''}</h2>
                 {user.isLogin && greetUser
                     ?
                     <h1 className="greet-user">{greetUser} <span>{user.name} {user.lastName}</span></h1>

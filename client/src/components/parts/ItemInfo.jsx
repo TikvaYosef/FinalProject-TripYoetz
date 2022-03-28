@@ -69,6 +69,15 @@ const ItemInfo = ({ item }) => {
                             null
                     }
                 </div>
+                <h1 className="item-prices">
+                    {
+                        item.price && item.price.length >= 1
+                            ?
+                            `${item.price[0]}$ - ${item.price[1]}$`
+                            :
+                            "No price info"
+                    }
+                </h1>
             </div>
             <div className="item-description-wrapper">
                 <h2 className="item-description-title">About</h2>

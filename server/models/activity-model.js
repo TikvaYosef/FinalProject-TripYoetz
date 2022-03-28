@@ -13,6 +13,7 @@ const Activity = new mongoose.Schema({
     q_a: {type: Array} ,
     link: { type: String, required: true },
     price: { type: Array},
+    category: { type: String, default: "activity" }
 },
     { timestamps: true }
 );
