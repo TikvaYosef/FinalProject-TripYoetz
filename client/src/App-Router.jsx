@@ -48,7 +48,7 @@ const AppRouter = () => {
                     <Route exact path="/hotels" element={<Hotels />} />
                     <Route exact path="/activities" element={<Activities />} />
                     <Route exact path="/restaurants" element={<Restaurants />} />
-                    <Route exact path="/itemPage" element={<ItemPage />} />
+                    <Route exact path="/:itemPage" element={<ItemPage />} />
                     <Route exact path="/register" element={<PrivateRouteRegister />} />
                     <Route exact path="/login" element={<PrivateRouteLogin />} />
                     <Route exact path="/profile" element={<PrivateRoute />}>
