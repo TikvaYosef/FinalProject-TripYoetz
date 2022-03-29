@@ -145,6 +145,11 @@ export const StyledItemCard = styled.article`
         width: 80%;
         font-size:1.4rem;
     }
+    .image{
+        transition: 0.2s ease-in-out;
+        width: 200%;
+        height: 100%;
+    }
 }
 @media  only screen  and (min-width:375px)and (max-width:426px){
     .heart-icon {
@@ -185,6 +190,11 @@ export const StyledItemCard = styled.article`
         width: 100%;
         font-size:1.9rem;
     }
+    .image{
+        transition: 0.2s ease-in-out;
+        width: 150%;
+        height: 100%;
+    }
 }
 @media  only screen  and (min-width:425px)and (max-width:766px){
     .heart-icon {
@@ -220,10 +230,15 @@ export const StyledItemCard = styled.article`
         font-size: 2.8rem;
     }
     .card-name{
-        margin-top: 14%;
+        margin-top: 8%;
         text-align: center;
         width: 100%;
-        font-size:1.8rem;
+        font-size:2.3rem;
+    }
+    .image{
+        transition: 0.2s ease-in-out;
+        width: 150%;
+        height: 100%;
     }
 }
 @media  only screen  and (min-width:767px){
