@@ -11,7 +11,7 @@ export const GetActivities = async () => {
     catch (err) {
         console.log(err);
     }
-}
+};
 export const GetActivityById = async (id) => {
     try {
         return await fetch(`${BASE_URL}/api/activities/${id}`)
@@ -31,12 +31,11 @@ export const AddActivity = async (activity) => {
     try {
         return await fetch(`${BASE_URL}/api/activities`, options)
             .then((res) => res.json())
-            .then((res) => console.log(res))
     }
     catch (err) {
         console.log(err);
     }
-}
+};
 export const UpdateActivity = async (id, activity) => {
     const options = {
         method: "PUT",
@@ -46,12 +45,11 @@ export const UpdateActivity = async (id, activity) => {
     try {
         return await fetch(`${BASE_URL}/api/activities/${id}`, options)
             .then((res) => res.json())
-            .then((res) => console.log(res))
     }
     catch (err) {
         console.log(err);
     }
-}
+};
 export const DeleteActivity = async (id) => {
     const options = {
         method: "DELETE",
@@ -63,7 +61,7 @@ export const DeleteActivity = async (id) => {
     catch (err) {
         console.log(err);
     }
-}
+};
 export const AddCommentToActivities = async (id, activity, comments, comment) => {
     const options = {
         method: "PUT",

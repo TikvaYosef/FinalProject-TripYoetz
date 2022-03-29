@@ -31,7 +31,6 @@ export const AddHotel = async (Hotel) => {
     try {
         return await fetch(`${BASE_URL}/api/hotels`, options)
             .then((res) => res.json())
-            .then((res) => console.log(res))
     }
     catch (err) {
         console.log(err);
@@ -46,7 +45,6 @@ export const UpdateHotel = async (id, hotel) => {
     try {
         return await fetch(`${BASE_URL}/api/hotels/${id}`, options)
             .then((res) => res.json())
-            .then((res) => console.log(res))
     }
     catch (err) {
         console.log(err);
@@ -59,7 +57,6 @@ export const DeleteHotel = async (id) => {
     try {
         return await fetch(`${BASE_URL}/api/hotels/${id}`, options)
             .then((res) => res.json())
-            .then((res) => console.log(res))
     }
     catch (err) {
         console.log(err);
