@@ -23,8 +23,8 @@ module.exports = {
     },
     AddActivity: async (req, res) => {
         try {
-            const { name, city, location, phone, activitiesHours, images, comments, greenPass, rating, link, q_a } = req.body;
-            const activity = new activities({ name, city, location, phone, activitiesHours, images, comments, greenPass, rating, link, q_a });
+            const { name, city, location, phone, activitiesHours, images, comments, greenPass, rating, link, q_a, price } = req.body;
+            const activity = new activities({ name, city, location, phone, activitiesHours, images, comments, greenPass, rating, link, q_a, price });
             if (!activity) return res.status(400).json({ success: false, message: "activity not valid" })
 
             await activities.create(activity)

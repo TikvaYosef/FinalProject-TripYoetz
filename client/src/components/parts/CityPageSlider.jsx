@@ -32,7 +32,7 @@ const CityPageSlider = ({ category, name, info, items }) => {
                             ?
                             items.map((item, i) =>
                                 i < 6 ?
-                                    <Link className='slider-card' to="/itemPage" state={item._id} key={item._id}>
+                                    <Link className='slider-card' to={`/${item.name}`} state={item} key={item._id}>
                                         <h1 className='slider-card-name'>{item.name}</h1>
                                         <img className='slider-img' key={item._id} src={item.images[0]} alt="img" />
                                     </Link>

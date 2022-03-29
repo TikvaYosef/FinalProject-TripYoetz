@@ -40,7 +40,7 @@ const ItemCard = ({ product }) => {
                             <Rating className="rating-stars" name="text-feedback" value={Number(rating)} precision={0.5} readOnly emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />} />
                         </Box>
                     </div>
-                    <Link className="card-link" to="/itemPage" state={product}>
+                    <Link className="card-link" to={`/${product.name}`} state={product}>
                         <img className="image" src={product.images[0]} alt="item-img" />
                     </Link>
                 </>
