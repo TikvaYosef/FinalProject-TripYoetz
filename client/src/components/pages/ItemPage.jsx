@@ -25,6 +25,15 @@ const ItemPage = () => {
     const product = useLocation().state;
 
     useEffect(() => {
+        if (item.rating && item.rating.length >= 1) {
+            for (const rate of item.rating) {
+                if (rate.userId === user._id) {
+                    setUserRate({ ...rate });
+                }
+            };
+        };
+    }, [item.rating, user._id])
+    useEffect(() => {
         setLoader(true);
         switch (product.category) {
             case "restaurant":
@@ -47,7 +56,6 @@ const ItemPage = () => {
                 break;
         }
     }, [product, restaurants, hotels, activities, setLoader])
-
     const sendRateForm = (event) => {
         event.preventDefault();
         userRate.rate = Number(event.target.value);
@@ -86,7 +94,6 @@ const ItemPage = () => {
                 break;
         }
     };
-
     const checkIfUserRate = () => {
         if (!user.isLogin) return true;
         if (user.isAdmin) return true;
@@ -98,7 +105,6 @@ const ItemPage = () => {
         };
     };
 
-
     return (
         <StyledItemPage mode={mode}>
             {loader && <Loader />}
@@ -109,7 +115,7 @@ const ItemPage = () => {
                 <button className={`toggle-btn ${!toggle ? 'toggle-active' : ''}`} disabled={!toggle} onClick={() => setToggle(false)}>Q&A</button>
             </div>
             <Stack spacing={1} className="rating-stars">
-                <Rating disabled={checkIfUserRate()} className="rating-stars-select" name="half-rating" value={Number(userRate.rate)} precision={0.5} onChange={sendRateForm} />
+                <Rating readOnly={checkIfUserRate()} className="rating-stars-select" name="half-rating" value={userRate.rate ? Number(userRate.rate) : 0} precision={0.5} onChange={sendRateForm} />
             </Stack>
             <StyledCommentsQa mode={mode} className="comments-qa">
                 {toggle

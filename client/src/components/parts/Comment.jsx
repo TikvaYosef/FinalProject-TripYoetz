@@ -16,7 +16,6 @@ const Comment = ({ currentCard, comment }) => {
         let likesAmount = Number(comment.likes.amount + 1);
         setLikedComment({ ...comment, likes: { amount: likesAmount, usersId: [...comment.likes.usersId, user._id] } });
     }, [comment, user._id])
-
     const likeComment = () => {
         likeRef.current.classList.toggle('liked');
         setLoader(true);
@@ -96,14 +95,14 @@ const Comment = ({ currentCard, comment }) => {
         };
     };
 
-
     return (
         <article className="comment-box">
             {
-                comment.user_id === user._id &&
-                <button className="remove-comment-btn" onClick={removeComment}>
-                    <DeleteIcon className="remove-comment-icon" />
-                </button>
+                comment.user_id === user._id || user.isAdmin ?
+                    <button className="remove-comment-btn" onClick={removeComment}>
+                        <DeleteIcon className="remove-comment-icon" />
+                    </button>
+                    : null
             }
             <div className="comment-header">
                 <h1 className="comment-writer">{comment.writer}</h1>
