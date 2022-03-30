@@ -116,6 +116,7 @@ export const StyledCityPageSlider = styled.div`
     }
 
     @media  only screen  and (min-width:320px) and (max-width:375px){
+        
     .slider-name{
         font-size: 2rem;
         margin-top: 20px;
