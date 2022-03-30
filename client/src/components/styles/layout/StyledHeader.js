@@ -123,7 +123,7 @@ export const StyledHeader = styled.header`
         font-size: 1.5rem;
         font-weight: 900;
         color: red;
-        bottom: -10%;
+        right: -50%;
         z-index: 11;
     }
 

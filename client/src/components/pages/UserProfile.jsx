@@ -108,19 +108,22 @@ const UserProfile = () => {
             <div className="user-update-wrapper">
               <h1>Edit Your Profile</h1>
               <form className="user-update-form" onSubmit={handleSubmit}>
-                <input name="name" type="text"
+                <input defaultValue={user.name} name="name" type="text"
                   onChange={handleOnChange} placeholder="first name"
                   minLength={2} maxLength={10} />
 
-                <input name="lastName" type="text"
+                <input defaultValue={user.lastName} name="lastName" type="text"
                   onChange={handleOnChange} placeholder="last name"
                   minLength={2} maxLength={10} />
 
-                <input name="birthDate" type="date"
+                <input defaultValue={user.email} name="email" type="email"
+                  onChange={handleOnChange} placeholder="email" />
+
+                <input defaultValue={user.birthDate.slice(0, 10)} name="birthDate" type="date"
                   onChange={handleOnChange} placeholder="birth date"
                   min="1902-01-01" max="2004-01-01" />
 
-                <input name="image" type="text"
+                <input defaultValue={user.image} name="image" type="text"
                   onChange={handleOnChange} placeholder="profile image" />
 
                 <button>UPDATE</button>

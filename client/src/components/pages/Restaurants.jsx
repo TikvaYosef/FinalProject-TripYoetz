@@ -2,7 +2,10 @@ import { useContext, useEffect, useState } from 'react'
 import { MainContext } from '../../contexts/data-context';
 import { ThemeContext } from '../../contexts/theme-context';
 import { GetRestaurants } from "../../services/restaurant-services"
-import { GetDataByName, SortByRatingHighToLow, SortByRatingLowToHigh, SortByNameA_Z, SortByNameZ_A } from "../../state-management/actions/categories-actions"
+import {
+    GetDataByName, SortByRatingHighToLow, SortByRatingLowToHigh,
+    SortByNameA_Z, SortByNameZ_A, SortByPriceHighToLow, SortByPriceLowToHigh
+} from "../../state-management/actions/categories-actions";
 import Navbar from '../layout/Navbar';
 import ItemCard from '../parts/ItemCard';
 import { StyledCategoryPage } from '../styles/pages/StyledCategoryPage';
@@ -33,7 +36,7 @@ const Restaurants = () => {
                 GetRestaurants()
                     .then(res => {
                         restaurantsDispatch(
-                            SortByRatingHighToLow(res.data)
+                            SortByRatingHighToLow(res.data, city)
                         )
                     })
                 break;
@@ -41,7 +44,7 @@ const Restaurants = () => {
                 GetRestaurants()
                     .then(res => {
                         restaurantsDispatch(
-                            SortByRatingLowToHigh(res.data)
+                            SortByRatingLowToHigh(res.data, city)
                         )
                     })
                 break;
@@ -49,7 +52,7 @@ const Restaurants = () => {
                 GetRestaurants()
                     .then(res => {
                         restaurantsDispatch(
-                            SortByNameA_Z(res.data)
+                            SortByNameA_Z(res.data, city)
                         )
                     })
                 break;
@@ -58,6 +61,22 @@ const Restaurants = () => {
                     .then(res => {
                         restaurantsDispatch(
                             SortByNameZ_A(res.data)
+                        )
+                    })
+                break;
+            case "sortByPriceHighToLow":
+                GetRestaurants()
+                    .then(res => {
+                        restaurantsDispatch(
+                            SortByPriceHighToLow(res.data, city)
+                        )
+                    })
+                break;
+            case "sortByPriceLowToHigh":
+                GetRestaurants()
+                    .then(res => {
+                        restaurantsDispatch(
+                            SortByPriceLowToHigh(res.data, city)
                         )
                     })
                 break;
@@ -76,6 +95,8 @@ const Restaurants = () => {
                         <option disabled value="" hidden>Sort By</option>
                         <option value={"sortByRatingHighToLow"}>rating high to low</option>
                         <option value={"sortByRatingLowToHigh"}>rating low to high</option>
+                        <option value={"sortByPriceHighToLow"}>price high to low</option>
+                        <option value={"sortByPriceLowToHigh"}>price low to high</option>
                         <option value={"sortByNameA_Z"}>Name A-Z</option>
                         <option value={"sortByNameZ_A"}>Name Z-A</option>
                     </select>

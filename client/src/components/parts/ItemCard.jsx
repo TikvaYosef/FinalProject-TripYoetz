@@ -34,7 +34,10 @@ const ItemCard = ({ product }) => {
                     </button>
                     <div className="card-info">
                         <h1 className="card-name">{product.name}</h1>
-                        <address className="card-location">{product.location}</address>
+                        <div className="location-price-wrapper">
+                            <address className="card-location">{product.location}</address>
+                            <p className="card-price">{product.price[0]}$ - {product.price[1]}$</p>
+                        </div>
                         <Box className="rating-wrapper" sx={{ '& > legend': { mt: 2 } }}>
                             <p className="reviews">{rating ? `${product.rating.length} reviews` : "no reviews yet"}</p>
                             <Rating className="rating-stars" name="text-feedback" value={Number(rating)} precision={0.5} readOnly emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />} />

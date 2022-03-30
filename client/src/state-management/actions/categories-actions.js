@@ -35,3 +35,15 @@ export const GetDataByName = (value, city) => {
         city: city
     }
 };
+export const SortByPriceHighToLow = (value) => {
+    return {
+        type: "SORT_BY_PRICE_HIGH_TO_LOW",
+        payload: value
+    }
+};
+export const SortByPriceLowToHigh = (value) => {
+    return {
+        type: "SORT_BY_PRICE_LOW_TO_HIGH",
+        payload: value
+    }
+};

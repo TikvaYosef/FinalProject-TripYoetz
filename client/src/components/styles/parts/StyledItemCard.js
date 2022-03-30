@@ -20,6 +20,14 @@ export const StyledItemCard = styled.article`
         font-size:1.5rem;
         font-weight: 900;
     }
+
+    .location-price-wrapper{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10%;
+    }
     
     .rating-wrapper{
         width: 50%;
