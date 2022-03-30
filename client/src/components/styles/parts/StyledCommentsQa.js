@@ -90,7 +90,7 @@ export const StyledCommentsQa = styled.section`
         border-bottom-color:${({ mode }) => mode.background};
     }
     .q_a-img{
-        height: 90%;
+        height: 100%;
         width: 5%;
         margin-right:5px;
         border-radius: 50%;
@@ -264,7 +264,7 @@ export const StyledCommentsQa = styled.section`
         border-bottom:2px solid ${({ mode }) => mode.color};
     }
     .comment-img{
-        height: 75%;
+        height: 100%;
         width: 5%;
         margin-right:5px;
         border-radius: 50%;

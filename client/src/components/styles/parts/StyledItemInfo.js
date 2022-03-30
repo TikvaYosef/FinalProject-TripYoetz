@@ -72,7 +72,7 @@ export const StyledItemInfo = styled.section`
     }
     .info-part{
         text-align: center;
-        font-size: 1rem;
+        font-size: 1.5rem;
         font-weight: 900;
         width: 20%;
         height: 50%;

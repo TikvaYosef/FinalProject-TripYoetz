@@ -16,9 +16,9 @@ export const themes = {
         color: "#14213d",
         background: "#98c1d9"
     },
-    dark_brown: {
-        color: "#eec170",
-        background: "#772f1a"
+    black_purple: {
+        color: "black",
+        background: "#9896f1"
     }
 };
 

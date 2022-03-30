@@ -1,6 +1,6 @@
 export const Logout = (setUser, navigate) => {
     if (localStorage.token) {
-        if (window.confirm("Are you sure you want to logout ?, all your favorites item will be removed")) {
+        if (window.confirm("Are you sure you want to logout ?")) {
             localStorage.removeItem("token");
             localStorage.removeItem("favorites");
             setUser({});

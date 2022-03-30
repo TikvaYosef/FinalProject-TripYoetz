@@ -8,9 +8,9 @@ export const black_gold = () => {
         type: "BLACK_GOLD"
     }
 };
-export const dark_brown = () => {
+export const black_purple = () => {
     return {
-        type: "DARK_BROWN"
+        type: "BLACK_PURPLE"
     }
 };
 export const wheat_black = () => {
