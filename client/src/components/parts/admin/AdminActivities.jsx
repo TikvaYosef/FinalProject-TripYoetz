@@ -22,7 +22,6 @@ const columns = [
     { id: 'location', label: 'Location', maxWidth: 100 },
     { id: 'phone', label: 'Phone', maxWidth: 100 },
     { id: 'activitiesHours', label: 'Activity Hours', maxWidth: 100 },
-    { id: 'images', label: 'Image', maxWidth: 100 },
     { id: 'greenPass', label: 'GreenPass', maxWidth: 100 },
     { id: 'link', label: 'Link', maxWidth: 100 },
     { id: 'price', label: 'Price', maxWidth: 100 },
@@ -136,19 +135,17 @@ const AdminActivities = () => {
                 return `${row.price[0]}$-${row.price[1]}$`;
             case 'greenPass':
                 return row.greenPass ? 'Required' : 'Not Required';
-            case 'images':
-                return <img className="table-img activities" src={row.images[0]} alt="table" />
             case 'delete':
-                return <button onClick={() => Delete(row._id)}><DeleteIcon /></button >
+                return <button className='td-btn' onClick={() => Delete(row._id)}>
+                    <DeleteIcon className='td-btn-icon' />
+                </button >
             case 'edit':
-                return <button onClick={() => {
+                return <button className='td-btn' onClick={() => {
                     setUpdateItem(row);
                     editDialogRef.current.showModal();
                 }}>
-                    <EditIcon />
+                    <EditIcon className='td-btn-icon' />
                 </button>
-
-
             default:
                 return value
         }
