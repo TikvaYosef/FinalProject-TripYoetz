@@ -8,7 +8,7 @@ import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 
 const Comment = ({ currentCard, comment }) => {
     const [likedComment, setLikedComment] = useState({});
-    const { user, restaurantsDispatch, city } = useContext(MainContext);
+    const { setLoader, user, restaurantsDispatch, city } = useContext(MainContext);
     const likeRef = useRef();
 
     useEffect(() => {
@@ -18,6 +18,7 @@ const Comment = ({ currentCard, comment }) => {
 
     const likeComment = () => {
         likeRef.current.classList.toggle('liked');
+        setLoader(true);
         switch (currentCard.category) {
             case "restaurant":
                 LikeCommentRestaurant(currentCard._id, currentCard, currentCard.comments, comment.id, likedComment)
@@ -26,7 +27,7 @@ const Comment = ({ currentCard, comment }) => {
                         restaurantsDispatch(
                             GetDataByName(res.data, city)
                         )
-                    });
+                    }).finally(() => setLoader(false));
                 break;
             case "hotel":
                 LikeCommentHotel(currentCard._id, currentCard, currentCard.comments, comment.id, likedComment)
@@ -35,7 +36,7 @@ const Comment = ({ currentCard, comment }) => {
                         restaurantsDispatch(
                             GetDataByName(res.data, city)
                         )
-                    });
+                    }).finally(() => setLoader(false));
                 break;
             case "activity":
                 LikeCommentActivity(currentCard._id, currentCard, currentCard.comments, comment.id, likedComment)
@@ -44,7 +45,7 @@ const Comment = ({ currentCard, comment }) => {
                         restaurantsDispatch(
                             GetDataByName(res.data, city)
                         )
-                    });
+                    }).finally(() => setLoader(false));
                 break;
             default:
                 break;

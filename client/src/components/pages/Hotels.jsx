@@ -8,29 +8,35 @@ import {
 } from "../../state-management/actions/categories-actions";
 import Navbar from '../layout/Navbar';
 import ItemCard from '../parts/ItemCard';
+import Loader from '../parts/Loader';
 import { StyledCategoryPage } from '../styles/pages/StyledCategoryPage';
 import { StyledItemsContainer } from '../styles/parts/StyledItemsContainer';
 
 
 const Hotels = () => {
-    const { hotels, hotelsDispatch, city } = useContext(MainContext);
+    const { loader, setLoader, hotels, hotelsDispatch, city } = useContext(MainContext);
     const { mode } = useContext(ThemeContext);
     const [select, setSelect] = useState("");
 
     useEffect(() => {
+        setLoader(true);
         GetHotels()
             .then(res => {
                 hotelsDispatch(
                     GetDataByName(res.data, city)
                 )
             })
-    }, [hotelsDispatch, city]);
+            .finally(() => {
+                setLoader(false)
+            })
+    }, [hotelsDispatch, city, setLoader]);
 
     const selectOnChange = (e) => {
         setSelect(e.target.value)
     }
 
     const handleSelect = () => {
+        setLoader(true);
         switch (select) {
             case "sortByRatingHighToLow":
                 GetHotels()
@@ -38,7 +44,9 @@ const Hotels = () => {
                         hotelsDispatch(
                             SortByRatingHighToLow(res.data, city)
                         )
-                    })
+                    }).finally(() => {
+                        setLoader(false)
+                    });
                 break;
             case "sortByRatingLowToHigh":
                 GetHotels()
@@ -46,7 +54,9 @@ const Hotels = () => {
                         hotelsDispatch(
                             SortByRatingLowToHigh(res.data, city)
                         )
-                    })
+                    }).finally(() => {
+                        setLoader(false)
+                    });
                 break;
             case "sortByNameA_Z":
                 GetHotels()
@@ -54,7 +64,9 @@ const Hotels = () => {
                         hotelsDispatch(
                             SortByNameA_Z(res.data, city)
                         )
-                    })
+                    }).finally(() => {
+                        setLoader(false)
+                    });
                 break;
             case "sortByNameZ_A":
                 GetHotels()
@@ -62,7 +74,9 @@ const Hotels = () => {
                         hotelsDispatch(
                             SortByNameZ_A(res.data, city)
                         )
-                    })
+                    }).finally(() => {
+                        setLoader(false)
+                    });
                 break;
             case "sortByPriceHighToLow":
                 GetHotels()
@@ -70,7 +84,9 @@ const Hotels = () => {
                         hotelsDispatch(
                             SortByPriceHighToLow(res.data, city)
                         )
-                    })
+                    }).finally(() => {
+                        setLoader(false)
+                    });
                 break;
             case "sortByPriceLowToHigh":
                 GetHotels()
@@ -78,7 +94,9 @@ const Hotels = () => {
                         hotelsDispatch(
                             SortByPriceLowToHigh(res.data, city)
                         )
-                    })
+                    }).finally(() => {
+                        setLoader(false)
+                    });
                 break;
             default:
                 break;
@@ -87,31 +105,39 @@ const Hotels = () => {
 
     return (
         <StyledCategoryPage mode={mode}>
-            <Navbar />
-            <h1 className='category-name-h1'>Hotels</h1>
-            <div className='sort-wrapper'>
-                <div className='sort-fixed'>
-                    <select className='sort-select' value={select} onChange={selectOnChange}>
-                        <option disabled value="" hidden>Sort By</option>
-                        <option value={"sortByRatingHighToLow"}>rating high to low</option>
-                        <option value={"sortByRatingLowToHigh"}>rating low to high</option>
-                        <option value={"sortByPriceHighToLow"}>price high to low</option>
-                        <option value={"sortByPriceLowToHigh"}>price low to high</option>
-                        <option value={"sortByNameA_Z"}>Name A-Z</option>
-                        <option value={"sortByNameZ_A"}>Name Z-A</option>
-                    </select>
-                    <button className='sort-btn' onClick={handleSelect}>Sort</button>
-                </div>
-            </div>
-            <StyledItemsContainer>
-                {hotels.length >= 1 ?
-                    hotels.map(product =>
-                        <ItemCard product={product} key={product._id} />
-                    )
+            {
+                loader
+                    ?
+                    <Loader />
                     :
-                    <h1>No hotels found</h1>
-                }
-            </StyledItemsContainer>
+                    <>
+                        <Navbar />
+                        <h1 className='category-name-h1'>Hotels</h1>
+                        <div className='sort-wrapper'>
+                            <div className='sort-fixed'>
+                                <select className='sort-select' value={select} onChange={selectOnChange}>
+                                    <option disabled value="" hidden>Sort By</option>
+                                    <option value={"sortByRatingHighToLow"}>rating high to low</option>
+                                    <option value={"sortByRatingLowToHigh"}>rating low to high</option>
+                                    <option value={"sortByPriceHighToLow"}>price high to low</option>
+                                    <option value={"sortByPriceLowToHigh"}>price low to high</option>
+                                    <option value={"sortByNameA_Z"}>Name A-Z</option>
+                                    <option value={"sortByNameZ_A"}>Name Z-A</option>
+                                </select>
+                                <button className='sort-btn' onClick={handleSelect}>Sort</button>
+                            </div>
+                        </div>
+                        <StyledItemsContainer>
+                            {hotels.length >= 1 ?
+                                hotels.map(product =>
+                                    <ItemCard product={product} key={product._id} />
+                                )
+                                :
+                                <h1>No hotels found</h1>
+                            }
+                        </StyledItemsContainer>
+                    </>
+            }
         </StyledCategoryPage>
     );
 };

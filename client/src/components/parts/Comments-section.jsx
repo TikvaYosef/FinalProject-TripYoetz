@@ -8,7 +8,7 @@ import { verifyUserAccess } from "../../utils/verifyUserAccess";
 import Comment from "./Comment";
 
 const CommentsSection = ({ currentCard }) => {
-    const { restaurantsDispatch, hotelsDispatch, activitiesDispatch, user, city } = useContext(MainContext);
+    const { setLoader, restaurantsDispatch, hotelsDispatch, activitiesDispatch, user, city } = useContext(MainContext);
     const [comment, setComment] = useState({ likes: { amount: 0, usersId: [] } });
     const [charsLength, setCharsLength] = useState(0);
     const inputRef = useRef();
@@ -26,6 +26,7 @@ const CommentsSection = ({ currentCard }) => {
         comment.user_img = user.image;
         setComment(comment);
 
+        setLoader(true);
         switch (currentCard.category) {
             case "restaurant":
                 AddCommentToRestaurants(currentCard._id, currentCard, currentCard.comments, comment)
@@ -34,7 +35,7 @@ const CommentsSection = ({ currentCard }) => {
                         restaurantsDispatch(
                             GetDataByName(res.data, city)
                         )
-                    });
+                    }).finally(() => setLoader(false));
                 inputRef.current.value = "";
                 break;
             case "hotel":
@@ -44,7 +45,7 @@ const CommentsSection = ({ currentCard }) => {
                         hotelsDispatch(
                             GetDataByName(res.data, city)
                         )
-                    });
+                    }).finally(() => setLoader(false));
                 inputRef.current.value = "";
                 break;
             case "activity":
@@ -54,7 +55,7 @@ const CommentsSection = ({ currentCard }) => {
                         activitiesDispatch(
                             GetDataByName(res.data, city)
                         )
-                    });
+                    }).finally(() => setLoader(false));
                 inputRef.current.value = "";
                 break;
             default:

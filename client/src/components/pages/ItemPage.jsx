@@ -16,7 +16,7 @@ import { GetDataByName } from "../../state-management/actions/categories-actions
 import { StyledCommentsQa } from "../styles/parts/StyledCommentsQa";
 
 const ItemPage = () => {
-    const { restaurants, restaurantsDispatch, hotels, hotelsDispatch, activities, activitiesDispatch, user, city } = useContext(MainContext);
+    const { loader, setLoader, restaurants, restaurantsDispatch, hotels, hotelsDispatch, activities, activitiesDispatch, user, city } = useContext(MainContext);
     const { mode } = useContext(ThemeContext);
     const [item, setItem] = useState({});
     const [toggle, setToggle] = useState(true);
@@ -24,24 +24,28 @@ const ItemPage = () => {
     const product = useLocation().state;
 
     useEffect(() => {
+        setLoader(true);
         switch (product.category) {
             case "restaurant":
                 GetRestaurantById(product._id)
-                    .then(res => setItem({ ...res.restaurant }));
+                    .then(res => setItem({ ...res.restaurant }))
+                    .finally(() => setLoader(false));
                 break;
             case "hotel":
                 GetHotelById(product._id)
-                    .then(res => setItem({ ...res.hotel }));
+                    .then(res => setItem({ ...res.hotel }))
+                    .finally(() => setLoader(false));
                 break;
             case "activity":
                 GetActivityById(product._id)
-                    .then(res => setItem({ ...res.activity }));
+                    .then(res => setItem({ ...res.activity }))
+                    .finally(() => setLoader(false));
                 break;
 
             default:
                 break;
         }
-    }, [product, restaurants, hotels, activities])
+    }, [product, restaurants, hotels, activities, setLoader])
 
     const sendRateForm = (event) => {
         event.preventDefault();
@@ -97,22 +101,30 @@ const ItemPage = () => {
     return (
         <StyledItemPage mode={mode}>
             <Navbar />
-            <ItemInfo item={item} />
-            <div className="toggle-btns-wrapper">
-                <button className={`toggle-btn ${toggle ? 'toggle-active' : ''}`} disabled={toggle} onClick={() => setToggle(true)}>Comments</button>
-                <button className={`toggle-btn ${!toggle ? 'toggle-active' : ''}`} disabled={!toggle} onClick={() => setToggle(false)}>Q&A</button>
-            </div>
-            <Stack spacing={1} className="rating-stars">
-                <Rating disabled={checkIfUserRate()} className="rating-stars-select" name="half-rating" value={Number(userRate.rate)} precision={0.5} onChange={sendRateForm} />
-            </Stack>
-            <StyledCommentsQa mode={mode} className="comments-qa">
-                {toggle
-                    ?
-                    <CommentsSection currentCard={item} />
+            {
+                loader ?
+                    <img src={"/loader_gif.gif"} alt="loader" className="loader-gif" />
                     :
-                    <QaSection currentCard={item} />
-                }
-            </StyledCommentsQa>
+                    <>
+
+                        <ItemInfo item={item} />
+                        <div className="toggle-btns-wrapper">
+                            <button className={`toggle-btn ${toggle ? 'toggle-active' : ''}`} disabled={toggle} onClick={() => setToggle(true)}>Comments</button>
+                            <button className={`toggle-btn ${!toggle ? 'toggle-active' : ''}`} disabled={!toggle} onClick={() => setToggle(false)}>Q&A</button>
+                        </div>
+                        <Stack spacing={1} className="rating-stars">
+                            <Rating disabled={checkIfUserRate()} className="rating-stars-select" name="half-rating" value={Number(userRate.rate)} precision={0.5} onChange={sendRateForm} />
+                        </Stack>
+                        <StyledCommentsQa mode={mode} className="comments-qa">
+                            {toggle
+                                ?
+                                <CommentsSection currentCard={item} />
+                                :
+                                <QaSection currentCard={item} />
+                            }
+                        </StyledCommentsQa>
+                    </>
+            }
         </StyledItemPage>
     );
 };

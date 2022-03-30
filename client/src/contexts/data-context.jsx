@@ -12,6 +12,7 @@ const DataContextProvider = ({ children }) => {
     const [restaurants, restaurantsDispatch] = useReducer(restaurantsReducer, []);
     const [user, setUser] = useState({});
     const [city, setCity] = useState({});
+    const [loader, setLoader] = useState(false);
 
     useEffect(() => {
         VerifyToken(setUser);
@@ -24,9 +25,9 @@ const DataContextProvider = ({ children }) => {
         return {
             hotels, hotelsDispatch, activities, activitiesDispatch,
             restaurants, restaurantsDispatch, user, setUser,
-            city, setCity
+            city, setCity, loader, setLoader
         }
-    }, [hotels, activities, restaurants, user, city]);
+    }, [hotels, activities, restaurants, user, city, loader, setLoader]);
 
 
 

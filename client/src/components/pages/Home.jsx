@@ -6,9 +6,10 @@ import { StyledHome } from "../styles/pages/StyledHome";
 import { ThemeContext } from "../../contexts/theme-context";
 import { SendSearchForm, HandleOnChange } from "../../utils/SearchForm-functions";
 import SearchIcon from '@mui/icons-material/Search';
+import Loader from "../parts/Loader";
 
 const Home = () => {
-    const { user, setCity } = useContext(MainContext);
+    const { loader, setLoader, user, setCity } = useContext(MainContext);
     const { mode } = useContext(ThemeContext);
     const [greetUser, setGreetUser] = useState("");
     const [search, setSearch] = useState("");
@@ -25,25 +26,34 @@ const Home = () => {
     }, [user])
 
     const handleSubmit = (event) => {
-        SendSearchForm(event, search, GetCityByName, setCity, navigate, errorRef)
+        setLoader(true);
+        SendSearchForm(setLoader, event, search, GetCityByName, setCity, navigate, errorRef)
     };
 
     return (
         <StyledHome mode={mode}>
-            <form className="search-form" onSubmit={handleSubmit}>
-                <h2 ref={errorRef} className="error-msg">{''}</h2>
-                {user.isLogin && greetUser
+            {
+                loader
                     ?
-                    <h1 className="greet-user">{greetUser} <span>{user.name} {user.lastName}</span></h1>
+                    <Loader />
                     :
-                    null
-                }
-                <input className="search-input" type="text"
-                    onChange={(e) => { HandleOnChange(e, setSearch) }}
-                    placeholder="where do you want to travel?"
-                />
-                <SearchIcon className="search-icon" />
-            </form>
+                    <>
+                        <form className="search-form" onSubmit={handleSubmit}>
+                            <h2 ref={errorRef} className="error-msg">{''}</h2>
+                            {user.isLogin && greetUser
+                                ?
+                                <h1 className="greet-user">{greetUser} <span>{user.name} {user.lastName}</span></h1>
+                                :
+                                null
+                            }
+                            <input className="search-input" type="text"
+                                onChange={(e) => { HandleOnChange(e, setSearch) }}
+                                placeholder="where do you want to travel?"
+                            />
+                            <SearchIcon className="search-icon" />
+                        </form>
+                    </>
+            }
         </StyledHome>
     )
 }

@@ -1,4 +1,4 @@
-export const SendSearchForm = (event, search, GetCityByName, setCity, navigate, errorRef) => {
+export const SendSearchForm = (setLoader, event, search, GetCityByName, setCity, navigate, errorRef) => {
     event.preventDefault();
     GetCityByName(search[0].toUpperCase() + search.slice(1).toLowerCase()).then(res => {
         if (res.success) {
@@ -12,10 +12,12 @@ export const SendSearchForm = (event, search, GetCityByName, setCity, navigate, 
                 setCity(res.data);
             }
             navigate("/cities");
-            if(errorRef.current) errorRef.current.innerHTML = "";
-            
+            if (errorRef.current) errorRef.current.innerHTML = "";
         }
-        else { errorRef.current.innerHTML = res.message; }
+        else {
+            setLoader(false);
+            errorRef.current.innerHTML = res.message;
+        }
     })
 }
 export const HandleOnChange = (event, setSearch) => {
