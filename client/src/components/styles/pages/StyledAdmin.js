@@ -8,20 +8,96 @@ export const StyledAdmin = styled.section`
     position: relative;
 
     .add-item-btn{
+        background: ${({ mode }) => mode.background};
+        border: 2px solid ${({ mode }) => mode.color};
+        border-radius: 50%;
         cursor: pointer;
         position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         z-index: 10;
-        left: 12.5%;
-        top: -8%;
+        left: 15%;
+        top: -10%;
+        transition: 0.2s ease-in-out;
+    }
+    .add-item-btn:hover{
+        background: ${({ mode }) => mode.color};
+    }
+    .add-item-btn:hover> .add-item-icon{
+        color: ${({ mode }) => mode.background};
+    }
+    .add-item-icon{
+        font-size: 3rem;
+        color: ${({ mode }) => mode.color};
+        transition: 0.2s ease-in-out;
     }
 
     .popup-dialog-modal{
-        width: 50%;
-        height: 50%;
+        width: 60%;
+        height: 80%;
         position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
+
+        .modal-form-wrapper{
+            width: 100%;
+            height: fit-content;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        h1{
+            font-size: 3rem;
+            height: 5%;
+        }
+        form{
+            width: 100%;
+            height:fit-content;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+
+            .input-wrapper{
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                label{
+                    font-size: 1.8rem;
+                }
+                input,select{
+                    font-size: 1.5rem;
+                    outline: none;
+                    width: 50%;
+                    border:none;
+                    border-bottom: 2px solid black;
+                }
+            }
+            button{
+                cursor: pointer;
+                font-size: 2.5rem;
+                padding: 0 10px;
+            }
+        }
+        .close-dialog-btn{
+            cursor: pointer;
+            background: none;
+            border: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .close-dialog-icon{
+                font-size: 4rem;
+            }    
+        }
     }
         .popup-dialog-modal::backdrop{
             background-color: rgba(0,0,0,0.5);
@@ -40,13 +116,34 @@ export const StyledAdmin = styled.section`
         background: ${({ mode }) => mode.color};
     }
     .admin-table-td{
+        height: 50px;
+        text-align: center;
         padding: 0;
         overflow: hidden;
-        font-size:1rem;
+        font-size:1.3rem;
         border: 1px solid black;
         color: ${({ mode }) => mode.color};
         background: ${({ mode }) => mode.background};
     }
+    .admin-table-td:last-of-type, .admin-table-td:nth-last-child(2){
+        color: ${({ mode }) => mode.background};
+        background: ${({ mode }) => mode.color};
+        border-color: ${({ mode }) => mode.background};
+    }
+    .td-btn{
+        cursor: pointer;
+        border: none;
+        background: none;
+        transition: 0.2s ease-in-out;
+    }
+    .td-btn:hover{
+        transform: scale(2);
+    }
+    .td-btn-icon{
+        font-size: 2rem;
+        color: ${({ mode }) => mode.background};
+    }
+    
     .table-link{
         text-decoration: underline;
         color: ${({ mode }) => mode.color};
