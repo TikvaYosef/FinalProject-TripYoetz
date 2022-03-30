@@ -91,14 +91,14 @@ const Q_A = ({ currentCard, item }) => {
         };
     };
 
-
     return (
         <div className="q_a_wrapper">
             {
-                item.user_id === user._id &&
-                <button className="remove-comment-btn" onClick={removeComment}>
-                    <DeleteIcon className="remove-comment-icon" />
-                </button>
+                item.user_id === user._id || user.isAdmin ?
+                    <button className="remove-comment-btn" onClick={removeComment}>
+                        <DeleteIcon className="remove-comment-icon" />
+                    </button>
+                    : null
             }
             <article className="question-box">
                 <div className="q_a-header">
@@ -138,7 +138,7 @@ const Q_A = ({ currentCard, item }) => {
                     null
             }
         </div>
-    )
-}
+    );
+};
 
-export default Q_A
+export default Q_A;
