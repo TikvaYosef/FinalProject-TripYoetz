@@ -1,10 +1,11 @@
 import { useContext, useEffect, useRef, useState } from "react";
 import { MainContext } from "../../contexts/data-context";
 import { GetRestaurants, LikeCommentRestaurant, RemoveCommentFromRestaurants } from "../../services/restaurant-services";
-import { GetHotels, LikeCommentHotel } from "../../services/hotel-services";
-import { GetActivities, LikeCommentActivity } from "../../services/activity-service";
+import { GetHotels, LikeCommentHotel, RemoveCommentFromHotels } from "../../services/hotel-services";
+import { GetActivities, LikeCommentActivity, RemoveCommentFromActivities } from "../../services/activity-service";
 import { GetDataByName } from "../../state-management/actions/categories-actions";
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 const Comment = ({ currentCard, comment }) => {
     const [likedComment, setLikedComment] = useState({});
@@ -61,17 +62,49 @@ const Comment = ({ currentCard, comment }) => {
     };
     const removeComment = () => {
         setLoader(true);
-        RemoveCommentFromRestaurants(currentCard._id, currentCard, currentCard.comments, comment)
-            .then(res => {
-                restaurantsDispatch(
-                    GetDataByName(res.data, city)
-                )
-            }).finally(() => setLoader(false));
+        switch (currentCard.category) {
+            case "restaurant":
+                RemoveCommentFromRestaurants(currentCard._id, currentCard, currentCard.comments, comment)
+                GetRestaurants()
+                    .then(res => {
+                        restaurantsDispatch(
+                            GetDataByName(res.data, city)
+                        )
+                    }).finally(() => setLoader(false));
+                break;
+            case "hotel":
+                RemoveCommentFromHotels(currentCard._id, currentCard, currentCard.comments, comment)
+                GetHotels()
+                    .then(res => {
+                        restaurantsDispatch(
+                            GetDataByName(res.data, city)
+                        )
+                    }).finally(() => setLoader(false));
+                break;
+            case "activity":
+                RemoveCommentFromActivities(currentCard._id, currentCard, currentCard.comments, comment)
+                GetActivities()
+                    .then(res => {
+                        restaurantsDispatch(
+                            GetDataByName(res.data, city)
+                        )
+                    }).finally(() => setLoader(false));
+                break;
+
+            default:
+                break;
+        };
     };
+
 
     return (
         <article className="comment-box">
-            <button className="remove-comment-btn" onClick={removeComment}>Remove</button>
+            {
+                comment.user_id === user._id &&
+                <button className="remove-comment-btn" onClick={removeComment}>
+                    <DeleteIcon className="remove-comment-icon" />
+                </button>
+            }
             <div className="comment-header">
                 <h1 className="comment-writer">{comment.writer}</h1>
                 <img className="comment-img" src={comment.user_img} alt={`${comment.writer} img`} />

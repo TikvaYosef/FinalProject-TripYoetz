@@ -8,6 +8,7 @@ export const StyledCommentsQa = styled.section`
     flex-direction:column;
 
     .q_a_wrapper{
+        position:relative;
         width: 100%;
         height: fit-content;
         width: 100%;
@@ -151,9 +152,22 @@ export const StyledCommentsQa = styled.section`
     }
 
     .remove-comment-btn{
+        background: none;
+        border: none;
         cursor: pointer;
         position: absolute;
-        left: -10%;
+        right: -5%;
+        top: 0%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .remove-comment-icon{
+            font-size: 2.5rem;
+        }
+        .remove-comment-icon:hover{
+            color:red;
+        }
     }
     .comments-section{
         margin-top: 5vh;
