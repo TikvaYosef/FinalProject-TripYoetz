@@ -217,7 +217,7 @@ const AdminRestaurants = () => {
             </dialog>
             <dialog ref={editDialogRef} className="popup-dialog-modal">
                 <div className='modal-form-wrapper'>
-                    <h1>Edit restaurant</h1>
+                    <h1>Edit {updateItem.name}</h1>
                     <form onSubmit={Update} method="dialog">
                         <div className="input-wrapper">
                             <label htmlFor="name">First name</label>
