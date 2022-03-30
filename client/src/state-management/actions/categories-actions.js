@@ -4,28 +4,32 @@ export const GetData = (value) => {
         payload: value
     }
 };
-export const SortByRatingHighToLow = (value) => {
+export const SortByRatingHighToLow = (value, city) => {
     return {
         type: "SORT_BY_RATING_HIGH_TO_LOW",
-        payload: value
+        payload: value,
+        city: city
     }
 };
-export const SortByRatingLowToHigh = (value) => {
+export const SortByRatingLowToHigh = (value, city) => {
     return {
         type: "SORT_BY_RATING_LOW_TO_HIGH",
-        payload: value
+        payload: value,
+        city: city
     }
 };
-export const SortByNameA_Z = (value) => {
+export const SortByNameA_Z = (value, city) => {
     return {
         type: "SORT_BY_NAME_A_Z",
-        payload: value
+        payload: value,
+        city: city
     }
 };
-export const SortByNameZ_A = (value) => {
+export const SortByNameZ_A = (value, city) => {
     return {
         type: "SORT_BY_NAME_Z_A",
-        payload: value
+        payload: value,
+        city: city
     }
 };
 export const GetDataByName = (value, city) => {
@@ -35,15 +39,17 @@ export const GetDataByName = (value, city) => {
         city: city
     }
 };
-export const SortByPriceHighToLow = (value) => {
+export const SortByPriceHighToLow = (value, city) => {
     return {
         type: "SORT_BY_PRICE_HIGH_TO_LOW",
-        payload: value
+        payload: value,
+        city: city
     }
 };
-export const SortByPriceLowToHigh = (value) => {
+export const SortByPriceLowToHigh = (value, city) => {
     return {
         type: "SORT_BY_PRICE_LOW_TO_HIGH",
-        payload: value
+        payload: value,
+        city: city
     }
 };

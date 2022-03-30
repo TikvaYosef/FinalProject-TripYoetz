@@ -12,8 +12,7 @@ const restaurantsReducer = (state = [], action) => {
             return payload.filter(item => item.city === city.name);
 
         case categoriesTypes.SORT_BY_RATING_HIGH_TO_LOW:
-            const cityRestaurants = payload.filter(item => item.city === city.name);
-            const ratingHighToLow = cityRestaurants.sort((a, b) => {
+            const ratingHighToLow = payload.filter(item => item.city === city.name).sort((a, b) => {
                 return Number(getAvgRating(b.rating)) - Number(getAvgRating(a.rating));
             })
             return ratingHighToLow;
@@ -42,13 +41,13 @@ const restaurantsReducer = (state = [], action) => {
 
         case categoriesTypes.SORT_BY_PRICE_HIGH_TO_LOW:
             const priceHighToLow = payload.filter(item => item.city === city.name).sort((a, b) => {
-                return Number((a.price[0] + a.price[1]) / 2) - Number((b.price[0] + b.price[1]) / 2);
+                return Number((b.price[0] + b.price[1]) / 2) - Number((a.price[0] + a.price[1]) / 2);
             })
             return priceHighToLow;
 
         case categoriesTypes.SORT_BY_PRICE_LOW_TO_HIGH:
             const priceLowToHigh = payload.filter(item => item.city === city.name).sort((a, b) => {
-                return Number((b.price[0] + b.price[1]) / 2) - Number((a.price[0] + a.price[1]) / 2);
+                return Number((a.price[0] + a.price[1]) / 2) - Number((b.price[0] + b.price[1]) / 2);
             })
             return priceLowToHigh;
 

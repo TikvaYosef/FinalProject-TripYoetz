@@ -60,7 +60,7 @@ const Restaurants = () => {
                 GetRestaurants()
                     .then(res => {
                         restaurantsDispatch(
-                            SortByNameZ_A(res.data)
+                            SortByNameZ_A(res.data, city)
                         )
                     })
                 break;
