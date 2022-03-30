@@ -214,7 +214,7 @@ export const StyledHeader = styled.header`
         left: 7vw;
     }
     .theme-option:nth-child(4){
-        background: linear-gradient(120deg, rgba(238,193,112,1) 40%, rgba(119,47,26,1) 60%);
+        background: linear-gradient(120deg, rgba(0,0,0,1) 40%, rgba(152,150,241,1) 60%);
         left: 11vw;
     }
 
