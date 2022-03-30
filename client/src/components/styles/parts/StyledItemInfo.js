@@ -116,7 +116,6 @@ export const StyledItemInfo = styled.section`
         font-size: 4rem;
     }
 
-
     .item-images-wrapper{
         grid-area: images;
         display:grid;
@@ -200,4 +199,132 @@ export const StyledItemInfo = styled.section`
         height: 15%;
         border-bottom: 2px solid black;
     }
+@media  only screen  and (min-width:320px) and (max-width:375px){
+    .info-part{
+        font-size: 0.7rem;
+    }
+    .item-name-h1{
+        font-size:1.5rem;
+    }
+    .heart-icon-btn{
+        padding:0.5px;
+    }
+    .green-pass-icon{
+        display: none;
+    }
+    .activities-hours-title{
+        font-size: 1.5rem;
+        margin-left: 50px;
+
+    }
+    .activities-hours{
+        font-size: 1rem;
+        overflow: auto;
+        margin-left: 50px;
+    }
+    .item-prices{
+        font-size: 1rem;
+        margin-top: 20px;
+    }
+    .item-description-title{
+        font-size: 1.5rem;
+    }
+    .item-description{
+        font-size: 1rem;
+    }
+    .rating-stars{
+        font-size: 0.7rem;
+    
+    }
+    .rating-wrapper{
+      flex-direction: column;
+       }
+   
+
+}
+@media  only screen  and (min-width:375px) and (max-width:425px){
+    .info-part{
+        font-size: 0.7rem;
+    }
+    .item-name-h1{
+        font-size:1.5rem;
+    }
+    .heart-icon-btn{
+        padding:0.5px;
+    }
+    .green-pass-icon{
+        display: none;
+    }
+    .activities-hours-title{
+        font-size: 1.5rem;
+        margin-left: 50px;
+
+    }
+    .activities-hours{
+        font-size: 1rem;
+        overflow: auto;
+        margin-left: 50px;
+    }
+    .item-prices{
+        font-size: 1rem;
+        margin-top: 20px;
+    }
+    .item-description-title{
+        font-size: 1.5rem;
+    }
+    .item-description{
+        font-size: 1rem;
+    }
+    .rating-stars{
+        font-size: 0.7rem;
+    
+    }
+    .rating-wrapper{
+      flex-direction: column;
+       }
+   
+}
+@media  only screen  and (min-width:425px) and (max-width:768px){
+    .info-part{
+        font-size: 1rem;
+    }
+    .item-name-h1{
+        font-size:1.5rem;
+    }
+    .heart-icon-btn{
+        padding:0.5px;
+    }
+    .green-pass-icon{
+        display: none;
+    }
+    .activities-hours-title{
+        font-size: 1.5rem;
+        margin-left: 50px;
+
+    }
+    .activities-hours{
+        font-size: 1rem;
+        overflow: auto;
+        margin-left: 50px;
+    }
+    .item-prices{
+        font-size: 1rem;
+        margin-top: 20px;
+    }
+    .item-description-title{
+        font-size: 1.5rem;
+    }
+    .item-description{
+        font-size: 1.5rem;
+    }
+    .rating-stars{
+        font-size: 1rem;
+    
+    }
+    .rating-wrapper{
+      flex-direction: column;
+       }
+   
+}
+
 `
