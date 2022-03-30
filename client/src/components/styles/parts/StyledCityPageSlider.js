@@ -197,8 +197,8 @@ export const StyledCityPageSlider = styled.div`
     }
     .slider-box-display{
         height: 100%;
-        width: 43%;
-        margin-right: 150px;
+        width: 46%;
+        margin-right: 60px;
     }
     .slider-link{
         font-size: 1rem;
