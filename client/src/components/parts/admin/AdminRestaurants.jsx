@@ -33,6 +33,7 @@ const columns = [
 
 const AdminRestaurants = () => {
     const { mode } = useContext(ThemeContext);
+    const { restaurantsDispatch, setLoader } = useContext(MainContext);
     const [updateItem, setUpdateItem] = useState({})
     const [updateImages, setUpdateImages] = useState([])
     const [updatePrice, setUpdatePrice] = useState([])
@@ -41,7 +42,6 @@ const AdminRestaurants = () => {
     const [addPrice, setAddPrice] = useState([])
     const [page, setPage] = useState(0);
     const [rowsPerPage, setRowsPerPage] = useState(5);
-    const { restaurantsDispatch } = useContext(MainContext);
     const [rows, setRows] = useState([]);
     const editDialogRef = useRef();
     const addDialogRef = useRef();
@@ -49,7 +49,7 @@ const AdminRestaurants = () => {
     useEffect(() => {
         GetRestaurants(restaurantsDispatch)
             .then(res => { setRows(res.data) })
-    }, []);
+    }, [restaurantsDispatch]);
 
 
     const handleEditOnChange = (event) => {
@@ -68,7 +68,6 @@ const AdminRestaurants = () => {
                 )
             })
     };
-
     const Delete = (id) => {
         if (window.confirm('Are you sure you want to delete this restaurant?')) {
             DeleteRestaurant(id)
@@ -82,7 +81,6 @@ const AdminRestaurants = () => {
                 })
         }
     };
-
     const handleAddImagesOnChange = (event) => {
         addImages[event.target.name] = event.target.value;
         addItem.images = addImages;
@@ -91,8 +89,6 @@ const AdminRestaurants = () => {
         addPrice[event.target.name] = Number(event.target.value);
         addItem.price = addPrice;
     };
-
-
     const handleEditImagesOnChange = (event) => {
         updateImages[event.target.name] = event.target.value;
         updateItem.images = updateImages;
@@ -101,8 +97,6 @@ const AdminRestaurants = () => {
         updatePrice[event.target.name] = Number(event.target.value);
         updateItem.price = updatePrice;
     };
-
-
     const handleAddOnChange = (event) => {
         addItem[event.target.name] = event.target.value;
     }
@@ -119,9 +113,6 @@ const AdminRestaurants = () => {
                 )
             })
     };
-
-
-
     const handleChangePage = (event, newPage) => {
         setPage(newPage);
     };

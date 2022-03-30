@@ -150,7 +150,11 @@ export const StyledCommentsQa = styled.section`
         color: ${({ mode }) => mode.background};
     }
 
-
+    .remove-comment-btn{
+        cursor: pointer;
+        position: absolute;
+        left: -10%;
+    }
     .comments-section{
         margin-top: 5vh;
         width: 100%;
@@ -221,6 +225,7 @@ export const StyledCommentsQa = styled.section`
         color: black;
     }
     .comment-box{
+        position: relative;
         background: ${({ mode }) => mode.background};
         color: ${({ mode }) => mode.color};
         border: 2px solid ${({ mode }) => mode.color};

@@ -12,9 +12,10 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import ColorLensIcon from '@mui/icons-material/ColorLens';
 import TravelExploreIcon from '@mui/icons-material/TravelExplore';
 import SearchIcon from '@mui/icons-material/Search';
+import Loader from "../parts/Loader";
 
 const Header = () => {
-  const { user, setUser, setCity } = useContext(MainContext);
+  const { loader, setLoader, user, setUser, setCity } = useContext(MainContext);
   const { mode, modeDispatch } = useContext(ThemeContext);
   const [search, setSearch] = useState("");
   const toggleRef = useRef();
@@ -36,11 +37,13 @@ const Header = () => {
     handleThemeMode();
   };
   const handleSubmit = (event) => {
-    SendSearchForm(event, search, GetCityByName, setCity, navigate, errorRef)
+    setLoader(true);
+    SendSearchForm(setLoader, event, search, GetCityByName, setCity, navigate, errorRef)
   };
 
   return (
     <StyledHeader mode={mode}>
+      {loader && <Loader />}
       <div className="profile-actions">
         {
           user.isLogin ?

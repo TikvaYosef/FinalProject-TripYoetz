@@ -14,6 +14,7 @@ import Rating from '@mui/material/Rating';
 import Stack from '@mui/material/Stack';
 import { GetDataByName } from "../../state-management/actions/categories-actions";
 import { StyledCommentsQa } from "../styles/parts/StyledCommentsQa";
+import Loader from "../parts/Loader";
 
 const ItemPage = () => {
     const { loader, setLoader, restaurants, restaurantsDispatch, hotels, hotelsDispatch, activities, activitiesDispatch, user, city } = useContext(MainContext);
@@ -100,31 +101,24 @@ const ItemPage = () => {
 
     return (
         <StyledItemPage mode={mode}>
+            {loader && <Loader />}
             <Navbar />
-            {
-                loader ?
-                    <img src={"/loader_gif.gif"} alt="loader" className="loader-gif" />
+            <ItemInfo item={item} />
+            <div className="toggle-btns-wrapper">
+                <button className={`toggle-btn ${toggle ? 'toggle-active' : ''}`} disabled={toggle} onClick={() => setToggle(true)}>Comments</button>
+                <button className={`toggle-btn ${!toggle ? 'toggle-active' : ''}`} disabled={!toggle} onClick={() => setToggle(false)}>Q&A</button>
+            </div>
+            <Stack spacing={1} className="rating-stars">
+                <Rating disabled={checkIfUserRate()} className="rating-stars-select" name="half-rating" value={Number(userRate.rate)} precision={0.5} onChange={sendRateForm} />
+            </Stack>
+            <StyledCommentsQa mode={mode} className="comments-qa">
+                {toggle
+                    ?
+                    <CommentsSection currentCard={item} />
                     :
-                    <>
-
-                        <ItemInfo item={item} />
-                        <div className="toggle-btns-wrapper">
-                            <button className={`toggle-btn ${toggle ? 'toggle-active' : ''}`} disabled={toggle} onClick={() => setToggle(true)}>Comments</button>
-                            <button className={`toggle-btn ${!toggle ? 'toggle-active' : ''}`} disabled={!toggle} onClick={() => setToggle(false)}>Q&A</button>
-                        </div>
-                        <Stack spacing={1} className="rating-stars">
-                            <Rating disabled={checkIfUserRate()} className="rating-stars-select" name="half-rating" value={Number(userRate.rate)} precision={0.5} onChange={sendRateForm} />
-                        </Stack>
-                        <StyledCommentsQa mode={mode} className="comments-qa">
-                            {toggle
-                                ?
-                                <CommentsSection currentCard={item} />
-                                :
-                                <QaSection currentCard={item} />
-                            }
-                        </StyledCommentsQa>
-                    </>
-            }
+                    <QaSection currentCard={item} />
+                }
+            </StyledCommentsQa>
         </StyledItemPage>
     );
 };

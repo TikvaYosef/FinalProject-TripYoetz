@@ -66,7 +66,7 @@ const AdminProfile = () => {
                   onChange={handleOnChange} placeholder="email" />
 
 
-                <input defaultValue={user.birthDate.slice(0,10)} name="birthDate" type="date"
+                <input defaultValue={user.birthDate.slice(0, 10)} name="birthDate" type="date"
                   onChange={handleOnChange} placeholder="birth date"
                   min="1902-01-01" max="2004-01-01" />
 

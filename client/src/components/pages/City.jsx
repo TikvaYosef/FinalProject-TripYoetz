@@ -28,9 +28,7 @@ const City = () => {
                 GetHotels().then(res => {
                     hotelsDispatch(GetDataByName(res.data, city))
                 })
-            ]).finally(() => {
-                setLoader(false)
-            })
+            ]).finally(() => setLoader(false));
         } catch (err) {
             console.log(err);
         }
@@ -41,24 +39,17 @@ const City = () => {
     return (
 
         <StyledCity mode={mode}>
-            {
-                loader
-                    ?
-                    <Loader />
-                    :
-                    <>
-                        <h1 className='city-name-h1'>Discover <span className='city-name-span'>{city.name}</span></h1>
-                        <Navbar />
-                        <CityImages images={city.images} />
-                        <article className="city-description">
-                            <h1 className="city-description-text">{city.description}</h1>
-                        </article>
-                        <CityPageSlider category="restaurants" name="Eat" info={`Quintessential ${city.name} restaurants, bars, and beyond.`} items={restaurants} />
-                        <CityPageSlider category="hotels" name="Stay" info={"A mix of the charming, iconic, and modern."} items={hotels} />
-                        <CityPageSlider category="activities" name="Do" info={`Places to see, ways to wander, and signature experiences that define ${city.name}.`} items={activities} />
-                    </>
-            }
-        </StyledCity>
+            {loader && <Loader />}
+            <h1 className='city-name-h1'>Discover <span className='city-name-span'>{city.name}</span></h1>
+            <Navbar />
+            <CityImages images={city.images} />
+            <article className="city-description">
+                <h1 className="city-description-text">{city.description}</h1>
+            </article>
+            <CityPageSlider category="restaurants" name="Eat" info={`Quintessential ${city.name} restaurants, bars, and beyond.`} items={restaurants} />
+            <CityPageSlider category="hotels" name="Stay" info={"A mix of the charming, iconic, and modern."} items={hotels} />
+            <CityPageSlider category="activities" name="Do" info={`Places to see, ways to wander, and signature experiences that define ${city.name}.`} items={activities} />
+        </StyledCity >
     )
 };
 export default City;

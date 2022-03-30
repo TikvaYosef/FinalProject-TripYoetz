@@ -48,7 +48,7 @@ const AdminActivities = () => {
     useEffect(() => {
         GetActivities(activitiesDispatch)
             .then(res => { setRows(res.data) })
-    }, []);
+    }, [activitiesDispatch]);
 
 
     const handleEditOnChange = (event) => {

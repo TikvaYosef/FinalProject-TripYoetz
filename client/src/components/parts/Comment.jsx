@@ -1,6 +1,6 @@
 import { useContext, useEffect, useRef, useState } from "react";
 import { MainContext } from "../../contexts/data-context";
-import { GetRestaurants, LikeCommentRestaurant } from "../../services/restaurant-services";
+import { GetRestaurants, LikeCommentRestaurant, RemoveCommentFromRestaurants } from "../../services/restaurant-services";
 import { GetHotels, LikeCommentHotel } from "../../services/hotel-services";
 import { GetActivities, LikeCommentActivity } from "../../services/activity-service";
 import { GetDataByName } from "../../state-management/actions/categories-actions";
@@ -51,7 +51,6 @@ const Comment = ({ currentCard, comment }) => {
                 break;
         }
     };
-
     const verifyAccessToLike = () => {
         if (!user.isLogin) return true;
         if (user.isAdmin) return true;
@@ -59,10 +58,20 @@ const Comment = ({ currentCard, comment }) => {
             if (userId === user._id) return true;
         }
         return false;
-    }
+    };
+    const removeComment = () => {
+        setLoader(true);
+        RemoveCommentFromRestaurants(currentCard._id, currentCard, currentCard.comments, comment)
+            .then(res => {
+                restaurantsDispatch(
+                    GetDataByName(res.data, city)
+                )
+            }).finally(() => setLoader(false));
+    };
 
     return (
         <article className="comment-box">
+            <button className="remove-comment-btn" onClick={removeComment}>Remove</button>
             <div className="comment-header">
                 <h1 className="comment-writer">{comment.writer}</h1>
                 <img className="comment-img" src={comment.user_img} alt={`${comment.writer} img`} />

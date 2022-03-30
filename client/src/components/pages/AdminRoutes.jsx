@@ -3,8 +3,10 @@ import { Link, Outlet } from "react-router-dom";
 import { ThemeContext } from "../../contexts/theme-context";
 import { StyledAdminNavbar } from '../styles/layout/StyledAdminNavbar'
 import SupervisorAccountIcon from '@mui/icons-material/SupervisorAccount';
+
 const AdminRoutes = () => {
   const { mode } = useContext(ThemeContext);
+  
   return (
     <>
       <StyledAdminNavbar mode={mode}>

@@ -49,7 +49,7 @@ const AdminHotels = () => {
     useEffect(() => {
         GetHotels(hotelsDispatch)
             .then(res => { setRows(res.data) })
-    }, []);
+    }, [hotelsDispatch]);
 
 
     const handleEditOnChange = (event) => {
