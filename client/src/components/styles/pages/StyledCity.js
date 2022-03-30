@@ -48,4 +48,11 @@ export const StyledCity = styled.section`
         }
     }
 
+    /* @media  only screen  and (min-width:768px) and (max-width:1024){
+        width: 90%;
+        .city-description-text{
+           font-size: 1.5rem;
+        } 
+    } */
+
 `

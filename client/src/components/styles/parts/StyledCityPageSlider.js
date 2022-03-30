@@ -142,11 +142,6 @@ export const StyledCityPageSlider = styled.div`
         width: 35%;
         margin-right: 43px;
     }
-    .slider-link{
-      margin-right: 200px;
-        font-size: 1rem;
-        font-weight: 900;
-    }
     
     }
     @media  only screen  and (min-width:375px) and (max-width:425px){
@@ -176,11 +171,7 @@ export const StyledCityPageSlider = styled.div`
         width: 34%;
         margin-right: 43px;
     }
-    .slider-link{
-      margin-right: 270px;
-        font-size: 1rem;
-        font-weight: 900;
-    }
+  
     }
     @media  only screen  and (min-width:425px) and (max-width:768px){
         .slider-name{
@@ -206,16 +197,10 @@ export const StyledCityPageSlider = styled.div`
     }
     .slider-box-display{
         height: 100%;
-        width: 35%;
-      
-    }
-    .slider-box-display{
-        height: 100%;
-        width: 50%;
-        margin-right: 43px;
+        width: 43%;
+        margin-right: 150px;
     }
     .slider-link{
-      margin-right: 270px;
         font-size: 1rem;
         font-weight: 900;
     }
@@ -223,5 +208,44 @@ export const StyledCityPageSlider = styled.div`
       border: none;
     }
     }
+
+    @media  only screen  and (min-width:768px) and (max-width:1024px){
+        .slider-name{
+        font-size: 2rem;
+        margin-top: 20px;
+    }
+    .slider-info{
+        font-size: 1.3rem;
+        width: 150px;
+    }
+    .arrow-icon{
+        font-size: 1.5rem;
+    }
+    .next-img-btn{
+        right: 7%;
+    }
+    .slider-images-wrapper{
+        margin-left: 20px;
+    }
+    .slider-card-name{
+        font-size: 0.6rem;
+        font-weight:800;
+    }
+    .slider-box-display{
+        height: 100%;
+        width: 45%;
+        margin-right: 100px;
+    }
+    .slider-link{
+        font-size: 1rem;
+        font-weight: 900;
+    }
+    .end-slider{
+      border: none;
+    }
+    }
+
+   
+    
 
 `
