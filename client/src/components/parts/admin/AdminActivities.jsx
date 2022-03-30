@@ -5,6 +5,8 @@ import { GetData } from '../../../state-management/actions/categories-actions';
 import { StyledAdmin } from '../../styles/pages/StyledAdmin';
 import { ThemeContext } from '../../../contexts/theme-context';
 import { Link } from 'react-router-dom';
+import AddIcon from '@mui/icons-material/Add';
+import CloseIcon from '@mui/icons-material/Close';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from "@mui/icons-material/Edit";
 import Paper from '@mui/material/Paper';
@@ -154,44 +156,132 @@ const AdminActivities = () => {
 
     return (
         <StyledAdmin mode={mode}>
-            <button className='add-item-btn' onClick={() => addDialogRef.current.showModal()}>Add</button>
+            <button className='add-item-btn' onClick={() => addDialogRef.current.showModal()}>
+                <AddIcon className='add-item-icon' />
+            </button>
             <dialog ref={addDialogRef} className="popup-dialog-modal">
-                <h1>Add activity</h1>
-                <form className='popup-dialog-form' onSubmit={Add} method="dialog">
-                    <input required className='input' name='name' onChange={handleAddOnChange} placeholder='name' />
-                    <input required className='input' name='city' onChange={handleAddOnChange} placeholder='city' />
-                    <input required className='input' name='location' onChange={handleAddOnChange} placeholder='location' />
-                    <input required className='input' name='phone' onChange={handleAddOnChange} placeholder='phone' />
-                    <input required className='input' name='greenPass' onChange={handleAddOnChange} placeholder='green Pass' />
-                    <input required className='input' name='link' onChange={handleAddOnChange} placeholder='link' />
-                    <input required className='input' name='activitiesHours' onChange={handleAddOnChange} placeholder='activity Hours' />
-                    <input required className='input' name={0} onChange={handleAddImagesOnChange} placeholder='image 1' />
-                    <input required className='input' name={1} onChange={handleAddImagesOnChange} placeholder='image 2' />
-                    <input required className='input' name={2} onChange={handleAddImagesOnChange} placeholder='image 3' />
-                    <input required className='input' min={0} type='number' name={0} onChange={handleAddPriceOnChange} placeholder='min price' />
-                    <input required className='input' min={0} type='number' name={1} onChange={handleAddPriceOnChange} placeholder='max price' />
-                    <button className='button'>Add</button>
-                </form>
-                <button className='button' onClick={() => addDialogRef.current.close()}>Close</button>
+                <div className='modal-form-wrapper'>
+                    <h1>Add activity</h1>
+                    <form onSubmit={Add} method="dialog">
+                        <div className="input-wrapper">
+                            <label htmlFor="name">First name</label>
+                            <input required name="name" onChange={handleAddOnChange} type="text"
+                                placeholder="name" minLength={2} maxLength={10} />
+                        </div>
+                        <div className="input-wrapper">
+                            <label htmlFor="city">City</label>
+                            <input required name="city" onChange={handleAddOnChange} type="text"
+                                placeholder="city" minLength={2} maxLength={25} />
+                        </div>
+                        <div className="input-wrapper">
+                            <label htmlFor="location">Location</label>
+                            <input required name="location" onChange={handleAddOnChange} type="text"
+                                placeholder="location" minLength={2} maxLength={255} />
+                        </div>
+                        <div className="input-wrapper">
+                            <label htmlFor="phone">Phone</label>
+                            <input required name="phone" onChange={handleAddOnChange} type="text"
+                                placeholder="phone" minLength={2} maxLength={30} />
+                        </div>
+                        <div className="input-wrapper">
+                            <label htmlFor="greenPass">Green Pass</label>
+                            <select required name="greenPass" onChange={handleAddOnChange}>
+                                <option value={true}>Required</option>
+                                <option value={false}>Not Required</option>
+                            </select>
+                        </div>
+                        <div className="input-wrapper">
+                            <label htmlFor="link">Link</label>
+                            <input required name="link" onChange={handleAddOnChange} type="text"
+                                placeholder="link" minLength={2} maxLength={255} />
+                        </div>
+                        <div className="input-wrapper">
+                            <label htmlFor="activitiesHours">Activity Hours</label>
+                            <input required name="activitiesHours" onChange={handleAddOnChange} type="text"
+                                placeholder="activitiesHours" minLength={2} maxLength={255} />
+                        </div>
+                        <div className="input-wrapper images">
+                            <label htmlFor="images">Images</label>
+                            <input required name={0} onChange={handleAddImagesOnChange} placeholder='image 1' minLength={2} maxLength={255} />
+                            <input required name={1} onChange={handleAddImagesOnChange} placeholder='image 2' minLength={2} maxLength={255} />
+                            <input required name={2} onChange={handleAddImagesOnChange} placeholder='image 3' minLength={2} maxLength={255} />
+                        </div>
+                        <div className="input-wrapper price">
+                            <label htmlFor="price">Price</label>
+                            <input required min={0} type='number' name={0} onChange={handleAddPriceOnChange} placeholder='min price' />
+                            <input required min={0} type='number' name={1} onChange={handleAddPriceOnChange} placeholder='max price' />
+                        </div>
+                        <button className='button'>Add</button>
+                    </form>
+                    <button className='close-dialog-btn' onClick={() => addDialogRef.current.close()}>
+                        <CloseIcon className='close-dialog-icon' />
+                    </button>
+                </div>
             </dialog>
             <dialog ref={editDialogRef} className="popup-dialog-modal">
-                <h1>Edit activity</h1>
-                <form className='popup-dialog-form' onSubmit={Update} method="dialog">
-                    <input required className='input' name='name' defaultValue={updateItem.name} onChange={handleEditOnChange} placeholder='name' />
-                    <input required className='input' name='city' defaultValue={updateItem.city} onChange={handleEditOnChange} placeholder='city' />
-                    <input required className='input' name='location' defaultValue={updateItem.location} onChange={handleEditOnChange} placeholder='location' />
-                    <input required className='input' name='phone' defaultValue={updateItem.phone} onChange={handleEditOnChange} placeholder='phone' />
-                    <input required className='input' name='greenPass' defaultValue={updateItem.greenPass} onChange={handleEditOnChange} placeholder='greenPass' />
-                    <input required className='input' name='link' defaultValue={updateItem.link} onChange={handleEditOnChange} placeholder='link' />
-                    <input required className='input' name='activitiesHours' defaultValue={updateItem.activitiesHours} onChange={handleEditOnChange} placeholder='activitiesHours' />
-                    <input required className='input' name={0} onChange={handleEditImagesOnChange} defaultValue={updateItem.images && updateItem.images[0]} placeholder='image 1' />
-                    <input required className='input' name={1} onChange={handleEditImagesOnChange} defaultValue={updateItem.images && updateItem.images[1]} placeholder='image 2' />
-                    <input required className='input' name={2} onChange={handleEditImagesOnChange} defaultValue={updateItem.images && updateItem.images[2]} placeholder='image 3' />
-                    <input required className='input' min={0} type='number' name={0} onChange={handleEditPriceOnChange} defaultValue={updateItem.price && updateItem.price[0]} placeholder='min price' />
-                    <input required className='input' min={0} type='number' name={1} onChange={handleEditPriceOnChange} defaultValue={updateItem.price && updateItem.price[1]} placeholder='max price' />
-                    <button className='button'>Update</button>
-                </form>
-                <button className='button' onClick={() => editDialogRef.current.close()}>Close</button>
+                <div className='modal-form-wrapper'>
+                    <h1>Edit {updateItem.name}</h1>
+                    <form onSubmit={Update} method="dialog">
+                        <div className="input-wrapper">
+                            <label htmlFor="name">First name</label>
+                            <input required name="name" defaultValue={updateItem.name}
+                                onChange={handleEditOnChange} type="text"
+                                placeholder="name" minLength={2} maxLength={10} />
+                        </div>
+                        <div className="input-wrapper">
+                            <label htmlFor="city">City</label>
+                            <input required name="city" defaultValue={updateItem.city}
+                                onChange={handleEditOnChange} type="text"
+                                placeholder="city" minLength={2} maxLength={25} />
+                        </div>
+                        <div className="input-wrapper">
+                            <label htmlFor="location">Location</label>
+                            <input required name="location" defaultValue={updateItem.location}
+                                onChange={handleEditOnChange} type="text"
+                                placeholder="location" minLength={2} maxLength={255} />
+                        </div>
+                        <div className="input-wrapper">
+                            <label htmlFor="phone">Phone</label>
+                            <input required name="phone" defaultValue={updateItem.phone}
+                                onChange={handleEditOnChange} type="text"
+                                placeholder="phone" minLength={2} maxLength={30} />
+                        </div>
+                        <div className="input-wrapper">
+                            <label htmlFor="greenPass">Green Pass</label>
+                            <select required name="greenPass" defaultValue={updateItem.greenPass} onChange={handleEditOnChange}>
+                                <option value={true}>Required</option>
+                                <option value={false}>Not Required</option>
+                            </select>
+                        </div>
+                        <div className="input-wrapper">
+                            <label htmlFor="link">Link</label>
+                            <input required name="link" defaultValue={updateItem.link}
+                                onChange={handleEditOnChange} type="text"
+                                placeholder="link" minLength={2} maxLength={255} />
+                        </div>
+                        <div className="input-wrapper">
+                            <label htmlFor="activitiesHours">Activity Hours</label>
+                            <input required name="activitiesHours" defaultValue={updateItem.activitiesHours}
+                                onChange={handleEditOnChange} type="text"
+                                placeholder="activitiesHours" minLength={2} maxLength={255} />
+                        </div>
+                        <div className="input-wrapper images">
+                            <label htmlFor="images">Images</label>
+                            <input required name={0} onChange={handleEditImagesOnChange} defaultValue={updateItem.images && updateItem.images[0]} placeholder='image 1' minLength={2} maxLength={255} />
+                            <input required name={1} onChange={handleEditImagesOnChange} defaultValue={updateItem.images && updateItem.images[1]} placeholder='image 2' minLength={2} maxLength={255} />
+                            <input required name={2} onChange={handleEditImagesOnChange} defaultValue={updateItem.images && updateItem.images[2]} placeholder='image 3' minLength={2} maxLength={255} />
+                        </div>
+                        <div className="input-wrapper price">
+                            <label htmlFor="price">Price</label>
+                            <input required min={0} type='number' name={0} onChange={handleEditPriceOnChange} defaultValue={updateItem.price && updateItem.price[0]} placeholder='min price' />
+                            <input required min={0} type='number' name={1} onChange={handleEditPriceOnChange} defaultValue={updateItem.price && updateItem.price[1]} placeholder='max price' />
+                        </div>
+                        <button className='button'>Update</button>
+                    </form>
+                    <button className='close-dialog-btn' onClick={() => editDialogRef.current.close()}>
+                        <CloseIcon className='close-dialog-icon' />
+                    </button>
+                </div>
             </dialog>
             <Paper className="admin-table-wrapper">
                 <TableContainer sx={{ maxHeight: "70vh" }}>

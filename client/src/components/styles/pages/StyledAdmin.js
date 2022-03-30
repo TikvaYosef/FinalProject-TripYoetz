@@ -18,7 +18,7 @@ export const StyledAdmin = styled.section`
         align-items: center;
         z-index: 10;
         left: 15%;
-        top: -10%;
+        top: -50px;
         transition: 0.2s ease-in-out;
     }
     .add-item-btn:hover{
@@ -43,10 +43,11 @@ export const StyledAdmin = styled.section`
 
         .modal-form-wrapper{
             width: 100%;
-            height: fit-content;
+            min-height: 100%;
             display: flex;
             flex-direction: column;
             align-items: center;
+            justify-content:space-evenly;
         }
         h1{
             font-size: 3rem;
@@ -54,7 +55,7 @@ export const StyledAdmin = styled.section`
         }
         form{
             width: 100%;
-            height:fit-content;
+            height:95%;
             display: flex;
             flex-direction: column;
             align-items: center;
