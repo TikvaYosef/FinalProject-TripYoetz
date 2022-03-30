@@ -76,6 +76,21 @@ export const AddCommentToActivities = async (id, activity, comments, comment) =>
         console.log(err);
     }
 };
+export const RemoveCommentFromActivities = async (id, activity, comments, comment) => {
+    const filterComments = comments.filter((item) => item.id !== comment.id);
+    const options = {
+        method: "PUT",
+        body: JSON.stringify({ ...activity, comments: [...filterComments] }),
+        headers: { 'Content-Type': 'application/json' }
+    }
+    try {
+        return await fetch(`${BASE_URL}/api/activities/${id}`, options)
+            .then((res) => res.json())
+    }
+    catch (err) {
+        console.log(err);
+    }
+};
 export const LikeCommentActivity = async (id, activity, comments, commentId, commentWithLike) => {
     let filteredComments = comments.filter(comment => comment.id !== commentId);
 
@@ -91,7 +106,7 @@ export const LikeCommentActivity = async (id, activity, comments, commentId, com
     catch (err) {
         console.log(err);
     }
-}
+};
 export const RateActivity = async (id, activity, rating) => {
     const options = {
         method: "PUT",
@@ -126,6 +141,21 @@ export const AddQuestionToActivities = async (id, activity, q_a, question) => {
     const options = {
         method: "PUT",
         body: JSON.stringify({ ...activity, q_a: [...q_a, { ...question }] }),
+        headers: { 'Content-Type': 'application/json' }
+    }
+    try {
+        return await fetch(`${BASE_URL}/api/activities/${id}`, options)
+            .then((res) => res.json())
+    }
+    catch (err) {
+        console.log(err);
+    }
+};
+export const RemoveQuestionFromActivities = async (id, activity, q_a, question) => {
+    const filterQA = q_a.filter((item) => item.id !== question.id);
+    const options = {
+        method: "PUT",
+        body: JSON.stringify({ ...activity, q_a: [...filterQA] }),
         headers: { 'Content-Type': 'application/json' }
     }
     try {

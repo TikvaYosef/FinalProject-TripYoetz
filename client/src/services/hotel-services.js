@@ -76,6 +76,21 @@ export const AddCommentToHotels = async (id, hotel, comments, comment) => {
         console.log(err);
     }
 };
+export const RemoveCommentFromHotels = async (id, hotel, comments, comment) => {
+    const filterComments = comments.filter((item) => item.id !== comment.id);
+    const options = {
+        method: "PUT",
+        body: JSON.stringify({ ...hotel, comments: [...filterComments] }),
+        headers: { 'Content-Type': 'application/json' }
+    }
+    try {
+        return await fetch(`${BASE_URL}/api/hotels/${id}`, options)
+            .then((res) => res.json())
+    }
+    catch (err) {
+        console.log(err);
+    }
+};
 export const LikeCommentHotel = async (id, hotel, comments, commentId, commentWithLike) => {
     let filteredComments = comments.filter(comment => comment.id !== commentId);
 
@@ -126,6 +141,21 @@ export const AddQuestionToHotels = async (id, hotel, q_a, question) => {
     const options = {
         method: "PUT",
         body: JSON.stringify({ ...hotel, q_a: [...q_a, { ...question }] }),
+        headers: { 'Content-Type': 'application/json' }
+    }
+    try {
+        return await fetch(`${BASE_URL}/api/hotels/${id}`, options)
+            .then((res) => res.json())
+    }
+    catch (err) {
+        console.log(err);
+    }
+};
+export const RemoveQuestionFromHotels = async (id, hotel, q_a, question) => {
+    const filterQA = q_a.filter((item) => item.id !== question.id);
+    const options = {
+        method: "PUT",
+        body: JSON.stringify({ ...hotel, q_a: [...filterQA] }),
         headers: { 'Content-Type': 'application/json' }
     }
     try {

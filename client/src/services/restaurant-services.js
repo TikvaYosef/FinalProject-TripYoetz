@@ -91,10 +91,6 @@ export const RemoveCommentFromRestaurants = async (id, restaurant, comments, com
         console.log(err);
     }
 };
-
-
-
-
 export const LikeCommentRestaurant = async (id, restaurant, comments, commentId, commentWithLike) => {
     let filteredComments = comments.filter(comment => comment.id !== commentId);
 
@@ -145,6 +141,21 @@ export const AddQuestionToRestaurants = async (id, restaurant, q_a, question) =>
     const options = {
         method: "PUT",
         body: JSON.stringify({ ...restaurant, q_a: [...q_a, { ...question }] }),
+        headers: { 'Content-Type': 'application/json' }
+    }
+    try {
+        return await fetch(`${BASE_URL}/api/restaurants/${id}`, options)
+            .then((res) => res.json())
+    }
+    catch (err) {
+        console.log(err);
+    }
+};
+export const RemoveQuestionFromRestaurants = async (id, restaurant, q_a, question) => {
+    const filterQA = q_a.filter((item) => item.id !== question.id);
+    const options = {
+        method: "PUT",
+        body: JSON.stringify({ ...restaurant, q_a: [...filterQA] }),
         headers: { 'Content-Type': 'application/json' }
     }
     try {
