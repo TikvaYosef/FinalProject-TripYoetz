@@ -72,7 +72,7 @@ export const StyledItemInfo = styled.section`
     }
     .info-part{
         text-align: center;
-        font-size: 1.5rem;
+        font-size: 1rem;
         font-weight: 900;
         width: 20%;
         height: 50%;
@@ -183,12 +183,14 @@ export const StyledItemInfo = styled.section`
         flex-wrap: wrap;
         justify-content: space-between;
         width: 100%;
+        
     }
     .item-description{
         font-size: 1.8rem;
         font-weight: 900;
         width: 100%;
         height: 75%;
+        overflow: auto;
     }
     .item-description-title{
         display: flex;
