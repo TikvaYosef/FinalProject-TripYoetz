@@ -87,7 +87,7 @@ const UserProfile = () => {
                         <td>{favorite.name}</td>
                         <td>{favorite.city}</td>
                         <td>{favorite.category}</td>
-                        <td><Link to={"/itemPage"} state={favorite._id} className="favorite-link">View more</Link></td>
+                        <td><Link to={`/${favorite.name}`} state={favorite} className="favorite-link">View more</Link></td>
                         <td>
                           <DeleteIcon className="delete-favorite"
                             onClick={() => handleDelete(favorite)} />
